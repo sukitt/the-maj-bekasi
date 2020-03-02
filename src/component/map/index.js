@@ -6,8 +6,6 @@ import { Tabs, Tab } from 'react-bootstrap';
 
 const Gmaps = (props) => {
   return(
-<<<<<<< HEAD
-    
     <GoogleMapReact 
         bootstrapURLKeys={{key:""}}
         defaultCenter={props.center}
@@ -24,26 +22,6 @@ const Gmaps = (props) => {
         );
       })}
     </GoogleMapReact>
-=======
-    <Tab eventKey={props.eventKey} title={props.title} style={{height:"500px", width:"100%"}}>
-      <GoogleMapReact 
-          bootstrapURLKeys={{key:"TheApiKey"}}
-          defaultCenter={props.center}
-          defaultZoom={props.zoom}
-      >
-        {props.location.map(function(item){
-          return(
-            <Marker
-              key={item.id}
-              lat={item.lat}
-              lng={item.lng}
-              text={item.name}
-            />
-          );
-        })}
-      </GoogleMapReact>
-    </Tab>
->>>>>>> 578367ac1be7739f6548ff518193e64ca52f6b6e
   );
 }
 
@@ -149,8 +127,5 @@ class index extends Component {
     )
   }
 }
-<<<<<<< HEAD
+
 export default index
-=======
-export default Maps
->>>>>>> 578367ac1be7739f6548ff518193e64ca52f6b6e
