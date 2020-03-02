@@ -172,7 +172,7 @@ import { BaseUrl } from '../../services/axios';
                   <h2 style={captionTextStyle}>
                     {item.caption}
                   </h2>
-                  <a href={`#hrefitem${i+1}`} style={captionButtonStyle} >Bandingkan</a>
+                  <a href={item.link} style={captionButtonStyle}>{item.button_text}</a>
                 </div>
               </Col>
             </div>
