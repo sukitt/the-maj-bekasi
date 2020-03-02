@@ -1,18 +1,96 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Slider from 'react-slick';
 
 import imgslider from './assets/slider-1.png';
 import { Col } from 'react-bootstrap';
+import styled from 'styled-components';
 
-const HeadSlider = (props) => {
-  const settings = {
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
+ 
+  function NextArrow(props) {
+    const { className, style, onClick } = props;
+    const Arrows = styled.div({
+      display: "inline-block",
+      width:"70px",
+      height:"70px",
+      background:"#CC9980",
+      color: "#ffffff",
+      textDecoration: "none",
+      padding: "30px",
+      '&:hover': {
+        background:"#ffffff",
+        color: "#000"
+      },
+      '&:before': {
+        padding: "8px",
+        borderRight: "4px solid",
+        borderBottom: "4px solid",
+        borderRadius: "4px",
+        content: `'' !important`,
+        display: "block",
+        top: "35%",
+        left: "35%",
+        position: "absolute",
+        '-moz-transform': "rotate(310deg)",
+        '-o-transform': "rotate(310deg)",
+        '-webkit-transform': "rotate(310deg)",
+        transform: "rotate(310deg)",
+        color:"inherit"
+      }
+    });
+    return (
+      <Arrows
+        className={className}
+        style={{ 
+          ...style,
+        }}
+        onClick={onClick}
+      />
+    );
   }
+  
+  function PrevArrow(props) {
+    const { className, style, onClick } = props;
+    const Arrows = styled.div({
+      display: "inline-block",
+      width:"70px",
+      height:"70px",
+      background:"#CC9980",
+      color: "#ffffff",
+      textDecoration: "none",
+      padding: "30px",
+      zIndex:"1",
+      '&:hover': {
+        background:"#ffffff",
+        color: "#000"
+      },
+      '&:before': {
+        padding: "8px",
+        borderRight: "4px solid",
+        borderBottom: "4px solid",
+        borderRadius: "4px",
+        content: `'' !important`,
+        display: "block",
+        top: "35%",
+        left: "35%",
+        position: "absolute",
+        '-moz-transform': "rotate(135deg)",
+        '-o-transform': "rotate(135deg)",
+        '-webkit-transform': "rotate(135deg)",
+        transform: "rotate(135deg)",
+        color:"inherit"
+      }
+    });
+    return (
+      <Arrows
+        className={className}
+        style={{ 
+          ...style,
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
   const imgStyle= {
     maxWidth: "1110px",
     maxHeight: "560px",
@@ -60,31 +138,44 @@ const HeadSlider = (props) => {
     padding: "11px 40px",
     textDecoration: "none",
   }
-  return (
-    <Slider {...settings}>
-      <div style={containerStyle}>
-        <img style={imgStyle} src={imgslider} alt="slider-1" />
-        <Col style={{height:"100px"}}>
-          <div style={captionContainer}>
-            <h2 style={captionTextStyle}>
-              Lorem
-            </h2>
-            <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
+  
+  class HeadSlider extends Component {
+    render() {
+      const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
+      };
+      return (
+        <Slider {...settings}>
+          <div style={containerStyle}>
+            <img style={imgStyle} src={imgslider} alt="slider-1" />
+            <Col style={{height:"100px"}}>
+              <div style={captionContainer}>
+                <h2 style={captionTextStyle}>
+                  Lorem
+                </h2>
+                <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
+              </div>
+            </Col>
           </div>
-        </Col>
-      </div>
-      <div style={containerStyle}>
-        <img style={imgStyle} src={imgslider} alt="slider-1" />
-        <Col style={{height:"100px"}}>
-          <div style={captionContainer}>
-            <h2 style={captionTextStyle}>
-            Investasi pasti dengan harga yang sangat kompetitif
-            </h2>
-            <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
+          <div style={containerStyle}>
+            <img style={imgStyle} src={imgslider} alt="slider-1" />
+            <Col style={{height:"100px"}}>
+              <div style={captionContainer}>
+                <h2 style={captionTextStyle}>
+                Investasi pasti dengan harga yang sangat kompetitif
+                </h2>
+                <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
+              </div>
+            </Col>
           </div>
-        </Col>
-      </div>
-    </Slider>
-  )
-}
+        </Slider>
+      )
+    }
+  }
+
 export default HeadSlider
