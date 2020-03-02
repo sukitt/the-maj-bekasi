@@ -8,7 +8,7 @@ const Gmaps = (props) => {
   return(
     <Tab eventKey={props.eventKey} title={props.title} style={{height:"500px", width:"100%"}}>
       <GoogleMapReact 
-          bootstrapURLKeys={{key:"AIzaSyAGbxpkHCHp3iNiwRWSTb_PmKo5H1qd62c"}}
+          bootstrapURLKeys={{key:""}}
           defaultCenter={props.center}
           defaultZoom={props.zoom}
       >
