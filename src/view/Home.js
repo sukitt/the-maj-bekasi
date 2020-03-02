@@ -4,6 +4,7 @@ import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/Fasilitas'
 import { getSliders } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
+import Maps from '../component/map'
 
 
 class Home extends Component {
@@ -41,7 +42,7 @@ class Home extends Component {
         </section>
         <section>
           <div className="container">
-            <DenahUnit />
+            <Maps />
           </div>
         </section>
       </div>
