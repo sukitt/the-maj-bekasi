@@ -22,7 +22,7 @@ class Home extends Component {
     getSliders()
       .then((res) => this.setState({sliders: res.data}))
       .catch((err) => {
-        if (err && err.response.length) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
+        if (err && err.response) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
       })
 
     getUnits()
@@ -45,10 +45,13 @@ class Home extends Component {
           </div>
         </section>
         <section>
+            <DenahUnit store={this.state.units} />
+        </section>
+        {/* <section>
           <div className="container">
             <DenahUnit store={this.state.units} />
           </div>
-        </section>
+        </section> */}
       </div>
     )
   }
