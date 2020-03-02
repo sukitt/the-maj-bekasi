@@ -18,107 +18,82 @@ import Img15 from '../assets/fasilitas/15.svg'
 
 
 const Data = [
-    { id: 1, img: Img1, caption: 'Zen Garden' },
-    { id: 2, img: Img2, caption: 'Ridesharing Shelter' },
-    { id: 3, img: Img3, caption: 'Co-working Space' },
-    { id: 4, img: Img4, caption: 'Parcel Lockers' },
-    { id: 5, img: Img5, caption: 'Storage Room' },
-    { id: 6, img: Img6, caption: 'Game Room' },
-    { id: 7, img: Img7, caption: 'Olympic-size Swimming Pool' },
-    { id: 8, img: Img8, caption: 'One-stop Logistic Centers' },
-    { id: 9, img: Img9, caption: 'Sky Lounge' },
-    { id: 10, img: Img10, caption: 'O2O Kiosks' },
-    { id: 11, img: Img11, caption: 'Gym' },
-    { id: 12, img: Img12, caption: 'Smart Access' },
-    { id: 13, img: Img13, caption: 'Outdoor Communal Space' },
-    { id: 14, img: Img14, caption: 'Jogging Track' },
-    { id: 15, img: Img15, caption: 'Security' }
+		{ id: 1, img: Img1, caption: 'Zen Garden' },
+		{ id: 2, img: Img2, caption: 'Ridesharing Shelter' },
+		{ id: 3, img: Img3, caption: 'Co-working Space' },
+		{ id: 4, img: Img4, caption: 'Parcel Lockers' },
+		{ id: 5, img: Img5, caption: 'Storage Room' },
+		{ id: 6, img: Img6, caption: 'Game Room' },
+		{ id: 7, img: Img7, caption: 'Olympic-size Swimming Pool' },
+		{ id: 8, img: Img8, caption: 'One-stop Logistic Centers' },
+		{ id: 9, img: Img9, caption: 'Sky Lounge' },
+		{ id: 10, img: Img10, caption: 'O2O Kiosks' },
+		{ id: 11, img: Img11, caption: 'Gym' },
+		{ id: 12, img: Img12, caption: 'Smart Access' },
+		{ id: 13, img: Img13, caption: 'Outdoor Communal Space' },
+		{ id: 14, img: Img14, caption: 'Jogging Track' },
+		{ id: 15, img: Img15, caption: 'Security' }
 
 
 ]
 
 const Fasilitas = (props) => {
-    return (
-        <div style={{
-            marginTop: 98,
-            // width: 936,
-            // height: 312
-            display: 'flex',
-            flexDirection: 'column',
-            border: '1px solid'
-        }}>
-            <h2 style={{
-               fontFamily: 'Khula',
-               fontStyle: 'normal',
-               fontWeight: 'bold',
-               fontSize: 22,
-               textTransform: 'uppercase'
-            }}>fasilitas</h2>
-            <p style={{
-                fontFamily: 'Nunito Sans',
-                fontStyle: 'normal',
-                fontWeight: 'bold',
-                fontSize: 12,
-                // lineHeight: 18,
-                letterSpacing: 2,
-                textTransform: 'uppercase'
-            }}>
-                Fasilitas yang lengkap dan modern
-                membantumu memulai langkah pertama
-                menggapai anganmu.
-            </p>
-            <div style={{
-                marginTop: 34
-            }}>
-                <Row>
-                    {Data.map((d, i) => {
-                        if (d.id < 6) return (
-                                <Col key={d.id}>
-                                    <img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
-                                    <span style={span}>{d.caption}</span>
-                                </Col>
-                        )
-                    })}
-                </Row>
-                <Row>
-                    {Data.map((d, id) => {
-                        if (d.id >= 6 && d.id < 11) {
-                            return (
-                                <Col>
-                                    <img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
-                                    <span style={span}>{d.caption}</span>
-                                </Col>
-                            )
-                        }
-                    })}
-                </Row>
-                <Row>
-                    {Data.map((d, id) => {
-                        if (d.id >= 11 && d.id < 16) {
-                            return (
-                                <Col>
-                                    <img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
-                                    <span style={span}>{d.caption}</span>
-                                </Col>
-                            )
-                        }
-                    })}
-                </Row>
-            </div>
 
-        </div>
-    )
+		return (
+				<div style={{
+						marginTop: 98,
+						// width: 936,
+						// height: 312
+						display: 'flex',
+						flexDirection: 'column'
+				}}>
+					<h2 style={{
+							fontFamily: 'Khula',
+							fontStyle: 'normal',
+							fontWeight: 'bold',
+							fontSize: 22,
+							textTransform: 'uppercase'
+					}}>fasilitas</h2>
+					<p style={{
+							fontFamily: 'Nunito Sans',
+							fontStyle: 'normal',
+							fontWeight: 'bold',
+							fontSize: 12,
+							// lineHeight: 18,
+							letterSpacing: 2,
+							textTransform: 'uppercase'
+					}}>
+							Fasilitas yang lengkap dan modern
+							membantumu memulai langkah pertama
+							menggapai anganmu.
+					</p>
+					<Row>
+							{Data.map((d, i) => {
+								return (
+									<Col md="2" style={{margin:"34px 16px"}} key={d.id}>
+											<Row >
+												<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px"}}>
+													<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
+												</Col>
+												<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
+													<span style={span}>{d.caption}</span>
+												</Col>
+											</Row>
+									</Col>
+								)
+							})}
+					</Row>
+						</div>
+		)
 }
 
 const span = {
-    color: '#000000',
-    marginLeft: 10, 
-    textTransform: 'uppercase', 
-    maxWidth: '5px', 
-    overFlow: 'hidden', 
-    whiteSpace: 'wrap', 
-    height: 26, 
-    width: 80
+		color: '#000000', 
+		textTransform: 'uppercase',
+		fontSize: "11px",
+		fontWeight:"bold",
+		lineHeight: "13px",
+		width: "94px",
 }
 
 export default Fasilitas
