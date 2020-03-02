@@ -7,3 +7,11 @@ export const getSliders = (args) => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getUnits = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/units')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

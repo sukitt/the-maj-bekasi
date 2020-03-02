@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/Fasilitas'
-import { getSliders } from '../services/get'
+import { getSliders, getUnits } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
 
 
@@ -11,6 +11,7 @@ class Home extends Component {
     super(props);
     this.state = {
       sliders: [],
+      units: [],
       errors: {
         sliders:{}
       },
@@ -21,8 +22,12 @@ class Home extends Component {
     getSliders()
       .then((res) => this.setState({sliders: res.data}))
       .catch((err) => {
-        if (err) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
+        if (err && err.response.length) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
       })
+
+    getUnits()
+      .then(res => this.setState({units: res.data}))
+      .catch(err => {if (err) throw err})
   }
 
   render() {
@@ -41,7 +46,7 @@ class Home extends Component {
         </section>
         <section>
           <div className="container">
-            <DenahUnit />
+            <DenahUnit store={this.state.units} />
           </div>
         </section>
       </div>
