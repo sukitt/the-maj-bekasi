@@ -1,14 +1,13 @@
 import React, { useRef } from 'react'
 import { Tabs, Tab, Row, Col } from 'react-bootstrap'
 import DropdownCicilan from './DropdownCicilan'
+import DropdownKredit from './DropdownKredit';
 
 const DenahUnit = (props) => {
-    const ref = useRef();
+    const cicilan = useRef();
+    const kredit = useRef();
     const { store } = props
 
-    const handleClick = (value) => {
-        alert(value)
-    }
     return (
         <>
             <div 
@@ -124,14 +123,23 @@ const DenahUnit = (props) => {
                             <Col sm={2}><p style={p}>Cicilan DP</p></Col>
                             <Col sm={2}>
                                 <DropdownCicilan
-                                    ref={ref}
-                                    onChange={(e) => ref.current.handleChange(e)}
-                                    onClick={(value) => alert(ref.current.handleClick(value))}
+                                    ref={cicilan}
+                                    onChange={(e) => cicilan.current.handleChange(e)}
+                                    onClick={(e) => alert(cicilan.current.getValue(e))}
                                 />
                             </Col>
                         </Row>
                         <Row>
-                            <Col></Col>
+                            <Col sm={2}><p style={p}>DP 20%</p></Col>
+                            <Col sm={2}><p style={p}>IDR 52.700.000</p></Col>
+                            <Col sm={2}><p style={p}>Tenor Kredit</p></Col>
+                            <Col sm={2}>
+                                {/* <DropdownKredit
+                                    ref={kredit}
+                                    onChange={(e) => kredit.current.handleChange(e)}
+                                    onClick={(value) => alert(kredit.current.getValue(value))}
+                                /> */}
+                            </Col>
                         </Row>
                         <Row></Row>
                     </div>
