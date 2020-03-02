@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import imgslider from './assets/slider-1.png';
 import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
+import { BaseUrl } from '../../services/axios';
 
  
   function NextArrow(props) {
@@ -142,37 +143,40 @@ import styled from 'styled-components';
   class HeadSlider extends Component {
     render() {
       const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
       };
+      const { store, errors } = this.props
+      if (Object.keys(errors).length) {
+        return (
+          <div>
+            <h4>Error in HeaderSlider.js</h4>
+            <p>{errors.code}</p>
+            <p>{errors.status}</p>
+          </div>
+        )
+      }
+
       return (
         <Slider {...settings}>
-          <div style={containerStyle}>
-            <img style={imgStyle} src={imgslider} alt="slider-1" />
-            <Col style={{height:"100px"}}>
-              <div style={captionContainer}>
-                <h2 style={captionTextStyle}>
-                  Lorem
-                </h2>
-                <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
-              </div>
-            </Col>
-          </div>
-          <div style={containerStyle}>
-            <img style={imgStyle} src={imgslider} alt="slider-1" />
-            <Col style={{height:"100px"}}>
-              <div style={captionContainer}>
-                <h2 style={captionTextStyle}>
-                Investasi pasti dengan harga yang sangat kompetitif
-                </h2>
-                <a href="#exaomple" style={captionButtonStyle} >Bandingkan</a>
-              </div>
-            </Col>
-          </div>
+          {console.log(store)}
+          {store.map((item, i) => (
+            <div style={containerStyle} key={i}>
+              <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
+              <Col style={{height:"100px"}}>
+                <div style={captionContainer}>
+                  <h2 style={captionTextStyle}>
+                    {item.caption}
+                  </h2>
+                  <a href={`#hrefitem${i+1}`} style={captionButtonStyle} >Bandingkan</a>
+                </div>
+              </Col>
+            </div>
+          ))}
         </Slider>
       )
     }
