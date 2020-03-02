@@ -15,14 +15,13 @@ class NavigationBar extends Component {
   }
 
   componentDidMount() {
-    fetch('./navItem.json')
-    .then(res => res.json())
+    Instance.get('/nav-item')
     .then(
       // (result) => console.log(result)
       (res) => {
         this.setState({
           isLoaded: true,
-          items: res.navItems
+          items: res.data
         });
       }
     ).catch(
