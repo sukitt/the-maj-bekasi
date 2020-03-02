@@ -4763,7 +4763,6 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-<<<<<<< HEAD
 google-map-react@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-1.1.6.tgz#76bfe71bd337f67fc955725567544f4b96574fad"
@@ -4773,12 +4772,11 @@ google-map-react@^1.1.6:
     eventemitter3 "^1.1.0"
     prop-types "^15.5.6"
     scriptjs "^2.5.7"
-=======
+
 google-maps-infobox@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/google-maps-infobox/-/google-maps-infobox-2.0.0.tgz#1ea6de93c0cdf4138c2d586331835c83dcc59dc2"
   integrity sha512-hTuWmWZZSOxf5D/z7l3/hTF1grgRvLG53BEKMdjiKOG+FcK/kH7vqseUeyIU9Zj2ZIqKTOaro0nknxpAuRq4Vw==
->>>>>>> 2a751184749abfb901c175ea9e4df3848add7c2c
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2:
   version "4.2.3"
@@ -8372,11 +8370,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-<<<<<<< HEAD
-prop-types@^15.5.6, prop-types@^15.6.2, prop-types@^15.7.2:
-=======
-prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
->>>>>>> 2a751184749abfb901c175ea9e4df3848add7c2c
+prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9299,11 +9293,7 @@ schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
 
-<<<<<<< HEAD
-scriptjs@^2.5.7:
-=======
-scriptjs@^2.5.8:
->>>>>>> 2a751184749abfb901c175ea9e4df3848add7c2c
+scriptjs@^2.5.7, scriptjs@^2.5.8:
   version "2.5.9"
   resolved "https://registry.yarnpkg.com/scriptjs/-/scriptjs-2.5.9.tgz#343915cd2ec2ed9bfdde2b9875cd28f59394b35f"
   integrity sha512-qGVDoreyYiP1pkQnbnFAUIS5AjenNwwQBdl7zeos9etl+hYKWahjRTfzAZZYBv5xNHx7vNKCmaLDQZ6Fr2AEXg==

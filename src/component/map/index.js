@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 
 import Marker from './marker'
-import { Tabs, Tab } from 'react-bootstrap';
+import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
 const Gmaps = (props) => {
   return(
@@ -23,6 +23,18 @@ const Gmaps = (props) => {
       })}
     </GoogleMapReact>
   );
+}
+const Distance = (props) => {
+  return(
+      <Col md="3" style={props.style}>
+        <Row>
+          <Col sm="2" style={{fontSize:"24px"}}><i className="fas fa-map"></i></Col>
+          <Col style={{margin:"auto 0px"}}>
+            {props.caption}
+          </Col>
+        </Row>
+      </Col>
+  )
 }
 
 class index extends Component {
@@ -89,8 +101,24 @@ class index extends Component {
       },
     ]
 
+    const divDistance = {
+      margin: "45px 30px",
+      maxWidth:"225px",
+      background: "#FFFFFF",
+      border: "1px solid rgba(0, 0, 0, 0.2)",
+      boxSizing:" border-box",
+      fontFamily: "Nunito Sans",
+      fontStyle: "normal",
+      fontWeight: "bold",
+      fontSize: "11px",
+      lineHeight: "13px",
+      textTransform: "uppercase",
+      color: "#000000",
+      padding:"18px 10px"
+    }
+
     return (
-      <div>
+      <div style={{margin:"100px auto"}}>
         <h2 style={{
           fontFamily: "Khula",
           fontStyle: "normal",
@@ -120,6 +148,31 @@ class index extends Component {
               center={this.props.center}
               zoom={this.props.zoom}
               location={marketPlace}
+            />
+            <Row className="justify-content-center">
+              <Distance 
+                style={divDistance}
+                caption="± 10 Menit ke Metropolitan Mall"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 10 Menit ke Living Plaza"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 2 KM ke Grand Metropolitan"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 2,5 km ke Summarecon Bekasi"
+              />
+            </Row>
+          </Tab>
+          <Tab eventKey="education" title="Education" style={{height:"500px", width:"100%"}}>
+            <Gmaps
+              center={this.props.center}
+              zoom={this.props.zoom}
+              location={education}
             />
           </Tab>
         </Tabs>
