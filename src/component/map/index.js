@@ -6,28 +6,27 @@ import { Tabs, Tab } from 'react-bootstrap';
 
 const Gmaps = (props) => {
   return(
-    <Tab eventKey={props.eventKey} title={props.title} style={{height:"500px", width:"100%"}}>
-      <GoogleMapReact 
-          bootstrapURLKeys={{key:"AIzaSyAGbxpkHCHp3iNiwRWSTb_PmKo5H1qd62c"}}
-          defaultCenter={props.center}
-          defaultZoom={props.zoom}
-      >
-        {props.location.map(function(item){
-          return(
-            <Marker
-              key={item.id}
-              lat={item.lat}
-              lng={item.lng}
-              text={item.name}
-            />
-          );
-        })}
-      </GoogleMapReact>
-    </Tab>
+    
+    <GoogleMapReact 
+        bootstrapURLKeys={{key:""}}
+        defaultCenter={props.center}
+        defaultZoom={props.zoom}
+    >
+      {props.location.map(function(item){
+        return(
+          <Marker
+            key={item.id}
+            lat={item.lat}
+            lng={item.lng}
+            text={item.name}
+          />
+        );
+      })}
+    </GoogleMapReact>
   );
 }
 
-class Maps extends Component {
+class index extends Component {
   static defaultProps = {
     center: {
       lat: -6.23986,
@@ -117,16 +116,16 @@ class Maps extends Component {
         <Tabs defaultActiveKey="marketplace" id="google-maps-api" style={{
           marginTop:"35px"
         }}>
-          <Gmaps
-            eventKey="marketplace" 
-            title="Marketplace" 
-            center={this.props.center}
-            zoom={this.props.zoom}
-            location={marketPlace}
-          />
+          <Tab eventKey="marketplace" title="Marketplace" style={{height:"500px", width:"100%"}}>
+            <Gmaps
+              center={this.props.center}
+              zoom={this.props.zoom}
+              location={marketPlace}
+            />
+          </Tab>
         </Tabs>
       </div>
     )
   }
 }
-export default Maps
+export default index
