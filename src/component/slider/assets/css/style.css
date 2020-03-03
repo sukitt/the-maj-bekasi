@@ -1,0 +1,22 @@
+/* #gallery > div > div > div > .slider {
+  width: 900px;
+  height: 150px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#gallery > div > div > div > .slider div {
+  margin-right: 5px;
+}
+
+#gallery > div > div > div > .slick-slide {
+  opacity: .6;
+  width: 10px;
+}
+
+#gallery > div > div > div > .slick-center {
+  display: block;
+  max-width: 10% !important;
+  max-height: 20% !important;
+  opacity: 1;
+} */
