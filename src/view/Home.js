@@ -6,6 +6,7 @@ import { getSliders, getUnits, getGallery } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
+// import AboutSlider from '../component/slider/AboutSlider'
 
 
 class Home extends Component {
@@ -54,9 +55,9 @@ class Home extends Component {
             <Fasilitas />
           </div>
         </section>
-        {/* <section>
+        <section>
             <DenahUnit store={this.state.units} />
-        </section> */}
+        </section>
         <section>
           <div className="container">
             <Maps />
@@ -67,6 +68,11 @@ class Home extends Component {
             <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </div>
         </section>
+        {/* <section>
+          <div className="container">
+            <AboutSlider />
+          </div>
+        </section> */}
       </div>
     )
   }
