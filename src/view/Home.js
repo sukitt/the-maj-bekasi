@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/Fasilitas'
-import { getSliders, getUnits, getGallery } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
-// import AboutSlider from '../component/slider/AboutSlider'
+import AboutSlider from '../component/slider/AboutSlider'
+
+import { getSliders, getUnits, getGallery } from '../services/get'
 
 
 class Home extends Component {
@@ -62,11 +63,11 @@ class Home extends Component {
             <Maps />
           </div>
         </section>
-        {/* <section>
+        <section>
           <div className="container">
             <AboutSlider />
           </div>
-        </section> */}
+        </section>
       </div>
     )
   }
