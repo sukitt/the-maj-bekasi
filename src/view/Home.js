@@ -2,11 +2,16 @@ import React, {Component} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/Fasilitas'
-import { getSliders, getUnits, getGallery } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
+<<<<<<< HEAD
 import Gallery from '../component/slider/Gallery'
 // import AboutSlider from '../component/slider/AboutSlider'
+=======
+import AboutSlider from '../component/slider/AboutSlider'
+
+import { getSliders, getUnits, getGallery } from '../services/get'
+>>>>>>> 7f8d8b11f2dcf7a13eadbcdf120dd85bd16d8d9c
 
 
 class Home extends Component {
