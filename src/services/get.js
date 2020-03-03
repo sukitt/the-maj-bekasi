@@ -15,3 +15,11 @@ export const getUnits = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getGallery = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/gallery')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

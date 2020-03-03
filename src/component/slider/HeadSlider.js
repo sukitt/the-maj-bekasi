@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 
-import imgslider from './assets/slider-1.png';
 import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
