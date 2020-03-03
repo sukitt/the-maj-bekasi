@@ -63,7 +63,7 @@ class Home extends Component {
           </div>
         </section>
         <section>
-          <div className="container-fluid">
+          <div className="w-100">
             <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </div>
         </section>
