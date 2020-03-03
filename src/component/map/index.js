@@ -118,7 +118,7 @@ class index extends Component {
     }
 
     return (
-      <div style={{margin:"100px auto"}}>
+      <div style={{margin:"100px auto", padding:"100px 0px"}}>
         <h2 style={{
           fontFamily: "Khula",
           fontStyle: "normal",
