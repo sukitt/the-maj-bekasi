@@ -5,6 +5,7 @@ import Fasilitas from '../component/Fasilitas'
 import { getSliders, getUnits } from '../services/get'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
+// import AboutSlider from '../component/slider/AboutSlider'
 
 
 class Home extends Component {
@@ -53,6 +54,11 @@ class Home extends Component {
             <Maps />
           </div>
         </section>
+        {/* <section>
+          <div className="container">
+            <AboutSlider />
+          </div>
+        </section> */}
       </div>
     )
   }

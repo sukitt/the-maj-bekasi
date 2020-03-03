@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BaseDropdown } from '../base'
 
 
 let Data = []
-for (let i = 1; i < 13; i++) {
+for (let i = 1; i <= 12; i++) {
     Data.push({
         id: i,
         name: `${i} Bulan`,
@@ -11,12 +11,14 @@ for (let i = 1; i < 13; i++) {
     })
 }
 
-const DropdownCicilan = (props) => {
-    return (
-        <BaseDropdown 
-            {...props}
-            store={Data}
-        />
-    )
+class DropdownCicilan extends Component {
+    render() {
+        return (
+            <BaseDropdown 
+                {...this.props}
+                store={Data}
+            />
+        )
+    }
 }
 export default DropdownCicilan

@@ -1,3 +1,6 @@
 import BaseDropdown from './Dropdown'
-
-export { BaseDropdown }
+import { BaseSlider } from './Slider'
+export { 
+    BaseDropdown,
+    BaseSlider
+}

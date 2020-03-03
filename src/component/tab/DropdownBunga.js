@@ -1,24 +1,21 @@
 import React, { Component } from 'react'
 import { BaseDropdown } from '../base'
 
-
 let Data = []
-for (let i = 1; i < 3; i++) {
+for (let i=5; i <= 20; i+=5) {
     Data.push({
-        id: i,
-        name: `${i} Tahun`,
+        name: `${i} %`,
         value: i
     })
 }
 
-export class DropdownKredit extends Component {
+export default class DropdownBunga extends Component {
     render() {
         return (
-            <BaseDropdown 
+            <BaseDropdown
                 {...this.props}
                 store={Data}
             />
         )
     }
 }
-export default DropdownKredit
