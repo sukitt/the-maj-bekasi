@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import MoreTentangKami from '../component/card/MoreTentangKami'
-import Footer2 from '../component/Footer2'
+import Footer from '../component/Footer'
 import { getSliders, getUnits, getGallery } from '../services/get'
 
 export default class TentangKami extends Component {
@@ -12,7 +12,7 @@ export default class TentangKami extends Component {
         this.state = {
              sliders: [],
              gallery: [],
-             units: [],             
+             units: [],          
              errors: {
                  sliders:{},
                  gallery:{}
@@ -20,7 +20,11 @@ export default class TentangKami extends Component {
              signup: {
                  validated: false,
                  data: {}
-             }
+             },
+             footer: {
+                validated: true,
+                data: {}
+              }
         }
         this.reftitle = createRef()
         this.refname = createRef()
@@ -83,12 +87,12 @@ export default class TentangKami extends Component {
                     </div>
                 </section>
                 <section>
-                    <Footer2 
-                        validated={this.state.signup.validated}
-                        onSubmit={this._signup}
-                        titleRef={this.reftitle}
-                        nameRef={this.refname}
-                        emailRef={this.refemail}
+                    <Footer
+                        validated={this.state.footer.validated}
+                        onSubmit={this._footer}
+                        titleRef={this.footreftitle}
+                        nameRef={this.footrefname}
+                        emailRef={this.footrefemail}
                     />
                 </section>
             </div>

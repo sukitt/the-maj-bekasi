@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import SakuraLogo from '../component/assets/partnership-image/sakura.svg'
 import Sakura from '../component/card/Sakura'
-import Footer2 from '../component/Footer2'
+import Footer from '../component/Footer'
 
 export default class Partnership extends Component {
     constructor(props) {
@@ -12,7 +12,11 @@ export default class Partnership extends Component {
              signup: {
                  validated: true,
                  data: {}
-             }
+             },
+             footer: {
+                validated: true,
+                data: {}
+              }
         }
         this.reftile = createRef()
         this.refname = createRef()
@@ -59,12 +63,12 @@ export default class Partnership extends Component {
                     </div>
                 </section>
                 <section>
-                    <Footer2
-                        validated={this.state.signup.validated}
-                        onSubmit={this._signup}
-                        titleRef={this.reftitle}
-                        nameRef={this.refname}
-                        emailRef={this.refemail}
+                    <Footer
+                        validated={this.state.footer.validated}
+                        onSubmit={this._footer}
+                        titleRef={this.footreftitle}
+                        nameRef={this.footrefname}
+                        emailRef={this.footrefemail}
                     />
                 </section>
             </div>
