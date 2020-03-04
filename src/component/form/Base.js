@@ -6,24 +6,27 @@ export class Base extends Component {
         super(props)
     
         this.state = {
-             title: null,
-             name: null,
-             email: null,
+             title: '',
+             name: '',
+             email: '',
         }
     }
     
     render() {
         return (
-            <Form validated={this.props.validated} onSubmit={this.props.onSubmit}>
+            // validated={this.props.validated}
+            <Form onSubmit={this.props.onSubmit}>
                 <Form.Row>
                     <Form.Group as={Col} sm="4">
                         <Form.Control 
                             as='select'
                             ref={this.props.titleRef}
                             value={this.state.title}
-                            requred='true'
-                            isInvalid={this.state.title === null? false: this.state.title.length? false: true}>
-                            <option selected disabled={this.state.title? 'disabled': null}>Title</option>
+                            onChange={e => this.setState({title: e.target.value})}
+                            required={true}
+                            // isInvalid={this.state.title === null? false: this.state.title.length? false: true}
+                        >
+                            <option disabled={this.state.title? 'disabled': null}>Title</option>
                             {this.props.storeTitle && this.props.storeTitle.map((d, i) => (
                                 <option key={i+1} value={d.name}>{d.name}</option>
                             ))}
@@ -39,8 +42,8 @@ export class Base extends Component {
                             ref={this.props.nameRef}
                             value={this.state.name}
                             onChange={(e) => this.setState({name: e.target.value})}
-                            required='true'
-                            isInvalid={this.state.name === null? false: this.state.name.length? false: true}
+                            required={true}
+                            // isInvalid={this.state.name === null? false: this.state.name.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
                                 Please insert a Name
@@ -55,8 +58,8 @@ export class Base extends Component {
                             ref={this.props.emailRef}
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
-                            required='true'
-                            isInvalid={this.state.email === null? false: this.state.email.length? false: true}
+                            required={true}
+                            // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
                             Please insert a valid Email Address
