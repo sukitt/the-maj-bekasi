@@ -23,10 +23,11 @@ export class Base extends Component {
                             as='select'
                             ref={this.props.titleRef}
                             value={this.state.title}
-                            requred='true'
+                            onChange={e => this.setState({title: e.target.value})}
+                            required={true}
                             // isInvalid={this.state.title === null? false: this.state.title.length? false: true}
-                            >
-                            <option selected disabled={this.state.title? 'disabled': null}>Title</option>
+                        >
+                            <option disabled={this.state.title? 'disabled': null}>Title</option>
                             {this.props.storeTitle && this.props.storeTitle.map((d, i) => (
                                 <option key={i+1} value={d.name}>{d.name}</option>
                             ))}
@@ -42,7 +43,7 @@ export class Base extends Component {
                             ref={this.props.nameRef}
                             value={this.state.name}
                             onChange={(e) => this.setState({name: e.target.value})}
-                            required='true'
+                            required={true}
                             // isInvalid={this.state.name === null? false: this.state.name.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
@@ -58,7 +59,7 @@ export class Base extends Component {
                             ref={this.props.emailRef}
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
-                            required='true'
+                            required={true}
                             // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">

@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './view/Home';
+import TentangKami from './view/TentangKami';
+import Partnership from './view/Partnership';
 
 function App() {
   return (
@@ -9,6 +11,12 @@ function App() {
       <div className="App">
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/tentang-kami">
+          <TentangKami />
+        </Route>
+        <Route exact path="/partnership/sakura">
+          <Partnership />
         </Route>
       </div>
     </Router>
