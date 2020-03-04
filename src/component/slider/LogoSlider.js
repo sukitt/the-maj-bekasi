@@ -11,6 +11,7 @@ const LogoSlider = (props) => {
     dots: false,
     className:"slider variable-width",
     infinite: true,
+    arrows: false,
     speed: 1500,
     autoplay:true,
     autoplaySpeed:1500,
@@ -29,7 +30,7 @@ const LogoSlider = (props) => {
   //   )
   // }
   return(
-    <div style={{height:"260px"}}>
+    <div style={{margin:"150px 0px",height:"260px"}}>
       <Slider {...settings}>
         {console.log(store)}
         {logos.map((item, i) => (
@@ -57,11 +58,11 @@ const logos = [
   },
   {
     "id":2,"name":"Bank Mandiri","link":"#mandiri",
-    "image":{img2},"created_at":"2020-03-02 09:44:17","updated_at":"2020-03-02 09:44:17"
+    "image":{img1},"created_at":"2020-03-02 09:44:17","updated_at":"2020-03-02 09:44:17"
   },
   {
     "id":3,"name":"Central Graga Sejahtera","link":"#linkto",
-    "image":{img3},"created_at":"2020-03-02 09:44:43","updated_at":"2020-03-02 09:44:43"
+    "image":{img1},"created_at":"2020-03-02 09:44:43","updated_at":"2020-03-02 09:44:43"
   },
   {
     "id":4,"name":"Leopalace 21","link":"#linkto",
@@ -69,6 +70,6 @@ const logos = [
   },
   {
     "id":5,"name":"Sakura Project Management","link":"#linkto",
-    "image":{img3},"created_at":"2020-03-02 09:45:23","updated_at":"2020-03-02 09:45:23"
+    "image":{img1},"created_at":"2020-03-02 09:45:23","updated_at":"2020-03-02 09:45:23"
   }
 ]

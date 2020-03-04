@@ -6,6 +6,7 @@ export class index extends Base {
         const { value } = this.state;
         return (
             <select
+                className="form-control"
                 value={value}
                 {...this.props}
             >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

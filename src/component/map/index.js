@@ -4,6 +4,8 @@ import GoogleMapReact from 'google-map-react'
 import Marker from './marker'
 import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
+import './assets/css/style.css'
+
 const Gmaps = (props) => {
   return(
     <GoogleMapReact 
@@ -140,8 +142,8 @@ class index extends Component {
         }}>Kenyamanan dan kemudahan
         menantimu di 'Planet' Bekasi.</h1>
 
-        <Tabs defaultActiveKey="marketplace" id="google-maps-api" style={{
-          marginTop:"35px"
+        <Tabs defaultActiveKey="marketplace" className="gmaps" style={{
+          marginTop:"35px",
         }}>
           <Tab eventKey="marketplace" title="Marketplace" style={{height:"500px", width:"100%"}}>
             <Gmaps

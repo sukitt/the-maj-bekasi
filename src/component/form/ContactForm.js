@@ -19,7 +19,7 @@ export default class ContactForm extends Component {
         return (
             // add this to validation
             // validated={this.props.validated}
-            <Form onSubmit={this.props.onSubmit}>
+            <Form id="contactUs" onSubmit={this.props.onSubmit}>
                 <Form.Row>
                     <Form.Group as={Col} sm="2" controlId="gelarField">
                         <Form.Control 

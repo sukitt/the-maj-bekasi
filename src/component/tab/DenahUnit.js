@@ -7,6 +7,7 @@ import TabGallery from '../slider/TabGallery'
 import {BaseUrl} from '../../services/axios'
 
 import './assets/style.css'
+import styled from 'styled-components'
 
 class DenahUnit extends Component {
     constructor(props) {
@@ -128,12 +129,12 @@ class DenahUnit extends Component {
                             IDR 18.046.057
                         </h1>
 
-                        <div style={{marginTop: 67}}>
+                        <div style={{margin: "67px auto", maxWidth:800}}>
                             <Row>
-                                <Col sm={2}><p style={p}>Harga Unit</p></Col>
-                                <Col sm={2}><p style={p}>IDR 263.500.000</p></Col>
-                                <Col sm={2}><p style={p}>Cicilan DP</p></Col>
-                                <Col sm={2}>
+                                <Col style={{marginBottom:"53px"}} ><p style={p}>Harga Unit</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>IDR 263.500.000</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>Cicilan DP</p></Col>
+                                <Col style={{marginBottom:"53px"}}>
                                     <DropdownCicilan
                                         value={this.state.cicilan}
                                         // defaultValue={12}
@@ -142,10 +143,10 @@ class DenahUnit extends Component {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col sm={2}><p style={p}>DP 20%</p></Col>
-                                <Col sm={2}><p style={p}>IDR 52.700.000</p></Col>
-                                <Col sm={2}><p style={p}>Tenor Kredit</p></Col>
-                                <Col sm={2}>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>DP 20%</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>IDR 52.700.000</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>Tenor Kredit</p></Col>
+                                <Col style={{marginBottom:"53px"}}>
                                     <DropdownKredit
                                         value={this.state.kredit}
                                         // defaultValue={1}
@@ -154,10 +155,10 @@ class DenahUnit extends Component {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col sm={2}><p style={p}>Jumlah Pinjaman</p></Col>
-                                <Col sm={2}><p style={p}>IDR 210.800.000</p></Col>
-                                <Col sm={2}><p style={p}>Bunga</p></Col>
-                                <Col sm={2}>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>Jumlah Pinjaman</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>IDR 210.800.000</p></Col>
+                                <Col style={{marginBottom:"53px"}}><p style={p}>Bunga</p></Col>
+                                <Col style={{marginBottom:"53px"}}>
                                     <DropdownBunga
                                         value={this.state.bunga}
                                         // defaultValue={5}
@@ -177,6 +178,6 @@ const p = {
     fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 16,
+    fontSize: 16
 }
 export default DenahUnit

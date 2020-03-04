@@ -1,13 +1,15 @@
 import React from 'react'
 import ContactForm from './form/ContactForm'
 import { Button } from 'react-bootstrap'
+import './assets/css/style.css'
+import styled from 'styled-components'
 
 const ContactUs = (props) =>{
     return (
         <div style={{
             width: 980,
             height: 578,
-            marginTop: 123,
+            margin: "123px auto",
             display: 'flex',
         }}>
             <div style={{
@@ -49,6 +51,7 @@ const ContactUs = (props) =>{
                                 margin: '0 auto', 
                                 width: 180,
                                 height: 40,
+                                borderRadius:"0",
                                 backgroundColor: '#CC9980',
                                 fontFamily: 'Source Sans Pro',
                                 fontStyle: 'normal',
@@ -72,8 +75,8 @@ const ContactUs = (props) =>{
                     textAlign: 'center',
                     textTransform: 'uppercase'
                 }}>Marketing Gallery</h2>
-                <p style={p}>Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</p>
-                <p style={p}> T: <a style={{textDecoration: 'none'}} href="tel:02139712888">(021) 3971-2888</a> E: <a style={{textDecoration: 'none'}} href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</a></p>
+                <P>Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+                <P> T: <A href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </div>
         </div>
     )
@@ -106,11 +109,21 @@ const Gelar = [
     }
 ]
 
-const p = {
+const P = styled.p({
     fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
     fontSize: 16,
     textAlign: 'center',
     color: '#000000',
-}
+    '&:hover': {
+        
+    }
+})
+const A = styled.a({
+    textDecoration: 'none',
+    color:"#000",
+    "&:hover":{
+        color:"#0366d6"
+    }
+})

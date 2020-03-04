@@ -1,3 +1,32 @@
 body{
   background-color: #FAFAFA;
 }
+.form-control{
+  border: 1px solid #F9F9F9;
+  background-color: #F9F9F9;
+  border-radius: 2px;
+}
+input,textarea::placeholder{
+  color: #B5B5B5 !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+}
+select::placeholder{
+  font-size: 16px !important;
+  line-height: 26px !important;
+  color: #000000 !important;
+  opacity: 1;
+}
+a{
+  color: #CC9980;
+  transition: .3s all;
+}
+a:hover{
+  color: #3F3356;
+}
+.btn {
+  border-radius: 0;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+  border-color: transparent;
+}

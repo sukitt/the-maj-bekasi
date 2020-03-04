@@ -2,7 +2,8 @@ import React from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import SubscribeForm from './form/Base'
 import Img1 from './assets/footer-image/1.svg'
-import Img2 from './assets/footer-image/2.svg'
+import Img2 from './assets/footer-image/partof.png'
+import styled from 'styled-components'
 
 
 const Footer = props => {
@@ -19,11 +20,10 @@ const Footer = props => {
                 <Row>
                     <Col sm={3}>
                         <img style={{
-                                width: 296,
-                                height: 156                                     
+                                width: 296                                  
                             }} src={Img1} alt="logo2"
                         />
-                        <p style={{...p, borderColor: '#FFFFFF', marginLeft: 25}}>Part Of<img style={{width: 'auto',height: 'auto'}} src={Img2}alt="logo3" /></p>
+                        <img style={{marginLeft:28}} src={Img2} alt="Part of The Maj Group" />
                         <Sosmed style={{marginLeft: 25}} />
                     </Col>
                     <Col sm={2}>
@@ -60,28 +60,25 @@ const Footer = props => {
                         </p>
                     </Col>
                 </Row>
-                <Row>
-                    <Copyright />
-                </Row>
             </div>
         </div>
     )
 }
 
 const Sosmed = props => (
-    <ul style={{...p, ...ul, ...props.style}}>
-        <li><a href="#linkto" ><i className="fab fa-instagram"></i></a></li>
-        <li><a href="#linkto"><i className="fab fa-twitter"></i></a></li>
-        <li><a href="#linkto" ><i className="fab fa-facebook-f mx-3"></i></a></li>
-    </ul>
+    <Row style={{maxWidth:150, marginLeft:28, marginTop:50}}>
+        <A href="#linkto" ><i className="fab fa-instagram"></i></A>
+        <A href="#linkto"><i className="fab fa-twitter"></i></A>
+        <A href="#linkto" ><i className="fab fa-facebook-f"></i></A>
+    </Row>
 )
 
 const Join = () => (
     <>
         <p style={caption}>Join Our Family</p>
         <ul style={{...p, ...ul}}>
-            <li style={li}><a style={a} href="#linkto">Carrers</a></li>
-            <li style={li}><a style={a} href="#linkto">Investors</a></li>
+            <Li><A href="#linkto">Carrers</A></Li>
+            <Li><A href="#linkto">Investors</A></Li>
         </ul>
     </>
 )
@@ -92,28 +89,12 @@ const Explore = () => (
             Explore Our World
         </p>
         <ul style={{...p, ...ul}}>
-            <li>Contact Us</li>
-            <li>Ancora Capital Management</li>
-            <li>Media Center</li>
-            <li>Privacy</li>
-            <li>Terms and Conditions</li>
+            <Li><A href="#linkto">Contact Us</A></Li>
+            <Li><A href="#linkto">Ancora Capital Management</A></Li>
+            <Li><A href="#linkto">Media Center</A></Li>
+            <Li><A href="#linkto">Privacy</A></Li>
+            <Li><A href="#linkto">Terms and Conditions</A></Li>
         </ul>
-    </>
-)
-
-const Copyright= () => (
-    <>
-        <h6 style={{
-            color: '#FFFFFF',
-            fontFamily: 'Nunito Sans',
-            fontStyle:"normal",
-            fontWeight:"normal",
-            fontSize: "13px",
-            lineHeight: "18px",
-            margin: '0 auto'
-        }}>
-            Copyright 2020 All right reserved
-        </h6>
     </>
 )
 
@@ -137,8 +118,17 @@ const p = {
     color: "#FFFFFF"
 }
 
-const a = {textDecoration: 'none'}
+const A = styled.a({
+    color:"#fff",
+    marginRight:"30px",
+    "&:hover":{
+        textDecoration:"none"
+    }
+})
+const Li = styled.li({
+    marginTop:"11px",
+})
 const ul = {listStyleType: 'none',marginTop: 26, padding: 0, marginBottom: 11}
-const li = {display: 'inline'}
+// const li = {display: 'inline'}
 
 export default Footer
