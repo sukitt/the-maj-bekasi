@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { Tabs, Tab, Row, Col } from 'react-bootstrap'
 import DropdownCicilan from './DropdownCicilan'
-import DropdownKredit from './DropdownKredit';
-import DropdownBunga from './DropdownBunga';
+import DropdownKredit from './DropdownKredit'
+import DropdownBunga from './DropdownBunga'
+import TabGallery from '../slider/TabGallery'
+import {BaseUrl} from '../../services/axios'
 
 class DenahUnit extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            cicilan: null,
-            kredit: null,
-            bunga: null
+            cicilan: 0,
+            kredit: 0,
+            bunga: 0
         }
     }
     
@@ -65,19 +67,17 @@ class DenahUnit extends Component {
                                                     </ul>
                                                 </Col>
                                                 <Col>
-                                                    <p>Image 1</p>
+                                                    <img style={{maxWidth:"200px"}} src={BaseUrl + '/storage/' + item.specs.denah_ruang} alt={'denah ruang' + item.specs.unit_name} />
                                                 </Col>
                                                 <Col>
-                                                    <p>Image 2</p>
+                                                    <img style={{maxWidth:"200px"}} src={BaseUrl + '/storage/' +item.specs.denah_bangunan} alt={'denah bangunan' + item.specs.unit_name} />
                                                 </Col>
                                             </Row>
                                         </Tab>
                                         <Tab 
                                             eventKey={Object.keys(store[i])[6]}
                                             title="GALERI">
-                                            <p>
-                                                Galeri
-                                            </p>
+                                            <TabGallery images={item.gallery} />
                                         </Tab>
                                     </Tabs>
                                 </div>
@@ -134,7 +134,7 @@ class DenahUnit extends Component {
                                 <Col sm={2}>
                                     <DropdownCicilan
                                         value={this.state.cicilan}
-                                        defaultValue={12}
+                                        // defaultValue={12}
                                         onChange={(e) => this.setState({cicilan: e.target.value})}
                                     />
                                 </Col>
@@ -146,7 +146,7 @@ class DenahUnit extends Component {
                                 <Col sm={2}>
                                     <DropdownKredit
                                         value={this.state.kredit}
-                                        defaultValue={1}
+                                        // defaultValue={1}
                                         onChange={(e) => this.setState({kredit: e.target.value})}
                                     />
                                 </Col>
@@ -158,7 +158,7 @@ class DenahUnit extends Component {
                                 <Col sm={2}>
                                     <DropdownBunga
                                         value={this.state.bunga}
-                                        defaultValue={5}
+                                        // defaultValue={5}
                                         onChange={(e) => this.setState({bunga: e.target.value})}
                                     />
                                 </Col>

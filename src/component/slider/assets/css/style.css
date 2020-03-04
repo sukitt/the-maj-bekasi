@@ -22,11 +22,11 @@
 }
 
 #gallery > .slick-slider > .slick-list{
-  padding: 50px 150px !important;
+  padding: 150px !important;
 }
-#gallery > .slick-next, .slick-prev {
+#gallery > .slick-prev {
   top: 40%;
 }
-#gallery > .slick-prev, .slick-next {
+#gallery > .slick-next {
   top: 40%;
 }

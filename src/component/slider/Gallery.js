@@ -143,7 +143,7 @@ const Gallery = (props) => {
   }
 
   return(
-    <div id="gallery" style={{margin:"100px 0px"}}>
+    <div id="gallery" style={{margin:"100px 0px", background:"#E0E0E0"}}>
       <Slider {...settings}>
         {console.log(store)}
         {store.map((item, i) => (

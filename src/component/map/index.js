@@ -118,7 +118,7 @@ class index extends Component {
     }
 
     return (
-      <div style={{margin:"100px auto", padding:"100px 0px"}}>
+      <div style={{margin:"50px auto", padding:"150px 0px"}}>
         <h2 style={{
           fontFamily: "Khula",
           fontStyle: "normal",
@@ -174,6 +174,24 @@ class index extends Component {
               zoom={this.props.zoom}
               location={education}
             />
+            <Row className="justify-content-center">
+              <Distance 
+                style={divDistance}
+                caption="± 10 Menit ke Metropolitan Mall"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 10 Menit ke Living Plaza"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 2 KM ke Grand Metropolitan"
+              />
+              <Distance 
+                style={divDistance}
+                caption="± 2,5 km ke Summarecon Bekasi"
+              />
+            </Row>
           </Tab>
         </Tabs>
       </div>
