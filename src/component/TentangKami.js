@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const TentangKami = props => {
     return (
@@ -22,7 +23,7 @@ const TentangKami = props => {
                 }}>
                     The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni di antaranya: kolam renang ukuran olimpiade, tempat bersantai di puncak gedung (sky lounge), area kerja bersama (co-working space), lobby yang megah dan luas, pusat kebugaran dan halte khusus transportasi online.
                 </p>
-                <a href="#linkto" style={{
+                <Link to="/tentang-kami" style={{
                     fontFamily: 'Nunito Sans',
                     fontStyle: 'normal',
                     fontWeight: 'bold',
@@ -33,7 +34,7 @@ const TentangKami = props => {
                     textDecoration: 'none',
                     borderBottom: '1px solid',
                     borderBottomColor: '#CC9980'
-                }}>Read More</a>
+                }}>Read More</Link>
             </div>
         </div>
     )
