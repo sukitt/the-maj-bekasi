@@ -3,6 +3,7 @@ import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import MoreTentangKami from '../component/card/MoreTentangKami'
 import Footer2 from '../component/Footer2'
+import { getSliders, getUnits, getGallery } from '../services/get'
 
 export default class TentangKami extends Component {
     constructor(props) {
@@ -10,8 +11,11 @@ export default class TentangKami extends Component {
     
         this.state = {
              sliders: [],
+             gallery: [],
+             units: [],             
              errors: {
-                 sliders: '',
+                 sliders:{},
+                 gallery:{}
              },
              signup: {
                  validated: false,
@@ -22,6 +26,24 @@ export default class TentangKami extends Component {
         this.refname = createRef()
         this.refemail = createRef()
         this._signup = this._signup.bind(this)
+    }
+
+    componentDidMount() {
+        getSliders()
+            .then((res) => this.setState({sliders: res.data}))
+            .catch((err) => {
+                if (err && err.response) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
+            })
+    
+        getUnits()
+            .then(res => this.setState({units: res.data}))
+            .catch(err => {if (err) throw err})
+    
+        getGallery()
+            .then(res => this.setState({gallery: res.data}))
+            .catch((err) => {
+                if (err && err.response) this.setState({errors:{gallery:{code:err.response.status, status:err.response.statusText}}})
+            })
     }
 
     _signup = e => {

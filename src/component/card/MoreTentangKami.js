@@ -4,7 +4,7 @@ import Img1 from '../assets/tentangkami-image/1.svg'
 
 const MoreTentangKami = () => {
     return (
-        <div style={{border: '1px solid'}} clas>
+        <div style={{marginTop: 85}} clas>
             <h1 style={{
                 fontFamily: 'Khula',
                 fontStyle: 'normal',

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import Img1 from './assets/footer-image/3.svg'
 import Img2 from './assets/footer-image/4.svg'
 import SignUpForm from './form/Base'
@@ -98,22 +98,6 @@ const Explore = props => (
             <li>Privacy</li>
             <li>Terms and Conditions</li>
         </ul>
-    </>
-)
-
-const Copyright= () => (
-    <>
-        <h6 style={{
-            color: '#FFFFFF',
-            fontFamily: 'Nunito Sans',
-            fontStyle:"normal",
-            fontWeight:"normal",
-            fontSize: "13px",
-            lineHeight: "18px",
-            margin: '0 auto'
-        }}>
-            Copyright 2020 All right reserved
-        </h6>
     </>
 )
 
