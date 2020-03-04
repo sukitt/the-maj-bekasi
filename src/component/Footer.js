@@ -8,50 +8,27 @@ import styled from 'styled-components'
 
 const Footer = props => {
     return (
-        <div style={{ 
-            height: 550,
-            backgroundColor: '#232323',
-            display: 'flex',
-        }}>
-            <div style={{
-                margin: '137px 129px 153px 59px'
-            }}>
+        <D>
+            <div style={{margin: '137px 129px 153px 59px'}}>
                 <Row>
-                    <Col sm={3}>
-                        <img style={{
-                                width: 296                                  
-                            }} src={Img1} alt="logo2"
-                        />
+                    <Col lg={3}>
+                        <img style={{width: 296}} src={Img1} alt="logo2" />
                         <img style={{marginLeft:28}} src={Img2} alt="Part of The Maj Group" />
                         <Sosmed style={{marginLeft: 25}} />
                     </Col>
-                    <Col sm={2}>
+                    <Col lg={2}>
                         <Join />
                     </Col>
-                    <Col sm={3}>
+                    <Col lg={3}>
                         <Explore />
                     </Col>
-                    <Col sm={4}>
+                    <Col lg={4}>
                         <p style={caption}>Subscribe For Exclusive News & Offers</p>
                         <div>
                             <SubscribeForm
                                 {...props}
                             >
-                                <Button
-                                    type='submit'
-                                    style={{
-                                        width: 120,
-                                        height: 40,
-                                        backgroundColor: '#FEFEFE',
-                                        borderColor: 'transparent',
-                                        fontFamily: 'Source Sans Pro',
-                                        fontStyle: 'bold',
-                                        fontSize:  13,
-                                        textAlign: 'center',
-                                        letterSpacing: 2,
-                                        textTransform: 'uppercase',
-                                        color: '#000000'
-                                    }}>Subcribe</Button>
+                                <B type='submit'>Subcribe</B>
                             </SubscribeForm>
                         </div>
                         <p style={{...p, marginTop: 14}}>
@@ -60,7 +37,7 @@ const Footer = props => {
                     </Col>
                 </Row>
             </div>
-        </div>
+        </D>
     )
 }
 
@@ -124,10 +101,30 @@ const A = styled.a({
         textDecoration:"none"
     }
 })
+
+const B = styled.button({
+    width: 120,
+    height: 40,
+    backgroundColor: '#FEFEFE',
+    borderColor: 'transparent',
+    fontFamily: 'Source Sans Pro',
+    fontStyle: 'bold',
+    fontSize:  13,
+    textAlign: 'center',
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    color: '#000000'
+})
+
+const D = styled.div({
+    height: 550,
+    marginTop: 315 ,
+    backgroundColor: '#232323',
+    display: 'flex',
+})
 const Li = styled.li({
     marginTop:"11px",
 })
 const ul = {listStyleType: 'none',marginTop: 26, padding: 0, marginBottom: 11}
-// const li = {display: 'inline'}
 
 export default Footer
