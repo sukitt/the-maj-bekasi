@@ -6,6 +6,7 @@ import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
 import AboutSlider from '../component/slider/AboutSlider'
+import LogoSlider from '../component/slider/LogoSlider'
 
 import { getSliders, getUnits, getGallery } from '../services/get'
 import ContactUs from '../component/ContactUs'
@@ -137,14 +138,19 @@ class Home extends Component {
             <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </div>
         </section>
-        <section>
+        {/* <section>
           <div className="container">
             <AboutSlider />
           </div>
-        </section>
+        </section> */}
         <section>
           <div className="container">
             <TentangKami />
+          </div>
+        </section>
+        <section>
+          <div className="w-100">
+            <LogoSlider />
           </div>
         </section>
         <section>

@@ -23,3 +23,11 @@ export const getGallery = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getPartnership = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/partnership')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

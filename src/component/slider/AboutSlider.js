@@ -105,7 +105,7 @@ const settings = {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    appendDots: dots => <div style={{margin: '0 0 0 470px'}}><ul>{dots}</ul></div>,
+    appendDots: dots => <div style={{position: 'absolute', maxWidth:"150px", right:"0"}}><ul>{dots}</ul></div>,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
 }
@@ -116,8 +116,8 @@ function NextArrow(props) {
         background:"#FFFFFF",
         boxShadow: '0px 20px 60px rgba(138, 149, 158, 0.2)',
         borderRadius: 36,
+        right:"-8%",
         display: "inline-block",
-        marginRight: '-48px',
         width:"32px",
         height:"32px",
         color: "#000000",
@@ -163,7 +163,7 @@ function NextArrow(props) {
         borderRadius: 36,
         color: '#000000',
         display: "inline-block",
-        marginLeft: '-48px',
+        left:"-8%",
         width:"32px",
         height:"32px",
         textDecoration: "none",
