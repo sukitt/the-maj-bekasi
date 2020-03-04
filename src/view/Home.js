@@ -1,5 +1,6 @@
 import React, {Component, createRef} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
+import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
@@ -7,11 +8,22 @@ import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
 import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
-
-import { getSliders, getUnits, getGallery } from '../services/get'
 import ContactUs from '../component/ContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/Footer'
+
+import { layoutGenerator } from 'react-break';
+import { getSliders, getUnits, getGallery } from '../services/get'
+
+
+const layout = layoutGenerator({
+  mobile: 0,
+  tablet: 768,
+  desktop: 992,
+});
+
+const OnMobileAndTablet = layout.isAtMost('tablet');
+const OnDesktop = layout.is('desktop');
 
 
 class Home extends Component {
@@ -114,7 +126,12 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <NavigationBar />
+        <OnDesktop>
+          <NavigationBar />
+        </OnDesktop>
+        <OnMobileAndTablet>
+          <MobileNavigationBar />
+        </OnMobileAndTablet>
         <section>
           <div className="container">
             <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
