@@ -163,7 +163,7 @@ import { BaseUrl } from '../../services/axios';
       return (
         <Slider {...settings}>
           {console.log(store)}
-          {store.map((item, i) => (
+          {store && store.map((item, i) => (
             <div style={containerStyle} key={i}>
               <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
               <Col style={{height:"100px"}}>
