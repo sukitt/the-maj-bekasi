@@ -23,7 +23,8 @@ class Home extends Component {
       units: [],
       errors: {
         sliders:{},
-        gallery:{}
+        gallery:{},
+        units:{}
       },
       contact: {
         validated: true,
@@ -57,7 +58,9 @@ class Home extends Component {
 
     getUnits()
       .then(res => this.setState({units: res.data}))
-      .catch(err => {if (err) throw err})
+      .catch(err => {
+        if (err && err.response) this.setState({errors: {units: {code: err.response.status, status: err.response.statusText}}})
+      })
 
     getGallery()
       .then(res => this.setState({gallery: res.data}))
@@ -126,7 +129,7 @@ class Home extends Component {
           </div>
         </section>
         <section>
-            <DenahUnit store={this.state.units} />
+            <DenahUnit store={this.state.units} errors={this.state.errors.units} />
         </section>
         <section>
           <div className="container">

@@ -2,6 +2,7 @@ import React, { Component, createRef } from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import MoreTentangKami from '../component/card/MoreTentangKami'
+import OwnerSay from '../component/card/OwnerSay'
 import Footer from '../component/Footer'
 import { getSliders, getUnits, getGallery } from '../services/get'
 
@@ -84,6 +85,11 @@ export default class TentangKami extends Component {
                 <section>
                     <div className="container">
                         <MoreTentangKami />
+                    </div>
+                </section>
+                <section>
+                    <div className="w-100">
+                        <OwnerSay />
                     </div>
                 </section>
                 <section>

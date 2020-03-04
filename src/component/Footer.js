@@ -10,7 +10,6 @@ const Footer = props => {
     return (
         <div style={{ 
             height: 550,
-            marginTop: 315 ,
             backgroundColor: '#232323',
             display: 'flex',
         }}>

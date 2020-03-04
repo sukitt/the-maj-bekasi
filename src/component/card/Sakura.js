@@ -8,6 +8,10 @@ const Sakura = () => {
             <Base
                 containerStyle={{marginTop: 136}}
                 bgimage={Img1}
+                imgWidth="539px"
+                imgHeight="340px"
+                alignCenter="center"
+                owner=""
             >
                 <p style={{...p, width: 443}}>
                     Peran manajemen konstruksi (MK) adalah memastikan
@@ -21,8 +25,12 @@ const Sakura = () => {
                 </p>
             </Base>
             <Base
-                containerStyle={{marginTop: 139}}
+                containerStyle={{marginTop: 139, marginBottom: 430}}
                 bgimage={Img1}
+                imgWidth="539px"
+                imgHeight="340px"
+                alignCenter="center"
+                owner=""
                 reversed
             >
                 <p style={{...p, width: 474}}>
@@ -39,7 +47,6 @@ const Sakura = () => {
 }
 
 const p = {
-    fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 16,
