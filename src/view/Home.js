@@ -25,11 +25,11 @@ class Home extends Component {
         gallery:{}
       },
       contact: {
-        validated: false,
+        validated: true,
         data: {}
       },
       footer: {
-        validated: false,
+        validated: true,
         data: {}
       }
     }
@@ -68,6 +68,7 @@ class Home extends Component {
   _contactUs = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
+      this.setState({contact:{validated:false}});
         e.preventDefault();
         e.stopPropagation();
     }
@@ -82,7 +83,6 @@ class Home extends Component {
     }
     this.setState({
       contact: {
-        validated: true,
         data: data
       }
     })
@@ -92,6 +92,7 @@ class Home extends Component {
   _footer = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
+      this.setState({footer:{validated:false}});
       e.preventDefault();
       e.stopPropagation();
     }
@@ -103,7 +104,6 @@ class Home extends Component {
     }
     this.setState({
       footer: {
-        validated: true,
         data: data
       }
     })
@@ -150,7 +150,7 @@ class Home extends Component {
         <section>
           <div className="container">
             <ContactUs
-              validated={this.state.contact.validated}
+              // validated={this.state.contact.validated}
               onSubmit={this._contactUs}
               gelarRef={this.contrefgelar}
               namaRef={this.contrefnama}

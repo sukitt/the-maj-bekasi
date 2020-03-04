@@ -6,18 +6,20 @@ export default class ContactForm extends Component {
         super(props)
     
         this.state = {
-            gelar: null,
-            nama: null,
-            unit: null,
-            telepon: null,
-            email: null,
-            catatan: null
+            gelar: "",
+            nama: "",
+            unit: "",
+            telepon: "",
+            email: "",
+            catatan: ""
         }
     }
     
     render() {
         return (
-            <Form validated={this.props.validated} onSubmit={this.props.onSubmit}>
+            // add this to validation
+            // validated={this.props.validated}
+            <Form onSubmit={this.props.onSubmit}>
                 <Form.Row>
                     <Form.Group as={Col} sm="2" controlId="gelarField">
                         <Form.Control 
@@ -40,7 +42,7 @@ export default class ContactForm extends Component {
                             value={this.state.nama} 
                             onChange={(e) => this.setState({nama:e.target.value})} 
                             required
-                            isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
+                            // isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
                             Please insert a Name
@@ -53,7 +55,7 @@ export default class ContactForm extends Component {
                             onChange={(e) => this.setState({unit: e.target.value})}  
                             value={this.state.unit} 
                             required
-                            isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
+                            // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                         >
                             <option selected disabled={this.state.unit? 'disabled': null}>Unit</option>
                             {this.props.storeUnit && this.props.storeUnit.map((d, i) => (
@@ -76,7 +78,7 @@ export default class ContactForm extends Component {
                             value={this.state.telepon} 
                             onChange={(e) => this.setState({telepon: e.target.value})}
                             required
-                            isInvalid={this.state.telepon === null? false: this.state.telepon.length? false: true}
+                            // isInvalid={this.state.telepon === null? false: this.state.telepon.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
                             Please insert a Phone number. <br/> Format: (0-9)
@@ -90,7 +92,7 @@ export default class ContactForm extends Component {
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
-                            isInvalid={this.state.email === null? false: this.state.email.length? false: true}
+                            // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
                             Please insert a valid Email Address
