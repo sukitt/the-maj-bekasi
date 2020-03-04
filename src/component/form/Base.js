@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Col } from 'react-bootstrap'
 
-export class SubscribeForm extends Component {
+export class Base extends Component {
     constructor(props) {
         super(props)
     
@@ -73,4 +73,4 @@ export class SubscribeForm extends Component {
     }
 }
 
-export default SubscribeForm
+export default Base
