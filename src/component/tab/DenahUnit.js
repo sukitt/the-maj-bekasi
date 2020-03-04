@@ -6,6 +6,8 @@ import DropdownBunga from './DropdownBunga'
 import TabGallery from '../slider/TabGallery'
 import {BaseUrl} from '../../services/axios'
 
+import './assets/style.css'
+
 class DenahUnit extends Component {
     constructor(props) {
         super(props)
@@ -27,7 +29,7 @@ class DenahUnit extends Component {
                         marginTop: 108, 
                         height: 658,
                     }}
-                    className="container">
+                    className="container" id="denahUnit">
                     <h2>Denah Unit</h2>
                     <Tabs 
                         style={{marginTop: 40}} 
@@ -36,14 +38,14 @@ class DenahUnit extends Component {
 
                         {store && store.map((item, i) => (
                             <Tab 
+                                style={{padding: "75px 60px", backgroundColor:"#e9e9e9"}} 
                                 key={item.id} 
                                 eventKey={item.unit_name.toLowerCase().replace(" ", "-")} 
                                 title={item.unit_name}>
                                 <div id="spec">
                                     <Tabs 
-                                        style={{marginTop: 75}} 
                                         defaultActiveKey={Object.keys(store[i])[5]}>
-                                        <Tab 
+                                        <Tab
                                             eventKey={Object.keys(store[i])[5]}
                                             title="SPESIFIKASI">
                                             <Row 
