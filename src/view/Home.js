@@ -1,7 +1,7 @@
 import React, {Component, createRef} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
-import Fasilitas from '../component/Fasilitas'
+import Fasilitas from '../component/fasilitas/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
@@ -14,8 +14,9 @@ import Footer from '../component/Footer'
 
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
+import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 
-import {MobileFooter} from '../component/footer/mobile/Footer'
+
 
 
 import { layoutGenerator } from 'react-break';
@@ -28,7 +29,7 @@ const layout = layoutGenerator({
   desktop: 992,
 });
 
-const OnTablet = layout.isAtMost('tablet');
+const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
 
@@ -139,17 +140,18 @@ class Home extends Component {
           <NavigationBar />
         </OnDesktop>
 
-        <OnTablet>
+        <OnMobileAndTablet>
             <MobileNavigationBar />
-        </OnTablet>
+        </OnMobileAndTablet>
         <section>
           <div className="container">
             <OnDesktop>
               <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
             </OnDesktop>
-            <OnTablet>
+
+            <OnMobileAndTablet>
               <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
-            </OnTablet>
+            </OnMobileAndTablet>
           </div>
         </section>
         <section>
@@ -157,9 +159,10 @@ class Home extends Component {
             <OnDesktop>
               <Fasilitas />
             </OnDesktop>
-            <OnTablet>
-              <Fasilitas />
-            </OnTablet>
+
+            <OnMobileAndTablet>
+              <MobileFasilitas />
+            </OnMobileAndTablet>
           </div>
         </section>
         <section>
@@ -204,6 +207,7 @@ class Home extends Component {
               catatanRef={this.contrefcatatan}
             />
           </OnDesktop>
+
           <OnMobileAndTablet>
             <MobileContactUs 
               onSubmit={this._contactUs}
@@ -227,15 +231,16 @@ class Home extends Component {
               emailRef={this.footrefemail}
             />
           </OnDesktop>
-          <OnTablet>
-            <MobileFooter 
+
+          <OnMobileAndTablet>
+            {/* <MobileFooter 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
               titleRef={this.footreftitle}
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
-            />
-          </OnTablet>
+            /> */}
+          </OnMobileAndTablet>
         </section>
       </div>
     )

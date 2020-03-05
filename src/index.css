@@ -15,7 +15,7 @@ code {
   src: url('./assets/fonts/Gilroy/Gilroy-Bold.ttf');
 }
 @font-face {
-  font-family: Verlag Bold;
+  font-family: 'Verlag Bold';
   src: url('./assets/fonts/Verlag/Verlag-Bold.ttf');
 }
 @font-face {
