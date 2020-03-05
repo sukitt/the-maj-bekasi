@@ -9,7 +9,7 @@ const ContactUs = (props) =>{
         <div style={{
             width: 980,
             height: 578,
-            margin: "123px auto",
+            margin: "123px auto 315px auto",
             display: 'flex',
         }}>
             <div style={{

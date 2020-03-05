@@ -13,7 +13,7 @@ input,textarea::placeholder{
 }
 select::placeholder{
   font-size: 16px !important;
-  line-height: 26px !important;
+  line-height: 16px !important;
   color: #000000 !important;
   opacity: 1;
 }

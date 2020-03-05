@@ -9,6 +9,8 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
+    top:"40%",
+    transition:".3s all",
     width:"70px",
     height:"70px",
     background:"#CC9980",
@@ -54,6 +56,8 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
+    top:"40%",
+    transition:".3s all",
     width:"70px",
     height:"70px",
     background:"#CC9980",
@@ -116,7 +120,8 @@ const P = styled.p({
 })
 
 const Img = styled.img({
-  maxWidth:"1000px"
+  maxWidth:"1000px",
+  margin:"0px auto"
 })
 
 const Gallery = (props) => {

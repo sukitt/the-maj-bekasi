@@ -1,10 +1,6 @@
 import React, {Component, createRef} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
-
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
-import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
-
 import Fasilitas from '../component/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
@@ -14,6 +10,12 @@ import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/ContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/Footer'
+
+import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
+import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
+
+import {MobileFooter} from '../component/footer/mobile/Footer'
+
 
 import { layoutGenerator } from 'react-break';
 import { getSliders, getUnits, getGallery } from '../services/get'
@@ -25,7 +27,6 @@ const layout = layoutGenerator({
   desktop: 992,
 });
 
-const OnMobile = layout.is('mobile')
 const OnTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
@@ -39,7 +40,8 @@ class Home extends Component {
       units: [],
       errors: {
         sliders:{},
-        gallery:{}
+        gallery:{},
+        units: {},
       },
       contact: {
         validated: true,
@@ -73,7 +75,9 @@ class Home extends Component {
 
     getUnits()
       .then(res => this.setState({units: res.data}))
-      .catch(err => {if (err) throw err})
+      .catch(err => {
+        if (err && err.response) this.setState({errors: {units: err.response.status, status: err.response.statusText}})
+      })
 
     getGallery()
       .then(res => this.setState({gallery: res.data}))
@@ -158,7 +162,7 @@ class Home extends Component {
           </div>
         </section>
         <section>
-            <DenahUnit store={this.state.units} />
+            <DenahUnit store={this.state.units} errors={this.state.errors.units} />
         </section>
         <section>
           <div className="container">
@@ -199,7 +203,8 @@ class Home extends Component {
             />
           </div>
         </section>
-        <section>
+      <section>
+          <OnDesktop>
             <Footer 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
@@ -207,6 +212,16 @@ class Home extends Component {
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
             />
+          </OnDesktop>
+          <OnTablet>
+            <MobileFooter 
+              validated={this.state.footer.validated}
+              onSubmit={this._footer}
+              titleRef={this.footreftitle}
+              nameRef={this.footrefname}
+              emailRef={this.footrefemail}
+            />
+          </OnTablet>
         </section>
       </div>
     )

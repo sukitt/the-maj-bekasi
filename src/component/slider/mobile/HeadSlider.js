@@ -104,10 +104,11 @@ import { BaseUrl } from '../../../services/axios';
   const H2 = styled.h2`
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 150%;
     line-height: 28px;
     color: #FFFFFF;
-    margin: 70px 0 70px 23;
+    margin: 10% 0 5% 5%;
+    width: 60%;
     text-shadow: 0px 20px 60px rgba(138, 149, 158, 0.2);
   `;
   const Img = styled.img`
@@ -119,9 +120,19 @@ import { BaseUrl } from '../../../services/axios';
   const B = styled.button`
     /* white */
     border: 1px solid;
-    border-color: #FFFFFF; 
+    border-color: #FFFFFF;
+    background-color: transparent; 
     width: 157.26px;
     height: 40px;
+    margin: 0 0 10% 5%;
+  `;
+
+  const P = styled.span`
+    text-transform: uppercase;
+    font-size: 80%;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #FFFFFF;
   `;
 
   const SliderImg = props => (
@@ -142,7 +153,7 @@ import { BaseUrl } from '../../../services/axios';
                     }} 
                   >
                   <H2>{d.caption}</H2>
-                  <B>Bandingkan</B>
+                  <B><P>Bandingkan</P></B>
                   </div>
                 </div>
               ))}
