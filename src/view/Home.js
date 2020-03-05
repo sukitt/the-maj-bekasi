@@ -10,7 +10,7 @@ import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import TentangKami from '../component/TentangKami'
-import Footer from '../component/Footer'
+import Footer from '../component/footer/Footer'
 
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
