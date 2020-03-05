@@ -7,7 +7,8 @@ import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
 import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
-import ContactUs from '../component/ContactUs'
+import ContactUs from '../component/contact-us/ContactUs'
+import MobileContactUs from '../component/contact-us/MobileContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/Footer'
 
@@ -191,6 +192,7 @@ class Home extends Component {
         </section>
         <section>
           <div className="container">
+          <OnDesktop>
             <ContactUs
               // validated={this.state.contact.validated}
               onSubmit={this._contactUs}
@@ -201,6 +203,18 @@ class Home extends Component {
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
             />
+          </OnDesktop>
+          <OnMobileAndTablet>
+            <MobileContactUs 
+              onSubmit={this._contactUs}
+              gelarRef={this.contrefgelar}
+              namaRef={this.contrefnama}
+              unitRef={this.contrefunit}
+              teleponRef={this.contreftelepon}
+              emailRef={this.contrefemail}
+              catatanRef={this.contrefcatatan}
+            />
+          </OnMobileAndTablet>
           </div>
         </section>
       <section>
