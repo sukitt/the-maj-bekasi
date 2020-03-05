@@ -101,7 +101,6 @@ const PrevArrow = (props) => {
 }
 
 const H4 = styled.h4({
-  fontFamily: "Nunito Sans",
   fontStyle: "normal",
   fontWeight: "bold",
   fontSize: "14px",
@@ -111,7 +110,6 @@ const H4 = styled.h4({
 })
 
 const P = styled.p({
-  fontFamily: "Nunito Sans",
   fontStyle: "normal",
   fontWeight: "normal",
   fontSize: "16px",

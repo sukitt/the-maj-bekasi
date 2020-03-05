@@ -40,7 +40,7 @@ class NavigationBar extends Component {
   render() {
     const { error, isLoaded, items } = this.state;
     const itemStyle = {
-      fontFamily: "Nunito Sans",
+      fontFamily: "Verlag Bold",
       fontStyle: "normal",
       fontWeight: "bold",
       fontSize: "11px",
@@ -55,7 +55,7 @@ class NavigationBar extends Component {
       background: "#CC9980",
       padding: "10px 35px",
       
-      fontFamily: "Source Sans Pro",
+      fontFamily: "Verlag Bold",
       fontStyle: "normal",
       fontWeight: "bold",
       fontSize: "13px",

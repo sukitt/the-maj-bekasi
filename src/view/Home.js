@@ -5,7 +5,7 @@ import Fasilitas from '../component/fasilitas/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
-import AboutSlider from '../component/slider/AboutSlider'
+// import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
@@ -15,6 +15,7 @@ import Footer from '../component/footer/Footer'
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
+import MobileFooter from '../component/footer/mobile/Footer'
 
 
 
@@ -222,7 +223,6 @@ class Home extends Component {
           </div>
         </section>
       <section>
-          <OnDesktop>
             <Footer 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
@@ -230,17 +230,18 @@ class Home extends Component {
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
             />
-          </OnDesktop>
+          {/* <OnDesktop>
+          </OnDesktop> */}
 
-          <OnMobileAndTablet>
-            {/* <MobileFooter 
+          {/* <OnMobileAndTablet>
+            <MobileFooter 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
               titleRef={this.footreftitle}
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
-            /> */}
-          </OnMobileAndTablet>
+            />
+          </OnMobileAndTablet> */}
         </section>
       </div>
     )

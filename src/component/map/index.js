@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 
+import MarketplaceMarker from './assets/marketplacemarker.svg'
+
 import Marker from './marker'
 import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
 import './assets/css/style.css'
+import styled from 'styled-components';
 
 const Gmaps = (props) => {
   return(
@@ -26,16 +29,41 @@ const Gmaps = (props) => {
     </GoogleMapReact>
   );
 }
+
+const H5 = styled.h5`
+      font-family: Nunito Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 13px;
+      text-transform: uppercase;
+      color: #000000;
+    `;
+const DistanceContainer = styled.div`
+      margin: 45px 30px;
+      max-width:225px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      font-family: Nunito Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 13px;
+      text-transform: uppercase;
+      color: #000000;
+      padding:18px 10px;
+`;
 const Distance = (props) => {
   return(
-      <Col md="3" style={props.style}>
+      <DistanceContainer className="col-sm-3" style={props.style}>
         <Row>
-          <Col sm="2" style={{fontSize:"24px"}}><i className="fas fa-map"></i></Col>
+          <Col sm="2" style={{fontSize:"24px"}}><img src={MarketplaceMarker} alt="marketplace-marker" /></Col>
           <Col style={{margin:"auto 0px"}}>
-            {props.caption}
+            <H5>{props.caption}</H5>
           </Col>
         </Row>
-      </Col>
+      </DistanceContainer>
   )
 }
 
@@ -103,35 +131,17 @@ class index extends Component {
       },
     ]
 
-    const divDistance = {
-      margin: "45px 30px",
-      maxWidth:"225px",
-      background: "#FFFFFF",
-      border: "1px solid rgba(0, 0, 0, 0.2)",
-      boxSizing:" border-box",
-      fontFamily: "Nunito Sans",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "11px",
-      lineHeight: "13px",
-      textTransform: "uppercase",
-      color: "#000000",
-      padding:"18px 10px"
-    }
-
     return (
       <div style={{margin:"50px auto", padding:"150px 0px"}}>
         <h2 style={{
-          fontFamily: "Khula",
           fontStyle: "normal",
           fontWeight: "bold",
           fontSize: "22px",
           lineHeight: "28px",
           textTransform: "uppercase",
-          color: "#000000",
+          color: "#CC9980",
         }}>Lokasi</h2>
-        <h1 style={{
-          fontFamily: "Khula",
+        <h2 style={{
           fontStyle: "normal",
           fontWeight: "bold",
           fontSize: "30px",
@@ -140,7 +150,7 @@ class index extends Component {
           maxWidth: "428px",
           marginTop:"17px",
         }}>Kenyamanan dan kemudahan
-        menantimu di 'Planet' Bekasi.</h1>
+        menantimu di 'Planet' Bekasi.</h2>
 
         <Tabs defaultActiveKey="marketplace" className="gmaps" style={{
           marginTop:"35px",
@@ -153,19 +163,15 @@ class index extends Component {
             />
             <Row className="justify-content-center">
               <Distance 
-                style={divDistance}
                 caption="± 10 Menit ke Metropolitan Mall"
               />
               <Distance 
-                style={divDistance}
                 caption="± 10 Menit ke Living Plaza"
               />
               <Distance 
-                style={divDistance}
                 caption="± 2 KM ke Grand Metropolitan"
               />
               <Distance 
-                style={divDistance}
                 caption="± 2,5 km ke Summarecon Bekasi"
               />
             </Row>
@@ -178,19 +184,15 @@ class index extends Component {
             />
             <Row className="justify-content-center">
               <Distance 
-                style={divDistance}
                 caption="± 10 Menit ke Metropolitan Mall"
               />
               <Distance 
-                style={divDistance}
                 caption="± 10 Menit ke Living Plaza"
               />
               <Distance 
-                style={divDistance}
                 caption="± 2 KM ke Grand Metropolitan"
               />
               <Distance 
-                style={divDistance}
                 caption="± 2,5 km ke Summarecon Bekasi"
               />
             </Row>
