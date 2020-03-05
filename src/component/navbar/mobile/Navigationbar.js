@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
-import { Instance } from '../../services/axios'
+import { Instance } from '../../../services/axios'
 
-import logo from '../../assets/logo.svg'
+import logo from '../../../assets/logo.svg'
 
 export class NavigationBar extends Component {
   constructor(props) {

@@ -1,7 +1,10 @@
 import React, {Component, createRef} from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
+
+import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
+import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
+
 import Fasilitas from '../component/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
@@ -22,7 +25,8 @@ const layout = layoutGenerator({
   desktop: 992,
 });
 
-const OnMobileAndTablet = layout.isAtMost('tablet');
+const OnMobile = layout.is('mobile')
+const OnTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
 
@@ -129,17 +133,28 @@ class Home extends Component {
         <OnDesktop>
           <NavigationBar />
         </OnDesktop>
-        <OnMobileAndTablet>
-          <MobileNavigationBar />
-        </OnMobileAndTablet>
+
+        <OnTablet>
+            <MobileNavigationBar />
+        </OnTablet>
         <section>
           <div className="container">
-            <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+            <OnDesktop>
+              <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+            </OnDesktop>
+            <OnTablet>
+              <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
+            </OnTablet>
           </div>
         </section>
         <section>
           <div className="container">
-            <Fasilitas />
+            <OnDesktop>
+              <Fasilitas />
+            </OnDesktop>
+            <OnTablet>
+              <Fasilitas />
+            </OnTablet>
           </div>
         </section>
         <section>
