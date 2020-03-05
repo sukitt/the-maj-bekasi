@@ -1,13 +1,13 @@
 import React from 'react'
-import ContactForm from './form/ContactForm'
+import ContactForm from '../form/ContactForm'
 import { Button } from 'react-bootstrap'
-import './assets/css/style.css'
+import '../assets/css/style.css'
 import styled from 'styled-components'
 
 const ContactUs = (props) =>{
     return (
         <div style={{
-            width: 980,
+            maxWidth: 980,
             height: 578,
             margin: "123px auto 315px auto",
             display: 'flex',
@@ -18,17 +18,15 @@ const ContactUs = (props) =>{
                 margin: '28px auto',
             }}>
                 <h2 style={{
-                    fontFamily: 'Khula',
                     fontStyle: 'normal',
                     fontWeight: 'bold',
                     fontSize: 22,
                     textTransform: 'uppercase',
-                    color: '#CC9980',
+                    color: '#0000',
                     textAlign: 'center'
                 }}>Hubungi Kami</h2>
                 <p style={{
                     width: 598,
-                    fontFamily: 'Nunito Sans',
                     fontStyle: 'normal',
                     fontWeight: 'normal',
                     fontSize: 16,
@@ -53,7 +51,6 @@ const ContactUs = (props) =>{
                                 height: 40,
                                 borderRadius:"0",
                                 backgroundColor: '#CC9980',
-                                fontFamily: 'Source Sans Pro',
                                 fontStyle: 'normal',
                                 fontWeight: 'bold',
                                 fontSize: 13,
@@ -66,7 +63,6 @@ const ContactUs = (props) =>{
                 </div>
 
                 <h2 style={{
-                    fontFamily: 'Khula',
                     fontStyle: 'normal',
                     fontWeight: 'bold',
                     fontSize: 22,
@@ -110,7 +106,6 @@ const Gelar = [
 ]
 
 const P = styled.p({
-    fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
     fontSize: 16,
