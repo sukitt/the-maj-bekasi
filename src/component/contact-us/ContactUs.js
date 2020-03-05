@@ -17,14 +17,7 @@ const ContactUs = (props) =>{
                 height: 550,
                 margin: '28px auto',
             }}>
-                <h2 style={{
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 22,
-                    textTransform: 'uppercase',
-                    color: '#0000',
-                    textAlign: 'center'
-                }}>Hubungi Kami</h2>
+                <H4>Hubungi Kami</H4>
                 <p style={{
                     width: 598,
                     fontStyle: 'normal',
@@ -122,3 +115,13 @@ const A = styled.a({
         color:"#0366d6"
     }
 })
+
+const H4 = styled.h4`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+`;

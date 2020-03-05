@@ -3,7 +3,7 @@ import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import MoreTentangKami from '../component/card/MoreTentangKami'
 import OwnerSay from '../component/card/OwnerSay'
-import Footer from '../component/Footer'
+import Footer from '../component/footer/Footer'
 import { getSliders, getUnits, getGallery } from '../services/get'
 
 export default class TentangKami extends Component {

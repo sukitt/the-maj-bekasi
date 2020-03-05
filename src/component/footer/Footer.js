@@ -1,28 +1,29 @@
 import React from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
-import SubscribeForm from './form/Base'
-import Img1 from './assets/footer-image/1.svg'
-import Img2 from './assets/footer-image/partof.png'
+import SubscribeForm from '../form/Base'
+import Img1 from '../assets/footer-image/1.svg'
+import Img2 from '../assets/footer-image/partof.svg'
 import styled from 'styled-components'
 
 
 const Footer = props => {
     return (
         <D>
-            <div style={{margin: '137px 129px 153px 59px'}}>
+            <div className="container" style={{margin: '140px auto 40px auto'}}>
                 <Row>
-                    <Col lg={3}>
-                        <img style={{width: 296}} src={Img1} alt="logo2" />
-                        <img style={{marginLeft:28}} src={Img2} alt="Part of The Maj Group" />
-                        <Sosmed style={{marginLeft: 25}} />
+                    <Col lg={3} style={{marginBottom:"3rem"}}>
+                        <img style={{maxWidth: 245}} src={Img1} alt="logo2" />
+                        <Partof>Part Of</Partof>
+                        <img className="my-3" src={Img2} alt="Part of The Maj Group" />
+                        <Sosmed />
                     </Col>
-                    <Col lg={2}>
+                    <Col lg={2} style={{marginBottom:"3rem"}}>
                         <Join />
                     </Col>
-                    <Col lg={3}>
+                    <Col lg={3} style={{marginBottom:"3rem"}}>
                         <Explore />
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={4} style={{marginBottom:"3rem"}}>
                         <p style={caption}>Subscribe For Exclusive News & Offers</p>
                         <div>
                             <SubscribeForm
@@ -36,13 +37,14 @@ const Footer = props => {
                         </p>
                     </Col>
                 </Row>
+                <CopyRight>Copyright 2020 All right reserved</CopyRight>
             </div>
         </D>
     )
 }
 
 const Sosmed = props => (
-    <Row style={{maxWidth:150, marginLeft:28, marginTop:50}}>
+    <Row style={{margin:"1rem 0px"}}>
         <A href="#linkto" ><i className="fab fa-instagram"></i></A>
         <A href="#linkto"><i className="fab fa-twitter"></i></A>
         <A href="#linkto" ><i className="fab fa-facebook-f"></i></A>
@@ -117,7 +119,7 @@ const B = styled.button({
 })
 
 const D = styled.div({
-    height: 550,
+    height: "100%",
     marginTop: 315 ,
     backgroundColor: '#232323',
     display: 'flex',
@@ -126,5 +128,25 @@ const Li = styled.li({
     marginTop:"11px",
 })
 const ul = {listStyleType: 'none',marginTop: 26, padding: 0, marginBottom: 11}
+
+const Partof = styled.p`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #FFFFFF;
+    margin-top: 1.5rem;
+    margin-bottom:0;
+`;
+
+const CopyRight = styled.p`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+`;
 
 export default Footer
