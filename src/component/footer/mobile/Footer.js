@@ -1,106 +1,104 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
-import SubscribeForm from './form/Base'
-import Img1 from './assets/footer-image/1.svg'
-import Img2 from './assets/footer-image/partof.png'
 import styled from 'styled-components'
 
+import SubscribeForm from '../../form/Base'
+import Img1 from '../../assets/footer-image/1.svg'
+import Img2 from '../../assets/footer-image/partof.svg'
+import Inst from '../../assets/footer-image/brand/instagram.svg'
+import Fb from '../../assets/footer-image/brand/facebook.svg'
+import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
-const Footer = props => {
+export const MobileFooter = props => {
     return (
-        <D>
-            <div style={{margin: '137px 129px 153px 59px'}}>
-                <Row>
-                    <Col lg={3}>
-                        <img style={{width: 296}} src={Img1} alt="logo2" />
-                        <img style={{marginLeft:28}} src={Img2} alt="Part of The Maj Group" />
-                        <Sosmed style={{marginLeft: 25}} />
-                    </Col>
-                    <Col lg={2}>
-                        <Join />
-                    </Col>
-                    <Col lg={3}>
-                        <Explore />
-                    </Col>
-                    <Col lg={4}>
-                        <p style={caption}>Subscribe For Exclusive News & Offers</p>
-                        <div>
-                            <SubscribeForm
-                                {...props}
-                            >
-                                <B type='submit'>Subcribe</B>
-                            </SubscribeForm>
-                        </div>
-                        <p style={{...p, marginTop: 14}}>
-                            By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com. 
-                        </p>
-                    </Col>
-                </Row>
+        <D backgroundColor="#232323" padding="10% 10%">
+            <div>
+                <img style={{width: '80%'}} src={Img1} alt="logo2" />
+                <img src={Img2} style={{width: '80%'}} alt="Part of The Maj Group" />
+                <SocialMedia margin="5% 0">
+                    <A href="#linkto" >
+                        <Instagram />
+                    </A>
+                    <A href="#linkto" >
+                        <Facebook />
+                    </A>
+                    <A href="#linkto" >
+                        <Twitter />
+                    </A>
+                </SocialMedia>
+
+                <JoinUs caps="Join Our Family" margin="10% 0">
+                    <A display="block" href="#linkto"> Carrers </A>
+                    <A display="block" href="#linkto"> Inverstor </A>
+                </JoinUs>
+                
+                <ExploreUs caps="Explore Our World" margin="10% 0">
+                   <A display="block" href="#linkto">Contact Us</A>
+                   <A display="block" href="#linkto">Ancora Capital Management</A>
+                   <A display="block" href="#linkto">Media Center</A>
+                   <A display="block" href="#linkto">Privacy</A>
+                   <A display="block" href="#linkto">Terms and Conditions</A>
+                </ExploreUs>
+
+                <SubscribeUs caps="Subscribe For Exclusive News & Offers">
+                    <D>
+                        <SubscribeForm {...props}>
+                            <B type="submit">Subcribe</B>
+                        </SubscribeForm>
+                    </D>
+                    <P margin="5% 0">
+                        By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
+                    </P>
+                    <P margin="5% 0">Copyright 2020 All right reserved</P>
+                </SubscribeUs>
             </div>
         </D>
     )
 }
 
-const Sosmed = props => (
-    <Row style={{maxWidth:150, marginLeft:28, marginTop:50}}>
-        <A href="#linkto" ><i className="fab fa-instagram"></i></A>
-        <A href="#linkto"><i className="fab fa-twitter"></i></A>
-        <A href="#linkto" ><i className="fab fa-facebook-f"></i></A>
-    </Row>
+const JoinUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
-const Join = () => (
-    <>
-        <p style={caption}>Join Our Family</p>
-        <ul style={{...p, ...ul}}>
-            <Li><A href="#linkto">Carrers</A></Li>
-            <Li><A href="#linkto">Investors</A></Li>
-        </ul>
-    </>
+const ExploreUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
-const Explore = () => (
-    <>
-        <p style={caption}>
-            Explore Our World
-        </p>
-        <ul style={{...p, ...ul}}>
-            <Li><A href="#linkto">Contact Us</A></Li>
-            <Li><A href="#linkto">Ancora Capital Management</A></Li>
-            <Li><A href="#linkto">Media Center</A></Li>
-            <Li><A href="#linkto">Privacy</A></Li>
-            <Li><A href="#linkto">Terms and Conditions</A></Li>
-        </ul>
-    </>
+const SubscribeUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
+const P = styled.p(
+    props =>  ({
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 16,
+        lineHeight: '21px',
+        color: "#FFFFFF",
+        padding: props.padding,
+        margin: props.margin
+    })
+)
 
-const caption = {
-    fontFamily: "Nunito Sans",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: 14,
-    lineHeight: '16px',
-    textTransform: "uppercase",
-    color: "#FFFFFF",
-}
-
-const p = {
-    fontFamily: 'Nunito Sans',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 16,
-    lineHeight: '21px',
-    color: "#FFFFFF"
-}
-
-const A = styled.a({
-    color:"#fff",
-    marginRight:"30px",
-    "&:hover":{
-        textDecoration:"none"
-    }
-})
+const A = styled.a(
+    props => ({
+        display: props.display || "inline",
+        color:"#fff",
+        marginRight:"30px",
+        "&:hover":{
+            textDecoration:"none"
+        }
+    })
+)
 
 const B = styled.button({
     width: 120,
@@ -116,15 +114,49 @@ const B = styled.button({
     color: '#000000'
 })
 
-const D = styled.div({
-    height: 550,
-    marginTop: 315 ,
-    backgroundColor: '#232323',
-    display: 'flex',
-})
-const Li = styled.li({
-    marginTop:"11px",
-})
-const ul = {listStyleType: 'none',marginTop: 26, padding: 0, marginBottom: 11}
+const D = styled.div(
+    props => ({
+        padding: props.padding,
+        margin: props.margin /* "315px 0 0" */,
+        backgroundColor:  props.backgroundColor
+    })
+)
 
-export default Footer
+const Caps = styled.p({
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 14,
+    lineHeight: '16px',
+    textTransform: "uppercase",
+    color: "#FFFFFF",
+})
+
+const SocialMedia = styled.div(
+    props => ({
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: 'auto',
+        height: 'auto',
+        margin: props.margin
+    })
+)
+
+const Instagram = styled.img.attrs(props => ({
+    src: Inst,
+    width: "8%",
+    alt: "instagram"
+}))``
+
+const Twitter = styled.img.attrs(props =>({
+    src: Twitt,
+    width: "10%",
+    alt: "twitter"
+}))``
+
+const Facebook = styled.img.attrs(props => ({
+    src: Fb,
+    width: "10%",
+    alt: "facebook"
+}))``
+
+export default MobileFooter
