@@ -111,11 +111,6 @@ import { BaseUrl } from '../../../services/axios';
     width: 60%;
     text-shadow: 0px 20px 60px rgba(138, 149, 158, 0.2);
   `;
-  const Img = styled.img`
-    height: auto;
-    width: auto;
-    box-shadow: 0px 20px 60px rgba(138, 149, 158, 0.2);
-  `;
 
   const B = styled.button`
     /* white */
@@ -145,10 +140,8 @@ import { BaseUrl } from '../../../services/axios';
                       padding: 25,
                       backgroundImage: `url(${BaseUrl}/storage/${d.image.replace(/\\/g, '/')})`, 
                       backgroundRepeat: 'no-repeat',
-                      // backgroundSize: 'auto',
                       width: 'auto',
                       height: 'auto',
-                      // backgroundAttachment: 'fixed',
                       backgroundPosition: 'center'
                     }} 
                   >
