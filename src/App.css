@@ -198,7 +198,7 @@ a .button-small {
   visibility: visible;
 }
 .h-hide{
-  height: 200px;
+  height: 150px;
   transition: .5s all;
 }
 .h-show{

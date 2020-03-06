@@ -54,7 +54,7 @@ class MobileFasilitas extends Component {
 	render(){
 		return (
 				<D>
-					<H4 className="text-center">fasilitas</H4>
+					<h5 style={{fontSize:14}} className="text-center">fasilitas</h5>
 					<P>
 						Fasilitas yang lengkap dan modern
 						membantumu memulai langkah pertama
@@ -115,20 +115,9 @@ const H5 = styled.h5`
 const D = styled.div({
 	margin: "50px 0",
 	padding: "0px 15px",
-	// width: 936,
-	// height: 312
 	display: 'flex',
 	flexDirection: 'column'
 });
-
-const H4 = styled.h4`
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 16px;
-	text-transform: uppercase;
-	color: #000000;
-`;
 
 const P = styled.p`
 	font-style: normal;
