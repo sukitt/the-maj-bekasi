@@ -1,13 +1,13 @@
 body section {
   margin: 0;
-  font-family: 'Proxima Nova Book',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Proxima Nova Book', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Proxima Nova Book', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 @font-face {
@@ -22,15 +22,79 @@ code {
   font-family: Proxima Nova Book;
   src: url('./assets/fonts/ProximaNova/ProximaNova-Regular.otf');
 }
-.h1, .h2, .h3, h1, h2, h3{
+.h1, .h2, .h3, .h4, h1, h2, h3, h4{
   font-family: 'Gilory Bold' !important;
 }
-.h4, .h5, .h6, h4, h5, h6 {
+.h5, .h6, h5, h6 {
   font-family: 'Verlag Bold' !important;
 }
+h1, .h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 41px;
+  color: #232323;
+}
+h2, .h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 28px;
+  color: #232323;
+}
+h3, .h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 22px;
+  color: #232323;
+}
+h4, .h4 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  color: #232323;
+}
+h5, .h5 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #232323;
+}
+h6, .h6 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #232323;
+}
+p, span {
+  font-family: 'Proxima Nova Book' !important;
+}
 p{
-  font-family: 'Proxima Nova Book';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 21px;
+  color: #232323;
+  mix-blend-mode: normal;
+}
+span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 18px;
+  color: #232323;
 }
 button{
   font-family: 'Verlag Bold' !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 22px;
+  color: #232323;
 }
