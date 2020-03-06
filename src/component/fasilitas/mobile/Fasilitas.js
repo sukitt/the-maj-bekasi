@@ -23,7 +23,7 @@ class MobileFasilitas extends Component {
 		super(props)
 		this.state = {
 			expanded: false,
-			itemsToShow: 4,
+			Show: false,
 			Data: [
 				{ id: 1, img: Img1, caption: 'Zen Garden' },
 				{ id: 2, img: Img2, caption: 'Ridesharing Shelter' },
@@ -45,10 +45,10 @@ class MobileFasilitas extends Component {
 		this.showMore = this.showMore.bind(this);
 	}
 		showMore() {
-			this.state.itemsToShow === 4 ? (
-				this.setState({itemsToShow:this.state.Data.length, expanded:true})
+			this.state.Show? (
+				this.setState({ Show:false, expanded:false})
 			) : (
-				this.setState({itemsToShow:4, expanded:false})
+				this.setState({ Show:true, expanded:true})
 			)
 		}
 	render(){
@@ -60,10 +60,25 @@ class MobileFasilitas extends Component {
 						membantumu memulai langkah pertama
 						menggapai anganmu.
 					</P>
-					<Row style={{marginTop:40}}>
-						{this.state.Data.slice(0, this.state.itemsToShow).map((d, i) => {
+					<Row style={{marginTop:40}} className={this.state.expanded?"h-show":"h-hide"}>
+						{this.state.Data.slice(0, 4).map((d, i) => {
 							return (
 								<Col xs="6" style={{marginBottom:24}} key={d.id}>
+									<Row key={d.id}>
+										<Col xs="3">
+											<img src={d.img} style={{maxWidth: '40px', alignSelf:'center'}} alt={d.caption.replace(" ", "-")} />
+										</Col>
+										<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
+											<H5>{d.caption}</H5>
+										</Col>
+									</Row>
+								</Col>
+							)
+						})}
+
+						{this.state.Data.slice(5, this.state.Data.length).map((d, i) => {
+							return (
+								<Col xs="6" style={{marginBottom:24}} className={this.state.expanded?"show":"hide"} key={d.id}>
 										<Row >
 											<Col xs="3">
 												<img src={d.img} style={{maxWidth: '40px', alignSelf:'center'}} alt={d.caption.replace(" ", "-")} />

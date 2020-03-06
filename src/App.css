@@ -187,3 +187,21 @@ a .button-small {
   line-height: 18px;
   color: #fff;
 }
+.hide{
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+.show{
+  opacity: 1;
+  transition: .5s;
+  visibility: visible;
+}
+.h-hide{
+  height: 200px;
+  transition: .5s all;
+}
+.h-show{
+  height: 600px;
+  transition: .5s all;
+}
