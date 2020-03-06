@@ -134,21 +134,14 @@ class index extends Component {
     return (
       <div style={{margin:"50px auto", padding:"150px 0px"}}>
         <h2 style={{
-          fontStyle: "normal",
-          fontWeight: "bold",
-          fontSize: "22px",
-          lineHeight: "28px",
-          textTransform: "uppercase",
           color: "#CC9980",
+          letterSpacing:"3px",
+          textTransform:"uppercase",
         }}>Lokasi</h2>
         <h2 style={{
-          fontStyle: "normal",
-          fontWeight: "bold",
-          fontSize: "30px",
-          lineHeight: "41px",
           color: "#000000",
-          maxWidth: "428px",
-          marginTop:"17px",
+          maxWidth: "312px",
+          marginTop:"7px",
         }}>Kenyamanan dan kemudahan
         menantimu di 'Planet' Bekasi.</h2>
 

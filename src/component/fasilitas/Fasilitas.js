@@ -48,44 +48,45 @@ const Fasilitas = (props) => {
 						display: 'flex',
 						flexDirection: 'column'
 				}}>
-					<h4 style={{
-							fontStyle: 'normal',
-							fontWeight: 'bold',
-							fontSize: 22,
-							textTransform: 'uppercase',
-							marginLeft: 15,
-					}}>fasilitas</h4>
-					<p style={{
-							fontStyle: 'normal',
-							fontWeight: 'bold',
-							fontSize: 12,
-							maxWidth: 335,
-							// lineHeight: 18,
-							letterSpacing: 2,
-							textTransform: 'uppercase',
-							marginLeft: 15,
-					}}>
-							Fasilitas yang lengkap dan modern
-							membantumu memulai langkah pertama
-							menggapai anganmu.
-					</p>
-					<Row>
-							{Data.map((d, i) => {
-								return (
-									<Col md="2" style={{margin:"34px 16px"}} key={d.id}>
-											<Row >
-												<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px"}}>
-													<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
-												</Col>
-												<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
-													<h5 style={span}>{d.caption}</h5>
-												</Col>
-											</Row>
-									</Col>
-								)
-							})}
-					</Row>
-						</div>
+					<div className="container-2 p-0">
+
+						<h4 style={{
+								fontStyle: 'normal',
+								fontWeight: 'bold',
+								fontSize: 22,
+								textTransform: 'uppercase',
+								}}>fasilitas</h4>
+						<p style={{
+								fontStyle: 'normal',
+								fontWeight: 'bold',
+								fontSize: 12,
+								maxWidth: 335,
+								// lineHeight: 18,
+								letterSpacing: 2,
+								textTransform: 'uppercase',
+								}}>
+								Fasilitas yang lengkap dan modern
+								membantumu memulai langkah pertama
+								menggapai anganmu.
+						</p>
+						<Row className="mx-0">
+								{Data.map((d, i) => {
+									return (
+										<Col md="2/3" className="p-0" style={{margin:"34px 0px"}} key={d.id}>
+												<Row className="mx-0">
+													<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px"}}>
+														<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
+													</Col>
+													<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
+														<h5 style={span}>{d.caption}</h5>
+													</Col>
+												</Row>
+										</Col>
+									)
+								})}
+						</Row>
+					</div>
+				</div>
 		)
 }
 
