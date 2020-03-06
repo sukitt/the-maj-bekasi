@@ -22,7 +22,7 @@ import MobileFooter from '../component/footer/mobile/Footer'
 
 
 import { layoutGenerator } from 'react-break';
-import { getSliders, getUnits, getGallery } from '../services/get'
+import { getSliders, getUnits, getGallery, getPartnership } from '../services/get'
 
 
 const layout = layoutGenerator({
@@ -42,10 +42,12 @@ class Home extends Component {
       sliders: [],
       gallery: [],
       units: [],
+      partnership: [],
       errors: {
         sliders:{},
         gallery:{},
         units: {},
+        partnership: {},
       },
       contact: {
         validated: true,
@@ -87,6 +89,11 @@ class Home extends Component {
       .then(res => this.setState({gallery: res.data}))
       .catch((err) => {
         if (err && err.response) this.setState({errors:{gallery:{code:err.response.status, status:err.response.statusText}}})
+      })
+    getPartnership()
+      .then(res => this.setState({partnership: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{partnership:{code:err.response.status, status:err.response.statusText}}})
       })
   }
 
@@ -197,7 +204,7 @@ class Home extends Component {
         </section>
         <section>
           <div className="w-100">
-            <LogoSlider />
+            <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
           </div>
         </section>
         <section>
