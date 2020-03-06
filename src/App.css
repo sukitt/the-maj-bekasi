@@ -159,6 +159,7 @@ a:hover{
 button .button-small {
   background: #CC9980;
   font-family: 'Verlag Bold' !important;
+  padding: 11px 35px !important;
   text-transform: uppercase;
   font-style: normal;
   font-weight: bold;
