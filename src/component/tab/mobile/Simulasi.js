@@ -1,22 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
+
 import DropdownCicilan from '../DropdownCicilan'
 import DropdownKredit from '../DropdownKredit'
 import DropdownBunga from '../DropdownBunga'
+import Base from './Base'
 
 
-export class Simulasi extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-             cicilan: 0,
-
-        }
-    }
+export class Simulasi extends Base {
     
     render() {
+        console.log(this.state.cicilan)
         return (
             <D backgroundColor="#12284C" padding="10%">
                 <H2>Simulasi KPA Studio A</H2>
@@ -27,6 +22,18 @@ export class Simulasi extends Component {
                     <Row>
                         <Col style={{marginBottom:"53px"}} ><p>Harga Unit</p></Col>
                         <Col style={{marginBottom:"53px"}}><p>IDR 263.500.000</p></Col>
+                        
+                    </Row>
+                    <Row>
+                        <Col style={{marginBottom:"53px"}}><p>DP 20%</p></Col>
+                        <Col style={{marginBottom:"53px"}}><p>IDR 52.700.000</p></Col>
+                    </Row>
+                    <Row>
+                        <Col style={{marginBottom:"53px"}}><p>Jumlah Pinjaman</p></Col>
+                        <Col style={{marginBottom:"53px"}}><p>IDR 210.800.000</p></Col>
+                    </Row>
+
+                    <Row>
                         <Col style={{marginBottom:"53px"}}><p>Cicilan DP</p></Col>
                         <Col style={{marginBottom:"53px"}}>
                             <DropdownCicilan
@@ -37,8 +44,6 @@ export class Simulasi extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col style={{marginBottom:"53px"}}><p>DP 20%</p></Col>
-                        <Col style={{marginBottom:"53px"}}><p>IDR 52.700.000</p></Col>
                         <Col style={{marginBottom:"53px"}}><p>Tenor Kredit</p></Col>
                         <Col style={{marginBottom:"53px"}}>
                             <DropdownKredit
@@ -49,8 +54,6 @@ export class Simulasi extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col style={{marginBottom:"53px"}}><p>Jumlah Pinjaman</p></Col>
-                        <Col style={{marginBottom:"53px"}}><p>IDR 210.800.000</p></Col>
                         <Col style={{marginBottom:"53px"}}><p>Bunga</p></Col>
                         <Col style={{marginBottom:"53px"}}>
                             <DropdownBunga
@@ -86,7 +89,7 @@ const H1 = styled.h1(
         color: '#FFFFFF',
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: 34,
+        fontSize: "2.125em",
         textAlign: 'center',
         letterSpacing: "2px",
         margin: props.margin,
@@ -112,7 +115,7 @@ const H3 = styled.h3(
     props => ({
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: "",
+        fontSize: "17px",
         textAlign: 'center',
         color: '#CC9980',
         letterSpacing: "2px",
