@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import SubscribeForm from '../../form/Base'
@@ -10,15 +10,15 @@ import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 export const MobileFooter = props => {
     return (
-        <D backgroundColor="#232323" padding="10% 10%">
-            <div>
+        <div style={{marginTop: "5em"}}>
+            <D backgroundColor="#232323" padding="10% 10%">
                 <img style={{width: '80%'}} src={Img1} alt="logo2" />
-                <img src={Img2} style={{width: '80%'}} alt="Part of The Maj Group" />
                 <SocialMedia margin="5% 0">
                     <A href="#linkto" ><Instagram /></A>
                     <A href="#linkto" ><Facebook /></A>
                     <A href="#linkto" ><Twitter /></A>
                 </SocialMedia>
+                <img src={Img2} style={{width: '80%'}} alt="Part of The Maj Group" />
 
                 <JoinUs caps="Join Our Family" margin="10% 0">
                     <A display="block" href="#linkto"> Carrers </A>
@@ -44,8 +44,8 @@ export const MobileFooter = props => {
                     </P>
                     <P textAlign="center" margin="5% 0">Copyright 2020 All right reserved</P>
                 </SubscribeUs>
-            </div>
-        </D>
+            </D>
+        </div>
     )
 }
 
@@ -111,6 +111,7 @@ const D = styled.div(
     props => ({
         padding: props.padding,
         margin: props.margin /* "315px 0 0" */,
+        marginTop: props.marginTop,
         backgroundColor:  props.backgroundColor
     })
 )
