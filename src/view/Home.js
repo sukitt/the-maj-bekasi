@@ -15,6 +15,7 @@ import Footer from '../component/footer/Footer'
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
+import Simulasi from '../component/tab/mobile/Simulasi'
 import MobileFooter from '../component/footer/mobile/Footer'
 
 
@@ -174,7 +175,12 @@ class Home extends Component {
           </div>
         </section>
         <section>
+          <OnDesktop>
             <DenahUnit store={this.state.units} errors={this.state.errors.units} />
+          </OnDesktop>
+          {/* <OnMobileAndTablet>
+            <Simulasi />
+          </OnMobileAndTablet> */}
         </section>
         <section>
           <div className="container">
@@ -230,6 +236,7 @@ class Home extends Component {
           </div>
         </section>
       <section>
+          <OnDesktop>
             <Footer 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
@@ -237,10 +244,9 @@ class Home extends Component {
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
             />
-          {/* <OnDesktop>
-          </OnDesktop> */}
+          </OnDesktop>
 
-          {/* <OnMobileAndTablet>
+          <OnMobileAndTablet>
             <MobileFooter 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
@@ -248,7 +254,7 @@ class Home extends Component {
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
             />
-          </OnMobileAndTablet> */}
+          </OnMobileAndTablet>
         </section>
       </div>
     )

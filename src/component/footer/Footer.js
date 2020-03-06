@@ -13,7 +13,6 @@ const Footer = props => {
                 <Row>
                     <Col lg={3} style={{marginBottom:"3rem"}}>
                         <img style={{maxWidth: 245}} src={Img1} alt="logo2" />
-                        <Partof>Part Of</Partof>
                         <img className="my-3" src={Img2} alt="Part of The Maj Group" />
                         <Sosmed />
                     </Col>
