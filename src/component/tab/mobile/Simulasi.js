@@ -7,37 +7,21 @@ import DropdownBunga from '../DropdownBunga'
 
 
 export class Simulasi extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             cicilan: 0,
+
+        }
+    }
+    
     render() {
         return (
             <D backgroundColor="#12284C" padding="10%">
-                <h2 style={{
-                    color: '#FFFFFF',
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 22,
-                    textAlign: 'center',
-                    textTransform: 'uppercase'
-                }}>
-                    Simulasi KPA Studio A
-                </h2>
-                <h3 style={{
-                        fontStyle: 'normal',
-                        fontWeight: 'bold',
-                        fontSize: 17,
-                        textAlign: 'center',
-                        color: '#CC9980'
-                }}>
-                    Estimasi Cicilan Bulanan
-                </h3>
-                <h1 style={{
-                    color: '#FFFFFF',
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 34,
-                    textAlign: 'center',
-                }}>
-                    IDR 18.046.057
-                </h1>
+                <H2>Simulasi KPA Studio A</H2>
+                <H3>Estimasi Cicilan Bulanan</H3>
+                <H1>IDR 18.046.057</H1>
 
                 <div style={{margin: "67px auto", maxWidth:800}}>
                     <Row>
@@ -94,5 +78,45 @@ const D = styled.div(
         // boxSizing: 'border-box',
         // border: '1px solid',
         height: "auto"
+    })
+)
+
+const H1 = styled.h1(
+    props => ({
+        color: '#FFFFFF',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 34,
+        textAlign: 'center',
+        letterSpacing: "2px",
+        margin: props.margin,
+        padding: props.padding
+    })
+)
+
+const H2 = styled.h2(
+    props => ({
+        color: '#FFFFFF',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: "1.3750em",
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        letterSpacing: "2px",
+        margin: props.margin,
+        padding: props.padding
+    })
+)
+
+const H3 = styled.h3(
+    props => ({
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: "",
+        textAlign: 'center',
+        color: '#CC9980',
+        letterSpacing: "2px",
+        margin: props.margin,
+        padding: props.padding
     })
 )
