@@ -178,9 +178,9 @@ class Home extends Component {
           <OnDesktop>
             <DenahUnit store={this.state.units} errors={this.state.errors.units} />
           </OnDesktop>
-          {/* <OnMobileAndTablet>
+          <OnMobileAndTablet>
             <Simulasi />
-          </OnMobileAndTablet> */}
+          </OnMobileAndTablet>
         </section>
         <section>
           <div className="container">
@@ -188,9 +188,14 @@ class Home extends Component {
           </div>
         </section>
         <section>
-          <div className="w-100">
+          <OnDesktop>
+            <div className="w-100">
+              <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
+            </div>
+          </OnDesktop>
+          <OnMobileAndTablet>
             <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
-          </div>
+          </OnMobileAndTablet>
         </section>
         {/* <section>
           <div className="container">
@@ -202,11 +207,11 @@ class Home extends Component {
             <TentangKami />
           </div>
         </section>
-        <section>
+        {/* <section>
           <div className="w-100">
             <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
           </div>
-        </section>
+        </section> */}
         <section>
           <div className="container">
           <OnDesktop>
