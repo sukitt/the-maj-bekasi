@@ -4,17 +4,23 @@ import Slider from 'react-slick';
 import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
+import { unstable_batchedUpdates } from 'react-dom';
 
  
   function NextArrow(props) {
     const { className, style, onClick } = props;
     const Arrows = styled.div({
       display: "inline-block",
+      transition:".3s all",
       width:"70px",
       height:"70px",
       background:"#CC9980",
       color: "#ffffff",
       textDecoration: "none",
+      top:"unset",
+      right:"unset",
+      left:"49.99%",
+      bottom:"8.5%",
       padding: "30px",
       '&:hover': {
         background:"#ffffff",
@@ -52,11 +58,15 @@ import { BaseUrl } from '../../services/axios';
     const { className, style, onClick } = props;
     const Arrows = styled.div({
       display: "inline-block",
+      transition:".3s all",
       width:"70px",
       height:"70px",
       background:"#CC9980",
       color: "#ffffff",
       textDecoration: "none",
+      top:"unset",
+      left:"43.666%",
+      bottom:"8.5%",
       padding: "30px",
       zIndex:"1",
       '&:hover': {
