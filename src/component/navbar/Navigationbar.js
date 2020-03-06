@@ -39,33 +39,6 @@ class NavigationBar extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    const itemStyle = {
-      fontFamily: "Verlag Bold",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "11px",
-      lineHeight: "13px",
-      textTransform: "uppercase",
-      color: "#000000",
-      margin:"auto 1rem",
-    }
-    const btnStyle = {
-      width: "100%",
-      height: "40px",
-      background: "#CC9980",
-      padding: "10px 35px",
-      
-      fontFamily: "Verlag Bold",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "13px",
-      lineHeight: "18px",
-      textAlign: "center",
-      letterSpacing: "2px",
-      textTransform: "uppercase",
-      color: "#FFFFFF",
-      textDecoration: "none",
-    }
     if(error){
       return <div>Error: {error.message}</div>
     }else if(!isLoaded){
@@ -74,31 +47,27 @@ class NavigationBar extends Component {
 
       return(
         <Navbar bg="white" expand="lg">
-          <div className="container" style={{padding:"0px 40px"}}>
-            <Navbar.Brand href="#home" style={{marginRight:"40px"}}>
-              <img src={logo} alt="logo" style={{
-                maxWidth:"140px",
-                width:"100%",
-              }} />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <div className="container-2" >
             <Navbar.Collapse id="basic-navbar-nav">
+              <Navbar.Brand href="#home" >
+                <img src={logo} alt="logo" style={{
+                  maxWidth:"120px",
+                  width:"100%",
+                }} />
+              </Navbar.Brand>
               <Nav className="mr-auto">
 
                 {items.map(item => (
                   <Nav.Link key={item.id} href={item.link}
-                  style={itemStyle}
                   >
-                    {item.name}
+                    <h6>{item.name}</h6>
                   </Nav.Link>
                 ))}
 
               </Nav>
               <Nav className="ml-auto">
-              <Nav.Link href="#home"
-                  style={btnStyle}
-                >
-                  Hubungi Kami
+                <Nav.Link href="#home">
+                  <button className="button-small">Hubungi Kami</button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
