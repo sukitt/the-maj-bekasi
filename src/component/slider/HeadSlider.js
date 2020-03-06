@@ -26,11 +26,25 @@ import { unstable_batchedUpdates } from 'react-dom';
     padding: 14px 20px;
   `;
 
-  const Buttons = styled.div`
+  const Buttons = styled.button`
     background: #CC9980;
     height:70px;
     width:70px;
     padding: 25px;
+    
+    border: 0px;
+    user-select: none;
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    transition: .15s all;
+    font-family: 'Verlag Bold' !important;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    &:hover {
+      background: #fff;
+    }
   `;
 
   const captionTextStyle={
@@ -115,11 +129,11 @@ import { unstable_batchedUpdates } from 'react-dom';
                         </h2>
                       <a href={item.link} style={captionButtonStyle}>{item.button_text}</a>
                     </Content>
-                    <Buttons>
-                      <Btn onClick={this.previous} arrows={arrows}><i className="fa fa-chevron-left"></i></Btn>
+                    <Buttons onClick={this.previous} >
+                      <i className="fa fa-chevron-left"></i>
                     </Buttons>
-                    <Buttons>
-                      <Btn onClick={this.next} arrows={arrows}><i className="fa fa-chevron-right"></i></Btn>
+                    <Buttons onClick={this.next}>
+                      <i className="fa fa-chevron-right"></i>
                     </Buttons>
                   </Row>
                 </CaptionContainer>
