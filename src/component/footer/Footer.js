@@ -1,105 +1,113 @@
 import React from 'react'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
+import styled from 'styled-components'
+
 import SubscribeForm from '../form/Base'
 import Img1 from '../assets/footer-image/1.svg'
 import Img2 from '../assets/footer-image/partof.svg'
-import styled from 'styled-components'
+import Inst from '../assets/footer-image/brand/instagram.svg'
+import Fb from '../assets/footer-image/brand/facebook.svg'
+import Twitt from '../assets/footer-image/brand/twitter.svg'
 
 
 const Footer = props => {
     return (
-        <D>
-            <div className="container" style={{margin: '140px auto 40px auto'}}>
+        <div style={{marginTop: "5em"}}>
+            <D backgroundColor="#232323" padding="10% 10%">
                 <Row>
-                    <Col lg={3} style={{marginBottom:"3rem"}}>
-                        <img style={{maxWidth: 245}} src={Img1} alt="logo2" />
-                        <img className="my-3" src={Img2} alt="Part of The Maj Group" />
-                        <Sosmed />
+                    <Col lg={4}>
+                        <img style={{width: '80%'}} src={Img1} alt="logo2" />
+                        <SocialMedia margin="5% 0">
+                            <A href="#linkto" ><Instagram /></A>
+                            <A href="#linkto" ><Facebook /></A>
+                            <A href="#linkto" ><Twitter /></A>
+                        </SocialMedia>
                     </Col>
-                    <Col lg={2} style={{marginBottom:"3rem"}}>
-                        <Join />
+                    <Col lg={2}>
+                        <JoinUs caps="Join Our Family" margin="10% 0">
+                            <A display="block" href="#linkto"> Carrers </A>
+                            <A display="block" href="#linkto"> Inverstor </A>
+                        </JoinUs>
                     </Col>
-                    <Col lg={3} style={{marginBottom:"3rem"}}>
-                        <Explore />
+                    <Col lg={2}>
+                        <ExploreUs caps="Explore Our World" margin="10% 0">
+                        <A display="block" href="#linkto">Contact Us</A>
+                        <A display="block" href="#linkto">Ancora Capital Management</A>
+                        <A display="block" href="#linkto">Media Center</A>
+                        <A display="block" href="#linkto">Privacy</A>
+                        <A display="block" href="#linkto">Terms and Conditions</A>
+                        </ExploreUs>
                     </Col>
-                    <Col lg={4} style={{marginBottom:"3rem"}}>
-                        <SubscribeText>Subscribe For Exclusive News & Offers</SubscribeText>
-                        <div>
-                            <SubscribeForm
-                                {...props}
-                            >
-                                <B type='submit'>Subcribe</B>
-                            </SubscribeForm>
-                        </div>
-                        <p style={{...p, marginTop: 14}}>
-                            By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com. 
-                        </p>
+                    <Col lg={4}>
+                        <SubscribeUs caps="Subscribe For Exclusive News & Offers">
+                            <D>
+                                <SubscribeForm {...props}>
+                                    <B type="submit">Subcribe</B>
+                                </SubscribeForm>
+                            </D>
+                        </SubscribeUs>
                     </Col>
                 </Row>
-                <CopyRight>Copyright 2020 All right reserved</CopyRight>
-            </div>
-        </D>
+                <Row>
+                    <Col lg={6}>
+                        <img src={Img2} style={{maxWidth: '100%'}} alt="Part of The Maj Group" />
+                    </Col>
+                    <Col lg={6}>
+                        <P>
+                            By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
+                        </P>
+                    </Col>
+                </Row>
+                <P textAlign="center" margin="5% 0">Copyright 2020 All right reserved</P>
+            </D>
+        </div>
     )
 }
 
-const Sosmed = props => (
-    <Row style={{margin:"1rem 0px"}}>
-        <A href="#linkto" ><i className="fab fa-instagram"></i></A>
-        <A href="#linkto"><i className="fab fa-twitter"></i></A>
-        <A href="#linkto" ><i className="fab fa-facebook-f"></i></A>
-    </Row>
+const JoinUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
-const Join = () => (
-    <>
-        <H4>Join Our Family</H4>
-        <ul style={{...p, ...ul}}>
-            <Li><A href="#linkto">Carrers</A></Li>
-            <Li><A href="#linkto">Investors</A></Li>
-        </ul>
-    </>
+const ExploreUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
-const Explore = () => (
-    <>
-        <H4>
-            Explore Our World
-        </H4>
-        <ul style={{...p, ...ul}}>
-            <Li><A href="#linkto">Contact Us</A></Li>
-            <Li><A href="#linkto">Ancora Capital Management</A></Li>
-            <Li><A href="#linkto">Media Center</A></Li>
-            <Li><A href="#linkto">Privacy</A></Li>
-            <Li><A href="#linkto">Terms and Conditions</A></Li>
-        </ul>
-    </>
+const SubscribeUs = props => (
+    <D {...props}>
+        <Caps>{props.caps}</Caps>
+        {props.children}
+    </D>
 )
 
+const P = styled.p(
+    props =>  ({
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: "16px",
+        lineHeight: '21px',
+        color: "#FFFFFF",
+        padding: props.padding,
+        margin: props.margin,
+        textAlign: props.textAlign
+    })
+)
 
-const H4 = styled.h4`
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-`;
-
-const p = {
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 16,
-    lineHeight: '21px',
-    color: "#FFFFFF"
-}
-
-const A = styled.a({
-    color:"#fff",
-    marginRight:"30px",
-    "&:hover":{
-        textDecoration:"none"
-    }
-})
+const A = styled.a(
+    props => ({
+        display: props.display || "inline",
+        color:"#fff",
+        marginRight:"30px",
+        "&:hover":{
+            textDecoration:"none"
+        }
+    })
+)
 
 const B = styled.button({
     width: 120,
@@ -114,45 +122,50 @@ const B = styled.button({
     color: '#000000'
 })
 
-const D = styled.div({
-    height: "100%",
-    marginTop: 315 ,
-    backgroundColor: '#232323',
-    display: 'flex',
+const D = styled.div(
+    props => ({
+        padding: props.padding,
+        margin: props.margin /* "315px 0 0" */,
+        marginTop: props.marginTop,
+        backgroundColor:  props.backgroundColor
+    })
+)
+
+const Caps = styled.h4({
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 14,
+    lineHeight: '16px',
+    textTransform: "uppercase",
+    color: "#FFFFFF",
 })
-const Li = styled.li({
-    marginTop:"11px",
-})
-const ul = {listStyleType: 'none',marginTop: 26, padding: 0, marginBottom: 11}
 
-const Partof = styled.p`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 26px;
-    color: #FFFFFF;
-    margin-top: 1.5rem;
-    margin-bottom:0;
-`;
+const SocialMedia = styled.div(
+    props => ({
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: 'auto',
+        height: 'auto',
+        margin: props.margin
+    })
+)
 
-const CopyRight = styled.p`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 18px;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 50px;
-`;
+const Instagram = styled.img.attrs(props => ({
+    src: Inst,
+    // width: "8%",
+    alt: "instagram"
+}))``
 
-const SubscribeText = styled.h4`
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin-bottom: 26px;
-`;
+const Twitter = styled.img.attrs(props =>({
+    src: Twitt,
+    // width: "10%",
+    alt: "twitter"
+}))``
+
+const Facebook = styled.img.attrs(props => ({
+    src: Fb,
+    // width: "10%",
+    alt: "facebook"
+}))``
 
 export default Footer
