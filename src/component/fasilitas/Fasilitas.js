@@ -42,7 +42,7 @@ const Fasilitas = (props) => {
 		return (
 				<div style={{
 						margin: "50px 0",
-						padding: "100px 0px",
+						padding: "50px 0px",
 						// width: 936,
 						// height: 312
 						display: 'flex',
