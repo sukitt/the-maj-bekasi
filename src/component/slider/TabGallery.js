@@ -127,7 +127,6 @@ export default class TabGallery extends Component {
                 </Col>
                 <Col>
                   <h4 style={{
-                    fontFamily: "Nunito Sans",
                     fontStyle: "normal",
                     fontWeight: "bold",
                     fontSize: "14px",
@@ -136,7 +135,6 @@ export default class TabGallery extends Component {
                     color: "#12284C",
                   }}>{item.nama}</h4>
                   <p style={{
-                    fontFamily: "Nunito Sans",
                     fontStyle: "normal",
                     fontWeight: "normal",
                     fontSize: "16px",

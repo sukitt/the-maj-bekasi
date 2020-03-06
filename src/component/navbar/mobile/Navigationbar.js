@@ -41,33 +41,31 @@ export class NavigationBar extends Component {
 
   render() {
     const { showing, error, isLoaded, items } = this.state;
-    const itemStyle = {
-      fontFamily: "Nunito Sans",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "11px",
-      lineHeight: "13px",
-      textTransform: "uppercase",
-      color: "#000000",
-      margin:"auto 1rem",
-    }
-    const btnStyle = {
-      width: "100%",
-      height: "40px",
-      background: "#CC9980",
-      padding: "10px 35px",
+    // const itemStyle = {
+    //   fontStyle: "normal",
+    //   fontWeight: "bold",
+    //   fontSize: "11px",
+    //   lineHeight: "13px",
+    //   textTransform: "uppercase",
+    //   color: "#000000",
+    //   margin:"auto 1rem",
+    // }
+    // const btnStyle = {
+    //   width: "100%",
+    //   height: "40px",
+    //   background: "#CC9980",
+    //   padding: "10px 35px",
       
-      fontFamily: "Source Sans Pro",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "13px",
-      lineHeight: "18px",
-      textAlign: "center",
-      letterSpacing: "2px",
-      textTransform: "uppercase",
-      color: "#FFFFFF",
-      textDecoration: "none",
-    }
+    //   fontStyle: "normal",
+    //   fontWeight: "bold",
+    //   fontSize: "13px",
+    //   lineHeight: "18px",
+    //   textAlign: "center",
+    //   letterSpacing: "2px",
+    //   textTransform: "uppercase",
+    //   color: "#FFFFFF",
+    //   textDecoration: "none",
+    // }
     if(error){
       return <div>Error: {error.message}</div>
     }else if(!isLoaded){
@@ -77,7 +75,7 @@ export class NavigationBar extends Component {
       return(
         <Navbar bg="white" expand="lg">
           <div className="container-fluid">
-          <Button className="position-absolute" onClick={()=>this.setState({showing: !showing})}><i className="fas fa-bars"></i></Button>
+          <Button className="position-absolute bg-transparent border-0" onClick={()=>this.setState({showing: !showing})}><i style={{color:"#CC9980", fontSize:22}} className="fas fa-bars"></i></Button>
             <Navbar.Brand href="#home" className="mx-auto">
               <img src={logo} alt="logo" style={{
                 maxWidth:"140px",

@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import { Row, Col, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import SubscribeForm from '../../form/Base'
@@ -16,15 +15,9 @@ export const MobileFooter = props => {
                 <img style={{width: '80%'}} src={Img1} alt="logo2" />
                 <img src={Img2} style={{width: '80%'}} alt="Part of The Maj Group" />
                 <SocialMedia margin="5% 0">
-                    <A href="#linkto" >
-                        <Instagram />
-                    </A>
-                    <A href="#linkto" >
-                        <Facebook />
-                    </A>
-                    <A href="#linkto" >
-                        <Twitter />
-                    </A>
+                    <A href="#linkto" ><Instagram /></A>
+                    <A href="#linkto" ><Facebook /></A>
+                    <A href="#linkto" ><Twitter /></A>
                 </SocialMedia>
 
                 <JoinUs caps="Join Our Family" margin="10% 0">
@@ -49,7 +42,7 @@ export const MobileFooter = props => {
                     <P margin="5% 0">
                         By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                     </P>
-                    <P margin="5% 0">Copyright 2020 All right reserved</P>
+                    <P textAlign="center" margin="5% 0">Copyright 2020 All right reserved</P>
                 </SubscribeUs>
             </div>
         </D>
@@ -81,11 +74,12 @@ const P = styled.p(
     props =>  ({
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 16,
+        fontSize: "16px",
         lineHeight: '21px',
         color: "#FFFFFF",
         padding: props.padding,
-        margin: props.margin
+        margin: props.margin,
+        textAlign: props.textAlign
     })
 )
 
@@ -105,7 +99,6 @@ const B = styled.button({
     height: 40,
     backgroundColor: '#FEFEFE',
     borderColor: 'transparent',
-    fontFamily: 'Source Sans Pro',
     fontStyle: 'bold',
     fontSize:  13,
     textAlign: 'center',
@@ -122,7 +115,7 @@ const D = styled.div(
     })
 )
 
-const Caps = styled.p({
+const Caps = styled.h4({
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: 14,

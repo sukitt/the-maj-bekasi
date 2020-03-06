@@ -13,7 +13,6 @@ const Footer = props => {
                 <Row>
                     <Col lg={3} style={{marginBottom:"3rem"}}>
                         <img style={{maxWidth: 245}} src={Img1} alt="logo2" />
-                        <Partof>Part Of</Partof>
                         <img className="my-3" src={Img2} alt="Part of The Maj Group" />
                         <Sosmed />
                     </Col>
@@ -24,7 +23,7 @@ const Footer = props => {
                         <Explore />
                     </Col>
                     <Col lg={4} style={{marginBottom:"3rem"}}>
-                        <p style={caption}>Subscribe For Exclusive News & Offers</p>
+                        <SubscribeText>Subscribe For Exclusive News & Offers</SubscribeText>
                         <div>
                             <SubscribeForm
                                 {...props}
@@ -53,7 +52,7 @@ const Sosmed = props => (
 
 const Join = () => (
     <>
-        <p style={caption}>Join Our Family</p>
+        <H4>Join Our Family</H4>
         <ul style={{...p, ...ul}}>
             <Li><A href="#linkto">Carrers</A></Li>
             <Li><A href="#linkto">Investors</A></Li>
@@ -63,9 +62,9 @@ const Join = () => (
 
 const Explore = () => (
     <>
-        <p style={caption}>
+        <H4>
             Explore Our World
-        </p>
+        </H4>
         <ul style={{...p, ...ul}}>
             <Li><A href="#linkto">Contact Us</A></Li>
             <Li><A href="#linkto">Ancora Capital Management</A></Li>
@@ -77,18 +76,16 @@ const Explore = () => (
 )
 
 
-const caption = {
-    fontFamily: "Nunito Sans",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: 14,
-    lineHeight: '16px',
-    textTransform: "uppercase",
-    color: "#FFFFFF",
-}
+const H4 = styled.h4`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+`;
 
 const p = {
-    fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 16,
@@ -109,7 +106,6 @@ const B = styled.button({
     height: 40,
     backgroundColor: '#FEFEFE',
     borderColor: 'transparent',
-    fontFamily: 'Source Sans Pro',
     fontStyle: 'bold',
     fontSize:  13,
     textAlign: 'center',
@@ -147,6 +143,16 @@ const CopyRight = styled.p`
     color: #fff;
     text-align: center;
     margin-bottom: 50px;
+`;
+
+const SubscribeText = styled.h4`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 26px;
 `;
 
 export default Footer

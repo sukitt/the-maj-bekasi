@@ -29,7 +29,7 @@ import { BaseUrl } from '../../../services/axios';
     position:"absolute",
   }
   const captionTextStyle={
-    fontFamily: "Khula",
+    fontFamily: "Gilory Bold",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "22px",
@@ -38,7 +38,7 @@ import { BaseUrl } from '../../../services/axios';
     marginBottom: "1.5rem"
   }
   const captionButtonStyle={
-    fontFamily: "Source Sans Pro",
+    fontFamily: "Verlag Bold",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "13px",

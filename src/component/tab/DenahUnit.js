@@ -64,7 +64,6 @@ class DenahUnit extends Component {
                                                       <Col sm={6}>
                                                           <p style={{
                                                               marginTop: 68,
-                                                              fontFamily: 'Nunito Sans',
                                                               fontStyle: 'normal',
                                                               fontWeight: 'normal',
                                                               fontSize: 16
@@ -108,7 +107,6 @@ class DenahUnit extends Component {
                           }}>
                               <h2 style={{
                                   color: '#FFFFFF',
-                                  fontFamily: 'Khula',
                                   fontStyle: 'normal',
                                   fontWeight: 'bold',
                                   fontSize: 22,
@@ -118,7 +116,6 @@ class DenahUnit extends Component {
                                   Simulasi KPA Studio A
                               </h2>
                               <h3 style={{
-                                      fontFamily: 'Khula',
                                       fontStyle: 'normal',
                                       fontWeight: 'bold',
                                       fontSize: 17,
@@ -129,7 +126,6 @@ class DenahUnit extends Component {
                               </h3>
                               <h1 style={{
                                   color: '#FFFFFF',
-                                  fontFamily: 'Khula',
                                   fontStyle: 'normal',
                                   fontWeight: 'bold',
                                   fontSize: 34,
@@ -185,7 +181,6 @@ class DenahUnit extends Component {
 
 const p = {
     color: '#FFFFFF',
-    fontFamily: 'Nunito Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 16

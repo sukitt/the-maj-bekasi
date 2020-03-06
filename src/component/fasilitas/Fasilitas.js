@@ -42,27 +42,28 @@ const Fasilitas = (props) => {
 		return (
 				<div style={{
 						margin: "50px 0",
-						padding: "150px 0px",
+						padding: "100px 0px",
 						// width: 936,
 						// height: 312
 						display: 'flex',
 						flexDirection: 'column'
 				}}>
-					<h2 style={{
-							fontFamily: 'Khula',
+					<h4 style={{
 							fontStyle: 'normal',
 							fontWeight: 'bold',
 							fontSize: 22,
-							textTransform: 'uppercase'
-					}}>fasilitas</h2>
+							textTransform: 'uppercase',
+							marginLeft: 15,
+					}}>fasilitas</h4>
 					<p style={{
-							fontFamily: 'Nunito Sans',
 							fontStyle: 'normal',
 							fontWeight: 'bold',
 							fontSize: 12,
+							maxWidth: 335,
 							// lineHeight: 18,
 							letterSpacing: 2,
-							textTransform: 'uppercase'
+							textTransform: 'uppercase',
+							marginLeft: 15,
 					}}>
 							Fasilitas yang lengkap dan modern
 							membantumu memulai langkah pertama
@@ -77,7 +78,7 @@ const Fasilitas = (props) => {
 													<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
 												</Col>
 												<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
-													<span style={span}>{d.caption}</span>
+													<h5 style={span}>{d.caption}</h5>
 												</Col>
 											</Row>
 									</Col>
