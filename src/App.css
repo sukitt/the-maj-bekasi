@@ -205,3 +205,15 @@ a .button-small {
   height: 600px;
   transition: .5s all;
 }
+.my-dots > li .slick-active > button::before{
+  width: 8px;
+  height: 8px;
+  color: #000;
+}
+.my-dots > li > button::before{
+  width: 8px;
+  height: 8px;
+  color: #fff;
+  font-size: 8px;
+  opacity: 1;
+}

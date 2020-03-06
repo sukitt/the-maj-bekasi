@@ -161,15 +161,16 @@ class Home extends Component {
             <MobileNavigationBar store={this.state.navgiation} errors={this.state.errors.navgiation} />
         </OnMobileAndTablet>
         <section>
-          <div className="container">
-            <OnDesktop>
-              <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
-            </OnDesktop>
-
-            <OnMobileAndTablet>
+          <OnDesktop>
+            <div className="container">
+                <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+            </div>
+          </OnDesktop>
+          <OnMobileAndTablet>
+            <div className="w-100">  
               <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
-            </OnMobileAndTablet>
-          </div>
+            </div>
+          </OnMobileAndTablet>
         </section>
         <section>
           <div className="container">
