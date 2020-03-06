@@ -7,9 +7,7 @@ import styled from 'styled-components'
 const ContactUs = (props) =>{
     return (
         <div style={{
-            maxWidth: 980,
-            height: 578,
-            margin: "123px auto 315px auto",
+            margin: "123px auto 15em auto",
             display: 'flex',
         }}>
             <div style={{
@@ -62,9 +60,10 @@ const ContactUs = (props) =>{
                     color: '#000000',
                     marginTop: 74,
                     textAlign: 'center',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    letterSpacing: "2px",
                 }}>Marketing Gallery</h2>
-                <P>Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+                <P margin="23px 0 11px 0">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
                 <P> T: <A href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </div>
         </div>
@@ -98,16 +97,19 @@ const Gelar = [
     }
 ]
 
-const P = styled.p({
+const P = styled.p(
+    props => ({
+    color: '#000000',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
-    fontSize: 16,
+    fontSize: "16px",
+    lineHeight: "21px",
     textAlign: 'center',
-    color: '#000000',
+    margin: props.margin,
     '&:hover': {
         
     }
-})
+}))
 const A = styled.a({
     textDecoration: 'none',
     color:"#000",
