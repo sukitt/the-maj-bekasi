@@ -23,7 +23,7 @@ import MobileFooter from '../component/footer/mobile/Footer'
 
 
 import { layoutGenerator } from 'react-break';
-import { getSliders, getUnits, getGallery, getPartnership } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership } from '../services/get'
 
 
 const layout = layoutGenerator({
@@ -40,6 +40,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      navgiation: [],
       sliders: [],
       gallery: [],
       units: [],
@@ -49,6 +50,7 @@ class Home extends Component {
         gallery:{},
         units: {},
         partnership: {},
+        navgiation: {},
       },
       contact: {
         validated: true,
@@ -74,6 +76,12 @@ class Home extends Component {
   }
   
   componentDidMount() {
+    getNavbar()
+      .then(res => this.setState({navgiation: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{navgiation:{code:err.response.status, status:err.response.statusText}}})
+      })
+
     getSliders()
       .then((res) => this.setState({sliders: res.data}))
       .catch((err) => {
@@ -151,18 +159,19 @@ class Home extends Component {
         </OnDesktop>
 
         <OnMobileAndTablet>
-            <MobileNavigationBar />
+            <MobileNavigationBar store={this.state.navgiation} errors={this.state.errors.navgiation} />
         </OnMobileAndTablet>
         <section>
-          <div className="container">
-            <OnDesktop>
-              <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
-            </OnDesktop>
-
-            <OnMobileAndTablet>
+          <OnDesktop>
+            <div className="container">
+                <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+            </div>
+          </OnDesktop>
+          <OnMobileAndTablet>
+            <div className="w-100">  
               <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
-            </OnMobileAndTablet>
-          </div>
+            </div>
+          </OnMobileAndTablet>
         </section>
         <section>
           <div className="container">

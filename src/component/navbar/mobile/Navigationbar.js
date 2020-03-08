@@ -9,71 +9,25 @@ export class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
       showing: false,
     };
   }
 
-  componentDidMount() {
-    Instance.get('/nav-item')
-    .then(
-      // (result) => console.log(result)
-      (res) => {
-        this.setState({
-          isLoaded: true,
-          items: res.data
-        });
-      }
-    ).catch(
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-  }
-
   render() {
-    const { showing, error, isLoaded, items } = this.state;
-    // const itemStyle = {
-    //   fontStyle: "normal",
-    //   fontWeight: "bold",
-    //   fontSize: "11px",
-    //   lineHeight: "13px",
-    //   textTransform: "uppercase",
-    //   color: "#000000",
-    //   margin:"auto 1rem",
-    // }
-    // const btnStyle = {
-    //   width: "100%",
-    //   height: "40px",
-    //   background: "#CC9980",
-    //   padding: "10px 35px",
-      
-    //   fontStyle: "normal",
-    //   fontWeight: "bold",
-    //   fontSize: "13px",
-    //   lineHeight: "18px",
-    //   textAlign: "center",
-    //   letterSpacing: "2px",
-    //   textTransform: "uppercase",
-    //   color: "#FFFFFF",
-    //   textDecoration: "none",
-    // }
-    if(error){
-      return <div>Error: {error.message}</div>
-    }else if(!isLoaded){
-      return <div>Loading...</div>
-    }else{
-
+    const {showing} = this.state
+    const { store, errors } = this.props
+      if (Object.keys(errors).length) {
+        return (
+          <div>
+            <h4>Error in HeaderSlider.js</h4>
+            <p>{errors.code}</p>
+            <p>{errors.status}</p>
+          </div>
+        )
+      }
       return(
         <Navbar bg="white" expand="lg">
+          {console.log(store)}
           <div className="container-fluid">
           <Button className="position-absolute bg-transparent border-0" onClick={()=>this.setState({showing: !showing})}><i style={{color:"#CC9980", fontSize:22}} className="fas fa-bars"></i></Button>
             <Navbar.Brand href="#home" className="mx-auto">
@@ -83,16 +37,20 @@ export class NavigationBar extends Component {
               }} />
             </Navbar.Brand>
               <SideNav style={{width:(showing? "100%" : "0")}} id="mySidenav">
+                <img src={logo} alt="logo" style={{
+                  maxWidth:"142px",
+                  width:"100%",
+                  marginLeft: "15px",
+                }} />
+                <hr />
                 <SideNavCloseBtn href="javascript:void(0)" onClick={() => this.setState({showing: !showing})}>&times;</SideNavCloseBtn>
-                <SideNavLink href="#linkto">About</SideNavLink>
-                <SideNavLink href="#linkto">Services</SideNavLink>
-                <SideNavLink href="#linkto">Clients</SideNavLink>
-                <SideNavLink href="#linkto">Contact</SideNavLink>
+                {store && store.map((item, i) => (
+                  <SideNavLink key={i} href={item.link}><h3>{item.name}</h3></SideNavLink>
+                ))}
               </SideNav>
           </div>
         </Navbar>
       )
-    }
   }
 }
 export default NavigationBar
@@ -104,18 +62,16 @@ const SideNav = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  text-align:center;
+  padding-top: 15px;
 `;
 
 const SideNavLink = styled.a`
   padding: 8px 8px 8px 32px;
+  margin-bottom: 45px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
   display: block;
   transition: 0.3s;
   '&:hover':{
@@ -125,19 +81,8 @@ const SideNavLink = styled.a`
 
 const SideNavCloseBtn = styled.a`
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+  top: 2%;
+  right: 5%;
+  font-size: 40px;
   margin-left: 50px;
 `;
-
-
-              {/* <Nav>
-                {items.map(item => (
-                  <Nav.Link key={item.id} href={item.link}
-                  style={itemStyle}
-                  >
-                    {item.name}
-                  </Nav.Link>
-                ))}
-              </Nav> */}

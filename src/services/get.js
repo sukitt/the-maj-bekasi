@@ -31,3 +31,11 @@ export const getPartnership = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getNavbar = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/nav-item')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
