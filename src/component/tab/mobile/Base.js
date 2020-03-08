@@ -17,9 +17,9 @@ export class Base extends Component {
     }
     
     componentDidMount() {
-        // setTimeout(() => {
-        //     document.getElementById("defaultSelect").click()
-        // }, 5000)
+        setTimeout(() => {
+            document.getElementById("defaultSelect").click()
+        }, 5000)
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
