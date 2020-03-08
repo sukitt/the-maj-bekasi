@@ -39,3 +39,11 @@ export const getNavbar = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getLocation = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/location')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

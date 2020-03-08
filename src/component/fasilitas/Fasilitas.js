@@ -74,7 +74,7 @@ const Fasilitas = (props) => {
 									return (
 										<Col md="2/3" className="p-0" style={{margin:"34px 0px"}} key={d.id}>
 												<Row className="mx-0">
-													<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px"}}>
+													<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px", paddingLeft:"0"}}>
 														<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
 													</Col>
 													<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
