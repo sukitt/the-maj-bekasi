@@ -190,7 +190,7 @@ class Home extends Component {
           </OnDesktop>
 
           <OnMobileAndTablet>
-            <MobileDenahUnit />
+            <MobileDenahUnit storeUnit={this.state.units} />
           </OnMobileAndTablet>
           <OnMobileAndTablet>
             <MobileSimulasi />

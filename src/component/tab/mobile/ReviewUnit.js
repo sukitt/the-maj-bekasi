@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import styled from "styled-components";
+import {BaseUrl} from '../../../services/axios'
+import styled from "styled-components"
 
 export class MobileReviewUnit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      store: [],
+      storeReview: [],
       nav1: null,
       nav2: null,
       indexActive: 0,
@@ -22,9 +23,9 @@ export class MobileReviewUnit extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.store !== state.store) {
+    if (props.storeReview !== state.storeReview) {
       return {
-        store: props.store,
+        storeReview: props.storeReview,
       }
     }
 
@@ -47,9 +48,9 @@ export class MobileReviewUnit extends Component {
           slidesToScroll={1}
           ref={slider => (this.slider1 = slider)}
         >
-            {this.state.store && this.state.store.map((d, i) => (
+            {this.state.storeReview && this.state.storeReview.map((d, i) => (
                 <div key={i} style={{border: "10px solid", width: "100%", height: "auto", justifySelf: "center"}}>
-                    <img src={d.img} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                    <img src={`${BaseUrl}/storage/${d.gambar}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
                 </div>
             ))}
         </Slider>
@@ -71,22 +72,22 @@ export class MobileReviewUnit extends Component {
               autoplaySpeed={2000}
               pauseOnHover={true}
               >
-                {this.state.store && this.state.store.map((d, i) => {
+                {this.state.storeReview && this.state.storeReview.map((d, i) => {
                   return (
                     <div key={i}>
-                        <img src={d.img} alt="review 2" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                        <img src={`${BaseUrl}/storage/${d.gambar}`} alt="review 2" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
                     </div>
                   )
                 })}
             </Slider>
         </div>
 
-        {this.state.store && this.state.store.map((d, i) => {
+        {this.state.storeReview && this.state.storeReview.map((d, i) => {
           if (i === this.state.indexActive) {
             return (
               <>
-                <Caps1 margin="24px 0">{d.name}</Caps1>
-                <Desc margin="0 0 68px 0">{d.desc}</Desc>
+                <Caps1 margin="24px 0">{d.nama}</Caps1>
+                <Desc margin="0 0 68px 0">{d.deskripsi}</Desc>
               </>
             )
           }

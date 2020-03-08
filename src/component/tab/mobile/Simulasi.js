@@ -11,7 +11,6 @@ import Base from './Base'
 export class Simulasi extends Base {
     
     render() {
-        console.log(this.state.cicilan)
         return (
             <D backgroundColor="#12284C" padding="10%">
                 <H2>Simulasi KPA Studio A</H2>
@@ -121,5 +120,11 @@ const H3 = styled.h3(
         letterSpacing: "2px",
         margin: props.margin,
         padding: props.padding
+    })
+)
+
+const P = styled.p(
+    props => ({
+
     })
 )

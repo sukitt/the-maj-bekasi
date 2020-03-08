@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Form } from 'react-bootstrap'
+import Slider from "react-slick"
 import styled from 'styled-components'
+import $ from 'jquery'
 
 import Base from './Base'
 import MobileReviewUnit from './ReviewUnit'
+import {BaseUrl} from '../../../services/axios'
+
 
 export class DenahUnit extends Base {
-    
+
     render() {
         return (
             <div id="mobile-denahunit" style={{backgroundColor:"#e9e9e9", padding: "20px"}}>
@@ -16,28 +20,66 @@ export class DenahUnit extends Base {
                 <Form.Control 
                     style={Select} 
                     as="select" 
-                    onClick={this._handleSelect}
+                    onClick={(e) => this._handleSelect(e)}
                 >
-                {this.state.localStore && this.state.localStore.map((data, i) => (
+                {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
                     <option
+                        key={i}
                         id={!i? "defaultSelect": null}
                         className="tablinks"
-                        value={data.unit_name}
+                        value={data.unit_name.toLowerCase().replace(/\s/g, "-")}
                         style={{fontSize: "22px", fontWeight: "bold", lineHeight: "28px", color: "#000000"}}
                     >
                         {data.unit_name}
                     </option>
                 ))}
                 </Form.Control>
-                <div style={{margin: "0 auto"}}>
-                {this.state.localStore && this.state.localStore.map((data, i) => (
-                    <div style={{margin: "0 auto"}} id={data.unit_name} className="unitContent">
-                        <Luas>{data.specs.luas} M<sup>2</sup></Luas>
-                        <img src={data.specs.denah_ruang} alt="denah ruang" />
-
+                
+                {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
+                    <div key={d.id} style={{margin: "0 auto"}} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
+                        <Luas>{d.specs.luas} M<sup>2</sup></Luas>
+                        <div style={{border: "1px solid red"}}>
+                            <Slider 
+                                // className="center"
+                                dots={false}
+                                // focusOnSelect={true}
+                                slidesToShow={1}
+                                swipeToSlide={true}
+                                lazyLoad={true}
+                                autoplay={true}
+                                autoplaySpeed={2000}
+                                pauseOnHover={true}
+                            >
+                                <div>
+                                    <img 
+                                        src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
+                                        style={{
+                                            border: "1px solid", 
+                                            margin: "0 auto", 
+                                            height: "400px", 
+                                            width: "auto",
+                                            transform: "rotate(90deg)"
+                                        }} 
+                                        alt="denah ruang" 
+                                    />
+                                </div>
+                                <div>
+                                    <img
+                                        src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
+                                        style={{
+                                            border: "1px solid", 
+                                            margin: "0 auto",  
+                                            height: "400px",
+                                            width: "auto",
+                                        }} 
+                                        alt="denah bangunan" 
+                                    />
+                                </div>
+                            </Slider>
+                        </div>
                         <div id="mobile-spec" title="SPESIFIKASI" style={{padding: 20}}>
                             <Caps2 margin="47px 0 19px 0">spesifikasi</Caps2>
-                            <P>{data.specs.deskripsi}</P>
+                            <P>{d.specs.deskripsi}</P>
 
                             <div>
                                 <ul style={{
@@ -50,20 +92,18 @@ export class DenahUnit extends Base {
                                     padding: "0",
                                     boxSizing: "border-box"
                                 }}>
-                                    {data.specs.fasilitas && data.specs.fasilitas.map(d => (
-                                        <li style={{ padding: 0, margin: 0}}>{d}</li>
-                                    ))}
+                                    <li style={{ padding: 0, margin: 0}}>{d.specs.kamar_tidur} Kamar Tidur</li>
+                                    <li style={{ padding: 0, margin: 0}}>{d.specs.kamar_mandi} Kamar Mandi</li>
+                                    <li style={{ padding: 0, margin: 0}}>{d.specs.dapur} Dapur</li>
                                 </ul>
                             </div>
-                            
+
                             <div title="REVIEW" style={{margin: "77px 0"}}>
-                                <MobileReviewUnit store={data.specs.reviews} />
+                                <MobileReviewUnit storeReview={d.gallery} />
                             </div>
                         </div>
                     </div>
                 ))}
-                </div>
-
             </div>
         )
     }
