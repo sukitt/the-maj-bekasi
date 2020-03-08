@@ -27,7 +27,6 @@ export class NavigationBar extends Component {
       }
       return(
         <Navbar bg="white" expand="lg">
-          {console.log(store)}
           <div className="container-fluid">
           <Button className="position-absolute bg-transparent border-0" onClick={()=>this.setState({showing: !showing})}><i style={{color:"#CC9980", fontSize:22}} className="fas fa-bars"></i></Button>
             <Navbar.Brand href="#home" className="mx-auto">

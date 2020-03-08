@@ -29,7 +29,6 @@ const LogoSlider = (props) => {
   return(
     <div style={{margin:"150px 0px",height:"260px"}}>
       <Slider {...settings}>
-        {console.log(store)}
         {store.map((item, i) => (
           <div key={i}>
             <div>

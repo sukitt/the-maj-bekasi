@@ -7,7 +7,6 @@ import TabGallery from '../slider/TabGallery'
 import {BaseUrl} from '../../services/axios'
 
 import './assets/style.css'
-import styled from 'styled-components'
 
 class DenahUnit extends Component {
     constructor(props) {

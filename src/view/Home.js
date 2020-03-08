@@ -15,6 +15,7 @@ import Footer from '../component/footer/Footer'
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
+import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
 import MobileSimulasi from '../component/tab/mobile/Simulasi'
 import MobileFooter from '../component/footer/mobile/Footer'
@@ -198,7 +199,7 @@ class Home extends Component {
           </OnDesktop>
 
           <OnMobileAndTablet>
-            <MobileDenahUnit />
+            <MobileDenahUnit storeUnit={this.state.units} />
           </OnMobileAndTablet>
           <OnMobileAndTablet>
             <MobileSimulasi />
@@ -222,8 +223,9 @@ class Home extends Component {
               <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
             </div>
           </OnDesktop>
+
           <OnMobileAndTablet>
-            <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
+              <MobileGallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </OnMobileAndTablet>
         </section>
         <section>
