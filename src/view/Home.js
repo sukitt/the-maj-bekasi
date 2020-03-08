@@ -5,7 +5,7 @@ import Fasilitas from '../component/fasilitas/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
 import Maps from '../component/map'
 import Gallery from '../component/slider/Gallery'
-// import AboutSlider from '../component/slider/AboutSlider'
+import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
@@ -15,7 +15,8 @@ import Footer from '../component/footer/Footer'
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
-import Simulasi from '../component/tab/mobile/Simulasi'
+import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
+import MobileSimulasi from '../component/tab/mobile/Simulasi'
 import MobileFooter from '../component/footer/mobile/Footer'
 
 
@@ -178,8 +179,12 @@ class Home extends Component {
           <OnDesktop>
             <DenahUnit store={this.state.units} errors={this.state.errors.units} />
           </OnDesktop>
+
           <OnMobileAndTablet>
-            <Simulasi />
+            <MobileDenahUnit />
+          </OnMobileAndTablet>
+          <OnMobileAndTablet>
+            <MobileSimulasi />
           </OnMobileAndTablet>
         </section>
         <section>
@@ -197,21 +202,21 @@ class Home extends Component {
             <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </OnMobileAndTablet>
         </section>
-        {/* <section>
+        <section>
           <div className="container">
             <AboutSlider />
           </div>
-        </section> */}
+        </section>
         <section>
           <div className="container">
             <TentangKami />
           </div>
         </section>
-        {/* <section>
+        <section>
           <div className="w-100">
             <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
           </div>
-        </section> */}
+        </section>
         <section>
           <div className="container">
           <OnDesktop>
