@@ -47,7 +47,8 @@ export class DenahUnit extends Base {
                                 swipeToSlide={true}
                                 lazyLoad={true}
                                 autoplay={true}
-                                autoplaySpeed={2000}
+                                arrows={false}
+                                autoplaySpeed={5000}
                                 pauseOnHover={true}
                             >
                                 <div>
@@ -55,9 +56,8 @@ export class DenahUnit extends Base {
                                         src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
                                         style={{
                                             border: "1px solid", 
-                                            margin: "0 auto", 
-                                            height: "400px", 
-                                            width: "auto",
+                                            margin: "0 auto",
+                                            height: "inherit",
                                             transform: "rotate(90deg)"
                                         }} 
                                         alt="denah ruang" 
@@ -68,9 +68,8 @@ export class DenahUnit extends Base {
                                         src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
                                         style={{
                                             border: "1px solid", 
-                                            margin: "0 auto",  
-                                            height: "400px",
-                                            width: "auto",
+                                            margin: "0 auto",
+                                            width: "inherit",
                                         }} 
                                         alt="denah bangunan" 
                                     />

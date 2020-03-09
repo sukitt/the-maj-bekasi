@@ -38,7 +38,7 @@ const Distance = (props) => {
           <Card.Body className="p-0" style={{margin:"10px 15px"}}>
             <Row className="mx-0">
               <Col xs="2" className="mx-0 p-0 d-inline-block h-100 align-middle" >
-                <img className="my-auto" src={BaseUrl + '/storage/' + props.marker} alt="marketplace-marker" />
+                <img className="my-auto" width="30" height="30" src={BaseUrl + '/storage/' + props.marker} alt="marketplace-marker" />
               </Col>
               <Col xs="10" className="mx-0 " >
                 <h6 style={{color:"#cc9980"}}>{props.caption}</h6>
@@ -106,7 +106,7 @@ class Maps extends Component {
                     <Distance 
                       caption={`± ` + marker.estimasi + ` menit ke `}
                       description={marker.name}
-                      marker={item.marker_icon}
+                      marker={marker.marker_icon}
                       key={i}
                     />
                   ))}

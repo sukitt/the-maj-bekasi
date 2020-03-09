@@ -39,6 +39,7 @@ export class MobileReviewUnit extends Component {
         <Slider
           asNavFor={this.state.nav2}
           className="center"
+          arrows={false}
           centerMode={true}
           centerPadding="1px"
           dots={false}
@@ -66,6 +67,7 @@ export class MobileReviewUnit extends Component {
               focusOnSelect={true}
               slidesToShow={1}
               swipeToSlide={true}
+              arrows={false}
               ref={slider => (this.slider2 = slider)}
               lazyLoad={true}
               autoplay={true}

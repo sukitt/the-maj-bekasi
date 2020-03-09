@@ -121,6 +121,7 @@ export class MobileGallery extends Component {
         speed: 1500,
         nextArrow: false,
         prevArrow: false,
+        arrows:false,
         lazyLoad: true,
         autoplay: true,
         autoplaySpeed: 2000,
@@ -195,35 +196,6 @@ export class MobileGallery extends Component {
   }
 }
 
-const Data = [
-    {
-        id: 1,
-        nama: "Ruang Tamu",
-        gambar: Gal1,
-        deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit, sapien a luctus tempor, ante mi sodales justo, vitae tristique purus diam non diam.",
-        unit: {
-            unit_name: "Studio A",
-        }
-    },
-    {
-        id: 2,
-        nama: "Ruang Dapur",
-        gambar: Gal2,
-        deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit, sapien a luctus tempor, ante mi sodales justo, vitae tristique purus diam non diam.",
-        unit: {
-            unit_name: "Studio B",
-        }
-    },
-    {
-        id: 3,
-        nama: "Kamar 1",
-        gambar: Gal3,
-        deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit, sapien a luctus tempor, ante mi sodales justo, vitae tristique purus diam non diam.",
-        unit: {
-            unit_name: "Studio C"
-        }
-    }
-]
 
 
 const Caps1 = styled.h5(
