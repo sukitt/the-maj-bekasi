@@ -15,12 +15,6 @@ export class Base extends Component {
 
         this._handleSelect = this._handleSelect.bind(this)
     }
-    
-    componentDidMount() {
-        setTimeout(() => {
-            document.getElementById("defaultSelect").click()
-        }, 5000)
-    }
 
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.storeUnit !== prevState.storeUnit) {

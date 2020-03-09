@@ -17,24 +17,17 @@ const OnTablet = layout.is('tablet');
 const MobileContactUs = (props) => {
   return(
     <div style={{
-      marginTop: "123px",
+      marginTop: "119px",
       display: 'flex',
   }}>
         <div style={{
-            margin: '28px auto 0 auto',
+            margin: '0 auto 0 auto',
         }}>
-            <H4>Hubungi Kami</H4>
-            <p style={{
-                maxWidth: 598,
-                fontStyle: 'normal',
-                fontWeight: 'normal',
-                fontSize: 16,
-                color: '#000000',
-                textAlign: 'center'
-            }}>
+            <Caps1 margin="0 0 0 0">Hubungi Kami</Caps1>
+            <P margin="19px 64px 0 64px">
                 Terima kasih atas minat Anda terhadap The MAJ Residence Bekasi Barat.
                 Silahkan isi detail Anda di bawah, dan kami akan segera menghubungi Anda.
-            </p>   
+            </P>   
             
             <div style={{marginTop: 61}}>
                 <MobileContactForm 
@@ -61,19 +54,19 @@ const MobileContactUs = (props) => {
                 </MobileContactForm>
             </div>
 
-            <h2 style={{
+            <p style={{
                 fontStyle: 'normal',
                 fontWeight: 'bold',
-                fontSize: "100%",
+                fontSize: "12px",
                 color: '#000000',
-                marginTop: 74,
+                marginTop: "43px",
                 textAlign: 'center',
                 textTransform: 'uppercase',
-                letterSpacing: '2px'
-            }}>Marketing Gallery</h2>
+                letterSpacing: '1px'
+            }}>Marketing Gallery</p>
 
             <OnMobile>
-                <P margin="8% auto 5% auto" width="60%" fontSize="90%">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+                <P margin="8% auto 5% auto" padding="0 60px" fontSize="13px">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
                 <P margin="5% auto" fontSize="90%">T: <A href="tel:02139712888">(021) 3971-2888</A></P> 
                 <P margin="5% 0 0 0" fontSize="90%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </OnMobile>
@@ -114,16 +107,16 @@ const Gelar = [
 
 const P = styled.p(
     props => ({
-    border: '1px solid',
     fontStyle: 'normal',
-    fontSize: props.fontSize,
+    fontSize: "13px",
+    height: "auto",
     fontWeight: 'normal',
     margin: props.margin,
     padding: props.padding,
     textAlign: 'center',
     color: '#000000',
-    width: props.width,
-    textJustify: 'center',
+    lineHeight: "18px",
+    textAlign: "center",
     '&:hover': {
         
     }
@@ -136,13 +129,17 @@ const A = styled.a({
   }
 })
 
-const H4 = styled.h4`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-`;
+const Caps1 = styled.h5(
+    props => ({
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "12px",
+        lineHeight: "16px",
+        textAlign: "center",
+        textTransform: "uppercase",
+        color: "#232323",
+        margin: props.margin,
+        padding: props.padding,
+    })
+)
 export default MobileContactUs

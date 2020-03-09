@@ -15,12 +15,12 @@ const ContactUs = (props) =>{
                 height: 550,
                 margin: '28px auto',
             }}>
-                <H4>Hubungi Kami</H4>
+                <H2>Hubungi Kami</H2>
                 <p style={{
                     width: 598,
                     fontStyle: 'normal',
                     fontWeight: 'normal',
-                    fontSize: 16,
+                    fontSize: "16",
                     color: '#000000',
                     textAlign: 'center'
                 }}>
@@ -53,16 +53,7 @@ const ContactUs = (props) =>{
                     </ContactForm>
                 </div>
 
-                <h2 style={{
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 22,
-                    color: '#000000',
-                    marginTop: 74,
-                    textAlign: 'center',
-                    textTransform: 'uppercase',
-                    letterSpacing: "2px",
-                }}>Marketing Gallery</h2>
+                <H2 margin="74px 0 0 0">Marketing Gallery</H2>
                 <P margin="23px 0 11px 0">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
                 <P> T: <A href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </div>
@@ -102,8 +93,8 @@ const P = styled.p(
     color: '#000000',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
-    fontSize: "16px",
-    lineHeight: "21px",
+    fontSize: "13px",
+    lineHeight: "18px",
     textAlign: 'center',
     margin: props.margin,
     '&:hover': {
@@ -118,12 +109,16 @@ const A = styled.a({
     }
 })
 
-const H4 = styled.h4`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-`;
+const H2 = styled.h2(
+    props => ({
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "22px",
+        lineHeight: "28px",
+        textAlign: "center",
+        margin: props.margin,
+        padding: props.padding,
+        letterSpacing: "2px",
+        color: "#232323",
+    })
+)

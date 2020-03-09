@@ -8,16 +8,18 @@ import Gallery from '../component/slider/Gallery'
 import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
-import MobileContactUs from '../component/contact-us/MobileContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/footer/Footer'
 
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
-import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
 import MobileSimulasi from '../component/tab/mobile/Simulasi'
+import MobileGallery from '../component/slider/mobile/Gallery'
+import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
+import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
+import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
 
@@ -83,7 +85,7 @@ class Home extends Component {
     getNavbar()
       .then(res => this.setState({navgiation: res.data}))
       .catch((err) => {
-        if (err && err.response) this.setState({errors:{navgiation:{code:err.response.status, status:err.response.statusText}}})
+        if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
       })
 
     getSliders()
@@ -161,14 +163,15 @@ class Home extends Component {
   }
 
   render() {
+    if (this.state.errors)
     return (
       <div>
         <OnDesktop>
-          <NavigationBar />
+            <NavigationBar />
         </OnDesktop>
 
         <OnMobileAndTablet>
-            <MobileNavigationBar store={this.state.navgiation} errors={this.state.errors.navgiation} />
+            <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
         </OnMobileAndTablet>
         <section>
           <OnDesktop>
@@ -228,21 +231,44 @@ class Home extends Component {
               <MobileGallery store={this.state.gallery} errors={this.state.errors.gallery} />
           </OnMobileAndTablet>
         </section>
-        <section>
-          <div className="container">
-            <AboutSlider />
-          </div>
-        </section>
-        <section>
-          <div className="container">
-            <TentangKami />
-          </div>
-        </section>
-        <section>
-          <div className="w-100">
-            <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
-          </div>
-        </section>
+
+        {/* Slider Logo MobileTablet */}
+        <OnMobileAndTablet>
+          <section>
+            <MobileLogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
+          </section>
+        </OnMobileAndTablet>
+
+        <OnDesktop>
+          <section>
+              <div className="container">
+                <AboutSlider />
+              </div>
+          </section>
+          <section>
+            <div className="container">
+              <TentangKami />
+            </div>
+          </section>
+        </OnDesktop>
+
+        <OnMobileAndTablet>
+          <section>
+            <div className="container">
+              <MobileAboutSlider />
+            </div>
+          </section>
+        </OnMobileAndTablet>
+
+        {/* Slider Logo Desktop */}
+        <OnDesktop>
+          <section>
+            <div className="w-100">
+              <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
+            </div>
+          </section>
+        </OnDesktop>
+
         <section>
           <div className="container">
           <OnDesktop>
