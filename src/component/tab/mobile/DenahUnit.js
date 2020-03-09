@@ -11,6 +11,13 @@ import {BaseUrl} from '../../../services/axios'
 
 export class DenahUnit extends Base {
 
+    componentDidMount() {
+        setTimeout(() => {
+            // document.getElementById("defaultSelect").click()
+            $('#defaultSelect').click()
+        }, 5000)
+    }
+
     render() {
         return (
             <div id="mobile-denahunit" style={{backgroundColor:"#e9e9e9", padding: "20px"}}>
@@ -21,6 +28,7 @@ export class DenahUnit extends Base {
                     style={Select} 
                     as="select" 
                     onClick={(e) => this._handleSelect(e)}
+                    default
                 >
                 {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
                     <option
@@ -28,6 +36,7 @@ export class DenahUnit extends Base {
                         id={!i? "defaultSelect": null}
                         className="tablinks"
                         value={data.unit_name.toLowerCase().replace(/\s/g, "-")}
+                        defaultValue="studio-a"
                         style={{fontSize: "22px", fontWeight: "bold", lineHeight: "28px", color: "#000000"}}
                     >
                         {data.unit_name}
@@ -38,7 +47,7 @@ export class DenahUnit extends Base {
                 {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
                     <div key={d.id} style={{margin: "0 auto"}} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
                         <Luas>{d.specs.luas} M<sup>2</sup></Luas>
-                        <div style={{border: "1px solid red"}}>
+                        <div>
                             <Slider 
                                 // className="center"
                                 dots={false}
@@ -47,14 +56,14 @@ export class DenahUnit extends Base {
                                 swipeToSlide={true}
                                 lazyLoad={true}
                                 autoplay={true}
-                                autoplaySpeed={2000}
+                                autoplaySpeed={3000}
+                                speed={1000}
                                 pauseOnHover={true}
                             >
                                 <div>
                                     <img 
                                         src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
                                         style={{
-                                            border: "1px solid", 
                                             margin: "0 auto", 
                                             height: "400px", 
                                             width: "auto",
@@ -67,7 +76,6 @@ export class DenahUnit extends Base {
                                     <img
                                         src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
                                         style={{
-                                            border: "1px solid", 
                                             margin: "0 auto",  
                                             height: "400px",
                                             width: "auto",

@@ -154,7 +154,7 @@ export class MobileGallery extends Component {
 
     return(
         <div style={{margin:"81px 0 52px 0px", background:"#E0E0E0", padding: "20px"}}>
-            <Caps1>Galerry Mobile</Caps1>
+            <Caps1>Gallery</Caps1>
             <div id="mobileItemGallery">
                 <Slider
                     beforeChange={(indexActive) => this.setState({indexActive})} 
