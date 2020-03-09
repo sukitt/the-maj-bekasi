@@ -67,7 +67,7 @@ export class DenahUnit extends Base {
                                         style={{
                                             border: "1px solid", 
                                             margin: "0 auto",
-                                            height: "inherit",
+                                            height: "228px",
                                             transform: "rotate(90deg)"
                                         }} 
                                         alt="denah ruang" 
@@ -79,7 +79,7 @@ export class DenahUnit extends Base {
                                         style={{
                                             border: "1px solid", 
                                             margin: "0 auto",
-                                            width: "inherit",
+                                            width: "228px",
                                         }} 
                                         alt="denah bangunan" 
                                     />

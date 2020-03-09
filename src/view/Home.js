@@ -44,7 +44,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navgiation: [],
+      navigation: [],
       sliders: [],
       gallery: [],
       units: [],
@@ -55,7 +55,7 @@ class Home extends Component {
         gallery:{},
         units: {},
         partnership: {},
-        navgiation: {},
+        navigation: {},
         location: {},
       },
       contact: {
@@ -83,7 +83,7 @@ class Home extends Component {
   
   componentDidMount() {
     getNavbar()
-      .then(res => this.setState({navgiation: res.data}))
+      .then(res => this.setState({navigation: res.data}))
       .catch((err) => {
         if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
       })
@@ -213,7 +213,7 @@ class Home extends Component {
             <div className="container">
               <Maps store={this.state.location} errors={this.state.errors.location} />
             </div>
-          </OnDesktop>
+        g  </OnDesktop>
           <OnMobileAndTablet>
             <div className="container">
               <MobileMaps store={this.state.location} errors={this.state.errors.location} />

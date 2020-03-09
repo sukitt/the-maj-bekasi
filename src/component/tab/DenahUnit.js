@@ -62,7 +62,7 @@ class DenahUnit extends Component {
 													<Col sm={6}>
 														<div >
 															<h1 style={{color:"#C3C7D1", margin:0}}>{item.unit_name}</h1>
-															<h5 style={{fontSize:16}}>{item.specs.luas}</h5>
+															<h5 style={{fontSize:16}}>{item.specs.luas} M <sup>2</sup></h5>
 														</div>
 														<p style={{fontWeight:"normal", margin:"69px 0px"}}>
 															{item.specs.deskripsi}
