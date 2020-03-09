@@ -4,17 +4,38 @@ import HeadSlider from '../component/slider/HeadSlider'
 import MoreTentangKami from '../component/card/MoreTentangKami'
 import OwnerSay from '../component/card/OwnerSay'
 import Footer from '../component/footer/Footer'
-import { getSliders, getUnits, getGallery } from '../services/get'
+
+import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
+import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
+import MobileMoreTentangKami from '../component/card/mobile/MoreTentangKami'
+import MobileOwnerSay from '../component/card/mobile/OwnerSay'
+import MobileFooter from '../component/footer/mobile/Footer'
+
+
+import { layoutGenerator } from 'react-break'
+import { getSliders, getUnits, getGallery, getNavbar } from '../services/get'
+
+const layout = layoutGenerator({
+    mobile: 0,
+    tablet: 768,
+    desktop: 992,
+  });
+  
+const OnMobileAndTablet = layout.isAtMost('tablet');
+const OnDesktop = layout.is('desktop');
+
 
 export default class TentangKami extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
+             navigation: [],
              sliders: [],
              gallery: [],
              units: [],          
              errors: {
+                 navigation: {},
                  sliders:{},
                  gallery:{}
              },
@@ -34,6 +55,12 @@ export default class TentangKami extends Component {
     }
 
     componentDidMount() {
+        getNavbar()
+          .then(res => this.setState({navigation: res.data}))
+          .catch((err) => {
+            if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
+          })
+        
         getSliders()
             .then((res) => this.setState({sliders: res.data}))
             .catch((err) => {
@@ -76,30 +103,73 @@ export default class TentangKami extends Component {
         console.log(this.state.signup.data)
         return (
             <div>
-                <NavigationBar />
+                <OnDesktop>
+                    <NavigationBar />
+                </OnDesktop>
+
+                <OnMobileAndTablet>
+                    <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.sliders} />
+                </OnMobileAndTablet>
+
                 <section>
-                    <div className="container">
-                        <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
-                    </div>
+                    <OnDesktop>
+                        <div className="container">
+                            <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+                        </div>
+                    </OnDesktop>
+
+                    <OnMobileAndTablet>
+                        <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
+                    </OnMobileAndTablet>
                 </section>
+
                 <section>
-                    <div className="container">
-                        <MoreTentangKami />
-                    </div>
+                    <OnDesktop>
+                        <div className="container">
+                            <MoreTentangKami />
+                        </div>
+                    </OnDesktop>
+
+                    <OnMobileAndTablet>
+                        <div className="container">
+                            <MobileMoreTentangKami />
+                        </div>
+                    </OnMobileAndTablet>
                 </section>
+
                 <section>
-                    <div className="w-100">
-                        <OwnerSay />
-                    </div>
+                    <OnDesktop>
+                        <div className="w-100">
+                            <OwnerSay />
+                        </div>
+                    </OnDesktop>
+
+                    <OnMobileAndTablet>
+                        <div>
+                            <MobileOwnerSay />
+                        </div>
+                    </OnMobileAndTablet>
                 </section>
+
                 <section>
-                    <Footer
-                        validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
+                    <OnDesktop>
+                        <Footer
+                            validated={this.state.footer.validated}
+                            onSubmit={this._footer}
+                            titleRef={this.footreftitle}
+                            nameRef={this.footrefname}
+                            emailRef={this.footrefemail}
+                        />
+                    </OnDesktop>
+                    <OnMobileAndTablet>
+                        <MobileFooter 
+                            validated={this.state.footer.validated}
+                            onSubmit={this._footer}
+                            titleRef={this.footreftitle}
+                            nameRef={this.footrefname}
+                            emailRef={this.footrefemail}
+                        />
+                    </OnMobileAndTablet>
                 </section>
             </div>
         )
