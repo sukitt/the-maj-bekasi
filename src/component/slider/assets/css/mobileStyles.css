@@ -1,3 +1,10 @@
-#mobileItemGallery > div.slick-slider > div.slick-list > div.slick-track > div.slick-slide {
-    margin: 0 10px;
+#mobileItemGallery > div > div > div > .slick-slide {
+    /* margin: 0 10px; */
+    width: 250px !important;
+    display: inline-table;
+    float: none;
+}
+#mobileItemGallery > div > div> .slick-track{
+    /* width: 30000px !important; */
+    display: inline-flex;
 }
