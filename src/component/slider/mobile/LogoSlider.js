@@ -25,7 +25,6 @@ export class LogoSlider extends Component {
     const settings = {
       dots: false,
       // className:"slider variable-width",
-      className: "center",
       infinite: true,
       arrows: false,
       speed: 1500,
@@ -47,13 +46,13 @@ export class LogoSlider extends Component {
     }
 
     return(
-      <div style={{margin:"150px 0 0 0", height:"100%", border: "1px solid", display: "flex", flexDirection: "column"}}>
+      <div id="mobileLogoSlider" style={{margin:"150px 0 0 0", height:"100%"}}>
         <Slider {...settings}
           centerMode={true}
         >
           {this.state.storeLogo && this.state.storeLogo.map((item, i) => (
-            <a key={i}>
-                <img style={{margin:"0px auto", width: "inherit", border: "1px solid", alignSelf: "center"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
+            <a href={item.link} key={i}>
+                <img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
             </a>
           ))}
         </Slider>

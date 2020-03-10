@@ -27,3 +27,6 @@
     /* width: 30000px !important; */
     display: inline-flex;
 }
+#mobileLogoSlider > .slick-slider{
+ background: rgb(224, 224, 224) none repeat scroll 0% 0%;
+}

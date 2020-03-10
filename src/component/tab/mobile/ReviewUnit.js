@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import {BaseUrl} from '../../../services/axios'
 import styled from "styled-components"
 
+import '../assets/style.css'
+
 export class MobileReviewUnit extends Component {
   constructor(props) {
     super(props);
@@ -50,22 +52,19 @@ export class MobileReviewUnit extends Component {
           ref={slider => (this.slider1 = slider)}
         >
             {this.state.storeReview && this.state.storeReview.map((d, i) => (
-                <div key={i} style={{border: "10px solid", width: "100%", height: "auto", justifySelf: "center"}}>
-                    <img src={`${BaseUrl}/storage/${d.gambar}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                <div key={i} >
+                    <img src={`${BaseUrl}/storage/${d.gambar.replace(".png", "-mobile.png")}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
                 </div>
             ))}
         </Slider>
 
-        <div style={{width: "100%", marginTop: "21px"}}>
+        <div id="reviewUnitMobile" style={{width: "100%", marginTop: "21px"}}>
             <Slider
               asNavFor={this.state.nav1}
               beforeChange={(e) => this.setState({indexActive: e})}
-              className="center"
-              centerMode={true}
-              centerPadding="130px"
               dots={false}
               focusOnSelect={true}
-              slidesToShow={1}
+              slidesToShow={5}
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}
@@ -77,7 +76,7 @@ export class MobileReviewUnit extends Component {
                 {this.state.storeReview && this.state.storeReview.map((d, i) => {
                   return (
                     <div key={i}>
-                        <img src={`${BaseUrl}/storage/${d.gambar}`} alt="review 2" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                        <img src={`${BaseUrl}/storage/${d.gambar.replace(".png", "-mobile.png")}`} alt="review 2" style={{width: 70, height: 70}} />
                     </div>
                   )
                 })}
