@@ -64,7 +64,7 @@ export class MobileReviewUnit extends Component {
               beforeChange={(e) => this.setState({indexActive: e})}
               dots={false}
               focusOnSelect={true}
-              slidesToShow={5}
+              slidesToShow={3}
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}

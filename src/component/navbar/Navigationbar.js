@@ -47,7 +47,7 @@ class NavigationBar extends Component {
 
       return(
         <Navbar bg="white" expand="lg">
-          <div className="container-2" >
+          <div className="container-2 p-0" >
             <Navbar.Collapse id="basic-navbar-nav">
               <Navbar.Brand href="#home" >
                 <img src={logo} alt="logo" style={{

@@ -37,8 +37,8 @@ class DenahUnit extends Component {
 						style={{
 							marginTop: 108
 						}}
-						className="container-2" id="denahUnit">
-						<h2>Denah Unit</h2>
+						className="container" id="denahUnit">
+						<div className="container-2 p-0"><h2>Denah Unit</h2></div>
 						<Tabs
 							style={{ marginTop: 40 }}
 							defaultActiveKey="studio-a"

@@ -65,7 +65,6 @@ export class DenahUnit extends Base {
                                     <img 
                                         src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
                                         style={{
-                                            border: "1px solid", 
                                             margin: "0 auto",
                                             height: "228px",
                                             transform: "rotate(90deg)"
@@ -77,7 +76,6 @@ export class DenahUnit extends Base {
                                     <img
                                         src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
                                         style={{
-                                            border: "1px solid", 
                                             margin: "0 auto",
                                             width: "228px",
                                         }} 

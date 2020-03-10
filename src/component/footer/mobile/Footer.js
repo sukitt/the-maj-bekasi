@@ -10,7 +10,7 @@ import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 export const MobileFooter = props => {
     return (
-        <div style={{marginTop: "5em"}}>
+        <div>
             <D backgroundColor="#232323" padding="10% 10%">
                 <img style={{width: '80%'}} src={Img1} alt="logo2" />
                 <SocialMedia margin="5% 0">
