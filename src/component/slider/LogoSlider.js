@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick';
+import styled from 'styled-components'
 
 import { BaseUrl } from '../../services/axios';
 
@@ -32,7 +33,7 @@ const LogoSlider = (props) => {
         {store.map((item, i) => (
           <div key={i}>
             <div>
-              <a href={item.link}><img style={{margin:"0px auto", maxHeight:"200px"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
+              <a href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
             </div>
           </div>
         ))}
@@ -40,4 +41,13 @@ const LogoSlider = (props) => {
     </div>
   )
 }
+const Img = styled.img`
+  margin: 0px auto;
+  max-height: 200px;
+  filter: grayscale(100%);
+  transition: .3s all;
+  &:hover {
+    filter: grayscale(0%);
+  }
+`;
 export default LogoSlider

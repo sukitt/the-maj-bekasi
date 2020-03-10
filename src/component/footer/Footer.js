@@ -12,10 +12,10 @@ import Twitt from '../assets/footer-image/brand/twitter.svg'
 
 const Footer = props => {
     return (
-        <div style={{marginTop: "5em"}}>
+        <div>
             <D backgroundColor="#232323" padding="10% 10%">
                 <Row>
-                    <Col lg={4}>
+                    <Col lg={3}>
                         <img style={{width: '80%'}} src={Img1} alt="logo2" />
                         <SocialMedia margin="5% 0">
                             <A href="#linkto" ><Instagram /></A>
@@ -24,13 +24,13 @@ const Footer = props => {
                         </SocialMedia>
                     </Col>
                     <Col lg={2}>
-                        <JoinUs caps="Join Our Family" margin="10% 0">
+                        <JoinUs caps="Join Our Family" margin="0">
                             <A display="block" href="#linkto"> Carrers </A>
                             <A display="block" href="#linkto"> Inverstor </A>
                         </JoinUs>
                     </Col>
-                    <Col lg={2}>
-                        <ExploreUs caps="Explore Our World" margin="10% 0">
+                    <Col lg={3}>
+                        <ExploreUs caps="Explore Our World" margin="0">
                         <A display="block" href="#linkto">Contact Us</A>
                         <A display="block" href="#linkto">Ancora Capital Management</A>
                         <A display="block" href="#linkto">Media Center</A>
@@ -49,10 +49,12 @@ const Footer = props => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg={6}>
+                    <Col lg={4}>
                         <img src={Img2} style={{maxWidth: '100%'}} alt="Part of The Maj Group" />
                     </Col>
-                    <Col lg={6}>
+                    <Col sm={2}></Col>
+                    <Col sm={2}></Col>
+                    <Col lg={4}>
                         <P>
                             By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                         </P>
@@ -103,6 +105,7 @@ const A = styled.a(
         display: props.display || "inline",
         color:"#fff",
         marginRight:"30px",
+        marginBottom: "11px",
         "&:hover":{
             textDecoration:"none"
         }
@@ -138,6 +141,7 @@ const Caps = styled.h4({
     lineHeight: '16px',
     textTransform: "uppercase",
     color: "#FFFFFF",
+    marginBottom: "26px"
 })
 
 const SocialMedia = styled.div(

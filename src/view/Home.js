@@ -239,7 +239,7 @@ class Home extends Component {
           </section>
         </OnMobileAndTablet>
 
-        <OnDesktop>
+        {/* <OnDesktop>
           <section>
               <div className="container">
                 <AboutSlider />
@@ -258,7 +258,7 @@ class Home extends Component {
               <MobileAboutSlider />
             </div>
           </section>
-        </OnMobileAndTablet>
+        </OnMobileAndTablet> */}
 
         {/* Slider Logo Desktop */}
         <OnDesktop>
