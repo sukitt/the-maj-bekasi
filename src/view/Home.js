@@ -3,7 +3,7 @@ import NavigationBar from '../component/navbar/Navigationbar'
 import HeadSlider from '../component/slider/HeadSlider'
 import Fasilitas from '../component/fasilitas/Fasilitas'
 import DenahUnit from '../component/tab/DenahUnit'
-import Maps from '../component/map'
+import Maps from '../component/map/Maps'
 import Gallery from '../component/slider/Gallery'
 import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
@@ -21,12 +21,13 @@ import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
+import MobileMaps from '../component/map/mobile/Maps'
 
 
 
 
 import { layoutGenerator } from 'react-break';
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation } from '../services/get'
 
 
 const layout = layoutGenerator({
@@ -43,17 +44,19 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navgiation: [],
+      navigation: [],
       sliders: [],
       gallery: [],
       units: [],
       partnership: [],
+      location: [],
       errors: {
         sliders:{},
         gallery:{},
         units: {},
         partnership: {},
         navigation: {},
+        location: {},
       },
       contact: {
         validated: true,
@@ -80,7 +83,7 @@ class Home extends Component {
   
   componentDidMount() {
     getNavbar()
-      .then(res => this.setState({navgiation: res.data}))
+      .then(res => this.setState({navigation: res.data}))
       .catch((err) => {
         if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
       })
@@ -106,6 +109,11 @@ class Home extends Component {
       .then(res => this.setState({partnership: res.data}))
       .catch((err) => {
         if (err && err.response) this.setState({errors:{partnership:{code:err.response.status, status:err.response.statusText}}})
+      })
+    getLocation()
+      .then(res => this.setState({location: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{location:{code:err.response.status, status:err.response.statusText}}})
       })
   }
 
@@ -201,9 +209,16 @@ class Home extends Component {
           </OnMobileAndTablet>
         </section>
         <section>
-          {/* <div className="container">
-            <Maps />
-          </div> */}
+          <OnDesktop>
+            <div className="container">
+              <Maps store={this.state.location} errors={this.state.errors.location} />
+            </div>
+        g  </OnDesktop>
+          <OnMobileAndTablet>
+            <div className="container">
+              <MobileMaps store={this.state.location} errors={this.state.errors.location} />
+            </div>
+          </OnMobileAndTablet>
         </section>
         <section>
           <OnDesktop>

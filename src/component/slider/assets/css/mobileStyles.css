@@ -1,6 +1,4 @@
-/* #mobileItemGallery > div.slick-slider > div.slick-list > div.slick-track > div.slick-slide {
-    margin: 0 10px;
-} */
+
 
 #mobile-head-slider > .carousel > ol.carousel-indicators > li {
     background-color: #F8F8F8;
@@ -17,4 +15,15 @@
 #mobile-head-slider div.carousel-caption {
     text-align: left;
     left: 13%;
+}
+/* ======= */
+#mobileItemGallery > div > div > div > .slick-slide {
+    /* margin: 0 10px; */
+    width: 250px !important;
+    display: inline-table;
+    float: none;
+}
+#mobileItemGallery > div > div> .slick-track{
+    /* width: 30000px !important; */
+    display: inline-flex;
 }

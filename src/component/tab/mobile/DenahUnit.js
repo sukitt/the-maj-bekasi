@@ -56,7 +56,8 @@ export class DenahUnit extends Base {
                                 swipeToSlide={true}
                                 lazyLoad={true}
                                 autoplay={true}
-                                autoplaySpeed={3000}
+                                arrows={false}
+                                autoplaySpeed={5000}
                                 speed={1000}
                                 pauseOnHover={true}
                             >
@@ -64,9 +65,9 @@ export class DenahUnit extends Base {
                                     <img 
                                         src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
                                         style={{
-                                            margin: "0 auto", 
-                                            height: "400px", 
-                                            width: "auto",
+                                            border: "1px solid", 
+                                            margin: "0 auto",
+                                            height: "228px",
                                             transform: "rotate(90deg)"
                                         }} 
                                         alt="denah ruang" 
@@ -76,9 +77,9 @@ export class DenahUnit extends Base {
                                     <img
                                         src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
                                         style={{
-                                            margin: "0 auto",  
-                                            height: "400px",
-                                            width: "auto",
+                                            border: "1px solid", 
+                                            margin: "0 auto",
+                                            width: "228px",
                                         }} 
                                         alt="denah bangunan" 
                                     />
