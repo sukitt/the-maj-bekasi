@@ -213,7 +213,7 @@ class Home extends Component {
             <div className="container">
               <Maps store={this.state.location} errors={this.state.errors.location} />
             </div>
-        g  </OnDesktop>
+          </OnDesktop>
           <OnMobileAndTablet>
             <div className="container">
               <MobileMaps store={this.state.location} errors={this.state.errors.location} />
@@ -238,8 +238,8 @@ class Home extends Component {
             <MobileLogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
           </section>
         </OnMobileAndTablet>
-
-        {/* <OnDesktop>
+{/* 
+        <OnDesktop>
           <section>
               <div className="container">
                 <AboutSlider />
@@ -250,7 +250,7 @@ class Home extends Component {
               <TentangKami />
             </div>
           </section>
-        </OnDesktop>
+        </OnDesktop> */}
 
         <OnMobileAndTablet>
           <section>
@@ -258,7 +258,7 @@ class Home extends Component {
               <MobileAboutSlider />
             </div>
           </section>
-        </OnMobileAndTablet> */}
+        </OnMobileAndTablet>
 
         {/* Slider Logo Desktop */}
         <OnDesktop>

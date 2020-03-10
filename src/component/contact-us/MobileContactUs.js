@@ -18,7 +18,8 @@ const MobileContactUs = (props) => {
   return(
     <div style={{
       marginTop: "119px",
-      display: 'flex',
+    //   display: 'flex',
+        marginBottom: "100px",
   }}>
         <div style={{
             margin: '0 auto 0 auto',
