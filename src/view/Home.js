@@ -254,9 +254,7 @@ class Home extends Component {
 
         <OnMobileAndTablet>
           <section>
-            <div className="container">
               <MobileAboutSlider />
-            </div>
           </section>
         </OnMobileAndTablet>
 
@@ -270,18 +268,19 @@ class Home extends Component {
         </OnDesktop>
 
         <section>
-          <div className="container">
           <OnDesktop>
-            <ContactUs
-              // validated={this.state.contact.validated}
-              onSubmit={this._contactUs}
-              gelarRef={this.contrefgelar}
-              namaRef={this.contrefnama}
-              unitRef={this.contrefunit}
-              teleponRef={this.contreftelepon}
-              emailRef={this.contrefemail}
-              catatanRef={this.contrefcatatan}
-            />
+            <div className="container">
+              <ContactUs
+                // validated={this.state.contact.validated}
+                onSubmit={this._contactUs}
+                gelarRef={this.contrefgelar}
+                namaRef={this.contrefnama}
+                unitRef={this.contrefunit}
+                teleponRef={this.contreftelepon}
+                emailRef={this.contrefemail}
+                catatanRef={this.contrefcatatan}
+              />
+            </div>
           </OnDesktop>
 
           <OnMobileAndTablet>
@@ -295,7 +294,6 @@ class Home extends Component {
               catatanRef={this.contrefcatatan}
             />
           </OnMobileAndTablet>
-          </div>
         </section>
       <section>
           <OnDesktop>

@@ -36,7 +36,7 @@ export class MobileAboutSlider extends Component {
     
     render() {
         return (
-            <D margin="24px 30px 0 30px">
+            <Container margin="51.87px 50px 0 50px">
                 <Caps1>Tentang Kami</Caps1>
 
                 <div style={{width: "100%", height: "auto", margin: "31px 0 0 0"}}>
@@ -59,27 +59,34 @@ export class MobileAboutSlider extends Component {
                         ))}
                     </Slider>
                 </div>
-                <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                <Content>
                     {this.state.storeAbout && this.state.storeAbout.map((data, i) => {
                         if (i === this.state.indexActive) {
-                            return (
-                                <P margin="30px 0 0 0">{data.description}</P>
-                            )
+                            return <P margin="30.79px 0 0 0">{data.description}</P>
                         }
                         return null
                     })}
-
-                    <A margin="15px 0 0 0" padding="0 0 7px 0" href="#">Read More</A>
-                </div>
-            </D>
+                    <A margin="15px 0 0 0" padding="3px 3px 10px 3px" href="#">Read More</A>
+                </Content>
+            </Container>
         )
     }
 }
 
-const D = styled.div(
+const Container = styled.div(
     props => ({
         margin: props.margin,
         padding: props.padding,
+    })
+)
+
+const Content = styled.div(
+    props => ({
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: props.padding,
+        margin: props.margin,
     })
 )
 
@@ -87,6 +94,7 @@ const Caps1 = styled.h5(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
+        fontSize: "14px",
         lineHeight: "16px",
         textAlign: "center",
         textTransform: "uppercase",
@@ -123,7 +131,6 @@ const A = styled.a(
         letterSpacing: "1px",
         margin: props.margin,
         padding: props.padding,
-        // width: "100px",
     })
 )
 
