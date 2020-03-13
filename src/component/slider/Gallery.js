@@ -3,6 +3,8 @@ import Slider from 'react-slick'
 import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
+import $ from 'jquery'
+
 import './assets/css/style.css'
 
 const NextArrow = (props) => {
@@ -118,8 +120,8 @@ const P = styled.p({
 })
 
 const Img = styled.img({
-  maxWidth:"1000px",
-  margin:"0px auto"
+  margin:"0px auto",
+  width: "100%"
 })
 
 const Gallery = (props) => {
@@ -127,7 +129,7 @@ const Gallery = (props) => {
   const settings = {
     className: "center",
     centerMode: true,
-    centerPadding: "150px",
+    centerPadding: "250px", //see inside style.css
     slidesToShow: 1,
     speed: 1500,
     nextArrow: <NextArrow />,
@@ -146,17 +148,15 @@ const Gallery = (props) => {
   }
 
   return(
-    <div id="gallery" style={{margin:"100px 0px", background:"#E0E0E0"}}>
+    <div id="gallery" style={{margin:"100px auto", background:"#E0E0E0"}}>
       <Slider {...settings}>
         {store.map((item, i) => (
-          <div key={i}>
-            <div>
-              <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
-            </div>
-            <div style={{marginTop:"50px", textAlign:"center"}}>
-              <H4>{item.nama} - {item.unit.unit_name}</H4>
-              <P style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</P>
-            </div>
+          <div key={i} className="tes">
+                <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
+              <div style={{marginTop:"50px", textAlign:"center"}}>
+                <H4>{item.nama} - {item.unit.unit_name}</H4>
+                <P style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</P>
+              </div>
           </div>
         ))}
       </Slider>

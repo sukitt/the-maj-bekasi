@@ -13,7 +13,7 @@ const LogoSlider = (props) => {
     speed: 1500,
     autoplay:true,
     autoplaySpeed:1500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1
   };
 
