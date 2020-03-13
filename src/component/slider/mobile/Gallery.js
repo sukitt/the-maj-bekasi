@@ -59,12 +59,24 @@ export class MobileGallery extends Component {
     }
 
     return(
-        <div style={{margin:"81px 0 52px 0px", background:"#E0E0E0", padding: "20px"}}>
-            <Caps1>Gallery</Caps1>
+        <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
+            <Caps1 margin="0 0 22px 0">Gallery</Caps1>
             <div id="mobileItemGallery">
                 <Slider
+                    dots={true}
                     beforeChange={(indexActive) => this.setState({indexActive})} 
-                    {...this.settings}
+                    // className="center"
+                    // centerMode={true}
+                    infinite={true}
+                    slidesToShow={2}
+                    speed={1500}
+                    autoplay={true}
+                    speed={4000}
+                    autoplaySpeed={5000}
+                    arrows={false}
+                    customPaging={(i) => (
+                      <div id="dots" />
+                    )}
                 >
                     {/* {Data && Data.map((item, i) => ( */}
                     {this.state.store.length && this.state.store.map((item, i) => (
@@ -72,32 +84,49 @@ export class MobileGallery extends Component {
                             <img 
                                 src={BaseUrl + '/storage/' + item.gambar}
                                 alt={item.nama + '-' + item.unit.unit_name} 
-                                style={{width:228}}
+                                style={{
+                                  width: "228.21px",
+                                  height: "228.21px",
+                                  margin: "0 8px"
+                                }}
                             />
                         </div>
                     ))}
                 </Slider>
             </div>
 
-            <div style={{margin: "55.79px 0 0 0"}}>
+            <Content margin="55.79px 0 0 0">
                 {/* {Data.length && Data.map((item, i) => { */}
                 {this.state.store.length && this.state.store.map((item, i) => {
                 if (i === this.state.indexActive) {
                     return (
                         <>
                             <H4>{item.nama} {item.unit.unit_name}</H4>
-                            <P margin="0 0 7px 0">{item.deskripsi}</P>
+                            <P margin="7px auto 23px auto">{item.deskripsi}</P>
                         </>
                     )
                 }
                 })}
-            </div>
-        </div>
+            </Content>
+        </Container>
     )
   }
 }
 
+const Container = styled.div(
+  props => ({
+    backgroundColor: "#E0E0E0",
+    padding: props.padding,
+    margin: props.margin,
+  })
+)
 
+const Content = styled.div(
+  props => ({
+    margin: props.margin,
+    padding: props.padding,
+  })
+)
 
 const Caps1 = styled.h5(
     props => ({
@@ -107,7 +136,9 @@ const Caps1 = styled.h5(
         lineHeight: "16px",
         textAlign: "center",
         textTransform: "uppercase",
-        color: "#000000"
+        color: "#000000",
+        margin: props.margin,
+        paddin: props.padding
     })
 )
 
@@ -125,11 +156,14 @@ const H4 = styled.h4({
     props => ({
         fontStyle: "normal",
         fontWeight: "normal",
-        fontSize: "16px",
-        lineHeight: "21px",
+        fontSize: "13px",
+        lineHeight: "18px",
         color: "#12284C",
         margin: props.margin,
-        padding: props.padding
+        padding: props.padding,
+        textAlign: "justify",
+        width: "245px",
+        height: "72px",
     })
   )
   
