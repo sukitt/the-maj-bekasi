@@ -19,8 +19,8 @@ const layout = layoutGenerator({
     mobile: 0,
     tablet: 768,
     desktop: 992,
-  });
-  
+});
+
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
@@ -30,23 +30,23 @@ export default class TentangKami extends Component {
         super(props)
     
         this.state = {
-             navigation: [],
-             sliders: [],
-             gallery: [],
-             units: [],          
-             errors: {
-                 navigation: {},
-                 sliders:{},
-                 gallery:{}
-             },
-             signup: {
-                 validated: false,
-                 data: {}
-             },
-             footer: {
+            navigation: [],
+            sliders: [],
+            gallery: [],
+            units: [],          
+            errors: {
+                navigation: {},
+                sliders:{},
+                gallery:{}
+            },
+            signup: {
+                validated: false,
+                data: {}
+            },
+            footer: {
                 validated: true,
                 data: {}
-              }
+            }
         }
         this.reftitle = createRef()
         this.refname = createRef()
@@ -56,10 +56,10 @@ export default class TentangKami extends Component {
 
     componentDidMount() {
         getNavbar()
-          .then(res => this.setState({navigation: res.data}))
-          .catch((err) => {
-            if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
-          })
+            .then(res => this.setState({navigation: res.data}))
+            .catch((err) => {
+                if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
+            })
         
         getSliders()
             .then((res) => this.setState({sliders: res.data}))
