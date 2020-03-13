@@ -23,7 +23,8 @@ export default class MobileContactForm extends Component {
                 <Form.Row>
                     <Form.Group as={Col} xs="4" controlId="gelarField">
                         <Form.Control 
-                            as="select" 
+                            size="lg"
+                            as="select"
                             value={this.state.gelar} 
                             defaultValue="Gelar" 
                             ref={this.props.gelarRef} 
@@ -36,6 +37,7 @@ export default class MobileContactForm extends Component {
                     </Form.Group>
                     <Form.Group as={Col} xs="8" controlId="namaField">
                         <Form.Control
+                            size="lg"
                             ref={this.props.namaRef}
                             type='text'
                             placeholder="Nama Lengkap Anda" 
@@ -51,6 +53,7 @@ export default class MobileContactForm extends Component {
                 </Form.Row>
                 <Form.Group controlId="unitField">
                     <Form.Control 
+                        size="lg"
                         as="select" 
                         ref={this.props.unitRef} 
                         onChange={(e) => this.setState({unit: e.target.value})}  
@@ -69,6 +72,7 @@ export default class MobileContactForm extends Component {
                 </Form.Group>
                     <Form.Group controlId="teleponField">
                         <Form.Control 
+                            size="lg"
                             ref={this.props.teleponRef}
                             type="tel"
                             inputMode="tel"
@@ -85,6 +89,7 @@ export default class MobileContactForm extends Component {
                     </Form.Group>
                     <Form.Group controlId="emailField">
                         <Form.Control 
+                            size="lg"
                             ref={this.props.emailRef}
                             type="email" 
                             placeholder="Alamat Email Anda" 
@@ -100,6 +105,7 @@ export default class MobileContactForm extends Component {
                 <Form.Row>
                     <Form.Group as={Col} sm="12" controlId="catatanField">
                         <Form.Control
+                            size="lg"
                             ref={this.props.catatanRef}
                             as="textarea" 
                             placeholder="Catatan" 
