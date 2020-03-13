@@ -24,7 +24,7 @@ export default class MobileContactForm extends Component {
                     <Form.Group as={Col} xs="4" controlId="gelarField">
                         <Form.Control 
                             size="lg"
-                            as="select" 
+                            as="select"
                             value={this.state.gelar} 
                             defaultValue="Gelar" 
                             ref={this.props.gelarRef} 
