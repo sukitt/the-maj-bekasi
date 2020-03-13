@@ -10,39 +10,40 @@ import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 export const MobileFooter = props => {
     return (
-        <div>
-            <D backgroundColor="#232323" padding="10% 10%">
-                <img style={{width: '80%'}} src={Img1} alt="logo2" />
-                <SocialMedia margin="5% 0">
-                    <A href="#linkto" ><Instagram /></A>
-                    <A href="#linkto" ><Facebook /></A>
-                    <A href="#linkto" ><Twitter /></A>
+        <div style={{border: "1px solid red", height: "1033px", padding: "50px 0 34px 34px", backgroundColor: "#232323"}}>
+            <D>
+                <img style={{width: '150px', height: "auto"}} src={Img1} alt="logo2" />
+                <SocialMedia margin="24px 0 0 0">
+                    <A margin="0 25px 0 0" href="#linkto" ><Instagram /></A>
+                    <A margin="0 25px 0 0" href="#linkto" ><Facebook /></A>
+                    <A margin="0 25px 0 0" href="#linkto" ><Twitter /></A>
                 </SocialMedia>
-                <img src={Img2} style={{width: '80%'}} alt="Part of The Maj Group" />
 
-                <JoinUs caps="Join Our Family" margin="10% 0">
-                    <A display="block" href="#linkto"> Carrers </A>
-                    <A display="block" href="#linkto"> Inverstor </A>
+                <img src={Img2} style={{width: '136.79px', marginTop: "41.89px"}} alt="Part of The Maj Group" />
+
+                <JoinUs caps="Join Our Family" margin="48.35px 0 0 0">
+                    <A padding="3px 0" display="block" href="#linkto"> Carrers </A>
+                    <A padding="3px 0" display="block" href="#linkto"> Inverstor </A>
                 </JoinUs>
                 
-                <ExploreUs caps="Explore Our World" margin="10% 0">
-                   <A display="block" href="#linkto">Contact Us</A>
-                   <A display="block" href="#linkto">Ancora Capital Management</A>
-                   <A display="block" href="#linkto">Media Center</A>
-                   <A display="block" href="#linkto">Privacy</A>
-                   <A display="block" href="#linkto">Terms and Conditions</A>
+                <ExploreUs caps="Explore Our World" margin="48px 0 16px 0">
+                    <A padding="3px 0" display="block" href="#linkto">Contact Us</A>
+                    <A padding="3px 0" display="block" href="#linkto">Ancora Capital Management</A>
+                    <A padding="3px 0" display="block" href="#linkto">Media Center</A>
+                    <A padding="3px 0" display="block" href="#linkto">Privacy</A>
+                    <A padding="3px 0" display="block" href="#linkto">Terms and Conditions</A>
                 </ExploreUs>
 
-                <SubscribeUs caps="Subscribe For Exclusive News & Offers">
-                    <D>
-                        <SubscribeForm {...props}>
+                <SubscribeUs caps="Sign up for Exclusive news & Offers" margin="48px 0 0 0">
+                    <D margin="26px 27px 0 0">
+                        <SubscribeForm size="lg" {...props}>
                             <B type="submit">Subcribe</B>
                         </SubscribeForm>
                     </D>
-                    <P margin="5% 0">
+                    <P margin="13px 28px 50px 0">
                         By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                     </P>
-                    <P textAlign="center" margin="5% 0">Copyright 2020 All right reserved</P>
+                    <P>Copyright 2020 All right reserved</P>
                 </SubscribeUs>
             </D>
         </div>
@@ -51,14 +52,14 @@ export const MobileFooter = props => {
 
 const JoinUs = props => (
     <D {...props}>
-        <Caps>{props.caps}</Caps>
+        <Caps letterSpacing="3px">{props.caps}</Caps>
         {props.children}
     </D>
 )
 
 const ExploreUs = props => (
     <D {...props}>
-        <Caps>{props.caps}</Caps>
+        <Caps letterSpacing="3px">{props.caps}</Caps>
         {props.children}
     </D>
 )
@@ -74,8 +75,8 @@ const P = styled.p(
     props =>  ({
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: "16px",
-        lineHeight: '21px',
+        fontSize: "13px",
+        lineHeight: '18px',
         color: "#FFFFFF",
         padding: props.padding,
         margin: props.margin,
@@ -85,9 +86,10 @@ const P = styled.p(
 
 const A = styled.a(
     props => ({
+        padding: props.padding,
+        margin: props.margin,
         display: props.display || "inline",
         color:"#fff",
-        marginRight:"30px",
         "&:hover":{
             textDecoration:"none"
         }
@@ -116,14 +118,18 @@ const D = styled.div(
     })
 )
 
-const Caps = styled.h4({
+const Caps = styled.h5(
+    props => ({
+    padding: "0",
+    marginBottom: "16px",
     fontStyle: "normal",
     fontWeight: "bold",
-    fontSize: 14,
+    fontSize: "12px",
+    letterSpacing: props.letterSpacing,
     lineHeight: '16px',
     textTransform: "uppercase",
     color: "#FFFFFF",
-})
+}))
 
 const SocialMedia = styled.div(
     props => ({
@@ -137,19 +143,19 @@ const SocialMedia = styled.div(
 
 const Instagram = styled.img.attrs(props => ({
     src: Inst,
-    width: "8%",
+    width: "20px",
     alt: "instagram"
 }))``
 
 const Twitter = styled.img.attrs(props =>({
     src: Twitt,
-    width: "10%",
+    width: "24px",
     alt: "twitter"
 }))``
 
 const Facebook = styled.img.attrs(props => ({
     src: Fb,
-    width: "10%",
+    width: "24px",
     alt: "facebook"
 }))``
 
