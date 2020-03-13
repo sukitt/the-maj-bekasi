@@ -16,69 +16,62 @@ const OnTablet = layout.is('tablet');
 
 const MobileContactUs = (props) => {
   return(
-    <div style={{
-      marginTop: "119px",
-    //   display: 'flex',
-        marginBottom: "100px",
-  }}>
-        <div style={{
-            margin: '0 auto 0 auto',
-        }}>
-            <Caps1 margin="0 0 0 0">Hubungi Kami</Caps1>
-            <P margin="19px 64px 0 64px">
-                Terima kasih atas minat Anda terhadap The MAJ Residence Bekasi Barat.
-                Silahkan isi detail Anda di bawah, dan kami akan segera menghubungi Anda.
-            </P>   
-            
-            <div style={{marginTop: 61}}>
-                <MobileContactForm 
-                    {...props}
-                    storeGelar={Gelar}
-                    storeUnit={Unit}
-                >
-                    <Button 
-                        type="submit" 
-                        style={{
-                            margin: '0 auto', 
-                            width: 180,
-                            height: 40,
-                            borderRadius:"0",
-                            backgroundColor: '#CC9980',
-                            fontStyle: 'normal',
-                            fontWeight: 'bold',
-                            fontSize: 13,
-                            marginTop: 5,
-                            letterSpacing: 2,
-                            textTransform: 'uppercase',
-                            borderColor: 'transparent',
-                        }}>Kirim</Button>
-                </MobileContactForm>
-            </div>
-
-            <p style={{
-                fontStyle: 'normal',
-                fontWeight: 'bold',
-                fontSize: "12px",
-                color: '#000000',
-                marginTop: "43px",
-                textAlign: 'center',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-            }}>Marketing Gallery</p>
-
-            <OnMobile>
-                <P margin="8% auto 5% auto" padding="0 60px" fontSize="13px">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                <P margin="5% auto" fontSize="90%">T: <A href="tel:02139712888">(021) 3971-2888</A></P> 
-                <P margin="5% 0 0 0" fontSize="90%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
-            </OnMobile>
-
-            <OnTablet>
-                <P margin="8% auto 5% auto" width="50%" fontSize="150%">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                <P margin="5% auto" fontSize="150%">T: <A href="tel:02139712888">(021) 3971-2888</A></P> 
-                <P margin="5% auto" fontSize="150%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
-            </OnTablet>
+    <Container>
+        <Caps1>Hubungi Kami</Caps1>
+        <P margin="19px 16px 0 16px" height="72px">
+            Terima kasih atas minat Anda terhadap The MAJ Residence Bekasi Barat.
+            Silahkan isi detail Anda di bawah, dan kami akan segera menghubungi Anda.
+        </P>   
+        
+        <div style={{marginTop: "41px"}}>
+            <MobileContactForm 
+                {...props}
+                storeGelar={Gelar}
+                storeUnit={Unit}
+            >
+                <Button 
+                    type="submit" 
+                    style={{
+                        margin: '0 auto', 
+                        width: 180,
+                        height: 40,
+                        borderRadius:"0",
+                        backgroundColor: '#CC9980',
+                        fontStyle: 'normal',
+                        fontWeight: 'bold',
+                        fontSize: "13px",
+                        lineHeight: "18px",
+                        marginTop: "45px",
+                        letterSpacing: "2px",
+                        textTransform: 'uppercase',
+                        borderColor: 'transparent',
+                    }}>Kirim</Button>
+            </MobileContactForm>
         </div>
-  </div>
+
+        <p style={{
+            fontStyle: 'normal',
+            fontWeight: 'bold',
+            fontSize: "12px",
+            color: '#232323',
+            marginTop: "43px",
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            letterSpacing: '1px'
+        }}>Marketing Gallery</p>
+
+        <OnMobile>
+            <P width="180px" margin="20px auto 8px auto" fontSize="13px">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+            <P margin="8px auto" fontSize="90%">T: <A href="tel:02139712888">(021) 3971-2888</A></P> 
+            <P margin="8px auto" fontSize="90%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+        </OnMobile>
+
+        <OnTablet>
+            <P margin="20px auto 5% auto" width="50%" fontSize="150%">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+            <P margin="5% auto" fontSize="150%">T: <A href="tel:02139712888">(021) 3971-2888</A></P> 
+            <P margin="5% auto" fontSize="150%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+        </OnTablet>
+    </Container>
   )
 }
 const Unit = [
@@ -106,22 +99,27 @@ const Gelar = [
   }
 ]
 
+const Container = styled.div(
+    props => ({
+        margin: "97px 50px",
+    })
+)
+
 const P = styled.p(
     props => ({
-    fontStyle: 'normal',
-    fontSize: "13px",
-    height: "auto",
-    fontWeight: 'normal',
-    margin: props.margin,
-    padding: props.padding,
-    textAlign: 'center',
-    color: '#000000',
-    lineHeight: "18px",
-    textAlign: "center",
-    '&:hover': {
-        
-    }
+        fontStyle: 'normal',
+        fontSize: "13px",
+        fontWeight: 'normal',
+        width: props.width,
+        height: props.height,
+        margin: props.margin,
+        padding: props.padding,
+        textAlign: 'center',
+        color: '#000000',
+        lineHeight: "18px",
+        textAlign: "center"
 }))
+
 const A = styled.a({
   textDecoration: 'none',
   color:"#000",
@@ -134,11 +132,11 @@ const Caps1 = styled.h5(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
-        fontSize: "12px",
+        fontSize: "14px",
         lineHeight: "16px",
         textAlign: "center",
         textTransform: "uppercase",
-        color: "#232323",
+        color: "#000000",
         margin: props.margin,
         padding: props.padding,
     })
