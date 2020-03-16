@@ -17,7 +17,7 @@ import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
 import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
-// import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
+import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
@@ -26,8 +26,9 @@ import MobileMaps from '../component/map/mobile/Maps'
 
 
 import { layoutGenerator } from 'react-break';
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs } from '../services/get'
 import Whatsapp from '../component/base/whatsapp'
+import Blog from '../component/base/Blog'
 
 
 const layout = layoutGenerator({
@@ -50,12 +51,16 @@ class Home extends Component {
       units: [],
       partnership: [],
       location: [],
+      blogs: [],
+      abouts: [],
       errors: {
+        abouts:{},
         sliders:{},
         gallery:{},
         units: {},
         partnership: {},
         navigation: {},
+        blogs: {},
         location: {},
       },
       contact: {
@@ -114,6 +119,16 @@ class Home extends Component {
       .then(res => this.setState({location: res.data}))
       .catch((err) => {
         if (err && err.response) this.setState({errors:{location:{code:err.response.status, status:err.response.statusText}}})
+      })
+    getAbouts()
+      .then(res => this.setState({abouts: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{abouts:{code:err.response.status, status:err.response.statusText}}})
+      })
+    getBlogs()
+      .then(res => this.setState({blogs: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{blogs:{code:err.response.status, status:err.response.statusText}}})
       })
   }
 
@@ -250,11 +265,17 @@ class Home extends Component {
           </section>
         </OnDesktop> */}
 
-        {/* <OnMobileAndTablet>
+        <OnMobileAndTablet>
           <section>
-              <MobileAboutSlider />
+              <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
           </section>
-        </OnMobileAndTablet> */}
+        </OnMobileAndTablet>
+
+        <OnMobileAndTablet>
+          <section>
+            <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
+          </section>
+        </OnMobileAndTablet>
 
         {/* Slider Logo Desktop */}
         <OnDesktop>

@@ -47,3 +47,19 @@ export const getLocation = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getAbouts = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/about-bekasi')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
+
+export const getBlogs = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/blog-bekasi')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
