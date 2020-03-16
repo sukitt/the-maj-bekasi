@@ -4,7 +4,8 @@ import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
 import arrows from './assets/arrows.svg'
-import { unstable_batchedUpdates } from 'react-dom';
+import placeholder from './assets/header-placeholder.png'
+import SliderPlaceholder from './SliderPlaceholder';
 
   const imgStyle= {
     maxWidth: "1110px",
@@ -82,9 +83,26 @@ import { unstable_batchedUpdates } from 'react-dom';
   class HeadSlider extends Component {
     constructor(props){
       super(props);
+
+      this.state = {
+        isLoading: true,
+        localStore: [],
+      }
+
       this.next = this.next.bind(this);
       this.previous = this.previous.bind(this);
     }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+      if (nextProps.store.length !== prevState.localStore.length) {
+        return {
+          localStore: nextProps.store,
+          isLoading: false,
+        }
+      }
+      return null
+    }
+
     next() {
       this.slider.slickNext()
     }
@@ -102,21 +120,17 @@ import { unstable_batchedUpdates } from 'react-dom';
         arrows:false,
       };
 
-      const { store, errors } = this.props
-      if (Object.keys(errors).length) {
+      if (this.state.isLoading) {
         return (
-          <div>
-            <h4>Error in HeaderSlider.js</h4>
-            <p>{errors.code}</p>
-            <p>{errors.status}</p>
+          <div style={imgStyle}>
+            <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="560px" opacity=".8" />
           </div>
         )
       }
 
       return (
         <Slider ref={c => (this.slider = c)} {...settings}>
-          {console.log(store)}
-          {store && store.map((item, i) => (
+          {this.state.localStore.length && this.state.localStore.map((item, i) => (
             <div key={i}>
               <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
               <Col style={{height:"100px"}}>

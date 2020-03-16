@@ -167,7 +167,7 @@ class Home extends Component {
     return (
       <div>
         <OnDesktop>
-            <NavigationBar />
+            <NavigationBar store={this.state.navigation} />
         </OnDesktop>
 
         <OnMobileAndTablet>
@@ -181,7 +181,7 @@ class Home extends Component {
           </OnDesktop>
           <OnMobileAndTablet>
             <div className="w-100">  
-              <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
+              <MobileHeaderSlider store={this.state.sliders} />
             </div>
           </OnMobileAndTablet>
         </section>
@@ -223,7 +223,7 @@ class Home extends Component {
         <section>
           <OnDesktop>
             <div className="w-100">
-              <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
+              <Gallery store={this.state.gallery} />
             </div>
           </OnDesktop>
 
