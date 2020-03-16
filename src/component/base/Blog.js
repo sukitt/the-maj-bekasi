@@ -41,9 +41,12 @@ export default class Blog extends Component{
     }
 }
 const Container = styled.div`
-    max-width:370px;
+    max-width:1110px;
     padding:13px;
     margin-top:148px;
+    @media only screen and (max-width:768px){
+        max-width:370px;
+    }
 `;
 const Heading = styled.div`
     margin-bottom: 50px;
@@ -56,6 +59,9 @@ const Thumbnail = styled.div`
     margin-left:auto;
     margin-right:auto;
     margin-bottom:17px;
+    @media only screen and (max-width:768px){
+        margin-top:60px;
+    }
 `;
 const H2 = styled.h2`
     font-size:22px;

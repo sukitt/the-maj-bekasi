@@ -271,12 +271,6 @@ class Home extends Component {
           </section>
         </OnMobileAndTablet>
 
-        <OnMobileAndTablet>
-          <section>
-            <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
-          </section>
-        </OnMobileAndTablet>
-
         {/* Slider Logo Desktop */}
         <OnDesktop>
           <section>
@@ -285,6 +279,10 @@ class Home extends Component {
             </div>
           </section>
         </OnDesktop>
+
+        <section>
+          <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
+        </section>
 
         <section>
           <OnDesktop>
