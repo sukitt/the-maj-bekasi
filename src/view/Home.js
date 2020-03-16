@@ -252,11 +252,11 @@ class Home extends Component {
           </section>
         </OnDesktop> */}
 
-        <OnMobileAndTablet>
+        {/* <OnMobileAndTablet>
           <section>
               <MobileAboutSlider />
           </section>
-        </OnMobileAndTablet>
+        </OnMobileAndTablet> */}
 
         {/* Slider Logo Desktop */}
         <OnDesktop>
@@ -271,7 +271,6 @@ class Home extends Component {
           <OnDesktop>
             <div className="container">
               <ContactUs
-                // validated={this.state.contact.validated}
                 onSubmit={this._contactUs}
                 gelarRef={this.contrefgelar}
                 namaRef={this.contrefnama}
