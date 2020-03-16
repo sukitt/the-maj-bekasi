@@ -21,7 +21,7 @@ export default class Whatsapp extends Component{
 }
 
 const Container = styled.div`
-    position: absolute;
+    position: fixed;
     right: 2%;
     top: 30%;
     max-width:75px;
