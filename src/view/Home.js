@@ -19,6 +19,7 @@ import MobileSimulasi from '../component/tab/mobile/Simulasi'
 import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
+import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
@@ -28,6 +29,8 @@ import MobileMaps from '../component/map/mobile/Maps'
 
 import { layoutGenerator } from 'react-break';
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation } from '../services/get'
+import Blogs from '../component/card/Blogs'
+import backgroundImage from '@bit/dweez.react.background-image'
 
 
 const layout = layoutGenerator({
@@ -254,7 +257,26 @@ class Home extends Component {
 
         <OnMobileAndTablet>
           <section>
-              <MobileAboutSlider />
+            <MobileAboutSlider />
+          </section>
+
+          <section>
+            <MobileBlogs store={[
+              {
+                id: 1, 
+                text: "Abcdef", 
+                posted_at: "04 March 2020", 
+                image: null, 
+                link: "#linkTo1"
+              },{
+                id: 2, 
+                text: "Ghijkl", 
+                posted_at: "04 March 2020", 
+                image: null, 
+                link: "#linkTo2"
+                }
+              ]} 
+            />
           </section>
         </OnMobileAndTablet>
 
@@ -264,6 +286,30 @@ class Home extends Component {
             <div className="w-100">
               <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
             </div>
+          </section>
+
+          <section>
+            <Blogs store={[
+              {
+                id: 1, 
+                text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
+                posted_at: "04 March 2020", 
+                image: null, 
+                link: "#linkTo1"
+                },{
+                  id: 2, 
+                  text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
+                  posted_at: "04 March 2020", 
+                  image: null, 
+                  link: "#linkTo2"
+                },{
+                  id: 3, 
+                  text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
+                  posted_at: "04 March 2020", 
+                  image: null, 
+                  link: "#linkTo3"
+                }]} 
+              />
           </section>
         </OnDesktop>
 
