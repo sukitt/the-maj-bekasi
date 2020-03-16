@@ -4,11 +4,13 @@ import styled from 'styled-components'
 import { BaseUrl } from '../../../services/axios'
 
 import '../assets/css/mobileStyles.css'
+import placeholder from '../assets/header-mobile-placeholder.png';
 
 // dummy Data
 import Gal1 from './galleryDummy/1.svg'
 import Gal2 from './galleryDummy/2.svg'
 import Gal3 from './galleryDummy/3.svg'
+import SliderPlaceholder from '../SliderPlaceholder'
 
 
 export class MobileGallery extends Component {
@@ -47,14 +49,12 @@ export class MobileGallery extends Component {
 
 
   render() {
-    const { store, errors } = this.props
-    if (Object.keys(errors).length) {
+    if (!this.state.store.length) {
       return (
-        <div>
-          <h4>Errors in Gallery</h4>
-          <p>{errors.code}</p>
-          <p>{errors.status}</p>
-        </div>
+        <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
+          <Caps1 margin="0 0 22px 0">Gallery</Caps1>
+          <SliderPlaceholder color="#CC9980" src={placeholder} width="100%" height="228px" opacity=".6" />
+        </Container>
       )
     }
 
