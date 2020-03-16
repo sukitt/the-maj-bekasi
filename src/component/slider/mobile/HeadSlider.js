@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
 
 import { BaseUrl } from '../../../services/axios';
-import SliderPlaceholder from '../SliderPlaceholder';
+import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder';
 import placeholder from '../assets/header-mobile-placeholder.png';
 import '../assets/css/mobileStyles.css';
 

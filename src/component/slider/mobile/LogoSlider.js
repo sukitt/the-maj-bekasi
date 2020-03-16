@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Slider from 'react-slick';
 
 import { BaseUrl } from '../../../services/axios'
-import SliderPlaceholder from '../SliderPlaceholder';
+import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder';
 
 export class LogoSlider extends Component {
   constructor(props) {

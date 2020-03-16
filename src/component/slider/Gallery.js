@@ -3,10 +3,8 @@ import Slider from 'react-slick'
 import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
-import $ from 'jquery'
-
 import './assets/css/style.css'
-import SliderPlaceholder from './SliderPlaceholder'
+import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;

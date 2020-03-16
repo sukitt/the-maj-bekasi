@@ -10,7 +10,7 @@ import placeholder from '../assets/header-mobile-placeholder.png';
 import Gal1 from './galleryDummy/1.svg'
 import Gal2 from './galleryDummy/2.svg'
 import Gal3 from './galleryDummy/3.svg'
-import SliderPlaceholder from '../SliderPlaceholder'
+import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder'
 
 
 export class MobileGallery extends Component {
