@@ -228,29 +228,29 @@ class Home extends Component {
           </OnDesktop>
 
           <OnMobileAndTablet>
-              <MobileGallery store={this.state.gallery} errors={this.state.errors.gallery} />
+              <MobileGallery store={this.state.gallery} />
           </OnMobileAndTablet>
         </section>
 
         {/* Slider Logo MobileTablet */}
         <OnMobileAndTablet>
           <section>
-            <MobileLogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
+            <MobileLogoSlider store={this.state.partnership} />
           </section>
         </OnMobileAndTablet>
-{/* 
+
         <OnDesktop>
-          <section>
+          {/* <section>
               <div className="container">
                 <AboutSlider />
               </div>
-          </section>
+          </section> */}
           <section>
             <div className="container">
               <TentangKami />
             </div>
           </section>
-        </OnDesktop> */}
+        </OnDesktop>
 
         <OnMobileAndTablet>
           <section>
