@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick';
+import styled from 'styled-components'
 
 import { BaseUrl } from '../../../services/axios'
 
@@ -51,13 +52,23 @@ export class LogoSlider extends Component {
           centerMode={true}
         >
           {this.state.storeLogo && this.state.storeLogo.map((item, i) => (
-            <a href={item.link} key={i}>
-                <img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
-            </a>
+            <A href={item.link} key={i}>
+                <Img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
+            </A>
           ))}
         </Slider>
       </div>
     )
   }
 }
+const Img = styled.img`
+  filter: grayscale(100);
+  transition:.3s all;
+  &:hover{
+    filter: grayscale(0);
+  }
+`;
+const A = styled.a`
+  margin: 0px 15px;
+`;
 export default LogoSlider

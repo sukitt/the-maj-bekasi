@@ -14,8 +14,6 @@ export default class TabSimulasi extends Component {
             credit:1,
             interest:1,
         }
-        // this.handleChangeCredit = this.handleChangeCredit.bind(this)
-        // this.handleChangeInterest = this.handleChangeInterest.bind(this)
     }
 
     componentDidMount(){
@@ -53,7 +51,7 @@ export default class TabSimulasi extends Component {
         console.log(event.target.value)
         if(!event.target.value){
             this.setState({credit:0})
-        }else if(event.target.value > 25 || event.target.value < 1){
+        }else if(event.target.value > 26 || event.target.value < 1){
             this.setState({credit:"error set credit"})
         }else{
             this.setState({credit:event.target.value});
@@ -63,12 +61,12 @@ export default class TabSimulasi extends Component {
     calcAnnualEst = () => {
         this.setState({
             annualEst:Math.round(
-                    ((this.state.totalLoan * this.state.interest/12)/(1-(1+(this.state.interest/12))**(-this.state.credit*12))+Number.EPSILON)*100
+                    ((this.state.totalLoan * this.state.interest/100/12)/(1-(1+(this.state.interest/100/12))**(-this.state.credit*12))+Number.EPSILON)*100
                 )/100
         })
     }
     loop_credit = () => {
-        for (let index = 1; index < 25; index++) {
+        for (let index = 1; index < 26; index++) {
             this.setState(prev=>({options:[...prev.options,index]}))
         }
     }
@@ -104,7 +102,7 @@ export default class TabSimulasi extends Component {
                     <Col><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     <Col><P>Bunga</P></Col>
                     <Col style={{padding:"26px 0px"}}>
-                        <Form.Control type="number" maxLength="11" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
+                        <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
                     </Col>
                 </Row>
                 <Row>

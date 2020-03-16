@@ -15,10 +15,9 @@ import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
-import MobileSimulasi from '../component/tab/mobile/Simulasi'
 import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
-import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
+// import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
@@ -28,6 +27,7 @@ import MobileMaps from '../component/map/mobile/Maps'
 
 import { layoutGenerator } from 'react-break';
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation } from '../services/get'
+import Whatsapp from '../component/base/whatsapp'
 
 
 const layout = layoutGenerator({
@@ -166,6 +166,7 @@ class Home extends Component {
     if (this.state.errors)
     return (
       <div>
+        <Whatsapp />
         <OnDesktop>
             <NavigationBar />
         </OnDesktop>
@@ -203,9 +204,6 @@ class Home extends Component {
 
           <OnMobileAndTablet>
             <MobileDenahUnit storeUnit={this.state.units} />
-          </OnMobileAndTablet>
-          <OnMobileAndTablet>
-            <MobileSimulasi />
           </OnMobileAndTablet>
         </section>
         <section>
