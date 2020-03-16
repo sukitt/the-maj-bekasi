@@ -6,55 +6,67 @@ import styled from 'styled-components';
 import { BaseUrl } from '../../../services/axios';
 import '../assets/css/mobileStyles.css'
 
-  export class HeadSlider extends Component {
-    constructor(props) {
-      super(props)
+export class HeadSlider extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      localStore: [],
     }
-    
-    render() {
-      
-      const { store, errors } = this.props
-      if (Object.keys(errors).length) {
-        return (
-          <div>
-            <h4>Error in HeaderSlider.js</h4>
-            <p>{errors.code}</p>
-            <p>{errors.status}</p>
-          </div>
-        )
+  }
+  
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.store !== prevState.localStore) {
+      return {
+        localStore: nextProps.store
       }
-
+    }
+    return null
+  }
+  
+  render() {
+    
+    const { errors } = this.props
+    if (Object.keys(errors).length) {
       return (
-        <div id="mobile-head-slider">
+        <div>
+          <h4>Error in HeaderSlider.js</h4>
+          <p>{errors.code}</p>
+          <p>{errors.status}</p>
+        </div>
+      )
+    }
+
+    return (
+      <div id="mobile-head-slider">
           <Carousel 
             nextIcon={null}
             prevIcon={null}
           >
-          {store && store.map((item, i) => {
-              console.log(item)
-              return (
-                <Carousel.Item>
-                  <img
-                    style={{
-                      width: "100%",
-                      height: "2800%"
-                    }}
-                    className="d-block w-100"
-                    src={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`}
-                    alt="image slider"
-                  />
-                  <Carousel.Caption>
-                    <H2>{item.caption}</H2>
-                    <B margin="0 0 6.5% 0">Bandingkan</B>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              )
-            })}
+          {this.state.localStore && this.state.localStore.map((item, i) => {
+            return (
+              <Carousel.Item>
+                <img
+                  style={{
+                    width: "100%",
+                    height: "280px"
+                  }}
+                  className="d-block w-100"
+                  src={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`}
+                  alt="image slider"
+                />
+                <Carousel.Caption style={{margin: "0 0 58px 0"}}>
+                  <H2>{item.caption}</H2>
+                  <B>Bandingkan</B>
+                </Carousel.Caption>
+              </Carousel.Item>
+            )
+          })}
           </Carousel>
-        </div>
-      )
-    }
+      </div>
+    )
   }
+}
   
   const H2 = styled.h2(
     props => ({
