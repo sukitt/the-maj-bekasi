@@ -25,9 +25,10 @@ export class DenahUnit extends Base {
 
                 <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
                 <Form.Control 
+                    disabled={!this.state.storeUnit.length}
                     style={Select} 
                     as="select" 
-                    onClick={(e) => this._handleSelect(e)}
+                    onClick={this._handleSelect}
                     default
                 >
                 {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
