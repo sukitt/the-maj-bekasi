@@ -1,70 +1,33 @@
 import React, { Component } from 'react'
-import Slider from "react-slick"
-import Img1 from '../../assets/about-image/1.svg'
 import styled from 'styled-components';
-
-const Data = [
-    {
-        id: 1,
-        title: 'About Us',
-        description: 'The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni.',
-        img: Img1
-    },
-    {
-        id: 2,
-        title: 'About Us',
-        description: 'The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni.',
-        img: Img1
-    },
-    {
-        id: 3,
-        title: 'About Us',
-        description: 'The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni.',
-        img: Img1
-    },
-]
+import { BaseUrl } from '../../../services/axios';
 
 export class MobileAboutSlider extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            storeAbout: Data,
             indexActive: 0,
         }
     }
     
     render() {
+        const { store, errors } = this.props
+        if (Object.keys(errors).length) {
+        return (
+            <div>
+            <h4>Errors in Abouts Section</h4>
+            <p>{errors.code}</p>
+            <p>{errors.status}</p>
+            </div>
+        )
+        }
         return (
             <Container margin="51.87px 50px 0 50px">
                 <Caps1>Tentang Kami</Caps1>
-
-                <div style={{width: "100%", height: "auto", margin: "31px 0 0 0"}}>
-                    <Slider
-                        dots={false}
-                        lazyLoad={true}
-                        slidesToShow={1}
-                        slidesToScroll={1}
-                        autoplay={true}
-                        autoplaySpeed={3000}
-                        speed={1500}
-                        pauseOnHover={true}
-                        beforeChange={indexActive => this.setState({indexActive})}
-
-                    >
-                        {this.state.storeAbout && this.state.storeAbout.map((data, i) => (
-                            <div>
-                                <img src={data.img} style={{width: "inherit", height: "inherit"}} alt={`img ${data.title}`} />
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
                 <Content>
-                    {this.state.storeAbout && this.state.storeAbout.map((data, i) => {
-                        if (i === this.state.indexActive) {
-                            return <P margin="30.79px 0 0 0">{data.description}</P>
-                        }
-                        return null
+                    {store && store.map((data, i) => {
+                        return <P key={i} margin="30.79px 0 0 0">{data.first_text}</P>
                     })}
                     <A margin="15px 0 0 0" padding="3px 3px 10px 3px" href="#">Read More</A>
                 </Content>
@@ -138,14 +101,5 @@ const A = styled.a(
         }
     })
 )
-
-const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    lazyLoad: true,
-}
 
 export default MobileAboutSlider

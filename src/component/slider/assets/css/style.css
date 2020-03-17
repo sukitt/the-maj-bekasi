@@ -4,22 +4,16 @@
   text-align: center;
 }
 
-#gallery > div > div > div > .slider div {
-  /* margin-right: 5px; */
-}
 
 #gallery > div > div > div > .slick-slide {
   filter: grayscale(100%);
   /* width: 10px; */
-  padding: 0px 60px;
+  padding: 0px 30px;
   transition: 1s all;
   /* width: 900px !important; */
   /* display: inline-table; */
 }
 
-#gallery > div > div > .slick-track{
-  /* display: inline-flex; */
-}
 
 #gallery > div > div > div > .slick-center {
   filter: grayscale(0%);
@@ -34,4 +28,7 @@
 }
 #gallery > .slick-next {
   top: 40%;
+}
+#gallery > div > .slick-dots{
+  bottom:120px;
 }

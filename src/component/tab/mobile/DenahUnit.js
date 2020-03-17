@@ -6,7 +6,8 @@ import $ from 'jquery'
 
 import Base from './Base'
 import MobileReviewUnit from './ReviewUnit'
-import {BaseUrl} from '../../../services/axios'
+import MobileSimulasi from './Simulasi'
+import { BaseUrl } from '../../../services/axios'
 
 
 export class DenahUnit extends Base {
@@ -20,99 +21,103 @@ export class DenahUnit extends Base {
 
     render() {
         return (
-            <div id="mobile-denahunit" style={{backgroundColor:"#e9e9e9", padding: "20px"}}>
-                <Caps1 padding="0 0 20px 0">Denah Unit</Caps1>
+            <>
+                <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "20px" }}>
+                    <Caps1 id="denah" padding="0 0 20px 0">Denah Unit</Caps1>
 
-                <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
-                <Form.Control 
-                    disabled={!this.state.storeUnit.length}
-                    style={Select} 
-                    as="select" 
-                    onClick={this._handleSelect}
-                    default
-                >
-                {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
-                    <option
-                        key={i}
-                        id={!i? "defaultSelect": null}
-                        className="tablinks"
-                        value={data.unit_name.toLowerCase().replace(/\s/g, "-")}
-                        defaultValue="studio-a"
-                        style={{fontSize: "22px", fontWeight: "bold", lineHeight: "28px", color: "#000000"}}
+                    <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
+                    <Form.Group className="position-relative selectField" style={{width:"max-content", margin:"0px auto"}} controlId="unitField">
+                    <Form.Control
+                        style={Select}
+                        as="select"
+                        onClick={(e) => this._handleSelect(e)}
+                        default
+                        className="fs-22"
                     >
-                        {data.unit_name}
-                    </option>
-                ))}
-                </Form.Control>
-                
-                {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
-                    <div key={d.id} style={{margin: "0 auto"}} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
-                        <Luas>{d.specs.luas} M<sup>2</sup></Luas>
-                        <div>
-                            <Slider 
-                                // className="center"
-                                dots={false}
-                                // focusOnSelect={true}
-                                slidesToShow={1}
-                                swipeToSlide={true}
-                                lazyLoad={true}
-                                autoplay={true}
-                                arrows={false}
-                                autoplaySpeed={5000}
-                                speed={1000}
-                                pauseOnHover={true}
+                        {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
+                            <Options
+                                key={i}
+                                id={!i ? "defaultSelect" : null}
+                                className="tablinks"
+                                value={data.unit_name.toLowerCase().replace(/\s/g, "-")}
+                                defaultValue="studio-a"
                             >
-                                <div>
-                                    <img 
-                                        src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")} 
-                                        style={{
-                                            margin: "0 auto",
-                                            height: "228px",
-                                            transform: "rotate(90deg)"
-                                        }} 
-                                        alt="denah ruang" 
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                        src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")} 
-                                        style={{
-                                            margin: "0 auto",
-                                            width: "228px",
-                                        }} 
-                                        alt="denah bangunan" 
-                                    />
-                                </div>
-                            </Slider>
-                        </div>
-                        <div id="mobile-spec" title="SPESIFIKASI" style={{padding: 20}}>
-                            <Caps2 margin="47px 0 19px 0">spesifikasi</Caps2>
-                            <P>{d.specs.deskripsi}</P>
+                                {data.unit_name}
+                            </Options>
+                        ))}
+                    </Form.Control>
+                    </Form.Group>
 
+                    {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
+                        <div key={d.id} style={{ margin: "0 auto" }} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
+                            <Luas>{d.specs.luas} M<sup>2</sup></Luas>
                             <div>
-                                <ul style={{
-                                    height: "100px", 
-                                    width: "100%", 
-                                    display: "flex", 
-                                    flexDirection: "column", 
-                                    flexWrap: "wrap",
-                                    margin: "0", 
-                                    padding: "0",
-                                    boxSizing: "border-box"
-                                }}>
-                                    <li style={{ padding: 0, margin: 0}}>{d.specs.kamar_tidur} Kamar Tidur</li>
-                                    <li style={{ padding: 0, margin: 0}}>{d.specs.kamar_mandi} Kamar Mandi</li>
-                                    <li style={{ padding: 0, margin: 0}}>{d.specs.dapur} Dapur</li>
-                                </ul>
+                                <Slider
+                                    // className="center"
+                                    dots={false}
+                                    // focusOnSelect={true}
+                                    slidesToShow={1}
+                                    swipeToSlide={true}
+                                    lazyLoad={true}
+                                    autoplay={true}
+                                    arrows={false}
+                                    autoplaySpeed={5000}
+                                    speed={1000}
+                                    pauseOnHover={true}
+                                >
+                                    <div>
+                                        <img
+                                            src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")}
+                                            style={{
+                                                margin: "0 auto",
+                                                height: "228px",
+                                                transform: "rotate(90deg)"
+                                            }}
+                                            alt="denah ruang"
+                                        />
+                                    </div>
+                                    <div>
+                                        <img
+                                            src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")}
+                                            style={{
+                                                margin: "0 auto",
+                                                width: "228px",
+                                            }}
+                                            alt="denah bangunan"
+                                        />
+                                    </div>
+                                </Slider>
                             </div>
+                            <div id="mobile-spec" title="SPESIFIKASI" style={{ padding: 20 }}>
+                                <Caps2 margin="47px 0 19px 0">spesifikasi</Caps2>
+                                <div>
+                                    <ul style={{
+                                        height: "130px",
+                                        width: "100%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        flexWrap: "wrap",
+                                        margin: "0",
+                                        padding: "0",
+                                        boxSizing: "border-box"
+                                    }}>
+                                        {d.specs.room_list.map((data,index) => (
+                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>· {data.quantity + " " + data.name}</H6></Li>
+                                        ))}
+                                    </ul>
+                                </div>
 
-                            <div title="REVIEW" style={{margin: "77px 0"}}>
-                                <MobileReviewUnit storeReview={d.gallery} />
+                                <div title="REVIEW" style={{ margin: "77px 0" }}>
+                                    <MobileReviewUnit storeReview={d.gallery} />
+                                </div>
+                                <div title="SIMULASI" style={{ margin: "77px 0" }}>
+                                    <MobileSimulasi namaUnit={d.unit_name} hargaUnit={d.unit_price} />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            </>
         )
     }
 }
@@ -167,8 +172,8 @@ const Caps2 = styled.h6(
 )
 
 const Select = {
-    backgroundColor: "transparent", 
-    width: "30%",
+    backgroundColor: "transparent",
+    width: "100%",
     height: "auto",
     border: "0",
     fontSize: "22px",
@@ -176,5 +181,21 @@ const Select = {
     textAlign: "center",
     margin: "9px auto 11px auto"
 }
-
+const H6 = styled.h6`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #2D2D2D;
+`;
+const Li = styled.li`
+    list-style-type:none;
+    max-width:130px;
+`;
+const Options = styled.option`
+    font-seight: bold;
+    line-height: 28px;
+    color: #000000;
+`;
 export default DenahUnit

@@ -55,7 +55,7 @@ const ContactUs = (props) =>{
 
                 <H2 margin="74px 0 0 0">Marketing Gallery</H2>
                 <P margin="23px 0 11px 0">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                <P> T: <A href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+                <P> T: <A style={{marginRight:"10px"}} href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </div>
         </div>
     )
@@ -65,16 +65,16 @@ export default ContactUs
 
 const Unit = [
     { 
-        nama: 'Studio A',
+        nama: 'Membeli Unit',
     },
     {
-        nama: 'Studio B',
+        nama: 'Mendapatkan Info Lebih',
     },
     {
-        nama: '2 Bathroom C',
+        nama: 'Melihat Price List',
     },
     {
-        nama: '2 Bathroom D',
+        nama: 'Mengunduh E-Brosur',
     }
 ]
 
@@ -120,5 +120,6 @@ const H2 = styled.h2(
         padding: props.padding,
         letterSpacing: "2px",
         color: "#232323",
+        textTransform: "uppercase",
     })
 )

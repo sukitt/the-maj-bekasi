@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick';
+import styled from 'styled-components'
 
 import { BaseUrl } from '../../../services/axios'
 import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder';
@@ -82,14 +83,24 @@ export class LogoSlider extends Component {
           slidesToShow={3}
 
         >
-          {this.state.localStore.leng && this.state.localStore.map((item, i) => (
-            <a href={item.link} key={i}>
+          {this.state.localStore.length && this.state.localStore.map((item, i) => (
+            <A href={item.link} key={i}>
                 <img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
-            </a>
+            </A>
           ))}
         </Slider>
       </div>
     )
   }
 }
+const Img = styled.img`
+  filter: grayscale(100);
+  transition:.3s all;
+  &:hover{
+    filter: grayscale(0);
+  }
+`;
+const A = styled.a`
+  margin: 0px 15px;
+`;
 export default LogoSlider

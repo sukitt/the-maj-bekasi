@@ -16,7 +16,7 @@ class LogoSlider extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.store.length !== prevState.localStore.length) {
+    if (nextProps.store !== prevState.localStore) {
       return {
         localStore: nextProps.length,
         isLoading: false,
@@ -72,7 +72,7 @@ class LogoSlider extends Component {
           {...settings}
           slidesToShow={4}
         >
-          {this.state.localStore.length && this.state.localStore.map((item, i) => (
+          {this.state.localStore && this.state.localStore.map((item, i) => (
             <div key={i}>
               <div>
                 <a href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>

@@ -1,65 +1,120 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, FormControl, Form } from 'react-bootstrap'
 
-import DropdownCicilan from '../DropdownCicilan'
-import DropdownKredit from '../DropdownKredit'
-import DropdownBunga from '../DropdownBunga'
+// import DropdownCicilan from '../DropdownCicilan'
+// import DropdownKredit from '../DropdownKredit'
+// import DropdownBunga from '../DropdownBunga'
 import Base from './Base'
+import NumberFormat from 'react-number-format'
 
 
 export class Simulasi extends Base {
+    constructor(props){
+        super(props)
+        this.state = {
+            dp:0,
+            totalLoan:0,
+            annualEst:0,
+            options:[],
+            credit:1,
+            interest:1,
+        }
+    }
+    componentDidMount(){
+        this.loop_credit()
+        this.calcDp()
+    }
+    calcDp = () => {
+        return (
+            this.setState(
+                {dp:this.props.hargaUnit * 20 / 100}, () => {
+                this.calcLoan()
+            }
+            )
+        )
+    }
+    calcLoan = () =>{
+        return(
+            this.setState({totalLoan:this.props.hargaUnit - this.state.dp}, () => {
+                this.calcAnnualEst()
+            })
+        )
+    }
+    handleChangeInterest = (event) => {
+        console.log(event.target.value)
+        if(!event.target.value || event.target.value < 1){
+            this.setState({interest:0})
+        }else if(event.target.value > 100){
+            this.setState({interest:"cannot set interest more than 100.00"})
+        }else{
+            this.setState({interest:event.target.value});
+            this.calcLoan()
+        }
+    }
+    handleChangeCredits = (event) => {
+        console.log(event.target.value)
+        if(!event.target.value){
+            this.setState({credit:0})
+        }else if(event.target.value > 26 || event.target.value < 1){
+            this.setState({credit:"error set credit"})
+        }else{
+            this.setState({credit:event.target.value});
+            this.calcLoan()
+        }
+    }
+    calcAnnualEst = () => {
+        this.setState({
+            annualEst:Math.round(
+                    ((this.state.totalLoan * this.state.interest/100/12)/(1-(1+(this.state.interest/100/12))**(-this.state.credit*12))+Number.EPSILON)*100
+                )/100
+        })
+    }
+    loop_credit = () => {
+        for (let index = 1; index < 26; index++) {
+            this.setState(prev=>({options:[...prev.options,index]}))
+        }
+    }
     
     render() {
         return (
-            <D backgroundColor="#12284C" padding="10%">
-                <H2>Simulasi KPA Studio A</H2>
+            <D backgroundColor="#e9e9e9" padding="0">
+                <H2>Simulasi KPA {this.props.namaUnit}</H2>
                 <H3>Estimasi Cicilan Bulanan</H3>
-                <H1>IDR 18.046.057</H1>
+                <H1><NumberFormat value={this.state.annualEst} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></H1>
 
                 <div style={{margin: "67px auto", maxWidth:800}}>
                     <Row>
                         <Col style={{marginBottom:"53px"}} ><P>Harga Unit</P></Col>
-                        <Col style={{marginBottom:"53px"}}><P>IDR 263.500.000</P></Col>
+                        <Col style={{marginBottom:"53px"}}><P><NumberFormat value={this.props.hargaUnit} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                         
                     </Row>
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>DP 20%</P></Col>
-                        <Col style={{marginBottom:"53px"}}><P>IDR 52.700.000</P></Col>
+                        <Col style={{marginBottom:"53px"}}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     </Row>
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>Jumlah Pinjaman</P></Col>
-                        <Col style={{marginBottom:"53px"}}><P>IDR 210.800.000</P></Col>
-                    </Row>
-
-                    <Row>
-                        <Col style={{marginBottom:"53px"}}><P>Cicilan DP</P></Col>
-                        <Col style={{marginBottom:"53px"}}>
-                            <DropdownCicilan
-                                value={this.state.cicilan}
-                                // defaultValue={12}
-                                onChange={(e) => this.setState({cicilan: e.target.value})}
-                            />
-                        </Col>
+                        <Col style={{marginBottom:"53px"}}><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     </Row>
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>Tenor Kredit</P></Col>
                         <Col style={{marginBottom:"53px"}}>
-                            <DropdownKredit
-                                value={this.state.kredit}
-                                // defaultValue={1}
-                                onChange={(e) => this.setState({kredit: e.target.value})}
-                            />
+                            <Form.Group className="position-relative selectField" controlId="unitField">
+                                <FormControl as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
+                                    {this.state.options.length && this.state.options.map((index, i) => (
+                                        <>
+                                            <option key={i} value={index}>{index}</option>
+                                        </>
+                                    ))}
+                                </FormControl>
+                            </Form.Group>
                         </Col>
                     </Row>
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>Bunga</P></Col>
                         <Col style={{marginBottom:"53px"}}>
-                            <DropdownBunga
-                                value={this.state.bunga}
-                                // defaultValue={5}
-                                onChange={(e) => this.setState({bunga: e.target.value})}
-                            />
+                            <FormControl type="number" maxLength="4" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
                         </Col>
                     </Row>
                 </div>
@@ -85,10 +140,11 @@ const D = styled.div(
 
 const H1 = styled.h1(
     props => ({
-        color: '#FFFFFF',
+        color: '#000',
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: "2.125em",
+        fontSize: "32px",
+        lineHeight: "41px",
         textAlign: 'center',
         letterSpacing: "2px",
         margin: props.margin,
@@ -98,7 +154,7 @@ const H1 = styled.h1(
 
 const H2 = styled.h2(
     props => ({
-        color: '#FFFFFF',
+        color: '#000',
         fontStyle: 'normal',
         fontWeight: 'bold',
         fontSize: "1.3750em",
@@ -129,6 +185,6 @@ const P = styled.p(
         fontWeight: "bold",
         fontSize: "16px",
         lineHeight: "21px",
-        color: "#FFFFFF"
+        color: "#000"
     })
 )

@@ -20,7 +20,7 @@ const NextArrow = (props) => {
     padding: "25px",
     borderRadius: "50%",
     boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
-    right:"10%",
+    right:"13%",
     '&:hover': {
       background:"#ffffff",
       color: "#000"
@@ -67,7 +67,7 @@ const PrevArrow = (props) => {
     padding: "30px",
     zIndex:"1",
     borderRadius:"50%",
-    left:"10%",
+    left:"13%",
     boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
     '&:hover': {
       background:"#ffffff",
@@ -107,14 +107,6 @@ const H4 = styled.h4({
   fontSize: "14px",
   lineHeight: "16px",
   textTransform: "uppercase",
-  color: "#12284C",
-})
-
-const P = styled.p({
-  fontStyle: "normal",
-  fontWeight: "normal",
-  fontSize: "16px",
-  lineHeight: "21px",
   color: "#12284C",
 })
 
@@ -172,7 +164,7 @@ export class Gallery extends Component {
                   <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
                 <div style={{marginTop:"50px", textAlign:"center"}}>
                   <H4>{item.nama} - {item.unit.unit_name}</H4>
-                  <P style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</P>
+                  <p style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</p>
                 </div>
             </div>
           ))}

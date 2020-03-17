@@ -21,19 +21,6 @@ export class MobileGallery extends Component {
         store: [],
         indexActive: 0,
     }
-
-    this.settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "60px",
-      slidesToShow: 1,
-      speed: 1500,
-      autoplay: true,
-      speed: 4000,
-      autoplaySpeed: 5000,
-      arrows: false,
-    };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -64,15 +51,12 @@ export class MobileGallery extends Component {
             <div id="mobileItemGallery">
                 <Slider
                     dots={true}
-                    beforeChange={(indexActive) => this.setState({indexActive})} 
-                    // className="center"
-                    // centerMode={true}
+                    beforeChange={(indexActive) => this.setState({indexActive})}
                     infinite={true}
-                    slidesToShow={2}
-                    speed={1500}
-                    autoplay={true}
-                    speed={4000}
-                    autoplaySpeed={5000}
+                    centerMode={true}
+                    centerPadding="60px"
+                    slidesToShow={1}
+                    speed={1000}
                     arrows={false}
                     customPaging={(i) => (
                       <div id="dots" />
@@ -102,7 +86,6 @@ export class MobileGallery extends Component {
                     return (
                         <>
                             <H4>{item.nama} {item.unit.unit_name}</H4>
-                            <P margin="7px auto 23px auto">{item.deskripsi}</P>
                         </>
                     )
                 }

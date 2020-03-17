@@ -18,7 +18,7 @@ export class Base extends Component {
             // validated={this.props.validated}
             <Form onSubmit={this.props.onSubmit}>
                 <Form.Row>
-                    <Form.Group as={Col} xs="4">
+                    <Form.Group className="selectField" as={Col} xs="4">
                         <Form.Control 
                             size={this.props.size}
                             as='select'

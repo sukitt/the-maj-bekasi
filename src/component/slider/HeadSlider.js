@@ -36,7 +36,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
     user-select: none;
     text-align: center;
     display: inline-block;
-    color: #000;
+    color: #fff;
     transition: .15s all;
     font-family: 'Verlag Bold' !important;
     text-transform: uppercase;
@@ -44,6 +44,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
     font-weight: bold;
     &:hover {
       background: #fff;
+      color:#232323;
     }
   `;
 

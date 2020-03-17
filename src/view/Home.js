@@ -10,12 +10,12 @@ import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/footer/Footer'
+import Blogs from '../component/card/Blogs'
 
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
-import MobileSimulasi from '../component/tab/mobile/Simulasi'
 import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
@@ -28,9 +28,8 @@ import MobileMaps from '../component/map/mobile/Maps'
 
 
 import { layoutGenerator } from 'react-break';
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation } from '../services/get'
-import Blogs from '../component/card/Blogs'
-import backgroundImage from '@bit/dweez.react.background-image'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs } from '../services/get'
+import Whatsapp from '../component/base/whatsapp'
 
 
 const layout = layoutGenerator({
@@ -53,12 +52,16 @@ class Home extends Component {
       units: [],
       partnership: [],
       location: [],
+      blogs: [],
+      abouts: [],
       errors: {
+        abouts:{},
         sliders:{},
         gallery:{},
         units: {},
         partnership: {},
         navigation: {},
+        blogs: {},
         location: {},
       },
       contact: {
@@ -118,6 +121,16 @@ class Home extends Component {
       .catch((err) => {
         if (err && err.response) this.setState({errors:{location:{code:err.response.status, status:err.response.statusText}}})
       })
+    getAbouts()
+      .then(res => this.setState({abouts: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{abouts:{code:err.response.status, status:err.response.statusText}}})
+      })
+    getBlogs()
+      .then(res => this.setState({blogs: res.data}))
+      .catch((err) => {
+        if (err && err.response) this.setState({errors:{blogs:{code:err.response.status, status:err.response.statusText}}})
+      })
   }
 
   _contactUs = (e) => {
@@ -169,6 +182,7 @@ class Home extends Component {
     if (this.state.errors)
     return (
       <div>
+        <Whatsapp />
         <OnDesktop>
             <NavigationBar store={this.state.navigation} />
         </OnDesktop>
@@ -191,11 +205,11 @@ class Home extends Component {
         <section>
           <div className="container">
             <OnDesktop>
-              <Fasilitas />
+              <Fasilitas id="fasilitas" />
             </OnDesktop>
 
             <OnMobileAndTablet>
-              <MobileFasilitas />
+              <MobileFasilitas id="fasilitas" />
             </OnMobileAndTablet>
           </div>
         </section>
@@ -206,9 +220,6 @@ class Home extends Component {
 
           <OnMobileAndTablet>
             <MobileDenahUnit storeUnit={this.state.units} />
-          </OnMobileAndTablet>
-          <OnMobileAndTablet>
-            <MobileSimulasi />
           </OnMobileAndTablet>
         </section>
         <section>
@@ -236,18 +247,13 @@ class Home extends Component {
         </section>
 
         {/* Slider Logo MobileTablet */}
-        <OnMobileAndTablet>
+        {/* <OnMobileAndTablet>
           <section>
             <MobileLogoSlider store={this.state.partnership} />
           </section>
-        </OnMobileAndTablet>
+        </OnMobileAndTablet> */}
 
         <OnDesktop>
-          {/* <section>
-              <div className="container">
-                <AboutSlider />
-              </div>
-          </section> */}
           <section>
             <div className="container">
               <TentangKami />
@@ -257,26 +263,7 @@ class Home extends Component {
 
         <OnMobileAndTablet>
           <section>
-            <MobileAboutSlider />
-          </section>
-
-          <section>
-            <MobileBlogs store={[
-              {
-                id: 1, 
-                text: "Abcdef", 
-                posted_at: "04 March 2020", 
-                image: null, 
-                link: "#linkTo1"
-              },{
-                id: 2, 
-                text: "Ghijkl", 
-                posted_at: "04 March 2020", 
-                image: null, 
-                link: "#linkTo2"
-                }
-              ]} 
-            />
+              <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
           </section>
         </OnMobileAndTablet>
 
@@ -292,32 +279,35 @@ class Home extends Component {
             <Blogs store={[
               {
                 id: 1, 
-                text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
-                posted_at: "04 March 2020", 
-                image: null, 
-                link: "#linkTo1"
+                text: "Sasar Milenial, MAJ Residences Tampilkan Filosofi Jepang", 
+                posted_at: "29 November 2019", 
+                image: "https://img.beritasatu.com/cache/beritasatu/910x580-2/1575006937.jpg", 
+                link: "https://www.beritasatu.com/ekonomi/588011/ekonomi/588011-sasar-milenial-maj-residences-tampilkan-filosofi-jepang"
                 },{
                   id: 2, 
-                  text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
-                  posted_at: "04 March 2020", 
-                  image: null, 
+                  text: "Pilihan hunian dan investasi terbaik di Bekasi", 
+                  posted_at: "04 February 2020", 
+                  image: "https://uc3208a9a9067f8e9fdba2871a96.previews.dropboxusercontent.com/p/thumb/AAs8oanYV6aAb3SeujIbUWBpGoyNwpjnjPKa0kSWxTjOJkdHOhDgRIfXUwKZlc4JztT0WThxdYh7vJVlperb5v_5Ob_nwfauH7Hajtdyl_Vwsx7NSV7dazi15zqABpk4pOekJgIJ3sNcKm6h_hMc5vuUlYjYheUzX1rqCOnuKvCCmWPyvxyVid_DE3Uqu5BpOXT_GJMVxGEGjmDTg4FKpCPZg12BSDwVrEveFj5c8UfshlZq5ox0OiAcjcld4HbC56HxWPo5XHrpHvg7BilZVG-3460sNxq13ZnhYVz39opht1jhpcBONGtUfJtD-_dpKl4Cd70R3mzlUJrHJJ8DHm75RK-PaGpnVGkVurG5h-EddM3OT7k026vmFk4KBrCCfnv-fY_VF8oc3BdM2aAEQTzeKJxZ-pxyA6cxUEa5DwQ8PkjEqXbJE7RlRvjCXt6EcvZbjsdij19Xw8SbHuKxE-2Kbbkp4byfjzt9B0-tqx14lhmZ_MOJp1LpZRhuH7QGmVmvmOFAoOa4uz7shXNdBDgoQT7IDVJlJILp5IQP3u0359el0YpzSXTd4bIPylBgaj6D2mbLOqXSV4yxlvCVXzYqZanGxxf4pkvyVUKoyD4smQ/p.jpeg?fv_content=true&size_mode=5", 
                   link: "#linkTo2"
                 },{
                   id: 3, 
-                  text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", 
-                  posted_at: "04 March 2020", 
-                  image: null, 
-                  link: "#linkTo3"
+                  text: "Sasar Milenial, MAJ Residences Tampilkan Filosofi Jepang", 
+                  posted_at: "29 November 2019", 
+                  image: "https://img.beritasatu.com/cache/beritasatu/910x580-2/1575006937.jpg", 
+                  link: "https://www.beritasatu.com/ekonomi/588011/ekonomi/588011-sasar-milenial-maj-residences-tampilkan-filosofi-jepang"
                 }]} 
               />
           </section>
         </OnDesktop>
 
+        {/* <section>
+          <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
+        </section> */}
+
         <section>
           <OnDesktop>
             <div className="container">
               <ContactUs
-                // validated={this.state.contact.validated}
                 onSubmit={this._contactUs}
                 gelarRef={this.contrefgelar}
                 namaRef={this.contrefnama}
@@ -341,7 +331,7 @@ class Home extends Component {
             />
           </OnMobileAndTablet>
         </section>
-      <section>
+        <section>
           <OnDesktop>
             <Footer 
               validated={this.state.footer.validated}

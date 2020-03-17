@@ -53,7 +53,7 @@ class MobileFasilitas extends Component {
 		}
 	render(){
 		return (
-				<D>
+				<D id={this.props.id}>
 					<h5 style={{fontSize:14}} className="text-center">fasilitas</h5>
 					<P>
 						Fasilitas yang lengkap dan modern

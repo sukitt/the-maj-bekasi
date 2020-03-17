@@ -31,7 +31,7 @@ export class Blogs extends Component {
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.map((data, i) => (
                         <Col lg={4}>
-                            <Blog href={data.link} text={data.text} posted_at={data.posted_at} />
+                            <Blog href={data.link} src={data.image} text={data.text} posted_at={data.posted_at} />
                         </Col>
                     ))}
                 </Row>
@@ -49,9 +49,11 @@ const Blog = props => {
         <Container flexDirection="column">
             <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
             <Body margin="17px 0 0 0">
-                <Link to={props.href}>
-                    <H2>{props.text}</H2>
-                </Link>
+                <H2>
+                    <A href={props.href}>
+                        {props.text}
+                    </A>
+                </H2>
                 <Footer>Posted On {props.posted_at}</Footer>
             </Body>
         </Container>
@@ -76,6 +78,11 @@ const Body = styled.div(
         padding: props.padding,
     })
 )
+
+const A = styled.a`
+    color: #000000;
+    text-decoration: none;
+`;
 
 const H2 = styled.h2(
     props => ({
