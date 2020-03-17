@@ -1,6 +1,6 @@
 @font-face {
   font-family: Gilory Bold;
-  src: url('./assets/fonts/Gilroy/Gilroy-Bold.ttf');
+  src: url('./assets/fonts/Gilroy/Gilroy-Medium.ttf');
 }
 @font-face {
   font-family: 'Verlag Bold';
@@ -255,5 +255,6 @@ select::-ms-expand {
   font-size: 22px !important;
 }
 
-
-/* SLICK CUSTOM CSS */
+.nav-tabs .nav-link{
+  border-radius: 0;
+}
