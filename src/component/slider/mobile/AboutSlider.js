@@ -25,14 +25,6 @@ export class MobileAboutSlider extends Component {
         return (
             <Container margin="51.87px 50px 0 50px">
                 <Caps1>Tentang Kami</Caps1>
-
-                <div style={{width: "100%", height: "auto", margin: "31px 0 0 0"}}>
-                        {store && store.map((data, i) => (
-                            <div>
-                                <img key={i} src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} style={{width: "100%"}} alt="about Thumbnail" />
-                            </div>
-                        ))}
-                </div>
                 <Content>
                     {store && store.map((data, i) => {
                         return <P key={i} margin="30.79px 0 0 0">{data.first_text}</P>

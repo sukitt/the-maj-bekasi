@@ -44,7 +44,7 @@ export default class Maps extends Component {
       arrows:false,
     };
     return(
-      <div className="container-2" style={{marginTop:55, marginBottom:80}}>
+      <div id="lokasi" className="container-2" style={{marginTop:55, marginBottom:80}}>
         <h5 style={{color:"#CC9980", textAlign:"center", textTransform:"uppercase", fontSize:14}}>lokasi</h5>
         <h3 style={{margin:"11px auto",maxWidth:240, textAlign:"center"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h3>
         <Slider ref={c => (this.slider = c)} {...settings}>

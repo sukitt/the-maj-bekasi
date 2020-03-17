@@ -36,7 +36,7 @@ import { unstable_batchedUpdates } from 'react-dom';
     user-select: none;
     text-align: center;
     display: inline-block;
-    color: #000;
+    color: #fff;
     transition: .15s all;
     font-family: 'Verlag Bold' !important;
     text-transform: uppercase;
@@ -44,6 +44,7 @@ import { unstable_batchedUpdates } from 'react-dom';
     font-weight: bold;
     &:hover {
       background: #fff;
+      color:#232323;
     }
   `;
 

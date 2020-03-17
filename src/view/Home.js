@@ -204,11 +204,11 @@ class Home extends Component {
         <section>
           <div className="container">
             <OnDesktop>
-              <Fasilitas />
+              <Fasilitas id="fasilitas" />
             </OnDesktop>
 
             <OnMobileAndTablet>
-              <MobileFasilitas />
+              <MobileFasilitas id="fasilitas" />
             </OnMobileAndTablet>
           </div>
         </section>
@@ -246,24 +246,19 @@ class Home extends Component {
         </section>
 
         {/* Slider Logo MobileTablet */}
-        <OnMobileAndTablet>
+        {/* <OnMobileAndTablet>
           <section>
             <MobileLogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
           </section>
-        </OnMobileAndTablet>
-{/* 
+        </OnMobileAndTablet> */}
+
         <OnDesktop>
-          <section>
-              <div className="container">
-                <AboutSlider />
-              </div>
-          </section>
           <section>
             <div className="container">
               <TentangKami />
             </div>
           </section>
-        </OnDesktop> */}
+        </OnDesktop>
 
         <OnMobileAndTablet>
           <section>
@@ -311,7 +306,7 @@ class Home extends Component {
             />
           </OnMobileAndTablet>
         </section>
-      <section>
+        <section>
           <OnDesktop>
             <Footer 
               validated={this.state.footer.validated}

@@ -21,7 +21,7 @@ export default class ContactForm extends Component {
             // validated={this.props.validated}
             <Form id="contactUs" onSubmit={this.props.onSubmit}>
                 <Form.Row>
-                    <Form.Group as={Col} sm="2" controlId="gelarField">
+                    <Form.Group className="selectField" as={Col} sm="2" controlId="gelarField">
                         <Form.Control 
                             as="select" 
                             value={this.state.gelar} 
@@ -45,10 +45,10 @@ export default class ContactForm extends Component {
                             // isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a Name
+                            Harap Masukkan Nama Anda.
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} sm="6" controlId="unitField">
+                    <Form.Group className="selectField" as={Col} sm="6" controlId="unitField">
                         <Form.Control 
                             as="select" 
                             ref={this.props.unitRef} 
@@ -57,13 +57,13 @@ export default class ContactForm extends Component {
                             required
                             // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                         >
-                            <option selected disabled={this.state.unit? 'disabled': null}>Unit</option>
+                            <option selected disabled={this.state.unit? 'disabled': null}>Saya Ingin</option>
                             {this.props.storeUnit && this.props.storeUnit.map((d, i) => (
                                 <option key={i+1} value={d.nama}>{d.nama}</option>
                             ))}
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">
-                            Please choose a Unit
+                            Harap Pilih Salah Satu.
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>

@@ -75,25 +75,18 @@ class Maps extends Component {
     }
 
     return (
-      <div class="container-2 px-0" style={{marginTop:127, marginBottom:180, paddingBottom:180}}>
-        <h2 style={{
-          color: "#CC9980",
-          letterSpacing:"3px",
-          textTransform:"uppercase",
-        }}>Lokasi</h2>
-        <h2 style={{
-          color: "#000000",
-          maxWidth: "312px",
-          marginTop:"7px",
+      <div id="lokasi" class="container-2 px-0" style={{marginTop:127, marginBottom:180, paddingBottom:180}}>
+        <H5>Lokasi</H5>
+        <H2 style={{
         }}>Kenyamanan dan kemudahan
-        menantimu di 'Planet' Bekasi.</h2>
+        menantimu di 'Planet' Bekasi.</H2>
 
-        <Tabs defaultActiveKey="Marketplace" className="gmaps" style={{
+        <Tabs defaultActiveKey="1" className="gmaps" style={{
           marginTop:"35px",
         }}>
           {console.log(store)}
           {store.map((item, i) => (
-            <Tab eventKey={item.name} title={item.name} key={i} >
+            <Tab eventKey={item.id} title={item.name} key={i} >
               <div style={{height:"500px", width:"100%"}}>
 
               <Gmaps
@@ -119,15 +112,6 @@ class Maps extends Component {
     )
   }
 }
-const H5 = styled.h5`
-      font-family: Nunito Sans;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 11px;
-      line-height: 13px;
-      text-transform: uppercase;
-      color: #000000;
-    `;
 const DistanceContainer = styled.div`
       margin: 35px 12px;
       background: #FFFFFF;
@@ -141,5 +125,23 @@ const DistanceContainer = styled.div`
       text-transform: uppercase;
       color: #000000;
       padding:18px 10px;
+`;
+
+const H5 = styled.h5`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 3px;
+  color: #CC9980;
+  text-transform: uppercase;
+`;
+const H2 = styled.h2`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 28px;
+  color: #000000;
+  max-width:320px;
 `;
 export default Maps

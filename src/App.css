@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: 'Verlag Bold';
-  src: url('./assets/fonts/Verlag/Verlag-Bold.ttf');
+  src: url('./assets/fonts/Verlag/Verlag-Book.ttf');
 }
 @font-face {
   font-family: Proxima Nova Book;
@@ -153,7 +153,7 @@ a{
   transition: .3s all;
 }
 a:hover{
-  color: #3F3356;
+  color: #CC9980;
 }
 .btn {
   border-radius: 0;
@@ -232,3 +232,28 @@ a .button-small {
   font-size: 8px;
   opacity: 1;
 }
+
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+.selectField:after {
+  content: url('./assets/carret-down.svg');
+  color: #000;
+  right: 11px;
+  top: 4px;
+  height: 30px;
+  padding: 4px 0px 0px 4px;
+  position: absolute;
+  pointer-events: none;
+}
+.fs-22{
+  font-size: 22px !important;
+}
+
+
+/* SLICK CUSTOM CSS */

@@ -46,7 +46,7 @@ class NavigationBar extends Component {
     }else{
 
       return(
-        <Navbar bg="white" expand="lg">
+        <Navbar style={{background:"#fafafa"}} expand="lg">
           <div className="container-2 p-0" >
             <Navbar.Collapse id="basic-navbar-nav">
               <Navbar.Brand href="#home" >

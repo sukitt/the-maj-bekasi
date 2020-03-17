@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import NumberFormat from 'react-number-format'
-import { Row, Col, Form } from 'react-bootstrap'
+import { Row, Col, Form, InputGroup } from 'react-bootstrap'
 
 export default class TabSimulasi extends Component {
     constructor(props){
@@ -37,15 +37,15 @@ export default class TabSimulasi extends Component {
         )
     }
     handleChangeInterest = (event) => {
-        console.log(event.target.value)
-        if(!event.target.value){
-            this.setState({interest:0})
-        }else if(event.target.value > 100.00 || event.target.value <0){
-            this.setState({interest:"cannot set interest more than 100.00"})
+        if(!event.target.value || event.target.value < 1){
+            this.setState({interest:1})
+        }else if(event.target.value > 100){
+            this.setState({interest:100})
         }else{
             this.setState({interest:event.target.value});
             this.calcLoan()
         }
+        console.log(this.state.interest)
     }
     handleChangeCredits = (event) => {
         console.log(event.target.value)
@@ -88,13 +88,15 @@ export default class TabSimulasi extends Component {
                         <P>Tenor Kredit</P>
                     </Col>
                     <Col style={{padding:"26px 0px"}}>
+                        <Form.Group className="position-relative selectField" controlId="unitField">
                         <Form.Control as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
                             {this.state.options.length && this.state.options.map((index, i) => (
                                 <>
-                                    <option key={i} value={index}>{index}</option>
+                                    <option key={i} value={index}>{index} Tahun</option>
                                 </>
                             ))}
                         </Form.Control>
+                        </Form.Group>
                     </Col>
                 </Row>
                 <Row>
@@ -102,7 +104,12 @@ export default class TabSimulasi extends Component {
                     <Col><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     <Col><P>Bunga</P></Col>
                     <Col style={{padding:"26px 0px"}}>
-                        <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
+                        <InputGroup>
+                            <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
+                            <InputGroup.Append>
+                                <InputGroup.Text id="basic-addOn">%</InputGroup.Text>
+                            </InputGroup.Append>
+                        </InputGroup>
                     </Col>
                 </Row>
                 <Row>
@@ -117,7 +124,7 @@ export default class TabSimulasi extends Component {
     }
 }
 const Container = styled.div`
-    padding:100px 100px;
+    padding:100px 100px 0px 100px;
 
 `;
 const P = styled.p`

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col, FormControl } from 'react-bootstrap'
+import { Row, Col, FormControl, Form } from 'react-bootstrap'
 
 // import DropdownCicilan from '../DropdownCicilan'
 // import DropdownKredit from '../DropdownKredit'
@@ -43,9 +43,9 @@ export class Simulasi extends Base {
     }
     handleChangeInterest = (event) => {
         console.log(event.target.value)
-        if(!event.target.value){
+        if(!event.target.value || event.target.value < 1){
             this.setState({interest:0})
-        }else if(event.target.value > 100.00 || event.target.value <0){
+        }else if(event.target.value > 100){
             this.setState({interest:"cannot set interest more than 100.00"})
         }else{
             this.setState({interest:event.target.value});
@@ -78,7 +78,7 @@ export class Simulasi extends Base {
     
     render() {
         return (
-            <D backgroundColor="#e9e9e9" padding="10%">
+            <D backgroundColor="#e9e9e9" padding="0">
                 <H2>Simulasi KPA {this.props.namaUnit}</H2>
                 <H3>Estimasi Cicilan Bulanan</H3>
                 <H1><NumberFormat value={this.state.annualEst} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></H1>
@@ -97,42 +97,23 @@ export class Simulasi extends Base {
                         <Col style={{marginBottom:"53px"}}><P>Jumlah Pinjaman</P></Col>
                         <Col style={{marginBottom:"53px"}}><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     </Row>
-
-                    {/* <Row>
-                        <Col style={{marginBottom:"53px"}}><P>Cicilan DP</P></Col>
-                        <Col style={{marginBottom:"53px"}}>
-                            <DropdownCicilan
-                                value={this.state.cicilan}
-                                // defaultValue={12}
-                                onChange={(e) => this.setState({cicilan: e.target.value})}
-                            />
-                        </Col>
-                    </Row> */}
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>Tenor Kredit</P></Col>
                         <Col style={{marginBottom:"53px"}}>
-                            {/* <DropdownKredit
-                                value={this.state.options}
-                                // defaultValue={1}
-                                onChange={this.handleChangeCredits.bind(this)}
-                            /> */}
-                            <FormControl as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
-                                {this.state.options.length && this.state.options.map((index, i) => (
-                                    <>
-                                        <option key={i} value={index}>{index}</option>
-                                    </>
-                                ))}
-                            </FormControl>
+                            <Form.Group className="position-relative selectField" controlId="unitField">
+                                <FormControl as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
+                                    {this.state.options.length && this.state.options.map((index, i) => (
+                                        <>
+                                            <option key={i} value={index}>{index}</option>
+                                        </>
+                                    ))}
+                                </FormControl>
+                            </Form.Group>
                         </Col>
                     </Row>
                     <Row>
                         <Col style={{marginBottom:"53px"}}><P>Bunga</P></Col>
                         <Col style={{marginBottom:"53px"}}>
-                            {/* <DropdownBunga
-                                value={this.state.bunga}
-                                // defaultValue={5}
-                                onChange={(e) => this.setState({bunga: e.target.value})}
-                            /> */}
                             <FormControl type="number" maxLength="4" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
                         </Col>
                     </Row>
@@ -162,7 +143,8 @@ const H1 = styled.h1(
         color: '#000',
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: "2.125em",
+        fontSize: "32px",
+        lineHeight: "41px",
         textAlign: 'center',
         letterSpacing: "2px",
         margin: props.margin,

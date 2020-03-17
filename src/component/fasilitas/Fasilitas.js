@@ -40,7 +40,7 @@ const Data = [
 const Fasilitas = (props) => {
 
 		return (
-				<div style={{
+				<div id={props.id} style={{
 						margin: "50px 0",
 						padding: "50px 0px",
 						// width: 936,

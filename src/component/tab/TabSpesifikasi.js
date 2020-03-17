@@ -10,28 +10,25 @@ export const TabSpesifikasi = (props) => (
             id="#data"
             style={{ marginTop: 68 }}>
             <Col sm={6}>
-                <div >
-                    <h1 style={{ color: "#C3C7D1", margin: 0 }}>{props.items.unit_name}</h1>
+                <div style={{marginBottom:"50px"}}>
+                    <H1>{props.unitName}</H1>
                     <h5 style={{ fontSize: 16 }}>{props.items.luas} M <sup>2</sup></h5>
                 </div>
-                <p style={{ fontWeight: "normal", margin: "69px 0px" }}>
-                    {props.items.deskripsi}
-                </p>
                 <Row>
                     <Col>
-                        <ul>
-                            <li>Kamar Tidur : {props.items.kamar_tidur}</li>
-                            <li>Kamar Mandi : {props.items.kamar_mandi}</li>
-                            <li>Tempat Meja Makan</li>
-                            <li>Tempat Lemari Baju Makan</li>
-                        </ul>
-                    </Col>
-                    <Col>
-                        <ul>
-                            <li>Dapur : {props.items.dapur}</li>
-                            <li>Tempat TV, Sofa dan Meja</li>
-                            <li>Tempat Kompor dan Wastafel</li>
-                            <li>Balkon</li>
+                        <ul style={{
+                            height: "130px",
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            flexWrap: "wrap",
+                            margin: "0",
+                            padding: "0",
+                            boxSizing: "border-box"
+                        }}>
+                            {props.items.room_list.map((data,index) => (
+                                <li key={index} style={{ padding: 0, margin: 0, listStyleType:"none" }}>· {data.quantity + " " + data.name}</li>
+                            ))}
                         </ul>
                     </Col>
                 </Row>
@@ -45,3 +42,12 @@ export const TabSpesifikasi = (props) => (
         </Row>
     </>
 )
+
+const H1 = styled.h1`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 41px;
+    color: #C3C7D1;
+    margin-bottom:0px;
+`;

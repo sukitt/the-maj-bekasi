@@ -41,7 +41,7 @@ class DenahUnit extends Component {
 							marginTop: 108
 						}}
 						className="container" id="denahUnit">
-						<div className="container-2 p-0"><h2>Denah Unit</h2></div>
+						<div id="denah" className="container-2 p-0"><h2>Denah Unit</h2></div>
 						<Tabs
 							style={{ marginTop: 40 }}
 							defaultActiveKey="studio-a"
@@ -49,7 +49,7 @@ class DenahUnit extends Component {
 
 							{store && store.map((item, i) => (
 								<Tab
-									style={{ padding: "75px 60px", backgroundColor: "#e9e9e9" }}
+									style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", height:"640px" }}
 									key={item.id}
 									eventKey={item.unit_name.toLowerCase().replace(" ", "-")}
 									title={item.unit_name}>

@@ -23,28 +23,30 @@ export class DenahUnit extends Base {
         return (
             <>
                 <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "20px" }}>
-                    <Caps1 padding="0 0 20px 0">Denah Unit</Caps1>
+                    <Caps1 id="denah" padding="0 0 20px 0">Denah Unit</Caps1>
 
                     <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
+                    <Form.Group className="position-relative selectField" style={{width:"max-content", margin:"0px auto"}} controlId="unitField">
                     <Form.Control
                         style={Select}
                         as="select"
                         onClick={(e) => this._handleSelect(e)}
                         default
+                        className="fs-22"
                     >
                         {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
-                            <option
+                            <Options
                                 key={i}
                                 id={!i ? "defaultSelect" : null}
                                 className="tablinks"
                                 value={data.unit_name.toLowerCase().replace(/\s/g, "-")}
                                 defaultValue="studio-a"
-                                style={{ fontSize: "22px", fontWeight: "bold", lineHeight: "28px", color: "#000000" }}
                             >
                                 {data.unit_name}
-                            </option>
+                            </Options>
                         ))}
                     </Form.Control>
+                    </Form.Group>
 
                     {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
                         <div key={d.id} style={{ margin: "0 auto" }} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
@@ -88,11 +90,9 @@ export class DenahUnit extends Base {
                             </div>
                             <div id="mobile-spec" title="SPESIFIKASI" style={{ padding: 20 }}>
                                 <Caps2 margin="47px 0 19px 0">spesifikasi</Caps2>
-                                <P>{d.specs.deskripsi}</P>
-
                                 <div>
                                     <ul style={{
-                                        height: "100px",
+                                        height: "130px",
                                         width: "100%",
                                         display: "flex",
                                         flexDirection: "column",
@@ -101,9 +101,9 @@ export class DenahUnit extends Base {
                                         padding: "0",
                                         boxSizing: "border-box"
                                     }}>
-                                        <li style={{ padding: 0, margin: 0 }}>{d.specs.kamar_tidur} Kamar Tidur</li>
-                                        <li style={{ padding: 0, margin: 0 }}>{d.specs.kamar_mandi} Kamar Mandi</li>
-                                        <li style={{ padding: 0, margin: 0 }}>{d.specs.dapur} Dapur</li>
+                                        {d.specs.room_list.map((data,index) => (
+                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>· {data.quantity + " " + data.name}</H6></Li>
+                                        ))}
                                     </ul>
                                 </div>
 
@@ -173,7 +173,7 @@ const Caps2 = styled.h6(
 
 const Select = {
     backgroundColor: "transparent",
-    width: "30%",
+    width: "100%",
     height: "auto",
     border: "0",
     fontSize: "22px",
@@ -181,5 +181,21 @@ const Select = {
     textAlign: "center",
     margin: "9px auto 11px auto"
 }
-
+const H6 = styled.h6`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #2D2D2D;
+`;
+const Li = styled.li`
+    list-style-type:none;
+    max-width:130px;
+`;
+const Options = styled.option`
+    font-seight: bold;
+    line-height: 28px;
+    color: #000000;
+`;
 export default DenahUnit

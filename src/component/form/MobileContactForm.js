@@ -21,7 +21,7 @@ export default class MobileContactForm extends Component {
             // validated={this.props.validated}
             <Form id="contactUs" onSubmit={this.props.onSubmit}>
                 <Form.Row>
-                    <Form.Group as={Col} xs="4" controlId="gelarField">
+                    <Form.Group className="selectField" as={Col} xs="4" controlId="gelarField">
                         <Form.Control 
                             size="lg"
                             as="select"
@@ -47,13 +47,12 @@ export default class MobileContactForm extends Component {
                             // isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a Name
+                            Harap Masukkan Nama
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
-                <Form.Group controlId="unitField">
-                    <Form.Control 
-                        size="lg"
+                <Form.Group className="position-relative selectField" controlId="unitField">
+                    <Form.Control
                         as="select" 
                         ref={this.props.unitRef} 
                         onChange={(e) => this.setState({unit: e.target.value})}  
@@ -61,13 +60,13 @@ export default class MobileContactForm extends Component {
                         required
                         // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                     >
-                        <option selected disabled={this.state.unit? 'disabled': null}>Unit</option>
+                        <option selected disabled={this.state.unit? 'disabled': null}>Saya Ingin</option>
                         {this.props.storeUnit && this.props.storeUnit.map((d, i) => (
                             <option key={i+1} value={d.nama}>{d.nama}</option>
                         ))}
                     </Form.Control>
                     <Form.Control.Feedback type="invalid">
-                        Please choose a Unit
+                        Harap Pilih Salah Satu
                     </Form.Control.Feedback>
                 </Form.Group>
                     <Form.Group controlId="teleponField">
@@ -84,7 +83,7 @@ export default class MobileContactForm extends Component {
                             // isInvalid={this.state.telepon === null? false: this.state.telepon.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a Phone number. <br/> Format: (0-9)
+                            Harap Masukkan Nomor Telpon. <br/> Format: (0-9)
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group controlId="emailField">
@@ -99,7 +98,7 @@ export default class MobileContactForm extends Component {
                             // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a valid Email Address
+                            Harap Masukkan Alamat E-mail
                         </Form.Control.Feedback>
                     </Form.Group>
                 <Form.Row>
