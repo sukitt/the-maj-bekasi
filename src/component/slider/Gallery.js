@@ -19,7 +19,7 @@ const NextArrow = (props) => {
     padding: "25px",
     borderRadius: "50%",
     boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
-    right:"10%",
+    right:"13%",
     '&:hover': {
       background:"#ffffff",
       color: "#000"
@@ -66,7 +66,7 @@ const PrevArrow = (props) => {
     padding: "30px",
     zIndex:"1",
     borderRadius:"50%",
-    left:"10%",
+    left:"13%",
     boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
     '&:hover': {
       background:"#ffffff",
@@ -101,7 +101,6 @@ const PrevArrow = (props) => {
 }
 
 const H4 = styled.h4({
-  fontFamily: "Nunito Sans",
   fontStyle: "normal",
   fontWeight: "bold",
   fontSize: "14px",
@@ -110,18 +109,9 @@ const H4 = styled.h4({
   color: "#12284C",
 })
 
-const P = styled.p({
-  fontFamily: "Nunito Sans",
-  fontStyle: "normal",
-  fontWeight: "normal",
-  fontSize: "16px",
-  lineHeight: "21px",
-  color: "#12284C",
-})
-
 const Img = styled.img({
-  maxWidth:"1000px",
-  margin:"0px auto"
+  margin:"0px auto",
+  width: "100%"
 })
 
 const Gallery = (props) => {
@@ -129,12 +119,22 @@ const Gallery = (props) => {
   const settings = {
     className: "center",
     centerMode: true,
-    centerPadding: "150px",
+    centerPadding: "250px", //see inside style.css
     slidesToShow: 1,
     speed: 1500,
+    dots:true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
+
+  const H2 = styled.h2`
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+    color: #232323;
+    margin-top:38px;
+    text-transform: uppercase;
+  `;
 
   const { store, errors } = props
   if (Object.keys(errors).length) {
@@ -148,18 +148,15 @@ const Gallery = (props) => {
   }
 
   return(
-    <div id="gallery" style={{margin:"100px 0px", background:"#E0E0E0"}}>
+    <div id="gallery" style={{margin:"100px auto", background:"#E0E0E0", padding:"38px 0px"}}>
+      <H2 className="text-center">Galeri</H2>
       <Slider {...settings}>
-        {console.log(store)}
         {store.map((item, i) => (
-          <div key={i}>
-            <div>
-              <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
-            </div>
-            <div style={{marginTop:"50px", textAlign:"center"}}>
-              <H4>{item.nama} - {item.unit.unit_name}</H4>
-              <P style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</P>
-            </div>
+          <div key={i} className="tes">
+                <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
+              <div style={{marginTop:"50px", textAlign:"center"}}>
+                <H4>{item.nama} - {item.unit.unit_name}</H4>
+              </div>
           </div>
         ))}
       </Slider>

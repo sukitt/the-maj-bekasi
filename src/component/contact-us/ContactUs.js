@@ -1,15 +1,13 @@
 import React from 'react'
-import ContactForm from './form/ContactForm'
+import ContactForm from '../form/ContactForm'
 import { Button } from 'react-bootstrap'
-import './assets/css/style.css'
+import '../assets/css/style.css'
 import styled from 'styled-components'
 
 const ContactUs = (props) =>{
     return (
         <div style={{
-            width: 980,
-            height: 578,
-            margin: "123px auto 315px auto",
+            margin: "123px auto 15em auto",
             display: 'flex',
         }}>
             <div style={{
@@ -17,21 +15,12 @@ const ContactUs = (props) =>{
                 height: 550,
                 margin: '28px auto',
             }}>
-                <h2 style={{
-                    fontFamily: 'Khula',
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 22,
-                    textTransform: 'uppercase',
-                    color: '#CC9980',
-                    textAlign: 'center'
-                }}>Hubungi Kami</h2>
+                <H2>Hubungi Kami</H2>
                 <p style={{
                     width: 598,
-                    fontFamily: 'Nunito Sans',
                     fontStyle: 'normal',
                     fontWeight: 'normal',
-                    fontSize: 16,
+                    fontSize: "16",
                     color: '#000000',
                     textAlign: 'center'
                 }}>
@@ -53,7 +42,6 @@ const ContactUs = (props) =>{
                                 height: 40,
                                 borderRadius:"0",
                                 backgroundColor: '#CC9980',
-                                fontFamily: 'Source Sans Pro',
                                 fontStyle: 'normal',
                                 fontWeight: 'bold',
                                 fontSize: 13,
@@ -65,18 +53,9 @@ const ContactUs = (props) =>{
                     </ContactForm>
                 </div>
 
-                <h2 style={{
-                    fontFamily: 'Khula',
-                    fontStyle: 'normal',
-                    fontWeight: 'bold',
-                    fontSize: 22,
-                    color: '#000000',
-                    marginTop: 74,
-                    textAlign: 'center',
-                    textTransform: 'uppercase'
-                }}>Marketing Gallery</h2>
-                <P>Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                <P> T: <A href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+                <H2 margin="74px 0 0 0">Marketing Gallery</H2>
+                <P margin="23px 0 11px 0">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
+                <P> T: <A style={{marginRight:"10px"}} href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
             </div>
         </div>
     )
@@ -86,16 +65,16 @@ export default ContactUs
 
 const Unit = [
     { 
-        nama: 'Studio A',
+        nama: 'Membeli Unit',
     },
     {
-        nama: 'Studio B',
+        nama: 'Mendapatkan Info Lebih',
     },
     {
-        nama: '2 Bathroom C',
+        nama: 'Melihat Price List',
     },
     {
-        nama: '2 Bathroom D',
+        nama: 'Mengunduh E-Brosur',
     }
 ]
 
@@ -109,17 +88,19 @@ const Gelar = [
     }
 ]
 
-const P = styled.p({
-    fontFamily: 'Nunito Sans',
+const P = styled.p(
+    props => ({
+    color: '#000000',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
-    fontSize: 16,
+    fontSize: "13px",
+    lineHeight: "18px",
     textAlign: 'center',
-    color: '#000000',
+    margin: props.margin,
     '&:hover': {
         
     }
-})
+}))
 const A = styled.a({
     textDecoration: 'none',
     color:"#000",
@@ -127,3 +108,18 @@ const A = styled.a({
         color:"#0366d6"
     }
 })
+
+const H2 = styled.h2(
+    props => ({
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "22px",
+        lineHeight: "28px",
+        textAlign: "center",
+        margin: props.margin,
+        padding: props.padding,
+        letterSpacing: "2px",
+        color: "#232323",
+        textTransform: "uppercase",
+    })
+)

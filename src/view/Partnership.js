@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react'
 import NavigationBar from '../component/navbar/Navigationbar'
 import SakuraLogo from '../component/assets/partnership-image/sakura.svg'
 import Sakura from '../component/card/Sakura'
-import Footer from '../component/Footer'
+import Footer from '../component/footer/Footer'
 
 export default class Partnership extends Component {
     constructor(props) {

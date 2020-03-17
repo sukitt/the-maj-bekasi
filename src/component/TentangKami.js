@@ -9,7 +9,6 @@ const TentangKami = props => {
                 <Card.Body style={{width:"100%", height:"400px", padding:"0px 80px"}}>
                     <h2 style={{
                             marginTop:"60px",
-                            fontFamily: 'Khula',
                             fontStyle: 'normal',
                             fontWeight: 'bold',
                             fontSize: "22px",
@@ -18,7 +17,6 @@ const TentangKami = props => {
                         }}>Tentang Kami</h2>
                     <p style={{
                         margin:"50px 0px",
-                        fontFamily: 'Nunito Sans',
                         fontStyle: 'normal',
                         fontWeight: 'normal',
                         fontSize: "16px",
@@ -30,7 +28,7 @@ const TentangKami = props => {
                     </p>
                     <Col className="text-center">
                         <Link to="/tentang-kami" style={{
-                            fontFamily: 'Nunito Sans',
+                            fontFamily: 'Verlag Bold',
                             fontStyle: 'normal',
                             fontWeight: 'bold',
                             fontSize: 11,

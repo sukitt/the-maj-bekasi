@@ -18,8 +18,9 @@ export class Base extends Component {
             // validated={this.props.validated}
             <Form onSubmit={this.props.onSubmit}>
                 <Form.Row>
-                    <Form.Group as={Col} sm="4">
+                    <Form.Group className="selectField" as={Col} xs="4">
                         <Form.Control 
+                            size={this.props.size}
                             as='select'
                             ref={this.props.titleRef}
                             value={this.state.title}
@@ -36,8 +37,9 @@ export class Base extends Component {
                             Please choose a Title
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} sm="8">
+                    <Form.Group as={Col} xs="8">
                         <Form.Control 
+                            size={this.props.size}
                             type="text"
                             placeholder='Fullname' 
                             ref={this.props.nameRef}
@@ -54,6 +56,7 @@ export class Base extends Component {
                 <Form.Row>
                     <Form.Group as={Col} sm="12">
                         <Form.Control 
+                            size={this.props.size}
                             type="email"
                             placeholder='Email address'
                             ref={this.props.emailRef}

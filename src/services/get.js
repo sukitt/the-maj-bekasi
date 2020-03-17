@@ -31,3 +31,43 @@ export const getPartnership = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getNavbar = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/nav-item')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
+
+export const getLocation = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/location')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
+
+export const getAbouts = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/about-bekasi')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
+
+export const getBlogs = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/blog-bekasi')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
+
+export const getExpertice = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/expertices')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
