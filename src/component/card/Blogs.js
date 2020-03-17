@@ -3,6 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap'
 import { BlogPlaceholder } from '../base/loader/ImagePlaceholder'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { BaseUrl } from '../../services/axios'
 
 export class Blogs extends Component {
     constructor(props) {
@@ -25,15 +26,20 @@ export class Blogs extends Component {
     }
     
     render() {
+        this.state.localStore && console.log(this.state.localStore)
         return (
             <Container id="blogs" margin="128px 0 0 0"  flexDirection="column">
                 <H2 margin="50px auto">Lates News</H2>
                 <Row style={{marginTop: "48px"}}>
-                    {this.state.localStore.length && this.state.localStore.map((data, i) => (
-                        <Col lg={4}>
-                            <Blog href={data.link} src={data.image} text={data.text} posted_at={data.posted_at} />
-                        </Col>
-                    ))}
+                    {this.state.localStore.length && this.state.localStore.map((data, i) => {
+                        let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
+                        let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`
+                        return (
+                            <Col lg={4}>
+                                <Blog href={head} src={img} heading={data.heading} created_at={data.created_at} />
+                            </Col>
+                        )}
+                    )}
                 </Row>
             </Container>
         )
@@ -42,19 +48,19 @@ export class Blogs extends Component {
 
 export default Blogs
 
-
-
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
+            <A href={props.href}>
+                <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
+            </A>
             <Body margin="17px 0 0 0">
                 <H2>
                     <A href={props.href}>
-                        {props.text}
+                        {props.heading}
                     </A>
                 </H2>
-                <Footer>Posted On {props.posted_at}</Footer>
+                <Footer>Posted On {props.created_at}</Footer>
             </Body>
         </Container>
     )

@@ -276,27 +276,7 @@ class Home extends Component {
           </section>
 
           <section>
-            <Blogs store={[
-              {
-                id: 1, 
-                text: "Sasar Milenial, MAJ Residences Tampilkan Filosofi Jepang", 
-                posted_at: "29 November 2019", 
-                image: "https://img.beritasatu.com/cache/beritasatu/910x580-2/1575006937.jpg", 
-                link: "https://www.beritasatu.com/ekonomi/588011/ekonomi/588011-sasar-milenial-maj-residences-tampilkan-filosofi-jepang"
-                },{
-                  id: 2, 
-                  text: "Pilihan hunian dan investasi terbaik di Bekasi", 
-                  posted_at: "04 February 2020", 
-                  image: "https://uc3208a9a9067f8e9fdba2871a96.previews.dropboxusercontent.com/p/thumb/AAs8oanYV6aAb3SeujIbUWBpGoyNwpjnjPKa0kSWxTjOJkdHOhDgRIfXUwKZlc4JztT0WThxdYh7vJVlperb5v_5Ob_nwfauH7Hajtdyl_Vwsx7NSV7dazi15zqABpk4pOekJgIJ3sNcKm6h_hMc5vuUlYjYheUzX1rqCOnuKvCCmWPyvxyVid_DE3Uqu5BpOXT_GJMVxGEGjmDTg4FKpCPZg12BSDwVrEveFj5c8UfshlZq5ox0OiAcjcld4HbC56HxWPo5XHrpHvg7BilZVG-3460sNxq13ZnhYVz39opht1jhpcBONGtUfJtD-_dpKl4Cd70R3mzlUJrHJJ8DHm75RK-PaGpnVGkVurG5h-EddM3OT7k026vmFk4KBrCCfnv-fY_VF8oc3BdM2aAEQTzeKJxZ-pxyA6cxUEa5DwQ8PkjEqXbJE7RlRvjCXt6EcvZbjsdij19Xw8SbHuKxE-2Kbbkp4byfjzt9B0-tqx14lhmZ_MOJp1LpZRhuH7QGmVmvmOFAoOa4uz7shXNdBDgoQT7IDVJlJILp5IQP3u0359el0YpzSXTd4bIPylBgaj6D2mbLOqXSV4yxlvCVXzYqZanGxxf4pkvyVUKoyD4smQ/p.jpeg?fv_content=true&size_mode=5", 
-                  link: "#linkTo2"
-                },{
-                  id: 3, 
-                  text: "Sasar Milenial, MAJ Residences Tampilkan Filosofi Jepang", 
-                  posted_at: "29 November 2019", 
-                  image: "https://img.beritasatu.com/cache/beritasatu/910x580-2/1575006937.jpg", 
-                  link: "https://www.beritasatu.com/ekonomi/588011/ekonomi/588011-sasar-milenial-maj-residences-tampilkan-filosofi-jepang"
-                }]} 
-              />
+            <Blogs store={this.state.blogs} />
           </section>
         </OnDesktop>
 
