@@ -27,9 +27,9 @@ export class HeadSlider extends Component {
   
   render() {
 
-    if (!this.state.localStore.length) {
-      return <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="280px" opacity=".8" />
-    }
+    // if (!this.state.localStore.length) {
+    //   return <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="280px" opacity=".8" />
+    // }
 
     return (
       <div id="mobile-head-slider">

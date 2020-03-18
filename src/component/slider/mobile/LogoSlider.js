@@ -38,43 +38,43 @@ export class LogoSlider extends Component {
     };
 
     const { errors } = this.props
-    if (this.state.isLoading) {
-      return (
-        <div id="mobileLogoSlider" 
-          style={{
-            margin:"150px 0 0 0", 
-            height:"94px", 
-            background: "#E9E9E9", 
-            display: "flex", 
-            flexDirection: "column", 
-            justifyContent: "center"
-          }}>
-          <Slider
-            {...settings}
-            centerMode={true}
-            slidesToShow={3}
-            lazyLoad={true}
-            centerPadding={25}
-          >
-            <div>
-              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
-            </div>
-          </Slider>
-        </div>
-      )
-    }
+    // if (this.state.isLoading) {
+    //   return (
+    //     <div id="mobileLogoSlider" 
+    //       style={{
+    //         margin:"150px 0 0 0", 
+    //         height:"94px", 
+    //         background: "#E9E9E9", 
+    //         display: "flex", 
+    //         flexDirection: "column", 
+    //         justifyContent: "center"
+    //       }}>
+    //       <Slider
+    //         {...settings}
+    //         centerMode={true}
+    //         slidesToShow={3}
+    //         lazyLoad={true}
+    //         centerPadding={25}
+    //       >
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+    //         </div>
+    //       </Slider>
+    //     </div>
+    //   )
+    // }
 
     return(
       <div id="mobileLogoSlider" style={{margin:"150px 0 0 0", height:"100%"}}>

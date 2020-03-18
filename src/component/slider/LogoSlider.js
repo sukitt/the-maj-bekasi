@@ -38,34 +38,34 @@ class LogoSlider extends Component {
       slidesToScroll: 1
     };
 
-    if (this.state.isLoading) {
-      return (
-        <div style={{margin:"150px 0px",height:"260px"}}>
-          <Slider 
-            {...settings}
-            slidesToShow={4}
-            centerMode={true}
-            centerPadding={100}
-          >
-            <div>
-              <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-            </div>
-            <div>
-              <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-            </div>
-          </Slider>
-        </div>
-      )
-    }
+    // if (this.state.isLoading) {
+    //   return (
+    //     <div style={{margin:"150px 0px",height:"260px"}}>
+    //       <Slider 
+    //         {...settings}
+    //         slidesToShow={4}
+    //         centerMode={true}
+    //         centerPadding={100}
+    //       >
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
+    //         </div>
+    //         <div>
+    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
+    //         </div>
+    //       </Slider>
+    //     </div>
+    //   )
+    // }
     return(
       <div style={{margin:"150px 0px",height:"260px"}}>
         <Slider 

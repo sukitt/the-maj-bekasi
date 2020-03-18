@@ -36,14 +36,14 @@ export class MobileGallery extends Component {
 
 
   render() {
-    if (!this.state.store.length) {
-      return (
-        <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
-          <Caps1 margin="0 0 22px 0">Gallery</Caps1>
-          <SliderPlaceholder color="#CC9980" src={placeholder} width="100%" height="228px" opacity=".6" />
-        </Container>
-      )
-    }
+    // if (!this.state.store.length) {
+    //   return (
+    //     <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
+    //       <Caps1 margin="0 0 22px 0">Gallery</Caps1>
+    //       <SliderPlaceholder color="#CC9980" src={placeholder} width="100%" height="228px" opacity=".6" />
+    //     </Container>
+    //   )
+    // }
 
     return(
         <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
