@@ -1,17 +1,17 @@
 @font-face {
-  font-family: Gilory Bold;
-  src: url('./assets/fonts/Gilroy/Gilroy-Medium.ttf');
+  font-family: 'Gilroy Bold';
+  src: url('./assets/fonts/Gilroy/Gilroy-Bold.ttf');
 }
 @font-face {
   font-family: 'Verlag Bold';
   src: url('./assets/fonts/Verlag/Verlag-Book.ttf');
 }
 @font-face {
-  font-family: Proxima Nova Book;
+  font-family: 'Proxima Nova';
   src: url('./assets/fonts/ProximaNova/ProximaNova-Regular.otf');
 }
 .h1, .h2, .h3, .h4, h1, h2, h3, h4{
-  font-family: 'Gilory Bold' !important;
+  font-family: 'Gilroy Bold' !important;
 }
 .h5, .h6, h5, h6 {
   font-family: 'Verlag Bold' !important;
@@ -20,9 +20,9 @@
 h1, .h1 {
   font-style: normal;
   font-weight: bold;
-  font-size: 34px;
-  line-height: 41px;
-  color: #232323;
+  font-size: 28px;
+  line-height: 33px;
+  color: #12284C;
 }
 /* Heading 2 */
 h2, .h2 {
@@ -48,14 +48,17 @@ h4, .h4 {
   line-height: 20px;
   color: #232323;
 }
-/* Caption 1 */
+/* Caption 1 
+  ok
+*/ 
 h5, .h5 {
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #232323;
+  color: #CC9980;
 }
 /* Caption 2 */
 h6, .h6 {
@@ -67,12 +70,12 @@ h6, .h6 {
   color: #232323;
 }
 p, span {
-  font-family: 'Proxima Nova Book' !important;
+  font-family: 'Proxima Nova' !important;
 }
 /* Body 1 */
 p {
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 17px;
   line-height: 21px;
   color: #232323;
