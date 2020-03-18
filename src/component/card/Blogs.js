@@ -47,7 +47,8 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
+            {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
+            <img src={props.src} width width="350px" height="350px" alt="350x350" />
             <Body margin="17px 0 0 0">
                 <H2>
                     <A href={props.href}>
