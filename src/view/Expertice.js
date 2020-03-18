@@ -8,9 +8,8 @@ import Footer from '../component/footer/Footer'
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileFooter from '../component/footer/mobile/Footer'
 
-import Leopalace from '../component/base/expertice';
-
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs } from '../services/get'
+import { getNavbar, getExpertice } from '../services/get'
+import { Base } from '../component/base/expertice';
 
 const layout = layoutGenerator({
     mobile: 0,
@@ -26,8 +25,10 @@ export default class Expertice extends Component {
         super(props);
         this.state = {
             navigation: [],
+            expertice: [],
             errors: {
                 navigation: {},
+                expertice: {},
             },
             footer: {
                 validated: true,
@@ -45,6 +46,11 @@ export default class Expertice extends Component {
             .then(res => this.setState({ navigation: res.data }))
             .catch((err) => {
                 if (err && err.response) this.setState({ errors: { navigation: { code: err.response.status, status: err.response.statusText } } })
+            })
+        getExpertice()
+            .then(res => this.setState({ expertice: res.data }))
+            .catch((err) => {
+                if (err && err.response) this.setState({ errors: { expertice: { code: err.response.status, status: err.response.statusText } } })
             })
     }
 
@@ -81,11 +87,14 @@ export default class Expertice extends Component {
                     <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
                 </OnMobileAndTablet>
 
-                <div className="container-2 p-0">
-                    <section>
-                        <Leopalace />
-                    </section>
-                </div>
+                <section>
+                    <div className="container">
+                        <Base 
+                            store={this.state.expertice} errors={this.state.errors.expertice}
+                        />
+                    </div>
+                </section>
+
                 <section>
                     <OnDesktop>
                         <Footer

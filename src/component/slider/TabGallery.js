@@ -114,7 +114,7 @@ export default class TabGallery extends Component {
     }
     
     return (
-      <div style={{marginTop:"33px"}}>
+      <div style={{marginTop:"75px"}}>
         <Slider
         arrows={false}
           asNavFor={this.state.nav2}

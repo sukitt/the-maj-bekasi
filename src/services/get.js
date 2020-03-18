@@ -63,3 +63,11 @@ export const getBlogs = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getExpertice = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/expertices')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)
