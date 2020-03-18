@@ -107,7 +107,7 @@ const H4 = styled.h4({
   fontSize: "14px",
   lineHeight: "16px",
   textTransform: "uppercase",
-  color: "#12284C",
+  color: "#FFFFFF",
 })
 
 const Img = styled.img({
@@ -122,6 +122,7 @@ export class Gallery extends Component {
     this.state = {
       localStore: [],
       isLoading: true,
+      indexActive: 0,
     }
   }
 
@@ -157,18 +158,28 @@ export class Gallery extends Component {
     // }
 
     return(
-      <Container id="gallery" margin="100px auto">
-        <Slider {...settings}>
+      <Container id="gallery" padding="36px 0px 34px 0px" margin="100px auto">
+        <H2>Gallery</H2>
+        <Slider {...settings}
+          afterChange={index => this.setState({indexActive:index})}
+        >
           {this.state.localStore.length && this.state.localStore.map((item, i) => (
             <div key={i} className="tes">
                   <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
-                <div style={{marginTop:"50px", textAlign:"center"}}>
-                  <H4>{item.nama} - {item.unit.unit_name}</H4>
-                  <p style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</p>
-                </div>
             </div>
           ))}
         </Slider>
+
+        {this.state.localStore.length && this.state.localStore.map((item, i) => {
+          if (i === this.state.indexActive) {
+            return (
+              <div style={{textAlign:"center"}}>
+                <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px"}}>{item.nama} - {item.unit.unit_name}</p>
+                <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF"}}> {i+1} | {this.state.localStore.length} </p>
+              </div>
+            )
+          }
+        })}
       </Container>
     )
   }
@@ -176,7 +187,7 @@ export class Gallery extends Component {
 
 const Container = styled.div(
   props => ({
-    background: "#E0E0E0",
+    background: "#12284C",
     margin: props.margin,
     padding: props.padding,
   })
@@ -188,7 +199,7 @@ const H2 = styled.h2(
     fontWeight: "bold",
     fontSize: "22px",
     lineHeight: "28px",
-    color: "#232323",
+    color: "#FFFFFF",
     margin: props.margin,
     padding: props.padding,
     textTransform: "uppercase",
