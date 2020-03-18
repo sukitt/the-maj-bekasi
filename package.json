@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@bit/campgladiator.cgui.components.atoms.loader": "0.0.3",
-    "@bit/dweez.react.background-image": "0.0.6",
+    "@bit/campgladiator.cgui.components.atoms.loader": "file:./components/components/atoms/loader",
+    "@bit/dweez.react.background-image": "file:./components/background-image",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -50,5 +50,10 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-slick": "^0.25.2",
     "styled-components": "^5.0.1"
+  },
+  "bit": {
+    "env": {},
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }
