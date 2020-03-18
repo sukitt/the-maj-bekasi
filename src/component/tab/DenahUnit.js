@@ -33,15 +33,13 @@ class DenahUnit extends Component {
 				</div>
 			)
 		} else {
-			console.log(store);
 			return (
 				<>
-					<div
-						style={{
-							marginTop: 108
-						}}
-						className="container" id="denahUnit">
-						<div id="denah" className="container-2 p-0"><h2>Denah Unit</h2></div>
+					<div style={{ marginTop: 108 }} id="denahUnit">
+						<div className="container-2">
+							<h5>Denah Unit</h5>
+							<h1 style={{width: "323px"}}>Hunian Fleksibel Untuk Generasi 'Zaman Now'</h1>
+						</div>
 						<Tabs
 							style={{ marginTop: 40 }}
 							defaultActiveKey="studio-a"

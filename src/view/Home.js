@@ -188,7 +188,7 @@ class Home extends Component {
 
           <section>
             <div className="container">
-                <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
+              <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
             </div>
           </section>
 

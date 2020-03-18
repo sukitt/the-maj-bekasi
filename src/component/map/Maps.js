@@ -76,10 +76,8 @@ class Maps extends Component {
 
     return (
       <div id="lokasi" class="container-2 px-0" style={{marginTop:127, marginBottom:180, paddingBottom:180}}>
-        <H5>Lokasi</H5>
-        <H2 style={{
-        }}>Kenyamanan dan kemudahan
-        menantimu di 'Planet' Bekasi.</H2>
+        <h5>Lokasi</h5>
+        <h1 style={{width: "396px"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h1>
 
         <Tabs defaultActiveKey="1" className="gmaps" style={{
           marginTop:"35px",

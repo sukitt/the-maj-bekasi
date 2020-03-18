@@ -50,25 +50,8 @@ const Fasilitas = (props) => {
 				}}>
 					<div className="container-2 p-0">
 
-						<h4 style={{
-								fontStyle: 'normal',
-								fontWeight: 'bold',
-								fontSize: 22,
-								textTransform: 'uppercase',
-								}}>fasilitas</h4>
-						<p style={{
-								fontStyle: 'normal',
-								fontWeight: 'bold',
-								fontSize: 12,
-								maxWidth: 335,
-								// lineHeight: 18,
-								letterSpacing: 2,
-								textTransform: 'uppercase',
-								}}>
-								Fasilitas yang lengkap dan modern
-								membantumu memulai langkah pertama
-								menggapai anganmu.
-						</p>
+						<h5>fasilitas</h5>
+						<h1 style={{width: "323px"}}>Untuk work-life balance yang lebih baik</h1>
 						<Row className="mx-0">
 								{Data.map((d, i) => {
 									return (
@@ -77,8 +60,8 @@ const Fasilitas = (props) => {
 													<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px", paddingLeft:"0"}}>
 														<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
 													</Col>
-													<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
-														<h5 style={span}>{d.caption}</h5>
+													<Col style={{margin:"auto 5px", paddingRight:"0px"}}>
+														<span style={span}>{d.caption}</span>
 													</Col>
 												</Row>
 										</Col>
@@ -91,7 +74,7 @@ const Fasilitas = (props) => {
 }
 
 const span = {
-		color: '#000000', 
+		color: '#232323', 
 		textTransform: 'uppercase',
 		fontSize: "11px",
 		fontWeight:"bold",

@@ -29,7 +29,7 @@ export class Blogs extends Component {
         this.state.localStore && console.log(this.state.localStore)
         return (
             <Container id="blogs" margin="128px 0 0 0"  flexDirection="column">
-                <H2 margin="50px auto">Lates News</H2>
+                <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.map((data, i) => {
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
@@ -55,11 +55,11 @@ const Blog = props => {
                 <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
             </A>
             <Body margin="17px 0 0 0">
-                <H2>
+                <H1>
                     <A href={props.href}>
                         {props.heading}
                     </A>
-                </H2>
+                </H1>
                 <Footer>Posted On {props.created_at}</Footer>
             </Body>
         </Container>
@@ -90,12 +90,9 @@ const A = styled.a`
     text-decoration: none;
 `;
 
-const H2 = styled.h2(
+const H1 = styled.h1(
     props => ({
-        fontStyle: "normal",
-        fontWeight: "bold",
         lineHeight: "28px",
-        color: "#000000",
         margin: props.margin,
         padding: props.padding,
         display: "block"
