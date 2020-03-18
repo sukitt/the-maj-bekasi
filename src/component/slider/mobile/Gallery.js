@@ -50,7 +50,7 @@ export class MobileGallery extends Component {
             <Caps1 margin="0 0 22px 0">Gallery</Caps1>
             <div id="mobileItemGallery">
                 <Slider
-                    dots={true}
+                    dots={false}
                     beforeChange={(indexActive) => this.setState({indexActive})}
                     infinite={true}
                     centerMode={true}
