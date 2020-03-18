@@ -3,20 +3,23 @@ import Slider from 'react-slick';
 import styled from 'styled-components'
 
 import { BaseUrl } from '../../../services/axios'
+import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder';
 
 export class LogoSlider extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
-       storeLogo: []
+      localStore: [],
+      isLoading: true,
     }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.store !== prevState.storeLogo) {
+    if (nextProps.store.length !== prevState.localStore.length) {
       return {
-        storeLogo: nextProps.store
+        localStore: nextProps.store,
+        isLoading: false,
       }
     }
     return null
@@ -31,17 +34,44 @@ export class LogoSlider extends Component {
       speed: 1500,
       autoplay:true,
       autoplaySpeed:1500,
-      slidesToShow: 3,
       slidesToScroll: 1
     };
 
     const { errors } = this.props
-    if (Object.keys(errors).length) {
+    if (this.state.isLoading) {
       return (
-        <div>
-          <h4>Errors in Partnership Logo</h4>
-          <p>{errors.code}</p>
-          <p>{errors.status}</p>
+        <div id="mobileLogoSlider" 
+          style={{
+            margin:"150px 0 0 0", 
+            height:"94px", 
+            background: "#E9E9E9", 
+            display: "flex", 
+            flexDirection: "column", 
+            justifyContent: "center"
+          }}>
+          <Slider
+            {...settings}
+            centerMode={true}
+            slidesToShow={3}
+            lazyLoad={true}
+            centerPadding={25}
+          >
+            <div>
+              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+            </div>
+            <div>
+              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+            </div>
+            <div>
+              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+            </div>
+            <div>
+              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+            </div>
+            <div>
+              <SliderPlaceholder color="#CC9980" width="50px" height="50px" text="Server Error 500" />
+            </div>
+          </Slider>
         </div>
       )
     }
@@ -50,10 +80,12 @@ export class LogoSlider extends Component {
       <div id="mobileLogoSlider" style={{margin:"150px 0 0 0", height:"100%"}}>
         <Slider {...settings}
           centerMode={true}
+          slidesToShow={3}
+
         >
-          {this.state.storeLogo && this.state.storeLogo.map((item, i) => (
+          {this.state.localStore.length && this.state.localStore.map((item, i) => (
             <A href={item.link} key={i}>
-                <Img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
+                <img style={{width: "inherit"}} src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} />
             </A>
           ))}
         </Slider>

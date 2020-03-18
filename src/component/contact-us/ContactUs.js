@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const ContactUs = (props) =>{
     return (
         <div style={{
-            margin: "123px auto 15em auto",
+            margin: "200px auto 15em auto",
             display: 'flex',
         }}>
             <div style={{

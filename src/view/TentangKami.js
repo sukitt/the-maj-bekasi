@@ -102,7 +102,7 @@ export default class TentangKami extends Component {
         return (
             <div>
                 <OnDesktop>
-                    <NavigationBar />
+                    <NavigationBar store={this.state.navigation} />
                 </OnDesktop>
 
                 <OnMobileAndTablet>

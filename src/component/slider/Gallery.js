@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import Slider from 'react-slick'
 import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
+import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -114,53 +115,84 @@ const Img = styled.img({
   width: "100%"
 })
 
-const Gallery = (props) => {
+export class Gallery extends Component {
+  constructor(props) {
+    super(props)
   
-  const settings = {
-    className: "center",
-    centerMode: true,
-    centerPadding: "250px", //see inside style.css
-    slidesToShow: 1,
-    speed: 1500,
-    dots:true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
-  };
-
-  const H2 = styled.h2`
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 28px;
-    color: #232323;
-    margin-top:38px;
-    text-transform: uppercase;
-  `;
-
-  const { store, errors } = props
-  if (Object.keys(errors).length) {
-    return (
-      <div>
-        <h4>Errors in Gallery</h4>
-        <p>{errors.code}</p>
-        <p>{errors.status}</p>
-      </div>
-    )
+    this.state = {
+      localStore: [],
+      isLoading: true,
+    }
   }
 
-  return(
-    <div id="gallery" style={{margin:"100px auto", background:"#E0E0E0", padding:"38px 0px"}}>
-      <H2 className="text-center">Galeri</H2>
-      <Slider {...settings}>
-        {store.map((item, i) => (
-          <div key={i} className="tes">
-                <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
-              <div style={{marginTop:"50px", textAlign:"center"}}>
-                <H4>{item.nama} - {item.unit.unit_name}</H4>
-              </div>
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.store.length !== prevState.localStore.length) {
+      return {
+        localStore: nextProps.store,
+        isLoading: false,
+      }
+    }
+  }
+  
+  render() {
+    const settings = {
+      className: "center",
+      centerMode: true,
+      centerPadding: "250px", //see inside style.css
+      slidesToShow: 1,
+      speed: 1500,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />
+    };
+
+    if (this.state.isLoading) {
+      return (
+        <Container id="gallery" margin="100px auto" padding="38px 0 0 0">
+          <H2>Gallery</H2>
+          <div style={{display: "flex",margin: "29px auto", justifyContent: "center"}}>
+            <SliderPlaceholder color="#CC9980" width="980px" height="520px" text="Server Error 500" />
           </div>
-        ))}
-      </Slider>
-    </div>
-  )
+        </Container>
+      )
+    }
+
+    return(
+      <Container id="gallery" margin="100px auto">
+        <Slider {...settings}>
+          {this.state.localStore.length && this.state.localStore.map((item, i) => (
+            <div key={i} className="tes">
+                  <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
+                <div style={{marginTop:"50px", textAlign:"center"}}>
+                  <H4>{item.nama} - {item.unit.unit_name}</H4>
+                  <p style={{margin:"20px auto", maxWidth:"900px"}}>{item.deskripsi}</p>
+                </div>
+            </div>
+          ))}
+        </Slider>
+      </Container>
+    )
+  }
 }
+
+const Container = styled.div(
+  props => ({
+    background: "#E0E0E0",
+    margin: props.margin,
+    padding: props.padding,
+  })
+)
+
+const H2 = styled.h2(
+  props => ({
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "22px",
+    lineHeight: "28px",
+    color: "#232323",
+    margin: props.margin,
+    padding: props.padding,
+    textTransform: "uppercase",
+    textAlign: "center",
+  })
+)
 export default Gallery

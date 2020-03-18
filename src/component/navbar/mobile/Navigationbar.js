@@ -15,16 +15,16 @@ export class NavigationBar extends Component {
 
   render() {
     const {showing} = this.state
-    const { store, errors } = this.props
-      if (Object.keys(errors).length) {
-        return (
-          <div>
-            <h4>Error in HeaderSlider.js</h4>
-            <p>{errors.code}</p>
-            <p>{errors.status}</p>
-          </div>
-        )
-      }
+    const { store } = this.props
+      // if (Object.keys(errors).length) {
+      //   return (
+      //     // <div>
+      //     //   <h4>Error in HeaderSlider.js</h4>
+      //     //   <p>{errors.code}</p>
+      //     //   <p>{errors.status}</p>
+      //     // </div>
+      //   )
+      // }
       return(
         <Navbar bg="white" expand="lg">
           <div className="container-fluid">

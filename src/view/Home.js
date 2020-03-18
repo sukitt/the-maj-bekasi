@@ -10,6 +10,7 @@ import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import TentangKami from '../component/TentangKami'
 import Footer from '../component/footer/Footer'
+import Blogs from '../component/card/Blogs'
 
 import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
@@ -18,6 +19,7 @@ import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
 import MobileGallery from '../component/slider/mobile/Gallery'
 import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
+import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
@@ -28,7 +30,6 @@ import MobileMaps from '../component/map/mobile/Maps'
 import { layoutGenerator } from 'react-break';
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs } from '../services/get'
 import Whatsapp from '../component/base/whatsapp'
-import Blog from '../component/base/Blog'
 
 
 const layout = layoutGenerator({
@@ -183,7 +184,7 @@ class Home extends Component {
       <div>
         <Whatsapp />
         <OnDesktop>
-            <NavigationBar />
+            <NavigationBar store={this.state.navigation} />
         </OnDesktop>
 
         <OnMobileAndTablet>
@@ -197,7 +198,7 @@ class Home extends Component {
           </OnDesktop>
           <OnMobileAndTablet>
             <div className="w-100">  
-              <MobileHeaderSlider store={this.state.sliders} errors={this.state.errors.sliders}  />
+              <MobileHeaderSlider store={this.state.sliders} />
             </div>
           </OnMobileAndTablet>
         </section>
@@ -236,19 +237,19 @@ class Home extends Component {
         <section>
           <OnDesktop>
             <div className="w-100">
-              <Gallery store={this.state.gallery} errors={this.state.errors.gallery} />
+              <Gallery store={this.state.gallery} />
             </div>
           </OnDesktop>
 
           <OnMobileAndTablet>
-              <MobileGallery store={this.state.gallery} errors={this.state.errors.gallery} />
+              <MobileGallery store={this.state.gallery} />
           </OnMobileAndTablet>
         </section>
 
         {/* Slider Logo MobileTablet */}
         {/* <OnMobileAndTablet>
           <section>
-            <MobileLogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
+            <MobileLogoSlider store={this.state.partnership} />
           </section>
         </OnMobileAndTablet> */}
 
@@ -273,11 +274,15 @@ class Home extends Component {
               <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
             </div>
           </section>
+
+          <section>
+            <Blogs store={this.state.blogs} />
+          </section>
         </OnDesktop>
 
-        <section>
+        {/* <section>
           <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
-        </section>
+        </section> */}
 
         <section>
           <OnDesktop>

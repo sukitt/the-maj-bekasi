@@ -7,7 +7,7 @@ export class MobileAboutSlider extends Component {
         super(props)
     
         this.state = {
-             indexActive: 0,
+            indexActive: 0,
         }
     }
     
@@ -94,6 +94,11 @@ const A = styled.a(
         letterSpacing: "1px",
         margin: props.margin,
         padding: props.padding,
+        textDecoration: "none",
+        "&:hover": {
+            textDecoration: "none",
+            color: "rgba(0, 0, 0, 0.75)",
+        }
     })
 )
 
