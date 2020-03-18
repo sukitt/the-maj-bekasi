@@ -37,7 +37,7 @@ export const TabSpesifikasi = (props) => (
                 <img style={{ maxWidth: "200px", marginTop: "100px" }} src={BaseUrl + '/storage/' + props.items.denah_ruang} alt={'denah ruang' + props.items.unit_name} />
             </Col>
             <Col xs={3}>
-                <img style={{ maxWidth: "200px", marginTop: "100px" }} src={BaseUrl + '/storage/' + props.items.denah_bangunan} alt={'denah bangunan' + props.items.unit_name} />
+                <img style={{ maxWidth: "150px", position:"absolute", bottom:0 }} src={BaseUrl + '/storage/' + props.items.denah_bangunan} alt={'denah bangunan' + props.items.unit_name} />
             </Col>
         </Row>
     </>

@@ -18,7 +18,7 @@ const ContactUs = (props) =>{
                     height: "auto",
                     margin: '28px auto',
                 }}>
-                    <H2>Hubungi Kami</H2>
+                    <H1>Hubungi Kami</H1>
                     <p style={{
                         width: 598,
                         fontStyle: 'normal',
@@ -113,7 +113,7 @@ const A = styled.a({
     }
 })
 
-const H2 = styled.h2(
+const H1 = styled.h1(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
