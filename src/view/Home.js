@@ -184,91 +184,44 @@ class Home extends Component {
       <div>
         <Whatsapp />
         <OnDesktop>
-            <NavigationBar store={this.state.navigation} />
-        </OnDesktop>
+          <NavigationBar store={this.state.navigation} />
 
-        <OnMobileAndTablet>
-            <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
-        </OnMobileAndTablet>
-        <section>
-          <OnDesktop>
+          <section>
             <div className="container">
                 <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
             </div>
-          </OnDesktop>
-          <OnMobileAndTablet>
-            <div className="w-100">  
-              <MobileHeaderSlider store={this.state.sliders} />
-            </div>
-          </OnMobileAndTablet>
-        </section>
-        <section>
-          <div className="container">
-            <OnDesktop>
+          </section>
+
+          <section>
+            <div className="container">            
               <Fasilitas id="fasilitas" />
-            </OnDesktop>
+            </div>
+          </section>
 
-            <OnMobileAndTablet>
-              <MobileFasilitas id="fasilitas" />
-            </OnMobileAndTablet>
-          </div>
-        </section>
-        <section>
-          <OnDesktop>
-            <DenahUnit store={this.state.units} errors={this.state.errors.units} />
-          </OnDesktop>
+          <section>
+            <div className="container">
+              <DenahUnit store={this.state.units} errors={this.state.errors.units} />
+            </div>
+          </section>
 
-          <OnMobileAndTablet>
-            <MobileDenahUnit storeUnit={this.state.units} />
-          </OnMobileAndTablet>
-        </section>
-        <section>
-          <OnDesktop>
+          <section>
             <div className="container">
               <Maps store={this.state.location} errors={this.state.errors.location} />
             </div>
-          </OnDesktop>
-          <OnMobileAndTablet>
-            <div className="container">
-              <MobileMaps store={this.state.location} errors={this.state.errors.location} />
-            </div>
-          </OnMobileAndTablet>
-        </section>
-        <section>
-          <OnDesktop>
+          </section>
+
+          <section>
             <div className="w-100">
               <Gallery store={this.state.gallery} />
             </div>
-          </OnDesktop>
-
-          <OnMobileAndTablet>
-              <MobileGallery store={this.state.gallery} />
-          </OnMobileAndTablet>
-        </section>
-
-        {/* Slider Logo MobileTablet */}
-        {/* <OnMobileAndTablet>
-          <section>
-            <MobileLogoSlider store={this.state.partnership} />
           </section>
-        </OnMobileAndTablet> */}
-
-        <OnDesktop>
+          
           <section>
             <div className="container">
               <TentangKami />
             </div>
           </section>
-        </OnDesktop>
-
-        <OnMobileAndTablet>
-          <section>
-              <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
-          </section>
-        </OnMobileAndTablet>
-
-        {/* Slider Logo Desktop */}
-        <OnDesktop>
+          
           <section>
             <div className="w-100">
               <LogoSlider store={this.state.partnership} errors={this.state.errors.partnership} />
@@ -278,28 +231,75 @@ class Home extends Component {
           <section>
             <Blogs store={this.state.blogs} />
           </section>
+
+          <section>
+            <div className="container">
+                <ContactUs
+                  onSubmit={this._contactUs}
+                  gelarRef={this.contrefgelar}
+                  namaRef={this.contrefnama}
+                  unitRef={this.contrefunit}
+                  teleponRef={this.contreftelepon}
+                  emailRef={this.contrefemail}
+                  catatanRef={this.contrefcatatan}
+                />
+              </div>
+          </section>
+
+          <footer>
+            <Footer 
+                validated={this.state.footer.validated}
+                onSubmit={this._footer}
+                titleRef={this.footreftitle}
+                nameRef={this.footrefname}
+                emailRef={this.footrefemail}
+              />
+          </footer>
         </OnDesktop>
 
-        {/* <section>
-          <Blog store={this.state.blogs} errors={this.state.errors.blogs} />
-        </section> */}
+        {/* Mobile Table Responsive */}
+        <OnMobileAndTablet>
+          <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
 
-        <section>
-          <OnDesktop>
-            <div className="container">
-              <ContactUs
-                onSubmit={this._contactUs}
-                gelarRef={this.contrefgelar}
-                namaRef={this.contrefnama}
-                unitRef={this.contrefunit}
-                teleponRef={this.contreftelepon}
-                emailRef={this.contrefemail}
-                catatanRef={this.contrefcatatan}
-              />
+          <section>
+            <div className="w-100">  
+              <MobileHeaderSlider store={this.state.sliders} />
             </div>
-          </OnDesktop>
+          </section>
 
-          <OnMobileAndTablet>
+          <section>
+            <div className="container">
+              <MobileFasilitas id="fasilitas" />
+            </div>
+          </section>
+
+          <section>
+            <MobileDenahUnit storeUnit={this.state.units} />
+          </section>
+
+          <section>
+            <div className="container">
+              <MobileMaps store={this.state.location} errors={this.state.errors.location} />
+            </div>
+          </section>
+
+          <section>
+            <MobileGallery store={this.state.gallery} />
+          </section>
+
+          <section>
+            <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
+          </section>
+
+          <section>
+            <MobileBlogs store={this.state.blogs} />
+          </section>
+
+          <section>
+            <MobileLogoSlider store={this.state.partnership} />
+          </section>
+
+          <section>
             <MobileContactUs 
               onSubmit={this._contactUs}
               gelarRef={this.contrefgelar}
@@ -309,20 +309,9 @@ class Home extends Component {
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
             />
-          </OnMobileAndTablet>
-        </section>
-        <section>
-          <OnDesktop>
-            <Footer 
-              validated={this.state.footer.validated}
-              onSubmit={this._footer}
-              titleRef={this.footreftitle}
-              nameRef={this.footrefname}
-              emailRef={this.footrefemail}
-            />
-          </OnDesktop>
+          </section>
 
-          <OnMobileAndTablet>
+          <section>
             <MobileFooter 
               validated={this.state.footer.validated}
               onSubmit={this._footer}
@@ -330,8 +319,8 @@ class Home extends Component {
               nameRef={this.footrefname}
               emailRef={this.footrefemail}
             />
-          </OnMobileAndTablet>
-        </section>
+          </section>
+        </OnMobileAndTablet>
       </div>
     )
   }
