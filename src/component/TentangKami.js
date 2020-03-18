@@ -4,7 +4,7 @@ import { Card, Col } from 'react-bootstrap'
 
 const TentangKami = props => {
     return (
-        <div style={{marginTop: "200px"}}>
+        <div style={{marginTop: "76px"}}>
             <Card style={{borderRadius:"0", border:"none"}}>
                 <Card.Body style={{width:"100%", height:"400px", padding:"0px 80px"}}>
                     <h2 style={{

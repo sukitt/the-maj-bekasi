@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
-import { Col, Carousel } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
 
 import { BaseUrl } from '../../../services/axios';
-import '../assets/css/mobileStyles.css'
+import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder';
+import placeholder from '../assets/header-mobile-placeholder.png';
+import '../assets/css/mobileStyles.css';
 
 export class HeadSlider extends Component {
   constructor(props) {
@@ -25,21 +26,14 @@ export class HeadSlider extends Component {
   }
   
   render() {
-    
-    const { errors } = this.props
-    if (Object.keys(errors).length) {
-      return (
-        <div>
-          <h4>Error in HeaderSlider.js</h4>
-          <p>{errors.code}</p>
-          <p>{errors.status}</p>
-        </div>
-      )
+
+    if (!this.state.localStore.length) {
+      return <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="280px" opacity=".8" />
     }
 
     return (
       <div id="mobile-head-slider">
-          <Carousel 
+          <Carousel
             nextIcon={null}
             prevIcon={null}
           >

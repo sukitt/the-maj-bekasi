@@ -12,57 +12,55 @@ import Twitt from '../assets/footer-image/brand/twitter.svg'
 
 const Footer = props => {
     return (
-        <div>
-            <D backgroundColor="#232323" padding="10% 10%">
-                <Row>
-                    <Col lg={3}>
-                        <img style={{width: '80%'}} src={Img1} alt="logo2" />
-                        <SocialMedia margin="5% 0">
-                            <A href="#linkto" ><Instagram /></A>
-                            <A href="#linkto" ><Facebook /></A>
-                            <A href="#linkto" ><Twitter /></A>
-                        </SocialMedia>
-                    </Col>
-                    <Col lg={2}>
-                        <JoinUs caps="Join Our Family" margin="0">
-                            <A display="block" href="#linkto"> Carrers </A>
-                            <A display="block" href="#linkto"> Inverstor </A>
-                        </JoinUs>
-                    </Col>
-                    <Col lg={3}>
-                        <ExploreUs caps="Explore Our World" margin="0">
-                        <A display="block" href="#linkto">Contact Us</A>
-                        <A display="block" href="#linkto">Ancora Capital Management</A>
-                        <A display="block" href="#linkto">Media Center</A>
-                        <A display="block" href="#linkto">Privacy</A>
-                        <A display="block" href="#linkto">Terms and Conditions</A>
-                        </ExploreUs>
-                    </Col>
-                    <Col lg={4}>
-                        <SubscribeUs caps="Subscribe For Exclusive News & Offers">
-                            <D>
-                                <SubscribeForm {...props}>
-                                    <B type="submit">Subcribe</B>
-                                </SubscribeForm>
-                            </D>
-                        </SubscribeUs>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg={4}>
-                        <img src={Img2} style={{maxWidth: '100%'}} alt="Part of The Maj Group" />
-                    </Col>
-                    <Col sm={2}></Col>
-                    <Col sm={2}></Col>
-                    <Col lg={4}>
-                        <P>
-                            By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
-                        </P>
-                    </Col>
-                </Row>
-                <P textAlign="center" margin="5% 0">Copyright 2020 All right reserved</P>
-            </D>
-        </div>
+        <D backgroundColor="#232323" padding="140px 150px 59px 150px">
+            <Row>
+                <Col lg={3}>
+                    <img style={{width: '193px'}} src={Img1} alt="logo2" />
+                    <SocialMedia margin="25px 0">
+                        <A href="#linkto" ><Instagram /></A>
+                        <A href="#linkto" ><Facebook /></A>
+                        <A href="#linkto" ><Twitter /></A>
+                    </SocialMedia>
+                </Col>
+                <Col lg={2}>
+                    <JoinUs caps="Join Our Family" margin="0">
+                        <A display="block" href="#linkto"> Carrers </A>
+                        <A display="block" href="#linkto"> Inverstor </A>
+                    </JoinUs>
+                </Col>
+                <Col lg={3} style={{padding: "0", margin: "0"}}>
+                    <ExploreUs caps="Explore Our World" margin="0">
+                    <A display="block" href="#linkto">Contact Us</A>
+                    <A display="block" href="#linkto">Ancora Capital Management</A>
+                    <A display="block" href="#linkto">Media Center</A>
+                    <A display="block" href="#linkto">Privacy</A>
+                    <A display="block" href="#linkto">Terms and Conditions</A>
+                    </ExploreUs>
+                </Col>
+                <Col lg={4}>
+                    <SubscribeUs caps="Subscribe For Exclusive News & Offers">
+                        <D>
+                            <SubscribeForm {...props}>
+                                <B type="submit">Subcribe</B>
+                            </SubscribeForm>
+                        </D>
+                    </SubscribeUs>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={4}>
+                    <img src={Img2} style={{maxWidth: '150px'}} alt="Part of The Maj Group" />
+                </Col>
+                <Col lg={2}></Col>
+                <Col lg={2}></Col>
+                <Col lg={4}>
+                    <P>
+                        By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
+                    </P>
+                </Col>
+            </Row>
+            <P textAlign="center" margin="51px 0 0 0">Copyright 2020 All right reserved</P>
+        </D>
     )
 }
 
