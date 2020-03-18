@@ -1,105 +1,11 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
-import { unstable_batchedUpdates } from 'react-dom';
-
- 
-  function NextArrow(props) {
-    const { className, style, onClick } = props;
-    const Arrows = styled.div({
-      display: "inline-block",
-      transition:".3s all",
-      width:"70px",
-      height:"70px",
-      background:"#CC9980",
-      color: "#ffffff",
-      textDecoration: "none",
-      top:"unset",
-      right:"unset",
-      left:"49.99%",
-      bottom:"8.5%",
-      padding: "30px",
-      '&:hover': {
-        background:"#ffffff",
-        color: "#000"
-      },
-      '&:before': {
-        padding: "8px",
-        borderRight: "4px solid",
-        borderBottom: "4px solid",
-        borderRadius: "4px",
-        content: `'' !important`,
-        display: "block",
-        top: "35%",
-        left: "35%",
-        position: "absolute",
-        '-moz-transform': "rotate(310deg)",
-        '-o-transform': "rotate(310deg)",
-        '-webkit-transform': "rotate(310deg)",
-        transform: "rotate(310deg)",
-        color:"inherit"
-      }
-    });
-    return (
-      <Arrows
-        className={className}
-        style={{ 
-          ...style,
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-  
-  function PrevArrow(props) {
-    const { className, style, onClick } = props;
-    const Arrows = styled.div({
-      display: "inline-block",
-      transition:".3s all",
-      width:"70px",
-      height:"70px",
-      background:"#CC9980",
-      color: "#ffffff",
-      textDecoration: "none",
-      top:"unset",
-      left:"43.666%",
-      bottom:"8.5%",
-      padding: "30px",
-      zIndex:"1",
-      '&:hover': {
-        background:"#ffffff",
-        color: "#000"
-      },
-      '&:before': {
-        padding: "8px",
-        borderRight: "4px solid",
-        borderBottom: "4px solid",
-        borderRadius: "4px",
-        content: `'' !important`,
-        display: "block",
-        top: "35%",
-        left: "35%",
-        position: "absolute",
-        '-moz-transform': "rotate(135deg)",
-        '-o-transform': "rotate(135deg)",
-        '-webkit-transform': "rotate(135deg)",
-        transform: "rotate(135deg)",
-        color:"inherit"
-      }
-    });
-    return (
-      <Arrows
-        className={className}
-        style={{ 
-          ...style,
-        }}
-        onClick={onClick}
-      />
-    );
-  }
+import arrows from './assets/arrows.svg'
+import placeholder from './assets/header-placeholder.png'
+import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
 
   const imgStyle= {
     maxWidth: "1110px",
@@ -109,31 +15,45 @@ import { unstable_batchedUpdates } from 'react-dom';
     background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%)",
     margin: "0px auto"
   }
-  const containerStyle={
-    margin: "3rem auto 6rem auto",
-  }
-  const captionContainer = {
-    maxWidth: "380px",
-    width:"100%",
-    background: "#CC9980",
-    zIndex:"10",
-    marginTop: "-5%",
-    marginLeft: "8%",
-    display: "block",
-    padding:"20px 20px",
-    position:"absolute",
-  }
+  const CaptionContainer = styled.div`
+    z-index:1;
+  `;
+
+  const Content = styled.div`
+    background: #CC9980;
+    height: 140px;
+    width: 380px;
+    padding: 14px 20px;
+  `;
+
+  const Buttons = styled.button`
+    background: #CC9980;
+    height:70px;
+    width:70px;
+    padding: 25px;
+    
+    border: 0px;
+    user-select: none;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    transition: .15s all;
+    font-family: 'Verlag Bold' !important;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    &:hover {
+      background: #fff;
+      color:#232323;
+    }
+  `;
+
   const captionTextStyle={
-    fontFamily: "Khula",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "22px",
-    lineHeight: "28px",
     color: "#FFFFFF",
     marginBottom: "1.5rem"
   }
   const captionButtonStyle={
-    fontFamily: "Source Sans Pro",
+    fontFamily: "Verlag Bold",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "13px",
@@ -148,41 +68,89 @@ import { unstable_batchedUpdates } from 'react-dom';
     padding: "11px 40px",
     textDecoration: "none",
   }
+  const Btn = styled.button`
+    border: 0px;
+    user-select: none;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    transition: .15s all;
+    font-family: 'Verlag Bold' !important;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+  `;
   
   class HeadSlider extends Component {
+    constructor(props){
+      super(props);
+
+      this.state = {
+        isLoading: true,
+        localStore: [],
+      }
+
+      this.next = this.next.bind(this);
+      this.previous = this.previous.bind(this);
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+      if (nextProps.store.length !== prevState.localStore.length) {
+        return {
+          localStore: nextProps.store,
+          isLoading: false,
+        }
+      }
+      return null
+    }
+
+    next() {
+      this.slider.slickNext()
+    }
+    previous() {
+      this.slider.slickPrev()
+    }
     render() {
       const settings = {
         dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        // nextArrow: <NextArrow />,
+        // prevArrow: <PrevArrow />
+        arrows:false,
       };
-      const { store, errors } = this.props
-      if (Object.keys(errors).length) {
-        return (
-          <div>
-            <h4>Error in HeaderSlider.js</h4>
-            <p>{errors.code}</p>
-            <p>{errors.status}</p>
-          </div>
-        )
-      }
+
+      // if (this.state.isLoading) {
+      //   return (
+      //     <div style={imgStyle}>
+      //       <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="560px" opacity=".8" />
+      //     </div>
+      //   )
+      // }
 
       return (
-        <Slider {...settings}>
-          {console.log(store)}
-          {store && store.map((item, i) => (
-            <div style={containerStyle} key={i}>
+        <Slider ref={c => (this.slider = c)} {...settings}>
+          {this.state.localStore.length && this.state.localStore.map((item, i) => (
+            <div key={i}>
               <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
               <Col style={{height:"100px"}}>
-                <div style={captionContainer}>
-                  <h2 style={captionTextStyle}>
-                    {item.caption}
-                  </h2>
-                  <a href={item.link} style={captionButtonStyle}>{item.button_text}</a>
-                </div>
+                <CaptionContainer className="container-2">
+                  <Row className="position-absolute" style={{bottom: "30%"}}>
+                    <Content>
+                      <h2 style={captionTextStyle}>
+                          {item.caption}
+                        </h2>
+                      <a href={item.link} style={captionButtonStyle}>{item.button_text}</a>
+                    </Content>
+                    <Buttons onClick={this.previous} >
+                      <i className="fa fa-chevron-left"></i>
+                    </Buttons>
+                    <Buttons onClick={this.next}>
+                      <i className="fa fa-chevron-right"></i>
+                    </Buttons>
+                  </Row>
+                </CaptionContainer>
               </Col>
             </div>
           ))}

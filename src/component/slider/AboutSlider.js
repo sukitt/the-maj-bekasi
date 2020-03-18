@@ -31,7 +31,6 @@ const AboutSlider = props => {
             padding: '0 30px'
         }}>
             <Slider {...settings}>
-                {console.log(Data)}
                 {Data && Data.map((d, i) => (
                     <div key={d.id} style={{display: 'flex'}}>
                         <div style={{

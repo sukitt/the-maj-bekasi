@@ -1,111 +1,83 @@
 import React, { Component } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
-import { Instance } from '../../services/axios'
 
 import logo from '../../assets/logo.svg'
+import DotsLoader from '../base/loader/DotsLoader';
 
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
+      isLoading: true,
+      localStore: [],
     };
   }
 
-  componentDidMount() {
-    Instance.get('/nav-item')
-    .then(
-      // (result) => console.log(result)
-      (res) => {
-        this.setState({
-          isLoaded: true,
-          items: res.data
-        });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.store.length !== prevState.localStore.length) {
+      return {
+        localStore: nextProps.store,
+        isLoading: false,
       }
-    ).catch(
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
+    }
+    return null
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
-    const itemStyle = {
-      fontFamily: "Nunito Sans",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "11px",
-      lineHeight: "13px",
-      textTransform: "uppercase",
-      color: "#000000",
-      margin:"auto 1rem",
-    }
-    const btnStyle = {
-      width: "100%",
-      height: "40px",
-      background: "#CC9980",
-      padding: "10px 35px",
-      
-      fontFamily: "Source Sans Pro",
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "13px",
-      lineHeight: "18px",
-      textAlign: "center",
-      letterSpacing: "2px",
-      textTransform: "uppercase",
-      color: "#FFFFFF",
-      textDecoration: "none",
-    }
-    if(error){
-      return <div>Error: {error.message}</div>
-    }else if(!isLoaded){
-      return <div>Loading...</div>
-    }else{
+    // if(this.state.isLoading){
+    //   return (
+    //     <Navbar style={{background:"#fafafa"}} expand="lg">
+    //       <div className="container-2 p-0" >
+    //         <Navbar.Collapse id="basic-navbar-nav">
+    //           <Navbar.Brand href="#home" >
+    //             <img src={logo} alt="logo" style={{
+    //               maxWidth:"120px",
+    //               width:"100%",
+    //             }} />
+    //           </Navbar.Brand>
+    //           <Nav className="m-auto">
+    //             <DotsLoader />
+    //           </Nav>
+    //           <Nav className="ml-auto">
+    //             <Nav.Link href="#home">
+    //               <button className="button-small">Hubungi Kami</button>
+    //             </Nav.Link>
+    //           </Nav>
+    //         </Navbar.Collapse>
+    //       </div>
+    //     </Navbar>
+    //   )
+    // }
 
-      return(
-        <Navbar bg="white" expand="lg">
-          <div className="container" style={{padding:"0px 40px"}}>
-            <Navbar.Brand href="#home" style={{marginRight:"40px"}}>
+    return(
+      <Navbar bg="white" expand="lg">
+        <div className="container-2 p-0" >
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Brand href="#home" >
               <img src={logo} alt="logo" style={{
-                maxWidth:"140px",
+                maxWidth:"120px",
                 width:"100%",
               }} />
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="mr-auto">
+            <Nav className="mr-auto">
 
-                {items.map(item => (
-                  <Nav.Link key={item.id} href={item.link}
-                  style={itemStyle}
-                  >
-                    {item.name}
-                  </Nav.Link>
-                ))}
-
-              </Nav>
-              <Nav className="ml-auto">
-              <Nav.Link href="#home"
-                  style={btnStyle}
+              {this.state.localStore.length && this.state.localStore.map(item => (
+                <Nav.Link key={item.id} href={item.link}
                 >
-                  Hubungi Kami
+                  <h6>{item.name}</h6>
                 </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-        </Navbar>
-      )
-    }
+              ))}
+
+            </Nav>
+            <Nav className="ml-auto">
+              <Nav.Link href="#home">
+                <button className="button-small">Hubungi Kami</button>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
+    )
   }
 }
 export default NavigationBar

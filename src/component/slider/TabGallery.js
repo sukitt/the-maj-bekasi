@@ -114,8 +114,9 @@ export default class TabGallery extends Component {
     }
     
     return (
-      <div style={{marginTop:"33px"}}>
+      <div style={{marginTop:"75px"}}>
         <Slider
+        arrows={false}
           asNavFor={this.state.nav2}
           ref={slider => (this.slider1 = slider)}
         >
@@ -127,7 +128,6 @@ export default class TabGallery extends Component {
                 </Col>
                 <Col>
                   <h4 style={{
-                    fontFamily: "Nunito Sans",
                     fontStyle: "normal",
                     fontWeight: "bold",
                     fontSize: "14px",
@@ -136,13 +136,12 @@ export default class TabGallery extends Component {
                     color: "#12284C",
                   }}>{item.nama}</h4>
                   <p style={{
-                    fontFamily: "Nunito Sans",
                     fontStyle: "normal",
                     fontWeight: "normal",
                     fontSize: "16px",
                     lineHeight: "21px",
                     color: "#12284C",
-                    marginTop:"52px",
+                    marginTop:"30px",
                     maxWidth:"340px"
                   }}>{item.deskripsi}</p>
                 </Col>
@@ -164,6 +163,7 @@ export default class TabGallery extends Component {
             slidesToShow={3}
             swipeToSlide={true}
             focusOnSelect={true}
+            arrows={false}
             nextArrow={<NextArrow />}
             prevArrow={<PrevArrow />}
           >
