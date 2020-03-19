@@ -31,7 +31,7 @@ class DenahUnit extends Component {
 					<div className="container-2">
 						<h5>Tipe Unit</h5>
 						<h1 style={{width: "323px"}}>Hunian Fleksibel Untuk Generasi 'Zaman Now'</h1>
-						<Tabs>
+						{/* <Tabs>
 							{store && store.map((item, i) => (
 								<Tab
 									style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"640px" }}
@@ -66,7 +66,7 @@ class DenahUnit extends Component {
 									</div>
 								</Tab>
 							))}
-						</Tabs>
+						</Tabs> */}
 					</div>
 					<Tabs
 						style={{ marginTop: 40 }}

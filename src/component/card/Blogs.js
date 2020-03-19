@@ -31,14 +31,14 @@ export class Blogs extends Component {
                 <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
-                        let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
-                        let updated = data.updated_at.replace(/[\s:]/g, "-")
+                        console.log(data)
+                        let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                         let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`
                         return (
                             <Col lg={4} md={6} key={i}>
                                 <Blog
                                     to={{
-                                        pathname: `/blog/${head}-${updated}`,
+                                        pathname: `/blog/${head}`,
                                         state: { store: this.props.store }
                                     }}
                                     src={img} 
