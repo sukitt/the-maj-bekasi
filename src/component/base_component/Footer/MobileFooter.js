@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SubscribeForm from '../../form/Base'
+import SubscribeForm from './BaseFooter'
 import Img1 from '../../assets/footer-image/1.svg'
 import Img2 from '../../assets/footer-image/partof.svg'
 import Inst from '../../assets/footer-image/brand/instagram.svg'
@@ -158,5 +158,3 @@ const Facebook = styled.img.attrs(props => ({
     width: "24px",
     alt: "facebook"
 }))``
-
-export default MobileFooter

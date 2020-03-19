@@ -1,9 +1,48 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Button } from 'react-bootstrap'
-import { Instance } from '../../../services/axios'
-
-import logo from '../../../assets/logo.svg'
+import logo from '../../assets/logo.svg'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+
+export const NavigationBar = (props) => {
+    return (
+        <Navbar bg="white" expand="lg">
+            <div className="container-2 p-0" >
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Brand>
+                        <Link to="/">
+                            <img src={logo} alt="logo" style={{
+                                maxWidth: "120px",
+                                width: "100%",
+                            }} />
+                        </Link>
+                    </Navbar.Brand>
+                    <Nav className="mr-auto">
+
+                        {props.store.map(item => (
+                            <Nav.Link key={item.id}
+                            >
+                                <Link to={item.link}>
+                                    <h6>{item.name}</h6>
+                                </Link>
+                            </Nav.Link>
+                        ))}
+
+                    </Nav>
+                    <Nav className="ml-auto">
+                        <Nav.Link>
+                            <Link to="/#contact-us">
+                                <button className="button-small">Hubungi Kami</button>
+                            </Link>
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </div>
+        </Navbar>
+    )
+}
+
 
 export class NavigationBar extends Component {
   constructor(props) {
@@ -16,15 +55,6 @@ export class NavigationBar extends Component {
   render() {
     const {showing} = this.state
     const { store } = this.props
-      // if (Object.keys(errors).length) {
-      //   return (
-      //     // <div>
-      //     //   <h4>Error in HeaderSlider.js</h4>
-      //     //   <p>{errors.code}</p>
-      //     //   <p>{errors.status}</p>
-      //     // </div>
-      //   )
-      // }
       return(
         <Navbar bg="white" expand="lg">
           <div className="container-fluid">
@@ -44,7 +74,7 @@ export class NavigationBar extends Component {
                 <hr />
                 <SideNavCloseBtn href="javascript:void(0)" onClick={() => this.setState({showing: !showing})}>&times;</SideNavCloseBtn>
                 {store && store.map((item, i) => (
-                  <SideNavLink key={i} href={item.link}><h3>{item.name}</h3></SideNavLink>
+                  <SideNavLink key={i} ><Link to={item.link}><h3>{item.name}</h3></Link></SideNavLink>
                 ))}
               </SideNav>
           </div>
@@ -52,7 +82,6 @@ export class NavigationBar extends Component {
       )
   }
 }
-export default NavigationBar
 
 const SideNav = styled.div`
   height: 100%;

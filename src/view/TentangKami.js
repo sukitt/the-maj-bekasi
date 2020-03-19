@@ -1,26 +1,20 @@
 import React, { Component, createRef } from 'react'
-import NavigationBar from '../component/navbar/Navigationbar'
-import Footer from '../component/footer/Footer'
-
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
-import MobileFooter from '../component/footer/mobile/Footer'
+import Base from './Base'
 
 import {Header, AboutCard, Vision, MobileLogoDisplay} from '../component/base/TentangKami/'
+
+import LogoSlider from '../component/slider/LogoSlider'
 
 import bgHeader from '../component/assets/tentangkami-image/header.png'
 import bgProfile from '../component/assets/tentangkami-image/profile.png'
 
 
 import { layoutGenerator } from 'react-break'
-import { getNavbar, getPartnership } from '../services/get'
-import LogoSlider from '../component/slider/LogoSlider'
-
 const layout = layoutGenerator({
     mobile: 0,
     tablet: 768,
     desktop: 992,
 });
-
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
@@ -37,78 +31,12 @@ const visionText = [
 ]
 
 
-export default class TentangKami extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            navigation: [],
-            partnership: [],
-            errors: {
-                navigation: {},
-                partnership:{},
-            },
-            signup: {
-                validated: false,
-                data: {}
-            },
-            footer: {
-                validated: true,
-                data: {}
-            }
-        }
-        this.reftitle = createRef()
-        this.refname = createRef()
-        this.refemail = createRef()
-        this._signup = this._signup.bind(this)
-    }
-
-    componentDidMount() {
-        getNavbar()
-            .then(res => this.setState({navigation: res.data}))
-            .catch((err) => {
-                if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
-            })
-        getPartnership()
-            .then(res=> this.setState({partnership:res.data}))
-            .catch((err) => {
-                if(err && err.response) this.setState({errors:{partnership:{code:err.response.status, status:err.response.statusText}}})
-            })
-    }
-
-    _signup = e => {
-        const form = e.currentTarget
-        if (form.checkValidity() === false) {
-            e.preventDefault()
-            e.stopPropagation()
-        }
-
-        const data = {
-            title: this.reftitle.current.value,
-            name: this.refname.current.value,
-            email: this.refemail.current.value
-        }
-        e.preventDefault()
-        this.setState({
-            signup: {
-                validate: true,
-                data: data
-            }
-        })
-    }
+export default class TentangKami extends Base {
     
     render() {
         console.log(this.state.signup.data)
         return (
             <div>
-                <OnDesktop>
-                    <NavigationBar store={this.state.navigation} />
-                </OnDesktop>
-
-                <OnMobileAndTablet>
-                    <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
-                </OnMobileAndTablet>
-
                 <section>
                     <OnDesktop>
                         <div className="container">
@@ -150,27 +78,6 @@ export default class TentangKami extends Component {
                         <div className="container">
                             <MobileLogoDisplay />
                         </div>
-                    </OnMobileAndTablet>
-                </section>
-
-                <section>
-                    <OnDesktop>
-                        <Footer
-                            validated={this.state.footer.validated}
-                            onSubmit={this._footer}
-                            titleRef={this.footreftitle}
-                            nameRef={this.footrefname}
-                            emailRef={this.footrefemail}
-                        />
-                    </OnDesktop>
-                    <OnMobileAndTablet>
-                        <MobileFooter 
-                            validated={this.state.footer.validated}
-                            onSubmit={this._footer}
-                            titleRef={this.footreftitle}
-                            nameRef={this.footrefname}
-                            emailRef={this.footrefemail}
-                        />
                     </OnMobileAndTablet>
                 </section>
             </div>

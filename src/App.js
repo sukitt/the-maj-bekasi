@@ -7,9 +7,27 @@ import Partnership from './view/Partnership';
 import Expertice from './view/Expertice';
 import Blog from './view/Blog';
 
+import ApplicationLayout from './views/ApplicationLayout';
+import BaseRoute from './routes'
+
 function App() {
   return (
-    <Router>
+    <div className="App">
+      <Router>
+        <ApplicationLayout>
+          <BaseRoute />
+        </ApplicationLayout>
+      </Router>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+{/* <Router>
       <div className="App">
         <Route exact path="/">
           <Home />
@@ -27,8 +45,4 @@ function App() {
           <Blog />
         </Route>
       </div>
-    </Router>
-  );
-}
-
-export default App;
+    </Router> */}
