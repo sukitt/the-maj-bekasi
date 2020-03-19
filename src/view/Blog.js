@@ -8,7 +8,7 @@ import IconCalender from '../component/assets/tmp-blog/calender.svg'
 
 import {OnDesktop, OnMobileAndTablet} from '../constants'
 import Base from './Base'
-import { useParams, useRouteMatch, useLocation } from 'react-router-dom'
+import { useParams, useRouteMatch, useLocation, Link } from 'react-router-dom'
 import { BaseUrl } from '../services/axios'
 
 const Blog = props => {
@@ -31,9 +31,22 @@ const Blog = props => {
                             </Col>
 
                             <Col lg={4} style={{marginLeft: "19.5px"}}>
-                                {location.state && location.state.store.map((data, i) => (
-                                    <BlogItem key={i} src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} head={data.heading} posted_at={data.created_at} />
-                                ))}
+                                {location.state && location.state.store.map((data, i) => {
+                                    let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
+                                    let updated = data.updated_at.replace(/[\s:]/g, "-")
+                                    return (
+                                        <BlogItem 
+                                            key={i} 
+                                            src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
+                                            head={data.heading} 
+                                            posted_at={data.created_at}
+                                            to={{
+                                                pathname: `/blog/${head}-${updated}`,
+                                                state: { store: location.state.store}
+                                            }}
+                                        />
+                                    )
+                                })}
                             </Col>
                         </div>
                     </div>
@@ -45,9 +58,22 @@ const Blog = props => {
                     <div className="container">
                         <div style={{display: "flex", flexDirection: "column", margin: "0px auto", padding: "20px 0"}}>
                             <MobileDetails {...Data} />
-                        {location.state && location.state.store.map((data, i) => (
-                            <BlogItem key={i} src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} head={data.heading} posted_at={data.created_at} />
-                        ))}
+                            {location.state && location.state.store.map((data, i) => {
+                                let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
+                                let updated = data.updated_at.replace(/[\s:]/g, "-")
+                                return (
+                                    <BlogItem 
+                                        key={i} 
+                                        src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
+                                        head={data.heading} 
+                                        posted_at={data.created_at}
+                                        to={{
+                                            pathname: `/blog/${head}-${updated}`,
+                                            state: { store: location.state.store}
+                                        }}
+                                    />
+                                )
+                            })}
                         </div>
                     </div>
                 </section>
@@ -177,7 +203,7 @@ const BlogItem = props => (
             <img src={props.src} width="95px" height="95px" alt="list-blog" />
         </Col>
         <Col lg={8}>
-            <H2> {props.head} </H2>
+            <H2> <Link {...props}> {props.head} </Link> </H2>
             <Created> {props.posted_at} </Created>
         </Col>
     </ContainerItem>
