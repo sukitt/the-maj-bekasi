@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import SubscribeForm from './BaseFooter'
+import BaseFooter from './BaseFooter'
 import Img1 from '../../assets/footer-image/1.svg'
 import Img2 from '../../assets/footer-image/partof.svg'
 import Inst from '../../assets/footer-image/brand/instagram.svg'
@@ -40,9 +40,9 @@ export const Footer = props => {
                 <Col lg={4}>
                     <SubscribeUs caps="Subscribe For Exclusive News & Offers">
                         <D>
-                            <SubscribeForm {...props}>
+                            <BaseFooter {...props}>
                                 <B type="submit">Subcribe</B>
-                            </SubscribeForm>
+                            </BaseFooter>
                         </D>
                     </SubscribeUs>
                 </Col>

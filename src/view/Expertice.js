@@ -8,7 +8,7 @@ export default class Expertice extends Base {
             <>
                 <section>
                     <div className="container">
-                        <ExperticeComponent 
+                        <ExperticeComponent
                             store={this.state.expertice} errors={this.state.errors.expertice}
                         />
                     </div>

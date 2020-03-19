@@ -24,10 +24,11 @@ export const ExperticeComponent = (props) => {
             </div>
         )
     }
+    console.log(store)
     return (
         <>
             {store && store.map((data, i) => (
-                <>
+                <>  
                     <OnDesktop>
                         <BaseComponents key={i}
                             reverse={i % 2 ? true : false}

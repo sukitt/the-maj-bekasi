@@ -1,16 +1,28 @@
 import React, { Component } from 'react'
-import { BlogPlaceholder } from '../../base/loader/ImagePlaceholder'
+import { Card } from 'react-bootstrap'
+// import { BlogPlaceholder } from '../../base/loader/ImagePlaceholder'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { BaseUrl } from '../../../services/axios'
 
 class MobileBlogs extends Component {
     
     render() {
+        console.log(this.props.store)
         return (
             <Container id="blogs" margin="128px 0 0 0">
                 <H2 margin="50px auto">Lates News</H2>
-                {this.props.store && this.props.store.map((data, i) => (
-                    <Blog image href={data.link} heading={data.heading} posted_at={data.posted_at} />
+                {this.state.localStore.length && this.state.localStore.map((data, i) => (
+                    <Blog 
+                        key={i} 
+                        to={{
+                            pathname: `/blog/${data.heading.replace(/\s/g, "-")}-${data.updated_at.replace(/[\s:]/g, "-")}`,
+                            state: { store: this.state.localStore }
+                        }} 
+                        heading={data.heading} 
+                        posted_at={data.created_at.replace(/[-]/g, " ")} 
+                        image={data.image} 
+                    />
                 ))}
             </Container>
         )
@@ -23,13 +35,14 @@ export default MobileBlogs
 
 const Blog = props => {
     return (
-        <Container margin="50px auto" padding="0 30px">
+        <Container margin="50px auto" padding="0" key={props.key}>
             {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
+            <img src={`${BaseUrl}/storage/${props.image}`} width="350px" height="350px" alt="blog-post" />
             <Body margin="17px 0 0 0">
-                <Link to={props.href}>
+                <Link {...props}>
                     <H2>{props.heading}</H2>
                 </Link>
-                <Footer>Posted On {props.posted_at}</Footer>
+                <Footer padding="0">Posted On {props.posted_at}</Footer>
             </Body>
         </Container>
     )

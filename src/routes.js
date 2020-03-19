@@ -14,7 +14,7 @@ const BaseRoute = () => {
             <Route exact path="/tentang-kami" component={TentangKami} />
             <Route exact path="/partnership" component={Partnership} />
             <Route exact path="/expertice" component={Expertice} />
-            <Route exact path="/blog:id" component={Blog} />
+            <Route exact path="/blog/:id" children={<Blog />} />
         </div>
     )
 }

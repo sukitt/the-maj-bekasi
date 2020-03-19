@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SubscribeForm from './BaseFooter'
+import BaseFooter from './BaseFooter'
 import Img1 from '../../assets/footer-image/1.svg'
 import Img2 from '../../assets/footer-image/partof.svg'
 import Inst from '../../assets/footer-image/brand/instagram.svg'
@@ -36,9 +36,9 @@ export const MobileFooter = props => {
 
                 <SubscribeUs caps="Sign up for Exclusive news & Offers" margin="48px 0 0 0">
                     <D margin="26px 27px 0 0">
-                        <SubscribeForm size="lg" {...props}>
+                        <BaseFooter size="lg" {...props}>
                             <B type="submit">Subcribe</B>
-                        </SubscribeForm>
+                        </BaseFooter>
                     </D>
                     <P margin="13px 28px 50px 0">
                         By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
