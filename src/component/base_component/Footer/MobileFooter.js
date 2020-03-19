@@ -14,9 +14,9 @@ export const MobileFooter = props => {
             <D>
                 <img style={{width: '150px', height: "auto"}} src={Img1} alt="logo2" />
                 <SocialMedia margin="24px 0 0 0">
-                    <A margin="0 25px 0 0" href="#linkto" ><Instagram /></A>
-                    <A margin="0 25px 0 0" href="#linkto" ><Facebook /></A>
-                    <A margin="0 25px 0 0" href="#linkto" ><Twitter /></A>
+                    <A margin="0 25px 0 0" href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" ><Instagram /></A>
+                    <A margin="0 25px 0 0" href="https://facebook.com/themajbekasi" ><Facebook /></A>
+                    <A margin="0 25px 0 0" href="https://mobile.twitter.com/themajbekasi" ><Twitter /></A>
                 </SocialMedia>
 
                 <img src={Img2} style={{width: '136.79px', marginTop: "41.89px"}} alt="Part of The Maj Group" />

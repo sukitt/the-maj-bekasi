@@ -6,9 +6,26 @@ import { Link } from 'react-router-dom'
 import { BaseUrl } from '../../../services/axios'
 
 class MobileBlogs extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            localStore: [],
+            isLoading: true,
+        }
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.store.length !== prevState.localStore.length) {
+            return {
+                localStore: nextProps.store,
+                isLoading: false,
+            }
+        }
+    }
     
     render() {
-        console.log(this.props.store)
+        console.log(this.state.localStore)
         return (
             <Container id="blogs" margin="128px 0 0 0">
                 <H2 margin="50px auto">Lates News</H2>
@@ -33,16 +50,17 @@ export default MobileBlogs
 
 
 
-const Blog = props => {
+const Blog = (props) => {
+    const { image, heading, posted_at} = props
     return (
-        <Container margin="50px auto" padding="0" key={props.key}>
+        <Container margin="50px auto" padding="0" >
             {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
-            <img src={`${BaseUrl}/storage/${props.image}`} width="350px" height="350px" alt="blog-post" />
+            <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" />
             <Body margin="17px 0 0 0">
                 <Link {...props}>
-                    <H2>{props.heading}</H2>
+                    <H2>{heading}</H2>
                 </Link>
-                <Footer padding="0">Posted On {props.posted_at}</Footer>
+                <Footer padding="0">Posted On {posted_at}</Footer>
             </Body>
         </Container>
     )

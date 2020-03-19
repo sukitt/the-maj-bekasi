@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { StrictMode, useRef } from 'react'
 import Base from './Base'
 
 // COMPONENT
@@ -22,21 +22,15 @@ import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileMaps from '../component/map/mobile/Maps'
 
-
-import { layoutGenerator } from 'react-break';
-const layout = layoutGenerator({
-  mobile: 0,
-  tablet: 768,
-  desktop: 992,
-});
-const OnMobileAndTablet = layout.isAtMost('tablet');
-const OnDesktop = layout.is('desktop');
-
+import $ from 'jquery'
+import { OnDesktop, OnMobileAndTablet } from '../constants'
 
 class Home extends Base {
-
   render() {
-    if (this.state.errors)
+    $('#nav-fasilitas').off().click(this._handleClickFasilitas)
+    $('#nav-denah').off().click(this._handleClickDenahUnit)
+    $('#nav-lokasi').off().click(this._handleClickLokasi)
+    $('#nav-gallery').off().click(this._handleClickGaleri)
     return (
       <div>
         <OnDesktop>
@@ -47,32 +41,32 @@ class Home extends Base {
           </section>
 
           <section>
-            <div className="container">            
-              <Fasilitas id="fasilitas" />
+            <div className="container">  
+              <Fasilitas id="fasilitas" fasilitasRef={this.scrollFasilitas} />
             </div>
           </section>
 
           <section>
             <div className="container">
-              <DenahUnit store={this.state.units} errors={this.state.errors.units} />
+              <DenahUnit id="denahunit" store={this.state.units} denahUnitRef={this.scrollDenahUnit} />
             </div>
           </section>
 
           <section>
             <div className="container">
-              <Maps store={this.state.location} errors={this.state.errors.location} />
+              <Maps id="lokasi" store={this.state.location} lokasiRef={this.scrollLokasi} />
             </div>
           </section>
 
           <section>
             <div className="w-100">
-              <Gallery store={this.state.gallery} />
+              <Gallery id="galeri" store={this.state.gallery} galeriRef={this.scrollGaleri} />
             </div>
           </section>
           
           <section>
             <div className="container">
-              <TentangKami />
+              <TentangKami id="tentangkami" tentangKamiRef={this.scrollTentangKami} />
             </div>
           </section>
           
@@ -103,7 +97,6 @@ class Home extends Base {
 
         {/* Mobile Table Responsive */}
         <OnMobileAndTablet>
-
           <section>
             <div className="w-100">  
               <MobileHeaderSlider store={this.state.sliders} />
@@ -117,7 +110,7 @@ class Home extends Base {
           </section>
 
           <section>
-            <MobileDenahUnit storeUnit={this.state.units} />
+            <MobileDenahUnit store={this.state.units} />
           </section>
 
           <section>
@@ -158,4 +151,10 @@ class Home extends Base {
     )
   }
 }
+
 export default Home
+
+
+const JqueryClick = (fasilitas) => {
+  $('#nav-fasilitas').off().click(fasilitas)
+}

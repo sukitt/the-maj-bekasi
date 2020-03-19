@@ -91,19 +91,10 @@ class Maps extends Component {
     }
   }
   render() {
-    const { store, errors } = this.props
-    if (Object.keys(errors).length) {
-      return (
-        <div>
-          <h4>Errors in Maps</h4>
-          <p>{errors.code}</p>
-          <p>{errors.status}</p>
-        </div>
-      )
-    }
+    const { store } = this.props
 
     return (
-      <div id="lokasi" class="container-2 px-0" style={{marginTop:157, paddingBottom:180}}>
+      <div ref={this.props.lokasiRef} class="container-2 px-0" style={{marginTop:157, paddingBottom:180}}>
         <h5>Lokasi</h5>
         <h1 style={{width: "396px"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h1>
 

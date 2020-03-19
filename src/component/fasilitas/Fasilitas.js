@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import styled from "styled-components";
 import Img1 from '../../assets/fasilitas/zenGarden.svg'
@@ -38,61 +38,62 @@ const Data = [
 
 ]
 
-const Fasilitas = (props) => {
-
+class Fasilitas extends Component {
+	render() {
 		return (
-				<div id={props.id} style={{
-						marginTop:"136px",
-				}}>
-					<div className="container-2 p-0">
+			<div id={this.props.id} ref={this.props.fasilitasRef} style={{
+					marginTop:"136px",
+			}}>
+				<div className="container-2 p-0">
 
-						<h5>fasilitas</h5>
-						<h1 style={{width: "323px"}}>Untuk work-life balance yang lebih baik</h1>
-						<Row className="mx-0" style={{marginTop:"50px"}}>
-								{Data.slice(0,5).map((d, i) => {
-									return (
-										<Col xs className="mx-1">
-											<Row>
-												<Content xs={4}>
-													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
-												</Content>
-												<Caption xs><span>{d.caption}</span></Caption>
-											</Row>
-										</Col>
-									)
-								})}
-						</Row>
-						<Row className="mx-0" style={{marginTop:"50px"}}>
-								{Data.slice(5,10).map((d, i) => {
-									return (
-										<Col xs className="mx-1">
-											<Row>
-												<Content xs={4}>
-													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
-												</Content>
-												<Caption xs><span>{d.caption}</span></Caption>
-											</Row>
-										</Col>
-									)
-								})}
-						</Row>
-						<Row className="mx-0" style={{marginTop:"50px"}}>
-								{Data.slice(10,15).map((d, i) => {
-									return (
-										<Col xs className="mx-1">
-											<Row>
-												<Content xs={4}>
-													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
-												</Content>
-												<Caption xs><span>{d.caption}</span></Caption>
-											</Row>
-										</Col>
-									)
-								})}
-						</Row>
-					</div>
+					<h5>fasilitas</h5>
+					<h1 style={{width: "323px"}}>Untuk work-life balance yang lebih baik</h1>
+					<Row className="mx-0" style={{marginTop:"50px"}}>
+							{Data.slice(0,5).map((d, i) => {
+								return (
+									<Col xs className="mx-1">
+										<Row>
+											<Content xs={4}>
+												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+											</Content>
+											<Caption xs><span>{d.caption}</span></Caption>
+										</Row>
+									</Col>
+								)
+							})}
+					</Row>
+					<Row className="mx-0" style={{marginTop:"50px"}}>
+							{Data.slice(5,10).map((d, i) => {
+								return (
+									<Col xs className="mx-1">
+										<Row>
+											<Content xs={4}>
+												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+											</Content>
+											<Caption xs><span>{d.caption}</span></Caption>
+										</Row>
+									</Col>
+								)
+							})}
+					</Row>
+					<Row className="mx-0" style={{marginTop:"50px"}}>
+							{Data.slice(10,15).map((d, i) => {
+								return (
+									<Col xs className="mx-1">
+										<Row>
+											<Content xs={4}>
+												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+											</Content>
+											<Caption xs><span>{d.caption}</span></Caption>
+										</Row>
+									</Col>
+								)
+							})}
+					</Row>
 				</div>
+			</div>
 		)
+	}
 }
 
 const Content = styled(Col)`
