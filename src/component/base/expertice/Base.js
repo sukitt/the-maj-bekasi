@@ -13,9 +13,9 @@ const layout = layoutGenerator({
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
-export const Base = (props) => {
+export const ExperticeComponent = (props) => {
     const { store, errors } = props
-    if (Object.keys(errors).length) {
+    if (errors && Object.keys(errors).length) {
         return (
             <div>
                 <h4>Errors in Blog Section</h4>
@@ -24,9 +24,10 @@ export const Base = (props) => {
             </div>
         )
     }
+    console.log(store)
     return (
         <>
-            {store.map((data, i) => (
+            {store && store.map((data, i) => (
                 <>  
                     <OnDesktop>
                         <BaseComponents key={i}

@@ -1,2 +1,2 @@
-import { Base } from './Base'
-export { Base }
+import { ExperticeComponent } from './Base'
+export { ExperticeComponent }

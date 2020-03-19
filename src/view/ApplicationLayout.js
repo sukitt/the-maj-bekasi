@@ -2,8 +2,6 @@ import React from 'react'
 import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../component/base_component/'
 
 import { OnDesktop, OnMobileAndTablet } from '../constants/'
-// tmp img
-import HeadBackground from '../assets/tmp/headBg.png'
 import Base from './Base'
 
 export default class ApplicationLayout extends Base {

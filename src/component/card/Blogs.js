@@ -26,17 +26,25 @@ export class Blogs extends Component {
     }
     
     render() {
-        this.state.localStore && console.log(this.state.localStore)
         return (
             <Container id="blogs" margin="128px 0 0 0"  flexDirection="column">
                 <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.map((data, i) => {
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
+                        let updated = data.updated_at.replace(/[\s:]/g, "-")
                         let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`
                         return (
-                            <Col lg={4}>
-                                <Blog href={head} src={img} heading={data.heading} created_at={data.created_at} />
+                            <Col lg={4} md={6} key={i}>
+                                <Blog
+                                    to={{
+                                        pathname: `/blog/${head}-${updated}`,
+                                        state: { store: this.props.store }
+                                    }}
+                                    src={img} 
+                                    heading={data.heading} 
+                                    created_at={data.created_at} 
+                                />
                             </Col>
                         )}
                     )}
@@ -51,13 +59,12 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
             <img src={props.src} width width="350px" height="350px" alt="350x350" />
             <Body margin="17px 0 0 0">
                 <H1>
-                    <A href={props.href}>
+                    <Link {...props}>
                         {props.heading}
-                    </A>
+                    </Link>
                 </H1>
                 <Footer>Posted On {props.created_at}</Footer>
             </Body>

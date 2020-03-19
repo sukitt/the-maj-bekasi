@@ -20,7 +20,6 @@ import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
-// import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
 import Whatsapp from '../component/base/whatsapp'
 
@@ -156,16 +155,6 @@ class Home extends Base {
               catatanRef={this.contrefcatatan}
             />
           </section>
-
-          {/* <section>
-            <MobileFooter 
-              validated={this.state.footer.validated}
-              onSubmit={this._footer}
-              titleRef={this.footreftitle}
-              nameRef={this.footrefname}
-              emailRef={this.footrefemail}
-            />
-          </section> */}
         </OnMobileAndTablet>
       </div>
     )
