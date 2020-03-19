@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Col } from 'react-bootstrap'
 
-export class Base extends Component {
+export default class BaseFooter extends Component {
     constructor(props) {
         super(props)
     

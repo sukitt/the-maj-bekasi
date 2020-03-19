@@ -12,7 +12,6 @@ import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
 import TentangKami from '../component/TentangKami'
 import Blogs from '../component/card/Blogs'
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
@@ -21,7 +20,6 @@ import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
-import MobileFooter from '../component/footer/mobile/Footer'
 import MobileMaps from '../component/map/mobile/Maps'
 import Whatsapp from '../component/base/whatsapp'
 
@@ -155,16 +153,6 @@ class Home extends Base {
               teleponRef={this.contreftelepon}
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
-            />
-          </section>
-
-          <section>
-            <MobileFooter 
-              validated={this.state.footer.validated}
-              onSubmit={this._footer}
-              titleRef={this.footreftitle}
-              nameRef={this.footrefname}
-              emailRef={this.footrefemail}
             />
           </section>
         </OnMobileAndTablet>

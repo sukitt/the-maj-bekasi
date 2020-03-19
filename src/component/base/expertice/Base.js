@@ -13,7 +13,7 @@ const layout = layoutGenerator({
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
-export const Base = (props) => {
+export const ExperticeComponent = (props) => {
     const { store, errors } = props
     if (Object.keys(errors).length) {
         return (

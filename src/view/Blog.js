@@ -1,5 +1,4 @@
-
-import React, { Component, createElement, createRef } from 'react'
+import React, { createElement } from 'react'
 import { Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
@@ -9,95 +8,17 @@ import IconCalender from '../component/assets/tmp-blog/calender.svg'
 
 
 import HeadSlider from '../component/slider/mobile/HeadSlider'
-import NavigationBar from '../component/navbar/Navigationbar'
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 
-import { layoutGenerator } from 'react-break';
-import Footer from '../component/footer/Footer'
-import MobileFooter from '../component/footer/mobile/Footer'
-import { getNavbar, getSliders } from '../services/get'
-const layout = layoutGenerator({
-    mobile: 0,
-    tablet: 768,
-    desktop: 992,
-});
+import {OnDesktop, OnMobileAndTablet} from '../constants'
+import Base from './Base'
 
-const OnMobileAndTablet = layout.isAtMost('tablet');
-const OnDesktop = layout.is('desktop');
-
-class Blog extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            navigation: [],
-            sliders: [],
-            errors: {
-                abouts:{},
-                sliders:{},
-                navigation: {}
-            },
-            localStore: [],
-            isLoading: true,
-            active: {
-                id: 1,
-                image: "https://img.beritasatu.com/cache/beritasatu/910x580-2/1575006937.jpg" ,
-                head: "Sasar Milenial, MAJ Residences Tampilkan Filosofi Jepang",
-                desc_img: "Jajaran Direksi The Maj Residences Bekasi Barat (kiri ke kanan) Mely Ho (Managing Director), Juanto Salim (President Director), Danny Sedjati (Director of Business Development Leopalace21 Indonesia), Gita Wirjawan (Founder The Maj Group) dan Herson Suindah (Komisaris), Oemar Sutanto(Komisaris), dan Tommy Santoso (Director). ( Foto: Dok Maja )",
-                text: "<h2><strong>Lorem Ipsum</strong></h2><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-                author: "Whisnu Bagus Prasetyo",
-                posted_at: "Jumat, 29 November 2019 | 13:06 WIB",
-            }
-        }
-        this.footreftitle = createRef()
-        this.footrefname = createRef()
-        this.footrefemail = createRef()
-        this._footer = this._footer.bind(this)
-    }
-
-    _footer = (e) => {
-        const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-            this.setState({footer:{validated:false}});
-            e.preventDefault();
-            e.stopPropagation();
-        }
-
-        const data = {
-            title: this.footreftitle.current.value,
-            name: this.footrefname.current.value,
-            email: this.footrefemail.current.value
-        }
-        this.setState({
-            footer: {
-                data: data
-            }
-        })
-        e.preventDefault()
-    }
-
-
-    componentDidMount() {
-        getNavbar()
-            .then(res => this.setState({navigation: res.data}))
-            .catch((err) => {
-                if (err && err.response) this.setState({errors:{navigation:{code:err.response.status, status:err.response.statusText}}})
-            })
-
-        getSliders()
-            .then((res) => this.setState({sliders: res.data}))
-            .catch((err) => {
-                if (err && err.response) this.setState({errors: {sliders: {code: err.response.status, status: err.response.statusText}}})
-            })
-    }
+class Blog extends Base {
 
     render() {
         return (
             <>
             <OnDesktop>
-                <NavigationBar store={this.state.navigation} />
-
                 <section>
                     <div className="container">
                         <div style={{display: "flex", width: "1119px", margin: "0px auto", padding: "20px 0"}}>
@@ -113,21 +34,9 @@ class Blog extends Component {
                         </div>
                     </div>
                 </section>
-                
-                <section>
-                    <Footer 
-                        // validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
-                </section>
             </OnDesktop>
             
             <OnMobileAndTablet>
-                <MobileNavigationBar store={this.state.navigation} />
-
                 <section>
                     <div className="container">
                         <div style={{display: "flex", flexDirection: "column", margin: "0px auto", padding: "20px 0"}}>
@@ -137,16 +46,6 @@ class Blog extends Component {
                         ))}
                         </div>
                     </div>
-                </section>
-
-                <section>
-                    <MobileFooter 
-                        // validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
                 </section>
             </OnMobileAndTablet>
             </>

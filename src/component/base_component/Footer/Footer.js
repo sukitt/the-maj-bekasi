@@ -3,11 +3,11 @@ import { Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import SubscribeForm from './BaseFooter'
-import Img1 from '../assets/footer-image/1.svg'
-import Img2 from '../assets/footer-image/partof.svg'
-import Inst from '../assets/footer-image/brand/instagram.svg'
-import Fb from '../assets/footer-image/brand/facebook.svg'
-import Twitt from '../assets/footer-image/brand/twitter.svg'
+import Img1 from '../../assets/footer-image/1.svg'
+import Img2 from '../../assets/footer-image/partof.svg'
+import Inst from '../../assets/footer-image/brand/instagram.svg'
+import Fb from '../../assets/footer-image/brand/facebook.svg'
+import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 
 export const Footer = props => {

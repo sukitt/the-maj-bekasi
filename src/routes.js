@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Home from './views/Home'
-import TentangKami from './views/TentangKami'
+import Home from './view/Home'
+import TentangKami from './view/TentangKami'
 import Partnership from './view/Partnership'
 import Expertice from './view/Expertice'
 import Blog from './view/Blog'
