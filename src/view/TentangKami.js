@@ -34,7 +34,6 @@ const visionText = [
 export default class TentangKami extends Base {
     
     render() {
-        console.log(this.state.signup.data)
         return (
             <div>
                 <section>

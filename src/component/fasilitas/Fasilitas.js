@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
+import styled from "styled-components";
 import Img1 from '../../assets/fasilitas/zenGarden.svg'
 import Img2 from '../../assets/fasilitas/2.svg'
 import Img3 from '../../assets/fasilitas/3.svg'
@@ -41,29 +42,50 @@ const Fasilitas = (props) => {
 
 		return (
 				<div id={props.id} style={{
-						margin: "50px 0",
-						padding: "50px 0px",
-						// width: 936,
-						// height: 312
-						display: 'flex',
-						flexDirection: 'column'
+						marginTop:"136px",
 				}}>
 					<div className="container-2 p-0">
 
 						<h5>fasilitas</h5>
 						<h1 style={{width: "323px"}}>Untuk work-life balance yang lebih baik</h1>
-						<Row className="mx-0">
-								{Data.map((d, i) => {
+						<Row className="mx-0" style={{marginTop:"50px"}}>
+								{Data.slice(0,5).map((d, i) => {
 									return (
-										<Col md="2/3" className="p-0" style={{margin:"34px 0px"}} key={d.id}>
-												<Row className="mx-0">
-													<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px", paddingLeft:"0"}}>
-														<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
-													</Col>
-													<Col style={{margin:"auto 5px", paddingRight:"0px"}}>
-														<span style={span}>{d.caption}</span>
-													</Col>
-												</Row>
+										<Col xs className="mx-1">
+											<Row>
+												<Content xs={4}>
+													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+												</Content>
+												<Caption xs><span>{d.caption}</span></Caption>
+											</Row>
+										</Col>
+									)
+								})}
+						</Row>
+						<Row className="mx-0" style={{marginTop:"50px"}}>
+								{Data.slice(5,10).map((d, i) => {
+									return (
+										<Col xs className="mx-1">
+											<Row>
+												<Content xs={4}>
+													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+												</Content>
+												<Caption xs><span>{d.caption}</span></Caption>
+											</Row>
+										</Col>
+									)
+								})}
+						</Row>
+						<Row className="mx-0" style={{marginTop:"50px"}}>
+								{Data.slice(10,15).map((d, i) => {
+									return (
+										<Col xs className="mx-1">
+											<Row>
+												<Content xs={4}>
+													<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+												</Content>
+												<Caption xs><span>{d.caption}</span></Caption>
+											</Row>
 										</Col>
 									)
 								})}
@@ -73,13 +95,37 @@ const Fasilitas = (props) => {
 		)
 }
 
-const span = {
-		color: '#232323', 
-		textTransform: 'uppercase',
-		fontSize: "11px",
-		fontWeight:"bold",
-		lineHeight: "13px",
-		width: "94px",
-}
+const Content = styled(Col)`
+	padding:0;
+	max-width:40px;
+`;
+const Icon = styled.img`
+	width:40px;
+	height:40px;
+`;
+const Caption = styled(Col)`
+	margin-left:10px;
+	padding:0px;
+`;
+const Span = styled.span`
+	color: '#232323', 
+	text-transform: 'uppercase',
+	font-size: "11px",
+	font-weight:"bold",
+	line-height: "13px",
+	margin:auto;
+`;
 
 export default Fasilitas
+
+
+// <Col md="2/3" className="p-0" style={{margin:"34px 0px"}} key={d.id}>
+// 		<Row className="mx-0">
+// 			<Col sm="3" style={{paddingTop:"15px", paddingBottom:"15px", paddingLeft:"0"}}>
+// 				<img src={d.img} style={{width: '40px'}} alt={d.caption.replace(" ", "-")} />
+// 			</Col>
+// 			<Col style={{margin:"auto 5px", paddingRight:"0px"}}>
+// 				<span style={span}>{d.caption}</span>
+// 			</Col>
+// 		</Row>
+// </Col>

@@ -9,6 +9,8 @@ import MobileReviewUnit from './ReviewUnit'
 import MobileSimulasi from './Simulasi'
 import { BaseUrl } from '../../../services/axios'
 
+import dots from '../assets/dots.svg'
+
 
 export class DenahUnit extends Base {
 
@@ -190,7 +192,7 @@ const H6 = styled.h6`
     color: #2D2D2D;
 `;
 const Li = styled.li`
-    list-style-type:none;
+    list-style-Imge:url(${dots});
     max-width:130px;
 `;
 const Options = styled.option`

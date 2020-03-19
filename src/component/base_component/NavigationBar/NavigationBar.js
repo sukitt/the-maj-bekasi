@@ -21,21 +21,16 @@ export const NavigationBar = (props) => {
                     <Nav className="mr-auto">
 
                         {props.store.map(item => (
-                            <Nav.Link key={item.id}
-                            >
-                                <Link to={item.link}>
-                                    <h6>{item.name}</h6>
-                                </Link>
-                            </Nav.Link>
+                          <Link className="nav-link" key={item.id} to={item.link}>
+                              <h6>{item.name}</h6>
+                          </Link>
                         ))}
 
                     </Nav>
                     <Nav className="ml-auto">
-                        <Nav.Link>
-                            <Link to="/#contact-us">
-                                <button className="button-small">Hubungi Kami</button>
-                            </Link>
-                        </Nav.Link>
+                      <Link className="nav-link" to="/#contact-us">
+                          <button className="button-small">Hubungi Kami</button>
+                      </Link>
                     </Nav>
                 </Navbar.Collapse>
             </div>

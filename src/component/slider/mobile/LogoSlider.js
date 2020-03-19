@@ -37,8 +37,6 @@ export class LogoSlider extends Component {
       slidesToScroll: 1
     };
 
-    const { errors } = this.props
-    console.log(this.props.store)
     // if (this.state.isLoading) {
     //   return (
     //     <div id="mobileLogoSlider" 
@@ -94,13 +92,6 @@ export class LogoSlider extends Component {
     )
   }
 }
-const Img = styled.img`
-  filter: grayscale(100);
-  transition:.3s all;
-  &:hover{
-    filter: grayscale(0);
-  }
-`;
 const A = styled.a`
   margin: 0px 15px;
 `;

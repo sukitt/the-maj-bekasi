@@ -10,7 +10,7 @@ import Gallery from '../component/slider/Gallery'
 // import AboutSlider from '../component/slider/AboutSlider'
 import LogoSlider from '../component/slider/LogoSlider'
 import ContactUs from '../component/contact-us/ContactUs'
-import TentangKami from '../component/TentangKami'
+import TentangKami from '../component/card/TentangKami'
 import Blogs from '../component/card/Blogs'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
@@ -21,7 +21,6 @@ import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileMaps from '../component/map/mobile/Maps'
-import Whatsapp from '../component/base/whatsapp'
 
 
 import { layoutGenerator } from 'react-break';
@@ -40,7 +39,6 @@ class Home extends Base {
     if (this.state.errors)
     return (
       <div>
-        <Whatsapp />
         <OnDesktop>
           <section>
             <div className="container">

@@ -110,7 +110,7 @@ h1>span{
   display: inline-block;
   color: #fff;
   transition: .15s all;
-  background: #CC9980;
+  background: #12284C;
   font-family: 'Verlag Bold' !important;
   text-transform: uppercase;
   font-style: normal;
@@ -139,6 +139,7 @@ body{
   border: 1px solid #F9F9F9;
   background-color: #F9F9F9;
   border-radius: 2px;
+  height: 40px;
 }
 input,textarea::placeholder{
   color: #232323 !important;
@@ -174,7 +175,7 @@ a:hover{
   border-color: transparent;
 }
 button .button-small {
-  background: #CC9980;
+  background: #12284C !important;
   font-family: 'Verlag Bold' !important;
   padding: 11px 35px !important;
   text-transform: uppercase;

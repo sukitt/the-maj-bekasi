@@ -78,16 +78,16 @@ export default class TabSimulasi extends Component {
                 <H3>Estimasi Cicilan Bulanan</H3>
                 <H1><NumberFormat value={this.state.annualEst} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></H1>
                 <Row>
-                    <Col><P>Harga Unit</P></Col>
-                    <Col>
+                    <Col md={3}><P>Harga Unit</P></Col>
+                    <Col md={3}>
                         <P>
                             <NumberFormat value={this.props.hargaUnit} displayType={'text'} thousandSeparator={true} prefix={'IDR '} />
                         </P>
                     </Col>
-                    <Col>
+                    <Col md={3}>
                         <P>Tenor Kredit</P>
                     </Col>
-                    <Col style={{padding:"26px 0px"}}>
+                    <Col style={{padding:"26px 0px"}} md={3}>
                         <Form.Group className="position-relative selectField" controlId="unitField">
                         <Form.Control as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
                             {this.state.options.length && this.state.options.map((index, i) => (
@@ -100,23 +100,17 @@ export default class TabSimulasi extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col><P>DP 20%</P></Col>
-                    <Col><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
-                    <Col><P>Bunga</P></Col>
-                    <Col style={{padding:"26px 0px"}}>
-                        <InputGroup>
-                            <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
-                            <InputGroup.Append>
-                                <InputGroup.Text id="basic-addOn">%</InputGroup.Text>
-                            </InputGroup.Append>
-                        </InputGroup>
+                    <Col md={3}><P>DP 20%</P></Col>
+                    <Col md={3}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
+                    <Col md={3}><P>Bunga</P></Col>
+                    <Col style={{padding:"26px 0px"}} md={3}>
+                        <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
                     </Col>
                 </Row>
                 <Row>
-                    <Col><P>Jumlah Pinjaman</P></Col>
-                    <Col><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
-                    <Col></Col>
-                    <Col></Col>
+                    <Col md={3}><P>Jumlah Pinjaman</P></Col>
+                    <Col md={3}><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
+                    <ColText>*DP dapat dicicil. Angka yang tertera hanya untuk keperluan simulasi. Hubungi bank terkait untuk angka yang lebih akurat.</ColText>
                 </Row>
             </Container>
             </>
@@ -126,6 +120,15 @@ export default class TabSimulasi extends Component {
 const Container = styled.div`
     padding:100px 100px 0px 100px;
 
+`;
+const ColText = styled(Col)`
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 21px;
+    color: #000000;
+    margin:16px 0px;
 `;
 const P = styled.p`
     margin:26px 0px;

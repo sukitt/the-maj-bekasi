@@ -15,10 +15,10 @@ const OnDesktop = layout.is('desktop');
 
 export const ExperticeComponent = (props) => {
     const { store, errors } = props
-    if (Object.keys(errors).length) {
+    if (errors && Object.keys(errors).length) {
         return (
             <div>
-                <h4>Errors in Blog Section</h4>
+                <h4>Errors in Expertice Section</h4>
                 <p>{errors.code}</p>
                 <p>{errors.status}</p>
             </div>
@@ -26,8 +26,8 @@ export const ExperticeComponent = (props) => {
     }
     return (
         <>
-            {store.map((data, i) => (
-                <>  
+            {store && store.map((data, i) => (
+                <>
                     <OnDesktop>
                         <BaseComponents key={i}
                             reverse={i % 2 ? true : false}

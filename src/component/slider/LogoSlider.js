@@ -67,7 +67,7 @@ class LogoSlider extends Component {
     //   )
     // }
     return(
-      <div style={{margin:"150px 0px",height:"260px"}}>
+      <div style={{margin:"105px 0px",height:"260px"}}>
         <Slider 
           {...settings}
           slidesToShow={4}
