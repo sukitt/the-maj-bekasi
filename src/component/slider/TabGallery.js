@@ -169,7 +169,7 @@ export default class TabGallery extends Component {
           >
             {this.props.images.map((item, i) =>(
               <div key={i}>
-                <img style={{width:"150px"}} src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
+                <img style={{width:"150px"}} src={BaseUrl + '/storage/' + item.gambar.replace(".png", "-mobile.png")} alt={item.nama} />
               </div>
             ))}
           </Slider>

@@ -21,7 +21,7 @@ export const Vision = (props) => (
             {props.store.map((data,i) => (
                 <>
                     <OnDesktop>
-                        <Content className="vision">
+                        <Content key={i} className="vision">
                             <Img 
                                 source={data.image} 
                                 position={i%2?'right':'left'} 
@@ -31,7 +31,7 @@ export const Vision = (props) => (
                     </OnDesktop>
                     <OnMobileAndTablet>
                         <div className="container">
-                            <Content className="vision">
+                            <Content key={i} className="vision">
                                 <Img 
                                     source={data.image} 
                                     position={i%2?'right':'left'} 

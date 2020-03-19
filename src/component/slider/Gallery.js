@@ -5,40 +5,35 @@ import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
+import nextIcon from '../../assets/next.svg'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
-    top:"40%",
+    top:"100%",
     transition:".3s all",
-    width:"70px",
-    height:"70px",
-    background:"#CC9980",
+    width:"40px",
+    height:"40px",
+    background:"none",
     color: "#fff",
     textDecoration: "none",
-    padding: "25px",
     borderRadius: "50%",
-    boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
-    right:"13%",
+    right:"35%",
     '&:hover': {
-      background:"#ffffff",
+      background:"#cc9980",
       color: "#000"
     },
     '&:before': {
-      padding: "8px",
-      borderRight: "4px solid",
-      borderBottom: "4px solid",
-      borderRadius: "4px",
-      content: `'' !important`,
+      content: `url(${nextIcon}) !important`,
       display: "block",
-      top: "35%",
-      left: "30%",
+      top: "15%",
+      left: "40%",
       position: "absolute",
-      '-moz-transform': "rotate(310deg)",
-      '-o-transform': "rotate(310deg)",
-      '-webkit-transform': "rotate(310deg)",
-      transform: "rotate(310deg)",
+      '-moz-transform': "rotate(360deg)",
+      '-o-transform': "rotate(360deg)",
+      '-webkit-transform': "rotate(360deg)",
+      transform: "rotate(360deg)",
       color:"inherit"
     }
   });
@@ -57,36 +52,31 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
-    top:"40%",
+    top:"100%",
     transition:".3s all",
-    width:"70px",
-    height:"70px",
-    background:"#CC9980",
+    width:"40px",
+    height:"40px",
+    background:"none",
     color: "#ffffff",
     textDecoration: "none",
-    padding: "30px",
     zIndex:"1",
     borderRadius:"50%",
-    left:"13%",
-    boxShadow: "0px 20px 60px rgba(138, 149, 158, 0.2)",
+    left:"35%",
     '&:hover': {
-      background:"#ffffff",
+      background:"#cc9980",
       color: "#000"
     },
     '&:before': {
       padding: "8px",
-      borderRight: "4px solid",
-      borderBottom: "4px solid",
-      borderRadius: "4px",
-      content: `'' !important`,
+      content: `url(${nextIcon}) !important`,
       display: "block",
-      top: "35%",
-      left: "40%",
+      top: "15%",
+      left: "20%",
       position: "absolute",
-      '-moz-transform': "rotate(135deg)",
-      '-o-transform': "rotate(135deg)",
-      '-webkit-transform': "rotate(135deg)",
-      transform: "rotate(135deg)",
+      '-moz-transform': "rotate(180deg)",
+      '-o-transform': "rotate(180deg)",
+      '-webkit-transform': "rotate(180deg)",
+      transform: "rotate(180deg)",
       color:"inherit"
     }
   });
@@ -100,15 +90,6 @@ const PrevArrow = (props) => {
     />
   );
 }
-
-const H4 = styled.h4({
-  fontStyle: "normal",
-  fontWeight: "bold",
-  fontSize: "14px",
-  lineHeight: "16px",
-  textTransform: "uppercase",
-  color: "#FFFFFF",
-})
 
 const Img = styled.img({
   margin:"0px auto",
@@ -159,7 +140,7 @@ export class Gallery extends Component {
 
     return(
       <Container id="gallery" padding="36px 0px 34px 0px" margin="100px auto">
-        <H2>Gallery</H2>
+        <H2>Galeri</H2>
         <Slider {...settings}
           afterChange={index => this.setState({indexActive:index})}
         >
@@ -190,6 +171,7 @@ const Container = styled.div(
     background: "#12284C",
     margin: props.margin,
     padding: props.padding,
+    height:"942px",
   })
 )
 

@@ -3,6 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 
 import logo from '../../assets/logo.svg'
 import DotsLoader from '../base/loader/DotsLoader';
+import { Link } from 'react-router-dom';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -53,18 +54,22 @@ class NavigationBar extends Component {
       <Navbar bg="white" expand="lg">
         <div className="container-2 p-0" >
           <Navbar.Collapse id="basic-navbar-nav">
-            <Navbar.Brand href="#home" >
-              <img src={logo} alt="logo" style={{
-                maxWidth:"120px",
-                width:"100%",
-              }} />
+            <Navbar.Brand>
+              <Link to="/">
+                <img src={logo} alt="logo" style={{
+                  maxWidth:"120px",
+                  width:"100%",
+                }} />
+              </Link>
             </Navbar.Brand>
             <Nav className="mr-auto">
 
               {this.state.localStore.length && this.state.localStore.map(item => (
-                <Nav.Link key={item.id} href={item.link}
+                <Nav.Link key={item.id}
                 >
-                  <h6>{item.name}</h6>
+                  <Link to={item.link}>  
+                    <h6>{item.name}</h6>
+                  </Link>
                 </Nav.Link>
               ))}
 

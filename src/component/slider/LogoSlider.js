@@ -18,7 +18,7 @@ class LogoSlider extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.store !== prevState.localStore) {
       return {
-        localStore: nextProps.length,
+        localStore: nextProps.store,
         isLoading: false,
       }
     }
@@ -34,7 +34,7 @@ class LogoSlider extends Component {
       speed: 1500,
       autoplay:true,
       autoplaySpeed:1500,
-      // slidesToShow: 4,
+      slidesToShow: 4,
       slidesToScroll: 1
     };
 

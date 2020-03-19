@@ -16,7 +16,7 @@ export class LogoSlider extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.store.length !== prevState.localStore.length) {
+    if (nextProps.store !== prevState.localStore) {
       return {
         localStore: nextProps.store,
         isLoading: false,
@@ -38,6 +38,7 @@ export class LogoSlider extends Component {
     };
 
     const { errors } = this.props
+    console.log(this.props.store)
     // if (this.state.isLoading) {
     //   return (
     //     <div id="mobileLogoSlider" 
