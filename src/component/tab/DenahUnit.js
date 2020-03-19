@@ -60,6 +60,7 @@ class DenahUnit extends Component {
 												<TabSpesifikasi 
 													unitName={item.unit_name}
 													items={item.specs}
+													list={item.room_list}
 												/>
 											</Tab>
 											<Tab

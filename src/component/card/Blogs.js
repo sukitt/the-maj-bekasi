@@ -30,10 +30,10 @@ export class Blogs extends Component {
             <Container id="blogs" margin="105px 0 0 0"  flexDirection="column">
                 <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
-                    {this.state.localStore.length && this.state.localStore.map((data, i) => {
+                    {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
                         let updated = data.updated_at.replace(/[\s:]/g, "-")
-                        let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`
+                        let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`
                         return (
                             <Col lg={4} md={6} key={i}>
                                 <Blog

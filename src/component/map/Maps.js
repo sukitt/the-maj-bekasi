@@ -1,54 +1,21 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 
-import MarketplaceMarker from './assets/marketplacemarker.svg'
+import marketplace from './assets/marketplace.svg'
+import hospital from './assets/hospital.svg'
+import goverment from './assets/goverment.svg'
+import education from './assets/education.svg'
+import busway from './assets/busway.svg'
+import station from './assets/station.svg'
+import tolls from './assets/tolls.svg'
+import gor from './assets/gor.svg'
 
 import Marker from './Marker'
-import {BaseUrl} from '../../services/axios'
-import { Tabs, Tab, Row, Col, Card } from 'react-bootstrap';
+import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
 import './assets/css/style.css'
 import styled from 'styled-components';
 
-const Gmaps = (props) => {
-  return(
-    <GoogleMapReact 
-        bootstrapURLKeys={{key:""}}
-        defaultCenter={props.center}
-        defaultZoom={props.zoom}
-    >
-      {props.location.map(function(item){
-        return(
-          <Marker
-            key={item.id}
-            lat={item.latitude}
-            lng={item.longitude}
-            text={item.name}
-            icon={item.marker_icon}
-          />
-        );
-      })}
-    </GoogleMapReact>
-  );
-}
-
-const Distance = (props) => (
-  <>
-    <Content md={3}>
-      <Row className="m-0">
-        <Col className="text-center" style={{padding:"5px"}} xs={4}>
-          <img width="27" height="27" src={BaseUrl + '/storage/' + props.marker} alt="marketplace-marker" />
-        </Col>
-        <Col xs className="p-0">
-          <Text>
-            <Time>{props.caption}</Time><br/>
-            {props.description}
-          </Text>
-        </Col>
-      </Row>
-    </Content>
-  </>
-)
 const Content = styled(Col)`
   height: 60px;
   border: 1px solid #CC9980;
@@ -80,7 +47,7 @@ const Time = styled.span`
 
 
 class Maps extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       center: {
@@ -90,6 +57,7 @@ class Maps extends Component {
       zoom: 13
     }
   }
+
   render() {
     const { store, errors } = this.props
     if (Object.keys(errors).length) {
@@ -101,37 +69,98 @@ class Maps extends Component {
         </div>
       )
     }
+    const setIcon = (icon) => {
+      switch (icon) {
+        case 'marketplace':
+          return marketplace;
+        case 'education':
+          return education;
+        case 'goverment':
+          return goverment;
+        case 'hospital':
+          return hospital;
+        case 'busway':
+          return busway;
+        case 'station':
+          return station;
+        case 'tolls':
+          return tolls;
+        case 'gor':
+          return gor;
+        default:
+          return marketplace
+      }
+    }
+    const Gmaps = (props) => {
+      return (
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "" }}
+          defaultCenter={props.center}
+          defaultZoom={props.zoom}
+        >
+          {props.location.map(function (item) {
+            return (
+              <Marker
+                key={item.id}
+                lat={item.latitude}
+                lng={item.longitude}
+                text={item.name}
+                icon={setIcon(item.icon)}
+              />
+            );
+          })}
+        </GoogleMapReact>
+      );
+    }
+
+    const Distance = (props) => (
+      <>
+        <Content md={3}>
+          <Row className="m-0">
+            <Col className="text-center" style={{ padding: "5px" }} xs={4}>
+              <img width="27" height="27" src={setIcon(props.marker)} alt="marketplace-marker" />
+            </Col>
+            <Col xs className="p-0">
+              <Text>
+                <Time>{props.caption}</Time><br />
+                {props.description}
+              </Text>
+            </Col>
+          </Row>
+        </Content>
+      </>
+    )
 
     return (
-      <div id="lokasi" class="container-2 px-0" style={{marginTop:157, paddingBottom:180}}>
+      <div id="lokasi" class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>
         <h5>Lokasi</h5>
-        <h1 style={{width: "396px"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h1>
+        <h1 style={{ width: "396px" }}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h1>
 
         <Tabs defaultActiveKey="1" className="gmaps" style={{
-          marginTop:"35px",
+          marginTop: "35px",
         }}>
           {console.log(store)}
           {store.map((item, i) => (
             <Tab eventKey={item.id} title={item.name} key={i} >
-              <div style={{height:"500px", width:"100%"}}>
+              <div style={{ height: "500px", width: "100%" }}>
 
-              <Gmaps
-                center={this.state.center}
-                zoom={this.state.zoom}
-                location={item.marker}
-              />
-                <Row className="justify-content-center mx-auto mt-5" style={{maxWidth:"900px"}}>
-                  {item.marker.slice(0, 4).map((marker, i) => (  
-                    <Distance 
+                <Gmaps
+                  center={this.state.center}
+                  zoom={this.state.zoom}
+                  location={item.marker}
+                />
+                <Row className="justify-content-center mx-auto mt-5" style={{ maxWidth: "900px" }}>
+                  {item.marker.slice(0, 4).map((marker, i) => (
+                    <Distance
                       caption={`± ` + marker.estimasi + ` menit ke `}
                       description={marker.name}
-                      marker={marker.marker_icon}
+                      marker={marker.icon}
                       key={i}
                     />
                   ))}
                 </Row>
               </div>
-          </Tab>
+            </Tab>
           ))}
         </Tabs>
       </div>

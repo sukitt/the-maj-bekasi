@@ -7,8 +7,8 @@
   border-right: none;
   border-bottom: none;
   box-sizing: border-box;
-  padding-left: 45px;
   margin-bottom: 40px;
+  justify-content: center;
 }
 .gmaps::after{
   content: '';
@@ -42,4 +42,9 @@
   width: 100%;
   border-radius: 500px;
   margin-top: 10px;
+}
+.gmaps > .nav-link{
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: -5px;
 }
