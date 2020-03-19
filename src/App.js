@@ -7,7 +7,7 @@ import Partnership from './view/Partnership';
 import Expertice from './view/Expertice';
 import Blog from './view/Blog';
 
-import ApplicationLayout from './views/ApplicationLayout';
+import ApplicationLayout from './view/ApplicationLayout';
 import BaseRoute from './routes'
 
 function App() {

@@ -2,12 +2,12 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import SubscribeForm from './BaseFooter'
-import Img1 from '../assets/footer-image/1.svg'
-import Img2 from '../assets/footer-image/partof.svg'
-import Inst from '../assets/footer-image/brand/instagram.svg'
-import Fb from '../assets/footer-image/brand/facebook.svg'
-import Twitt from '../assets/footer-image/brand/twitter.svg'
+import { Base as Form } from './BaseFooter'
+import Img1 from '../../../assets/footer-image/1.svg'
+import Img2 from '../../../assets/footer-image/partof.svg'
+import Inst from '../../../assets/footer-image/brand/instagram.svg'
+import Fb from '../../../assets/footer-image/brand/facebook.svg'
+import Twitt from '../../../assets/footer-image/brand/twitter.svg'
 
 
 export const Footer = props => {
@@ -40,9 +40,9 @@ export const Footer = props => {
                 <Col lg={4}>
                     <SubscribeUs caps="Subscribe For Exclusive News & Offers">
                         <D>
-                            <SubscribeForm {...props}>
+                            <Form {...props}>
                                 <B type="submit">Subcribe</B>
-                            </SubscribeForm>
+                            </Form>
                         </D>
                     </SubscribeUs>
                 </Col>

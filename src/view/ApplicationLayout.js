@@ -3,7 +3,7 @@ import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../com
 
 import { OnDesktop, OnMobileAndTablet } from '../constants/'
 // tmp img
-import HeadBackground from '../Assets/tmp/headBg.png'
+import HeadBackground from '../assets/tmp/headBg.png'
 import Base from './Base'
 
 export default class ApplicationLayout extends Base {

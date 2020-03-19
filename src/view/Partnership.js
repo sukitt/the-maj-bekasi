@@ -1,8 +1,6 @@
 import React, { Component, createRef } from 'react'
-import NavigationBar from '../component/navbar/Navigationbar'
 import SakuraLogo from '../component/assets/partnership-image/sakura.svg'
 import Sakura from '../component/card/Sakura'
-import Footer from '../component/footer/Footer'
 
 export default class Partnership extends Component {
     constructor(props) {
@@ -49,7 +47,6 @@ export default class Partnership extends Component {
         console.log(this.state.signup.data)
         return (
             <div>
-                <NavigationBar />
                 <section>
                     <div className="container">
                         <div className="text-center" style={{marginTop: 102}}>
@@ -61,15 +58,6 @@ export default class Partnership extends Component {
                     <div className="container">
                         <Sakura />
                     </div>
-                </section>
-                <section>
-                    <Footer
-                        validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
                 </section>
             </div>
         )

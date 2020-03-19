@@ -9,13 +9,9 @@ import IconCalender from '../component/assets/tmp-blog/calender.svg'
 
 
 import HeadSlider from '../component/slider/mobile/HeadSlider'
-import NavigationBar from '../component/navbar/Navigationbar'
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
 import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 
 import { layoutGenerator } from 'react-break';
-import Footer from '../component/footer/Footer'
-import MobileFooter from '../component/footer/mobile/Footer'
 import { getNavbar, getSliders } from '../services/get'
 const layout = layoutGenerator({
     mobile: 0,
@@ -96,7 +92,6 @@ class Blog extends Component {
         return (
             <>
             <OnDesktop>
-                <NavigationBar store={this.state.navigation} />
 
                 <section>
                     <div className="container">
@@ -113,20 +108,9 @@ class Blog extends Component {
                         </div>
                     </div>
                 </section>
-                
-                <section>
-                    <Footer 
-                        // validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
-                </section>
             </OnDesktop>
             
             <OnMobileAndTablet>
-                <MobileNavigationBar store={this.state.navigation} />
 
                 <section>
                     <div className="container">
@@ -137,16 +121,6 @@ class Blog extends Component {
                         ))}
                         </div>
                     </div>
-                </section>
-
-                <section>
-                    <MobileFooter 
-                        // validated={this.state.footer.validated}
-                        onSubmit={this._footer}
-                        titleRef={this.footreftitle}
-                        nameRef={this.footrefname}
-                        emailRef={this.footrefemail}
-                    />
                 </section>
             </OnMobileAndTablet>
             </>

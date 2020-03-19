@@ -2,11 +2,6 @@ import React, { Component, createRef } from 'react'
 import Whatsapp from '../component/base/whatsapp';
 
 import { layoutGenerator } from 'react-break';
-import NavigationBar from '../component/navbar/Navigationbar';
-import Footer from '../component/footer/Footer'
-
-import MobileNavigationBar from '../component/navbar/mobile/Navigationbar'
-import MobileFooter from '../component/footer/mobile/Footer'
 
 import { getNavbar, getExpertice } from '../services/get'
 import { Base } from '../component/base/expertice';
@@ -78,43 +73,12 @@ export default class Expertice extends Component {
     render() {
         return (
             <>
-                <Whatsapp />
-                <OnDesktop>
-                    <NavigationBar />
-                </OnDesktop>
-
-                <OnMobileAndTablet>
-                    <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
-                </OnMobileAndTablet>
-
                 <section>
                     <div className="container">
                         <Base 
                             store={this.state.expertice} errors={this.state.errors.expertice}
                         />
                     </div>
-                </section>
-
-                <section>
-                    <OnDesktop>
-                        <Footer
-                            validated={this.state.footer.validated}
-                            onSubmit={this._footer}
-                            titleRef={this.footreftitle}
-                            nameRef={this.footrefname}
-                            emailRef={this.footrefemail}
-                        />
-                    </OnDesktop>
-
-                    <OnMobileAndTablet>
-                        <MobileFooter
-                            validated={this.state.footer.validated}
-                            onSubmit={this._footer}
-                            titleRef={this.footreftitle}
-                            nameRef={this.footrefname}
-                            emailRef={this.footrefemail}
-                        />
-                    </OnMobileAndTablet>
                 </section>
             </>
         )

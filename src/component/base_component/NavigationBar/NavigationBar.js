@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Button } from 'react-bootstrap'
-import logo from '../../assets/logo.svg'
+import logo from '../../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -44,7 +44,7 @@ export const NavigationBar = (props) => {
 }
 
 
-export class NavigationBar extends Component {
+export class MobileNavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
