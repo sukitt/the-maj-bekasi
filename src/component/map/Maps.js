@@ -31,25 +31,6 @@ const Gmaps = (props) => {
     </GoogleMapReact>
   );
 }
-// const Distance = (props) => {
-//   return(
-//       <Col xs="3" >
-//         <Card>
-//           <Card.Body className="p-0" style={{margin:"10px 15px"}}>
-//             <Row className="mx-0">
-//               <Col xs="2" className="mx-0 p-0 d-inline-block h-100 align-middle" >
-//                 <img className="my-auto" width="30" height="30" src={BaseUrl + '/storage/' + props.marker} alt="marketplace-marker" />
-//               </Col>
-//               <Col xs="10" className="mx-0 " >
-//                 <h6 style={{color:"#cc9980"}}>{props.caption}</h6>
-//                 <h6>{props.description}</h6>
-//               </Col>
-//             </Row>
-//           </Card.Body>
-//         </Card>
-//       </Col>
-//   )
-// }
 
 const Distance = (props) => (
   <>
@@ -122,7 +103,7 @@ class Maps extends Component {
     }
 
     return (
-      <div id="lokasi" class="container-2 px-0" style={{marginTop:127, marginBottom:180, paddingBottom:180}}>
+      <div id="lokasi" class="container-2 px-0" style={{marginTop:157, paddingBottom:180}}>
         <h5>Lokasi</h5>
         <h1 style={{width: "396px"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h1>
 

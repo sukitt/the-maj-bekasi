@@ -5,25 +5,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { BaseUrl } from '../../../services/axios'
 
-export class MobileBlogs extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            localStore: [],
-            isLoading: true
-        }
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.store.length !== prevState.localStore.length) {
-            return {
-                localStore: nextProps.store,
-                isLoading: false,
-            }
-        }
-        return null
-    }
+class MobileBlogs extends Component {
     
     render() {
         console.log(this.props.store)

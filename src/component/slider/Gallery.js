@@ -127,19 +127,8 @@ export class Gallery extends Component {
       prevArrow: <PrevArrow />
     };
 
-    // if (this.state.isLoading) {
-    //   return (
-    //     <Container id="gallery" margin="100px auto" padding="38px 0 0 0">
-    //       <H2>Gallery</H2>
-    //       <div style={{display: "flex",margin: "29px auto", justifyContent: "center"}}>
-    //         <SliderPlaceholder color="#CC9980" width="980px" height="520px" text="Server Error 500" />
-    //       </div>
-    //     </Container>
-    //   )
-    // }
-
     return(
-      <Container id="gallery" padding="36px 0px 34px 0px" margin="100px auto">
+      <Container id="gallery" padding="36px 0px 34px 0px" margin="227px auto">
         <H2>Galeri</H2>
         <Slider {...settings}
           afterChange={index => this.setState({indexActive:index})}

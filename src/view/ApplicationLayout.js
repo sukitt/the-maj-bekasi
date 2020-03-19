@@ -3,11 +3,13 @@ import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../com
 
 import { OnDesktop, OnMobileAndTablet } from '../constants/'
 import Base from './Base'
+import Whatsapp from '../component/base/whatsapp'
 
 export default class ApplicationLayout extends Base {
     render() {
         return (
             <div>
+                <Whatsapp />
                 <header>
                     <OnDesktop>
                         <NavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />

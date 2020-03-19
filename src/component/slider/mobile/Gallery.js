@@ -6,10 +6,6 @@ import { BaseUrl } from '../../../services/axios'
 import '../assets/css/mobileStyles.css'
 import placeholder from '../assets/header-mobile-placeholder.png';
 
-// dummy Data
-import Gal1 from './galleryDummy/1.svg'
-import Gal2 from './galleryDummy/2.svg'
-import Gal3 from './galleryDummy/3.svg'
 import {SliderPlaceholder} from '../../base/loader/ImagePlaceholder'
 
 
@@ -80,7 +76,6 @@ export class MobileGallery extends Component {
             </div>
 
             <Content margin="55.79px 0 0 0">
-                {/* {Data.length && Data.map((item, i) => { */}
                 {this.state.store.length && this.state.store.map((item, i) => {
                 if (i === this.state.indexActive) {
                     return (
@@ -135,25 +130,4 @@ const H4 = styled.h4({
     color: "#12284C",
   })
   
-  const P = styled.p(
-    props => ({
-        fontStyle: "normal",
-        fontWeight: "normal",
-        fontSize: "13px",
-        lineHeight: "18px",
-        color: "#12284C",
-        margin: props.margin,
-        padding: props.padding,
-        textAlign: "justify",
-        width: "245px",
-        height: "72px",
-    })
-  )
-  
-  const Img = styled.img({
-    maxWidth:"1000px",
-    margin:"0px auto"
-  })
-  
-
 export default MobileGallery

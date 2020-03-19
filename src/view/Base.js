@@ -1,5 +1,5 @@
 import { Component, createRef } from 'react'
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice } from '../services/get'
 
 export default class Base extends Component{
     constructor(props) {
@@ -13,6 +13,7 @@ export default class Base extends Component{
           location: [],
           blogs: [],
           abouts: [],
+          expertice: [],
           errors: {
             abouts:{},
             sliders:{},
@@ -22,6 +23,7 @@ export default class Base extends Component{
             navigation: {},
             blogs: {},
             location: {},
+            expertice: {},
           },
           contact: {
             validated: true,
@@ -89,6 +91,11 @@ export default class Base extends Component{
           .then(res => this.setState({blogs: res.data}))
           .catch((err) => {
             if (err && err.response) this.setState({errors:{blogs:{code:err.response.status, status:err.response.statusText}}})
+          })
+        getExpertice()
+          .then(res => this.setState({expertice: res.data}))
+          .catch((err) => {
+            if (err && err.response) this.setState({errors:{expertice:{code:err.response.status, status:err.response.statusText}}})
           })
       }
     

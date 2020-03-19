@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Whatsapp from '../component/base/whatsapp';
+import React from 'react'
 import { ExperticeComponent } from '../component/base/expertice';
 import Base from './Base';
 
@@ -7,7 +6,6 @@ export default class Expertice extends Base {
     render() {
         return (
             <>
-                <Whatsapp />
                 <section>
                     <div className="container">
                         <ExperticeComponent

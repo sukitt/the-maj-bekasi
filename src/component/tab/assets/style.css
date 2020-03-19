@@ -1,6 +1,20 @@
 #table > .tab-content {
   background-color: #a19090;
 }
+#denahUnit > nav > .nav-item{
+  width: 150px;
+  text-align: center;
+
+  font-family: 'Gilroy Bold';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  color: #C4C9D2;
+}
+#denahUnit > nav > .nav-item.active{
+  color: #232323;
+}
 #denahUnit > .nav-tabs {
   max-width: 980px;
   margin-left: auto;
@@ -17,18 +31,62 @@
   max-width: 980px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 90px;
 }
 #spec > .nav-tabs{
   border: none;
   max-width: max-content;
+
+  font-family: 'Gilroy Bold';
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 13px;
 }
 #spec > .nav-tabs .nav-link{
   border: none;
+  margin-bottom: -5px;
+  color: #12284c81;
 }
 #spec > .nav-tabs > .nav-link.active{
   background-color: #e9e9e9;
-  border-color: transparent transparent #4E5E79 transparent;
-  border-bottom: 5px solid;
   margin-bottom: -5px;
+  color: #12284C;
+  opacity: 1;
+}
+#spec > .nav-tabs > .nav-item{
+  width: 167px;
+}
+#spec > .nav-tabs::after {
+  content: '';
+  border: 3px solid rgba(78, 94, 121, .5);
+  display: block;
+  height: 0;
+  width: 100%;
+  border-radius: 500px;
+  margin-top: -8px;
+}
+#spec > .nav-tabs > .nav-link.active::after{
+  content: '';
+  border: 3px solid #4E5E79;
+  display: block;
+  height: 0;
+  width: 100%;
+  border-radius: 500px;
+  margin-top: 10px;
+}
+#spec .nav-tabs .nav-link:focus, #spec.nav-tabs .nav-link:hover, #spec.nav-tabs .nav-link:active{
+  border-color: transparent;
+}
+
+#gallery > div > ul > li > button::before{
+  font-size: 12px;
+  color: #828282;
+}
+#gallery > div > ul > li > button:hover{
+    color: #CC9980;
+}
+#gallery > div > ul > li.slick-active > button::before{
+  color: #CC9980;
 }

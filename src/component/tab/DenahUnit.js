@@ -35,9 +35,9 @@ class DenahUnit extends Component {
 		} else {
 			return (
 				<>
-					<div style={{ marginTop: 108 }} id="denahUnit">
+					<div style={{ marginTop: 150 }} id="denahUnit">
 						<div className="container-2">
-							<h5>Denah Unit</h5>
+							<h5>Tipe Unit</h5>
 							<h1 style={{width: "323px"}}>Hunian Fleksibel Untuk Generasi 'Zaman Now'</h1>
 						</div>
 						<Tabs
@@ -47,7 +47,7 @@ class DenahUnit extends Component {
 
 							{store && store.map((item, i) => (
 								<Tab
-									style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", height:"640px" }}
+									style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"640px" }}
 									key={item.id}
 									eventKey={item.unit_name.toLowerCase().replace(" ", "-")}
 									title={item.unit_name}>
@@ -64,7 +64,7 @@ class DenahUnit extends Component {
 											</Tab>
 											<Tab
 												eventKey={Object.keys(store[i])[6]}
-												title="GALERI">
+												title="PEVIEW UNIT">
 												<TabGallery images={item.gallery} />
 											</Tab>
 											<Tab

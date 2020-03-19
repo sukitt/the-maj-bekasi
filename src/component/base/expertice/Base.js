@@ -18,7 +18,7 @@ export const ExperticeComponent = (props) => {
     if (errors && Object.keys(errors).length) {
         return (
             <div>
-                <h4>Errors in Blog Section</h4>
+                <h4>Errors in Expertice Section</h4>
                 <p>{errors.code}</p>
                 <p>{errors.status}</p>
             </div>

@@ -47,7 +47,7 @@ export class HeadSlider extends Component {
                   }}
                   className="d-block w-100"
                   src={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`}
-                  alt="image slider"
+                  alt="slider"
                 />
                 <Carousel.Caption style={{margin: "0 0 58px 0"}}>
                   <H2>{item.caption}</H2>
@@ -76,12 +76,6 @@ export class HeadSlider extends Component {
       padding: props.padding,
     })
   )
-
-  const UL = styled.ul`
-    bottom: 30px;
-    display: inline;
-  `;
-
   const B = styled.button(
     props => ({
       backgroundColor: "transparent",
@@ -98,13 +92,4 @@ export class HeadSlider extends Component {
       padding: props.padding,
     })
   )
-
-  const P = styled.span`
-    text-transform: uppercase;
-    font-size: 80%;
-    text-align: center;
-    letter-spacing: 2px;
-    color: #FFFFFF;
-  `;
-
 export default HeadSlider
