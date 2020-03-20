@@ -31,11 +31,7 @@ const ContactUs = (props) =>{
                     </p>   
                     
                     <div style={{marginTop: 61}}>
-                        <ContactForm 
-                            {...props}
-                            storeGelar={Gelar}
-                            storeUnit={Unit}
-                        >
+                        <ContactForm {...props} >
                             <Button 
                                 type="submit" 
                                 style={{
@@ -66,31 +62,6 @@ const ContactUs = (props) =>{
 }
 
 export default ContactUs
-
-const Unit = [
-    { 
-        nama: 'Membeli Unit',
-    },
-    {
-        nama: 'Mendapatkan Info Lebih',
-    },
-    {
-        nama: 'Melihat Price List',
-    },
-    {
-        nama: 'Mengunduh E-Brosur',
-    }
-]
-
-const Gelar = [
-    {
-        id: 1,
-        nama: 'Bapak.',
-    },{
-        id: 2,
-        nama: 'Ibu.'
-    }
-]
 
 const P = styled.p(
     props => ({

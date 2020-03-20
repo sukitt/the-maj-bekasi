@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { Form, Col } from 'react-bootstrap'
+import './form.css'
 
 export default class ContactForm extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            gelar: "",
+            storeGelar: ["Gelar", "Bapak.", "Ibu."],
+            storeUnit: ['Saya Ingin','Membeli Unit','Mendapatkan Info Lebih','Melihat Price List','Mengunduh E-Brosur'],
+            gelar: "Gelar",
             nama: "",
-            unit: "",
+            unit: "Saya Ingin",
             telepon: "",
             email: "",
             catatan: ""
@@ -22,23 +25,24 @@ export default class ContactForm extends Component {
             <Form id="contactUs" onSubmit={this.props.onSubmit}>
                 <Form.Row>
                     <Form.Group className="selectField" as={Col} sm="2" controlId="gelarField">
+                        <Form.Label for="gelar">Gelar*</Form.Label>
                         <Form.Control 
+                            id="gelar"
                             as="select" 
                             value={this.state.gelar} 
-                            defaultValue="Gelar" 
                             ref={this.props.gelarRef} 
                             onChange={(e) => this.setState({gelar: e.target.value})}>
-                            <option selected disabled={this.state.gelar? 'disabled': null}>Gelar</option>
-                        {this.props.storeGelar && this.props.storeGelar.map((d, i) => (
-                            <option key={i+1} value={d.nama}>{d.nama}</option>
-                        ))}
+                            {this.state.storeGelar && this.state.storeGelar.map((d, i) => (
+                                <option key={i+1} value={d} disabled={d === "Gelar"}>{d}</option>
+                            ))}
                         </Form.Control>
                     </Form.Group>
                     <Form.Group as={Col} sm="4" controlId="namaField">
+                        <Form.Label for="nama">Nama Lengkap Anda*</Form.Label>
                         <Form.Control
+                            id="nama"
                             ref={this.props.namaRef}
                             type='text'
-                            placeholder="Nama Lengkap Anda" 
                             value={this.state.nama} 
                             onChange={(e) => this.setState({nama:e.target.value})} 
                             required
@@ -49,7 +53,9 @@ export default class ContactForm extends Component {
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="selectField" as={Col} sm="6" controlId="unitField">
+                        <Form.Label for="unit">Saya Ingin*</Form.Label>
                         <Form.Control 
+                            id="unit"
                             as="select" 
                             ref={this.props.unitRef} 
                             onChange={(e) => this.setState({unit: e.target.value})}  
@@ -57,9 +63,8 @@ export default class ContactForm extends Component {
                             required
                             // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                         >
-                            <option selected disabled={this.state.unit? 'disabled': null}>Saya Ingin</option>
-                            {this.props.storeUnit && this.props.storeUnit.map((d, i) => (
-                                <option key={i+1} value={d.nama}>{d.nama}</option>
+                            {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
+                                <option key={i+1} value={d} disabled={d === "Saya Ingin"}>{d}</option>
                             ))}
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">
@@ -69,12 +74,13 @@ export default class ContactForm extends Component {
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as={Col} sm="6" controlId="teleponField">
-                        <Form.Control 
+                        <Form.Label for="nomor">Nomor Telepon Anda*</Form.Label>
+                        <Form.Control
+                            id="nomor"
                             ref={this.props.teleponRef}
                             type="tel"
                             inputMode="tel"
                             pattern="[0-9]{10,}"
-                            placeholder="Nomor Telepon Anda" 
                             value={this.state.telepon} 
                             onChange={(e) => this.setState({telepon: e.target.value})}
                             required
@@ -85,10 +91,11 @@ export default class ContactForm extends Component {
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} sm="6" controlId="emailField">
+                        <Form.Label for="email">Alamat Email Anda*</Form.Label>
                         <Form.Control 
+                            id="email"
                             ref={this.props.emailRef}
                             type="email" 
-                            placeholder="Alamat Email Anda" 
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
@@ -101,10 +108,11 @@ export default class ContactForm extends Component {
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as={Col} sm="12" controlId="catatanField">
+                        <Form.Label for="catatan">Catatan</Form.Label>
                         <Form.Control
+                            id="catatan"
                             ref={this.props.catatanRef}
                             as="textarea" 
-                            placeholder="Catatan" 
                             rows="3"
                             value={this.state.catatan}
                             onChange={(e) => this.setState({catatan: e.target.value})} 
