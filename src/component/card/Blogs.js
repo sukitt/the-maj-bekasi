@@ -59,15 +59,15 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <img src={props.src} width width="350px" height="350px" alt="350x350" />
+            <Link to={props.to} style={{textDecoration: "none", ...props}}>
+            <Img src={props.src} width width="350px" height="350px" alt="350x350" />
             <Body margin="17px 0 0 0">
-                <H1>
-                    <Link {...props}>
-                        {props.heading}
-                    </Link>
-                </H1>
-                <Footer>Posted On {props.created_at}</Footer>
+                <P>
+                    {props.heading}
+                </P>
             </Body>
+            </Link>
+            <Footer>Posted On {props.created_at}</Footer>
         </Container>
     )
 }
@@ -91,17 +91,37 @@ const Body = styled.div(
     })
 )
 
-const A = styled.a`
-    color: #000000;
-    text-decoration: none;
-`;
+const Img = styled.img(
+    props => ({
+        transition: "transform 1s",
+        ":hover": {
+            transform: "scale(1.1)",
+        }
+    })
+)
 
 const H1 = styled.h1(
     props => ({
-        lineHeight: "28px",
+        lineHeight: "18px",
         margin: props.margin,
         padding: props.padding,
         display: "block"
+    })
+)
+
+const P = styled.p(
+    props => ({
+        padding: props.padding,
+        margin: props.margin,
+        fontSize: "18px",
+        lineHeight: "28px",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        color: "#12284C !important",
+        transition: "color .2s",
+        ":hover": {
+            color: "#CC9980 !important",
+        }
     })
 )
 
@@ -116,5 +136,6 @@ const Footer = styled.small(
         color: "#CC9980",
         margin: props.margin,
         padding: props.padding,
+        alignSelf: "flex-start"
     })
 )
