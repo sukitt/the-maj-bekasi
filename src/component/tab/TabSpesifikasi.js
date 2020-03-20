@@ -23,7 +23,7 @@ export const TabSpesifikasi = (props) => (
                             padding: "0",
                             columnCount:2
                         }}>
-                            {props.list.map((data,index) => (
+                            {props.list && props.list.map((data,index) => (
                                 <Li key={index} >{data.name}</Li>
                             ))}
                         </ul>

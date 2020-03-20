@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import logo from '../../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Base from '../../../view/Base';
 
+const findHash = (args) => {
+  const context = /[#]/
+  return context.test(args)
+}
 
-export const NavigationBar = (props) => {
+export class NavigationBar extends Component {
+  render() {
     return (
         <Navbar bg="white" expand="lg">
             <div className="container-2 p-0" >
@@ -20,8 +26,12 @@ export const NavigationBar = (props) => {
                     </Navbar.Brand>
                     <Nav className="mr-auto">
 
-                        {props.store.map(item => (
-                          <Link className="nav-link" key={item.id} to={item.link}>
+                        {this.props.store.map(item => (
+                          <Link 
+                            id={`nav-${item.link.replace(/[/#]/g, "")}`} 
+                            className="nav-link" 
+                            key={item.id} 
+                            to={findHash(item.link)? item.link.replace(/[#a-z]/g, ""): item.link}>
                               <h6>{item.name}</h6>
                           </Link>
                         ))}
@@ -36,6 +46,7 @@ export const NavigationBar = (props) => {
             </div>
         </Navbar>
     )
+  }
 }
 
 

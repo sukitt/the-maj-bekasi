@@ -17,9 +17,9 @@ export const Footer = props => {
                 <Col lg={3}>
                     <img style={{width: '193px'}} src={Img1} alt="logo2" />
                     <SocialMedia margin="25px 0">
-                        <A href="#linkto" ><Instagram /></A>
-                        <A href="#linkto" ><Facebook /></A>
-                        <A href="#linkto" ><Twitter /></A>
+                        <A href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" ><Instagram /></A>
+                        <A href="https://facebook.com/themajbekasi" ><Facebook /></A>
+                        <A href="https://mobile.twitter.com/themajbekasi" ><Twitter /></A>
                     </SocialMedia>
                 </Col>
                 <Col lg={2}>

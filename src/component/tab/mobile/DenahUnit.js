@@ -13,6 +13,24 @@ import dots from '../assets/dots.svg'
 
 
 export class DenahUnit extends Base {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            localStore: [],
+            isLoading: true,
+        }
+    }
+    
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.store.length !== prevState.localStore.length) {
+            return {
+                localStore: nextProps.store,
+                isLoading: false,
+            }
+        }
+        return null
+    }
 
     componentDidMount() {
         setTimeout(() => {
@@ -26,7 +44,6 @@ export class DenahUnit extends Base {
             <>
                 <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "20px" }}>
                     <Caps1 id="denah" padding="0 0 20px 0">Denah Unit</Caps1>
-
                     <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
                     <Form.Group className="position-relative selectField" style={{width:"max-content", margin:"0px auto"}} controlId="unitField">
                     <Form.Control
@@ -36,7 +53,7 @@ export class DenahUnit extends Base {
                         default
                         className="fs-22"
                     >
-                        {this.state.storeUnit && this.state.storeUnit.map((data, i) => (
+                        {this.state.localStore.length && this.state.localStore.map((data, i) => (
                             <Options
                                 key={i}
                                 id={!i ? "defaultSelect" : null}
@@ -50,7 +67,7 @@ export class DenahUnit extends Base {
                     </Form.Control>
                     </Form.Group>
 
-                    {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
+                    {this.state.localStore.length && this.state.localStore.map((d, i) => (
                         <div key={d.id} style={{ margin: "0 auto" }} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
                             <Luas>{d.specs.luas} M<sup>2</sup></Luas>
                             <div>
@@ -104,7 +121,7 @@ export class DenahUnit extends Base {
                                         boxSizing: "border-box"
                                     }}>
                                         {d.room_list.map((data,index) => (
-                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>· {data.name}</H6></Li>
+                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>{data.name}</H6></Li>
                                         ))}
                                     </ul>
                                 </div>

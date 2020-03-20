@@ -14,11 +14,15 @@ import { BaseUrl } from '../services/axios'
 const Blog = props => {
     const { id } = useParams()
     const location = useLocation()
-    console.log(location.state.store)
 
         const Data = location.state && location.state.store.find(data => {
-            const A = `${data.heading.replace(/\s/g, "-")}-${data.updated_at.replace(/[\s:]/g, "-")}`.toLocaleLowerCase()
+            const A = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
             return A === id
+        })
+
+        const List = location.state && location.state.store.filter(data => {
+            const B = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
+            return B !== id
         })
         return (
             <>
@@ -31,9 +35,8 @@ const Blog = props => {
                             </Col>
 
                             <Col lg={4} style={{marginLeft: "19.5px"}}>
-                                {location.state && location.state.store.map((data, i) => {
-                                    let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
-                                    let updated = data.updated_at.replace(/[\s:]/g, "-")
+                                {List && List.map((data, i) => {
+                                    let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                                     return (
                                         <BlogItem 
                                             key={i} 
@@ -41,7 +44,7 @@ const Blog = props => {
                                             head={data.heading} 
                                             posted_at={data.created_at}
                                             to={{
-                                                pathname: `/blog/${head}-${updated}`,
+                                                pathname: `/blog/${head}`,
                                                 state: { store: location.state.store}
                                             }}
                                         />

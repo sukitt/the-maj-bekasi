@@ -59,16 +59,8 @@ class Maps extends Component {
   }
 
   render() {
-    const { store, errors } = this.props
-    if (Object.keys(errors).length) {
-      return (
-        <div>
-          <h4>Errors in Maps</h4>
-          <p>{errors.code}</p>
-          <p>{errors.status}</p>
-        </div>
-      )
-    }
+    const { store } = this.props
+    
     const setIcon = (icon) => {
       switch (icon) {
         case 'marketplace':
