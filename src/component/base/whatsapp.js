@@ -11,7 +11,7 @@ export default class Whatsapp extends Component{
         return(
             <>
                 <Container>
-                    <A target="_blank" href="https://wa.me/6287887580897?text=Saya%20tertarik%20dengan%20mobil%20Anda%20yang%20dijual">
+                    <A target="_blank" href="https://wa.me/628118868909?text=Halo%21%20Saya%20ingin%20tahu%20lebih%20banyak%20mengenai%20apartemen%20The%20MAJ%20Residences%20Bekasi.">
                         <Img src={waImg} alt="whatsapp" />
                     </A>
                 </Container>

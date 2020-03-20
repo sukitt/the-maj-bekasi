@@ -76,8 +76,8 @@ export default class TabSimulasi extends Component {
             <>
             <Container>
                 <H3>Estimasi Cicilan Bulanan</H3>
-                <H1><NumberFormat value={this.state.annualEst} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></H1>
-                <Row>
+                <H1 value={this.state.annualEst} displayType={'text'} thousandSeparator={true} prefix={'IDR '}  />
+                <Row style={{marginTop:"74px"}}>
                     <Col md={3}><P>Harga Unit</P></Col>
                     <Col md={3}>
                         <P>
@@ -87,7 +87,7 @@ export default class TabSimulasi extends Component {
                     <Col md={3}>
                         <P>Tenor Kredit</P>
                     </Col>
-                    <Col style={{padding:"26px 0px"}} md={3}>
+                    <Col style={{padding:"13px 0px"}} md={3}>
                         <Form.Group className="position-relative selectField" controlId="unitField">
                         <Form.Control as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
                             {this.state.options.length && this.state.options.map((index, i) => (
@@ -103,7 +103,7 @@ export default class TabSimulasi extends Component {
                     <Col md={3}><P>DP 20%</P></Col>
                     <Col md={3}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     <Col md={3}><P>Bunga</P></Col>
-                    <Col style={{padding:"26px 0px"}} md={3}>
+                    <Col style={{padding:"13px 0px"}} md={3}>
                         <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
                     </Col>
                 </Row>
@@ -137,8 +137,12 @@ const P = styled.p`
 const H3 = styled.h3`
     color: #cc9980;
 `;
-const H1 = styled.h1`
-
+const H1 = styled(NumberFormat)`
+    font-size: 34px;
+    line-height: 41px;
+    font-weight:bold;
+    color : #12284c;
+    font-family: 'Gilroy Bold' !important;
 `;
 const Inputs = styled.div`
     margin: 26px auto;

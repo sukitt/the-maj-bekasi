@@ -34,3 +34,6 @@
 #gallery > div > .slick-dots{
   bottom:120px;
 }
+#gallery > div > div > .slick-track{
+  height: 600px;
+}
