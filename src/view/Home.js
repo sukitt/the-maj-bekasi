@@ -60,7 +60,7 @@ class Home extends Base {
 
           <section>
             <div className="container">
-              <Maps store={this.state.location} errors={this.state.errors.location} />
+              <Maps setIcon={this.setIcon} store={this.state.location} errors={this.state.errors.location} />
             </div>
           </section>
 

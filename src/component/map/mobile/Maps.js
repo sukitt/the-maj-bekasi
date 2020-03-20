@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import Slider from 'react-slick'
 import Marker from '../Marker'
-import { Col, Row, Button } from 'react-bootstrap'
-import { BaseUrl } from '../../../services/axios'
+import { Col} from 'react-bootstrap'
+
+import marketplace from '../assets/marketplace.svg'
+import hospital from '../assets/hospital.svg'
+import goverment from '../assets/goverment.svg'
+import education from '../assets/education.svg'
+import busway from '../assets/busway.svg'
+import station from '../assets/station.svg'
+import tolls from '../assets/tolls.svg'
+import gor from '../assets/gor.svg'
+
 
 export default class Maps extends Component {
   constructor(props){
@@ -43,6 +52,28 @@ export default class Maps extends Component {
       slidesToScroll: 1,
       arrows:false,
     };
+    const setIcon = (icon) => {
+      switch (icon) {
+        case 'marketplace':
+          return marketplace;
+        case 'education':
+          return education;
+        case 'goverment':
+          return goverment;
+        case 'hospital':
+          return hospital;
+        case 'busway':
+          return busway;
+        case 'station':
+          return station;
+        case 'tolls':
+          return tolls;
+        case 'gor':
+          return gor;
+        default:
+          return marketplace
+      }
+    }
     return(
       <div id="lokasi" className="container-2" style={{marginTop:55, marginBottom:80}}>
         <h5 style={{color:"#CC9980", textAlign:"center", textTransform:"uppercase", fontSize:14}}>lokasi</h5>
@@ -65,7 +96,7 @@ export default class Maps extends Component {
                             lat={mark.latitude}
                             lng={mark.longitude}
                             text={mark.name}
-                            icon={mark.marker_icon}
+                            icon={setIcon(mark.icon)}
                           />
                         );
                       })}
@@ -79,7 +110,7 @@ export default class Maps extends Component {
                       {item.marker.slice(0,4).map((est, e) => {
                         return(
                           <Col className="d-flex my-3" style={{marginLeft:"5%", marginRight:"5%", padding:""}}>
-                            <img style={{width:"30px", height:"30px"}} src={BaseUrl + '/storage/' + est.marker_icon} alt="location icon" />
+                            <img style={{width:"30px", height:"30px"}} src={setIcon(est.icon)} alt="location icon" />
                             <h6 style={{padding:"5px 0px", margin:0}}>
                               <b style={{color:"#cc9980"}}>± {est.estimasi} Menit Ke</b> {est.name}
                             </h6>

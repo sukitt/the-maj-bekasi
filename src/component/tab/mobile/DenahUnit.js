@@ -103,8 +103,8 @@ export class DenahUnit extends Base {
                                         padding: "0",
                                         boxSizing: "border-box"
                                     }}>
-                                        {d.specs.room_list.map((data,index) => (
-                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>· {data.quantity + " " + data.name}</H6></Li>
+                                        {d.room_list.map((data,index) => (
+                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>· {data.name}</H6></Li>
                                         ))}
                                     </ul>
                                 </div>
@@ -192,8 +192,22 @@ const H6 = styled.h6`
     color: #2D2D2D;
 `;
 const Li = styled.li`
-    list-style-Imge:url(${dots});
     max-width:130px;
+    padding:0;
+    margin-bottom:10px;
+    list-style-type:none;
+    &:before{
+        content: url(${dots});
+        padding-right:4px;
+        display:inline-block
+    }
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #2D2D2D;
 `;
 const Options = styled.option`
     font-seight: bold;

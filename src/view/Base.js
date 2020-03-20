@@ -1,6 +1,15 @@
 import { Component, createRef } from 'react'
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice } from '../services/get'
 
+import marketplace from '../component/map/assets/marketplace.svg'
+import hospital from '../component/map/assets/hospital.svg'
+import goverment from '../component/map/assets/goverment.svg'
+import education from '../component/map/assets/education.svg'
+import busway from '../component/map/assets/busway.svg'
+import station from '../component/map/assets/station.svg'
+import tolls from '../component/map/assets/tolls.svg'
+import gor from '../component/map/assets/gor.svg'
+
 export default class Base extends Component{
     constructor(props) {
         super(props);

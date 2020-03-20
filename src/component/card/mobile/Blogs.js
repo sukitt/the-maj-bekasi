@@ -8,16 +8,15 @@ import { BaseUrl } from '../../../services/axios'
 class MobileBlogs extends Component {
     
     render() {
-        console.log(this.props.store)
         return (
             <Container id="blogs" margin="128px 0 0 0">
                 <H2 margin="50px auto">Lates News</H2>
-                {this.state.localStore.length && this.state.localStore.map((data, i) => (
+                {this.props.store.length && this.props.store.map((data, i) => (
                     <Blog 
                         key={i} 
                         to={{
                             pathname: `/blog/${data.heading.replace(/\s/g, "-")}-${data.updated_at.replace(/[\s:]/g, "-")}`,
-                            state: { store: this.state.localStore }
+                            state: { store: this.props.store }
                         }} 
                         heading={data.heading} 
                         posted_at={data.created_at.replace(/[-]/g, " ")} 

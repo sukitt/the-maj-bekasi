@@ -40,15 +40,15 @@ export class HeadSlider extends Component {
           {this.state.localStore && this.state.localStore.map((item, i) => {
             return (
               <Carousel.Item>
-                <img
+                {/* <img
                   style={{
                     width: "100%",
                     height: "280px"
                   }}
-                  className="d-block w-100"
                   src={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`}
                   alt="slider"
-                />
+                /> */}
+                <Background source={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`} />
                 <Carousel.Caption style={{margin: "0 0 58px 0"}}>
                   <H2>{item.caption}</H2>
                   <B>Bandingkan</B>
@@ -61,7 +61,14 @@ export class HeadSlider extends Component {
     )
   }
 }
-  
+  const Background = styled.div`
+  height: 280px;
+  width:100%;
+  background: url(${props=>props.source});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  `;
   const H2 = styled.h2(
     props => ({
       fontStyle: "normal",
