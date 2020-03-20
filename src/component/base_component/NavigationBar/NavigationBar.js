@@ -31,7 +31,7 @@ export class NavigationBar extends Component {
                             id={`nav-${item.link.replace(/[/#]/g, "")}`} 
                             className="nav-link" 
                             key={item.id} 
-                            to={findHash(item.link)? item.link.replace(/[#a-z]/g, ""): item.link}>
+                            to={item.link.replace(/\s/g, "-")}>
                               <h6>{item.name}</h6>
                           </Link>
                         ))}
