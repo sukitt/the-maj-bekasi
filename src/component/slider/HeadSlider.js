@@ -23,7 +23,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
     background: #CC9980;
     height: 140px;
     width: 380px;
-    padding: 14px 20px;
+    padding: 12px 15px;
   `;
 
   const Buttons = styled.button`
@@ -50,7 +50,8 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
 
   const captionTextStyle={
     color: "#FFFFFF",
-    marginBottom: "1.5rem"
+    marginBottom: "1.5rem",
+    fontWeight:"500"
   }
   const captionButtonStyle={
     fontFamily: "Verlag Bold",
@@ -79,6 +80,20 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
     text-transform: uppercase;
     font-style: normal;
     font-weight: bold;
+  `;
+  const H5 = styled.h5`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  `;
+  const ContentNumber = styled.div`
+    height:70px;
+    width:90px;
+    padding: 25px 20px;
   `;
   
   class HeadSlider extends Component {
@@ -130,7 +145,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
       // }
 
       return (
-        <Slider ref={c => (this.slider = c)} {...settings}>
+        <Slider ref={c => (this.slider = c)} {...settings} afterChange={index => this.setState({indexActive:index})}>
           {this.state.localStore.length && this.state.localStore.map((item, i) => (
             <div key={i}>
               <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
@@ -149,6 +164,9 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
                     <Buttons onClick={this.next}>
                       <i className="fa fa-chevron-right"></i>
                     </Buttons>
+                    <ContentNumber>
+                      <H5>{i+1} / {this.state.localStore.length}</H5>
+                    </ContentNumber>
                   </Row>
                 </CaptionContainer>
               </Col>

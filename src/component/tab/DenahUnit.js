@@ -75,7 +75,7 @@ class DenahUnit extends Component {
 
 						{store && store.map((item, i) => (
 							<Tab
-								style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"640px" }}
+								style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"680px" }}
 								key={item.id}
 								eventKey={item.unit_name.toLowerCase().replace(" ", "-")}
 								title={item.unit_name}>
@@ -93,7 +93,7 @@ class DenahUnit extends Component {
 										</Tab>
 										<Tab
 											eventKey={Object.keys(store[i])[6]}
-											title="PEVIEW UNIT">
+											title="REVIEW UNIT">
 											<TabGallery images={item.gallery} />
 										</Tab>
 										<Tab

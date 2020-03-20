@@ -1,6 +1,7 @@
 import { Component, createRef } from 'react'
 import $ from 'jquery'
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice } from '../services/get'
+import {storeContact} from '../services/post'
 
 export default class Base extends Component {
   constructor(props) {
@@ -133,6 +134,7 @@ export default class Base extends Component {
       }
     })
     e.preventDefault();
+
   }
 
   _footer = (e) => {
@@ -148,12 +150,17 @@ export default class Base extends Component {
       name: this.footrefname.current.value,
       email: this.footrefemail.current.value
     }
-    this.setState({
-      footer: {
-        data: data
-      }
-    })
+    // this.setState({
+    //   contact: {
+    //     data: data
+    //   }
+    // })
     e.preventDefault()
+    storeContact(data)
+      .then(res => alert(res.data))
+      .catch((err) => {
+        if (err) console.log(err.response)
+      })
   }
 
   _handleClickFasilitas = () => {

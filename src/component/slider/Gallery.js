@@ -11,7 +11,7 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
-    top:"100%",
+    top:"101%",
     transition:".3s all",
     width:"40px",
     height:"40px",
@@ -19,7 +19,7 @@ const NextArrow = (props) => {
     color: "#fff",
     textDecoration: "none",
     borderRadius: "50%",
-    right:"35%",
+    right:"40%",
     '&:hover': {
       background:"#cc9980",
       color: "#000"
@@ -52,7 +52,7 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   const Arrows = styled.div({
     display: "inline-block",
-    top:"100%",
+    top:"101%",
     transition:".3s all",
     width:"40px",
     height:"40px",
@@ -61,7 +61,7 @@ const PrevArrow = (props) => {
     textDecoration: "none",
     zIndex:"1",
     borderRadius:"50%",
-    left:"35%",
+    left:"40%",
     '&:hover': {
       background:"#cc9980",
       color: "#000"
@@ -173,7 +173,6 @@ const H2 = styled.h2(
     color: "#FFFFFF",
     margin: props.margin,
     padding: props.padding,
-    textTransform: "uppercase",
     textAlign: "center",
   })
 )
