@@ -103,11 +103,13 @@ export default class Base extends Component {
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { expertice: { code: err.response.status, status: err.response.statusText } } })
       })
-    
-    $('#nav-fasilitas').off().click(this._handleClickFasilitas)
-    $('#nav-denah').off().click(this._handleClickDenahUnit)
-    $('#nav-lokasi').off().click(this._handleClickLokasi)
-    $('#nav-gallery').off().click(this._handleClickGaleri)
+
+    setTimeout(() => {
+      $('#nav-fasilitas').off().click(this._handleClickFasilitas)
+      $('#nav-denah').off().click(this._handleClickDenahUnit)
+      $('#nav-lokasi').off().click(this._handleClickLokasi)
+      $('#nav-gallery').off().click(this._handleClickGaleri)
+    }, 3000)
   }
   _contactUs = (e) => {
     const form = e.currentTarget;
@@ -169,6 +171,7 @@ export default class Base extends Component {
   }
 
   _handleClickLokasi = () => {
+    // alert("clicked")
     if (this.scrollLokasi.current) {
       window.scrollTo({top: this.scrollLokasi.current.offsetTop, behavior: "smooth"})
     }
