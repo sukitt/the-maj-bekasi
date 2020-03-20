@@ -42,9 +42,8 @@ export class DenahUnit extends Base {
     render() {
         return (
             <>
-                <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "20px" }}>
-                    <Caps1 id="denah" padding="0 0 20px 0">Denah Unit</Caps1>
-                    <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
+                <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "23px 0" }}>
+                    <Caps2>Pilih Unit</Caps2>
                     <Form.Group className="position-relative selectField" style={{width:"max-content", margin:"0px auto"}} controlId="unitField">
                     <Form.Control
                         style={Select}
@@ -182,9 +181,6 @@ const Caps1 = styled.h5(
 
 const Caps2 = styled.h6(
     props => ({
-        fontStyle: "normal",
-        fontWeight: "bold",
-        lineHeight: "13px",
         textAlign: "center",
         margin: props.margin,
     })
