@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { Form, Col } from 'react-bootstrap'
+import $ from 'jquery'
 
 export default class BaseFooter extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             title: "",
-             name: "",
-             email: "",
+            storeTitle: ["Title","Bapak", "Ibu"],
+            title: "Title",
+            name: "",
+            email: "",
         }
     }
     
@@ -28,9 +30,8 @@ export default class BaseFooter extends Component {
                             required={true}
                             // isInvalid={this.state.title === null? false: this.state.title.length? false: true}
                         >
-                            <option disabled={this.state.title? 'disabled': null}>Title</option>
-                            {this.props.storeTitle && this.props.storeTitle.map((d, i) => (
-                                <option key={i+1} value={d.name}>{d.name}</option>
+                            {this.state.storeTitle && this.state.storeTitle.map((d, i) => (
+                                <option key={i+1} value={d} disabled={d === "Title"}>{d}</option>
                             ))}
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">
@@ -41,15 +42,15 @@ export default class BaseFooter extends Component {
                         <Form.Control 
                             size={this.props.size}
                             type="text"
-                            placeholder='Fullname' 
                             ref={this.props.nameRef}
                             value={this.state.name}
                             onChange={(e) => this.setState({name: e.target.value})}
+                            placeholder="Fullname"
                             required={true}
                             // isInvalid={this.state.name === null? false: this.state.name.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                                Please insert a Name
+                            Please insert a Name
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
