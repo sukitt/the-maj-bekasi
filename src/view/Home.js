@@ -27,10 +27,6 @@ import { OnDesktop, OnMobileAndTablet } from '../constants'
 
 class Home extends Base {
   render() {
-    $('#nav-fasilitas').off().click(this._handleClickFasilitas)
-    $('#nav-denah').off().click(this._handleClickDenahUnit)
-    $('#nav-lokasi').off().click(this._handleClickLokasi)
-    $('#nav-gallery').off().click(this._handleClickGaleri)
     return (
       <div>
         <OnDesktop>
@@ -66,7 +62,7 @@ class Home extends Base {
           
           <section>
             <div className="container">
-              <TentangKami id="tentangkami" tentangKamiRef={this.scrollTentangKami} />
+              <TentangKami id="tentangkami" />
             </div>
           </section>
           

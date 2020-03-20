@@ -49,7 +49,6 @@ export default class Base extends Component {
     this.scrollDenahUnit = createRef()
     this.scrollGaleri = createRef()
     this.scrollLokasi = createRef()
-    this.scrollTentangKami = createRef()
 
     this._contactUs = this._contactUs.bind(this)
     this._footer = this._footer.bind(this)
@@ -104,6 +103,11 @@ export default class Base extends Component {
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { expertice: { code: err.response.status, status: err.response.statusText } } })
       })
+    
+    $('#nav-fasilitas').off().click(this._handleClickFasilitas)
+    $('#nav-denah').off().click(this._handleClickDenahUnit)
+    $('#nav-lokasi').off().click(this._handleClickLokasi)
+    $('#nav-gallery').off().click(this._handleClickGaleri)
   }
   _contactUs = (e) => {
     const form = e.currentTarget;
@@ -152,24 +156,29 @@ export default class Base extends Component {
 
   _handleClickFasilitas = () => {
     if (this.scrollFasilitas.current) {
-      $('html, body').animate({scrollTop: this.scrollFasilitas.current.offsetTop}, 2000)
+      window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
+      // $('html, body').animate({scrollTop: this.scrollFasilitas.current.offsetTop}, 2000)
     }
-    return null
   }
 
   _handleClickDenahUnit = () => {
-    this.scrollDenahUnit.current && $('html, body').animate({scrollTop: this.scrollDenahUnit.current.offsetTop}, 2000)
+    if (this.scrollDenahUnit.current) {
+      window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
+    }
+    // this.scrollDenahUnit.current && $('html, body').animate({scrollTop: this.scrollDenahUnit.current.offsetTop}, 2000)
   }
 
-  _handleClickLokasi = () => (
-    this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
-  )
+  _handleClickLokasi = () => {
+    if (this.scrollLokasi.current) {
+      window.scrollTo({top: this.scrollLokasi.current.offsetTop, behavior: "smooth"})
+    }
+    // this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
+  }
 
-  _handleClickGaleri = () => (
-    this.scrollGaleri.current && $('html, body').animate({scrollTop: this.scrollGaleri.current.offsetTop}, 2000)
-  )
-
-  _handleClickTentangKami = () => (
-    this.scrollTentangKami.current && $('html, body').animate({scrollTop: this.scrollTentangKami.current.offsetTop}, 2000)
-  )
+  _handleClickGaleri = () => {
+    if (this.scrollGaleri.current) {
+      window.scrollTo({top: this.scrollGaleri.current.offsetTop, behavior: "smooth"})
+    }
+    // this.scrollGaleri.current && $('html, body').animate({scrollTop: this.scrollGaleri.current.offsetTop}, 2000)
+  }
 }
