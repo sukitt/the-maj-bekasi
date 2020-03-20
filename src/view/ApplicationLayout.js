@@ -15,7 +15,7 @@ export default class ApplicationLayout extends Base {
                         <NavigationBar store={this.state.navigation}  />
                     </OnDesktop>
                     <OnMobileAndTablet>
-                        <MobileNavigationBar store={this.state.navigation} errors={this.state.errors.navigation} />
+                        <MobileNavigationBar store={this.state.navigation} />
                     </OnMobileAndTablet>
                 </header>
 

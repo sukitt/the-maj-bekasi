@@ -1,5 +1,5 @@
 import React, { createElement, useState, useEffect } from 'react'
-import { Col } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 // import { BlogPlaceholder } from '../component/base/loader/ImagePlaceholder'
@@ -15,7 +15,7 @@ const Blog = props => {
     const { id } = useParams()
     const location = useLocation()
 
-        const Data = location.state && location.state.store.find(data => {
+        const Detail = location.state && location.state.store.find(data => {
             const A = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
             return A === id
         })
@@ -24,42 +24,74 @@ const Blog = props => {
             const B = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
             return B !== id
         })
+
+        const { heading, image, img_desc, author, created_at, text  } = Detail
         return (
             <>
-            <OnDesktop>
+            {/* <OnDesktop> */}
                 <section>
                     <div className="container">
-                        <div style={{display: "flex", width: "1119px", margin: "0px auto", padding: "20px 0"}}>
-                            <Col lg={8} style={{marginRight: "19.5"}}>
-                                <Details {...Data} />
-                            </Col>
+                        <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
+                            <Row>
+                                <Col lg={12} sm={12} xs={12}>
+                                    <h5>Event</h5>
+                                    <H2 margin="0px 0px 41px 0px"> {heading} </H2>
+                                </Col>
+                                <Col lg={12} sm={12} xs={12}>
+                                    <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
+                                    <DescImage width="auto">
+                                        {img_desc}
+                                    </DescImage>
+                                </Col> 
+                            </Row>
+                    
+                            <Row style={{margin: "86px 0 23px 0"}}>
+                                <Col lg={3} sm={6} xs={12}>
+                                    <Author author={author}  />
+                                </Col>
+                                <Col lg={3} sm={6} xs={12}>
+                                    <Posted_At posted_at={created_at} />
+                                </Col>
+                            </Row>
 
-                            <Col lg={4} style={{marginLeft: "19.5px"}}>
-                                {List && List.map((data, i) => {
-                                    let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
-                                    return (
-                                        <BlogItem 
-                                            key={i} 
-                                            src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
-                                            head={data.heading} 
-                                            posted_at={data.created_at}
-                                            to={{
-                                                pathname: `/blog/${head}`,
-                                                state: { store: location.state.store}
-                                            }}
-                                        />
-                                    )
-                                })}
-                            </Col>
+                            <Row>
+                                <Col xs={12} md={8}>
+                                    <div style={{padding: "0 0 134px 0"}}>
+                                        {text && renderHTML(text)}
+                                    </div>
+                                </Col>
+
+                                <OnDesktop>
+                                    <Col lg={4} >
+                                        <div>
+                                        {List && List.map((data, i) => {
+                                            let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
+                                            return (
+                                                <BlogItem 
+                                                    key={i} 
+                                                    src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
+                                                    head={data.heading} 
+                                                    posted_at={data.created_at}
+                                                    to={{
+                                                        pathname: `/blog/${head}`,
+                                                        state: { store: location.state.store}
+                                                    }}
+                                                />
+                                            )
+                                        })}
+                                        </div>
+                                    </Col>
+                                </OnDesktop>
+                            </Row>
                         </div>
                     </div>
                 </section>
-            </OnDesktop>
+            {/* </OnDesktop> */}
             
-            <OnMobileAndTablet>
+            {/* <OnMobileAndTablet>
                 <section>
                     <div className="container">
-                        <div style={{display: "flex", flexDirection: "column", margin: "0px auto", padding: "20px 0"}}>
+                        <div style={{padding: "20px 0"}}>
                             <MobileDetails {...Data} />
                             {location.state && location.state.store.map((data, i) => {
                                 let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-")
@@ -80,7 +112,7 @@ const Blog = props => {
                         </div>
                     </div>
                 </section>
-            </OnMobileAndTablet>
+            </OnMobileAndTablet> */}
             </>
         )
     
@@ -88,39 +120,41 @@ const Blog = props => {
 
 export default Blog
 
-const Details = ({id, heading, author, created_at, image, img_desc, text}) => {
-    const renderHTML = (args) => {
-        return createElement("div", {
-            dangerouslySetInnerHTML: {__html: args}
-        })
-    }
+const renderHTML = (args) => {
+    return createElement("div", {
+        dangerouslySetInnerHTML: {__html: args}
+    })
+}
+
+const Details = ({id, heading, image, img_desc, author, created_at, text}) => {
+    
     return (
         <>
-            <div>
-                <H2 margin="0px 0px 41px 0px"> {heading} </H2>
-                <img src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} width="730px" height="465px" alt="blog-img" />
-                <DescImage>
-                    {img_desc}
-                </DescImage>
-            </div>
-
-            <div>
-                <div style={{display: "flex", marginTop: "71px", marginBottom: "21px"}}>
-                    <Col lg={6}>
-                        <Author author={author}  />
-                    </Col>
-                    <Col lg={6}>
-                        <Posted_At posted_at={created_at} />
-                    </Col>
-                </div>
+            <Col lg={12}>
                 <div>
-                    {text && renderHTML(text)}
-                    <div style={{marginTop: "74px"}}>
-                        <P>Sumber: BeritaSatu.com</P>
-                        <P>#MAJ Residence #Apartemen Jepang #Sasar Milenial</P>
+                    <H2 margin="0px 0px 41px 0px"> {heading} </H2>
+                    <img src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} width="1103px" height="465px" alt="blog-img" />
+                    <DescImage>
+                        {img_desc}
+                    </DescImage>
+                </div>
+            </Col>
+
+            <Col lg={8} style={{marginRight: "19.5"}}>
+                <div style={{padding: "86px 0 134px 0"}}>
+                    <div style={{display: "flex", marginBottom: "21px"}}>
+                        <Col lg={6}>
+                            <Author author={author}  />
+                        </Col>
+                        <Col lg={6}>
+                            <Posted_At posted_at={created_at} />
+                        </Col>
+                    </div>
+                    <div>
+                        {text && renderHTML(text)}
                     </div>
                 </div>
-            </div>
+            </Col>
         </>
     )
 }
@@ -153,10 +187,6 @@ const MobileDetails = ({id, heading, author, created_at, image, img_desc, text})
                 </div>
                 <div style={{marginTop: "30px"}}>
                     {text && renderHTML(text)}
-                    <div style={{marginTop: "36px"}}>
-                        <P>Sumber: BeritaSatu.com</P>
-                        <P>#MAJ Residence #Apartemen Jepang #Sasar Milenial</P>
-                    </div>
                 </div>
             </div>
         </>
@@ -212,7 +242,7 @@ const BlogItem = props => (
     </ContainerItem>
 )
 
-const DescImage = styled.small(
+const DescImage = styled.p(
     props => ({
         margin: props.margin,
         padding: props.padding,
@@ -221,15 +251,15 @@ const DescImage = styled.small(
         fontSize: "10px", 
         lineHeight: "15px", 
         color: "#C8C8C8",
+        width: props.width
     })
 )
 
 const ContainerItem = styled.div(
     props => ({
         display: "flex",
-        margin: props.margin,
-        padding: props.padding,
-        padding: "35px 0px",
+        margin: "0 0 35px 0",
+        padding: "0 0 35px 0",
         borderBottom: "1px solid #C8C8C8",
     })
 )
