@@ -109,15 +109,15 @@ class Home extends Base {
             <MobileDenahUnit store={this.state.units} />
           </section> */}
 
-          <section>
+          {/* <section>
             <div className="container">
               <MobileMaps store={this.state.location} errors={this.state.errors.location} />
             </div>
-          </section>
-
-          {/* <section>
-            <MobileGallery store={this.state.gallery} />
           </section> */}
+
+          <section>
+            <MobileGallery store={this.state.gallery} />
+          </section>
 
           {/* <section>
             <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
