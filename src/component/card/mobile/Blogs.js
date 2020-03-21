@@ -26,8 +26,8 @@ class MobileBlogs extends Component {
     
     render() {
         return (
-            <Container id="blogs" margin="128px 0 0 0">
-                <H2 margin="50px auto">Lates News</H2>
+            <Container id="blogs" margin="100px 0 0 0">
+                <h1>Update Terbaru</h1>
                 {this.props.store.length && this.props.store.map((data, i) => (
                     <Blog 
                         key={i} 
@@ -54,7 +54,7 @@ const Blog = (props) => {
     return (
         <Container margin="50px auto" padding="0" >
             {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
-            <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" />
+            <img src={`${BaseUrl}/storage/${image.replace(".jpg", "-thumbnail.jpg")}`} width="350px" height="350px" alt="blog-post" />
             <Body margin="17px 0 0 0">
                 <Link {...props}>
                     <H2>{heading}</H2>
@@ -87,8 +87,9 @@ const H2 = styled.h2(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
-        lineHeight: "28px",
-        color: "#000000",
+        lineHeight: "18px",
+        letterSpacing:"1px",
+        color: "#12284C",
         margin: props.margin,
         padding: props.padding,
     })

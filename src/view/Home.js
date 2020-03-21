@@ -115,23 +115,19 @@ class Home extends Base {
             </div>
           </section> */}
 
-          <section>
+          {/* <section>
             <MobileGallery store={this.state.gallery} />
-          </section>
+          </section> */}
 
           {/* <section>
-            <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
+            <MobileAboutSlider store={this.state.abouts} />
           </section> */}
 
           {/* <section>
             <MobileBlogs store={this.state.blogs} />
           </section> */}
 
-          {/* <section>
-            <MobileLogoSlider store={this.state.partnership} />
-          </section> */}
-
-          {/* <section>
+          <section>
             <MobileContactUs 
               onSubmit={this._contactUs}
               gelarRef={this.contrefgelar}
@@ -141,7 +137,7 @@ class Home extends Base {
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
             />
-          </section> */}
+          </section>
         </OnMobileAndTablet>
       </div>
     )
