@@ -42,9 +42,12 @@ export class DenahUnit extends Base {
     render() {
         return (
             <>
-                <div id="mobile-denahunit" style={{ backgroundColor: "#e9e9e9", padding: "20px" }}>
-                    <Caps1 id="denah" padding="0 0 20px 0">Denah Unit</Caps1>
-                    <Caps2 margin="27px 0 0 0">Pilih Unit</Caps2>
+                <div className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
+                    <h5>Tipe Unit</h5>
+                    <h1>Hunian Fleksibel Untuk Generasi ‘Zaman Now’</h1>
+                </div>
+                <div id="mobile-denahunit" className="container" style={{ backgroundColor: "#e9e9e9", paddingTop:"23px" }}>
+                    <Caps2 margin="26px 0 0 0">Pilih Unit</Caps2>
                     <Form.Group className="position-relative selectField" style={{width:"max-content", margin:"0px auto"}} controlId="unitField">
                     <Form.Control
                         style={Select}
@@ -72,9 +75,7 @@ export class DenahUnit extends Base {
                             <Luas>{d.specs.luas} M<sup>2</sup></Luas>
                             <div>
                                 <Slider
-                                    // className="center"
-                                    dots={false}
-                                    // focusOnSelect={true}
+                                    dots={true}
                                     slidesToShow={1}
                                     swipeToSlide={true}
                                     lazyLoad={true}
@@ -88,7 +89,7 @@ export class DenahUnit extends Base {
                                         <img
                                             src={BaseUrl + '/storage/' + d.specs.denah_ruang.replace(/\\/g, "/")}
                                             style={{
-                                                margin: "0 auto",
+                                                margin: "auto",
                                                 height: "228px",
                                                 transform: "rotate(90deg)"
                                             }}
@@ -99,7 +100,7 @@ export class DenahUnit extends Base {
                                         <img
                                             src={BaseUrl + '/storage/' + d.specs.denah_bangunan.replace(/\\/g, "/")}
                                             style={{
-                                                margin: "0 auto",
+                                                margin: "auto",
                                                 width: "228px",
                                             }}
                                             alt="denah bangunan"
@@ -108,10 +109,10 @@ export class DenahUnit extends Base {
                                 </Slider>
                             </div>
                             <div id="mobile-spec" title="SPESIFIKASI" style={{ padding: 20 }}>
-                                <Caps2 margin="47px 0 19px 0">spesifikasi</Caps2>
+                                <Caps2 margin="37px 0px">spesifikasi</Caps2>
                                 <div>
                                     <ul style={{
-                                        height: "130px",
+                                        height: "95px",
                                         width: "100%",
                                         display: "flex",
                                         flexDirection: "column",
@@ -121,7 +122,7 @@ export class DenahUnit extends Base {
                                         boxSizing: "border-box"
                                     }}>
                                         {d.room_list.map((data,index) => (
-                                            <Li key={index} style={{ padding: 0, margin: 0 }}><H6>{data.name}</H6></Li>
+                                            <Li key={index}>{data.name}</Li>
                                         ))}
                                     </ul>
                                 </div>
@@ -142,17 +143,6 @@ export class DenahUnit extends Base {
 }
 
 // style
-const P = styled.p(
-    props => ({
-        textAlign: "justify",
-        fontStyle: "normal",
-        fontWeight: "normal",
-        color: "#12284C",
-        margin: props.margin,
-        padding: props.padding
-    })
-)
-
 const Luas = styled.p(
     props => ({
         fontFamily: "Frank Ruhl Libre",
@@ -166,26 +156,14 @@ const Luas = styled.p(
     })
 )
 
-const Caps1 = styled.h5(
-    props => ({
-        borderBottom: "1px solid #C4C9D2",
-        fontStyle: "normal",
-        fontWeight: "bold",
-        lineHeight: "16px",
-        textAlign: "center",
-        textTransform: "uppercase",
-        color: "#000000",
-        margin: props.margin,
-        padding: props.padding,
-    })
-)
-
 const Caps2 = styled.h6(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
         lineHeight: "13px",
         textAlign: "center",
+        fontSize:"11px",
+        textTransform:"uppercase",
         margin: props.margin,
     })
 )
@@ -200,17 +178,9 @@ const Select = {
     textAlign: "center",
     margin: "9px auto 11px auto"
 }
-const H6 = styled.h6`
-    font-style: normal;
-    font-weight: bold;
-    font-size: 11px;
-    line-height: 13px;
-    text-transform: uppercase;
-    color: #2D2D2D;
-`;
 const Li = styled.li`
-    max-width:130px;
     padding:0;
+    max-width:124px;
     margin-bottom:10px;
     list-style-type:none;
     &:before{
@@ -225,6 +195,7 @@ const Li = styled.li`
     line-height: 13px;
     text-transform: uppercase;
     color: #2D2D2D;
+    display: flex;
 `;
 const Options = styled.option`
     font-seight: bold;

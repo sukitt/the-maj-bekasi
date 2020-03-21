@@ -37,7 +37,7 @@ export class MobileReviewUnit extends Component {
   render() {
     return (
       <>
-        <h4 className="text-center">Review Unit</h4>
+        <Caps2 margin="37px 0px">Review Unit</Caps2>
         <Slider
           asNavFor={this.state.nav2}
           className="center"
@@ -64,7 +64,7 @@ export class MobileReviewUnit extends Component {
               beforeChange={(e) => this.setState({indexActive: e})}
               dots={false}
               focusOnSelect={true}
-              slidesToShow={3}
+              slidesToShow={4}
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}
@@ -83,7 +83,7 @@ export class MobileReviewUnit extends Component {
             </Slider>
         </div>
 
-        {this.state.storeReview && this.state.storeReview.map((d, i) => {
+        {/* {this.state.storeReview && this.state.storeReview.map((d, i) => {
           if (i === this.state.indexActive) {
             return (
               <>
@@ -93,30 +93,21 @@ export class MobileReviewUnit extends Component {
             )
           }
           return null
-        })}
+        })} */}
       </>
     );
   }
 }
 
-const Caps1 = styled.h5(
+const Caps2 = styled.h6(
   props => ({
-    color: "#12284C",
-    fontStyle: "normal",
-    lineHeight: "14px",
-    margin: props.margin,
-    textAlign: "center",
-  })
-)
-
-const Desc = styled.p(
-  props => ({
-    color: "#12284C",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    lineHeight: "18px",
-    margin: props.margin,
-    textAlign: "justify",
+      fontStyle: "normal",
+      fontWeight: "bold",
+      lineHeight: "13px",
+      textAlign: "center",
+      fontSize:"11px",
+      textTransform:"uppercase",
+      margin: props.margin,
   })
 )
 

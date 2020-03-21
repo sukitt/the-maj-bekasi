@@ -29,7 +29,7 @@ class Home extends Base {
   render() {
     return (
       <div>
-        <OnDesktop>
+        {/* <OnDesktop>
           <section>
             <div className="container">
               <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
@@ -89,49 +89,49 @@ class Home extends Base {
                 />
               </div>
           </section>
-        </OnDesktop>
+        </OnDesktop> */}
 
         {/* Mobile Table Responsive */}
         <OnMobileAndTablet>
-          <section>
+          {/* <section>
             <div className="w-100">  
               <MobileHeaderSlider store={this.state.sliders} />
             </div>
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <div className="container">
               <MobileFasilitas id="fasilitas" />
             </div>
-          </section>
+          </section> */}
 
           <section>
             <MobileDenahUnit store={this.state.units} />
           </section>
 
-          <section>
+          {/* <section>
             <div className="container">
               <MobileMaps store={this.state.location} errors={this.state.errors.location} />
             </div>
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <MobileGallery store={this.state.gallery} />
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <MobileBlogs store={this.state.blogs} />
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <MobileLogoSlider store={this.state.partnership} />
-          </section>
+          </section> */}
 
-          <section>
+          {/* <section>
             <MobileContactUs 
               onSubmit={this._contactUs}
               gelarRef={this.contrefgelar}
@@ -141,7 +141,7 @@ class Home extends Base {
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
             />
-          </section>
+          </section> */}
         </OnMobileAndTablet>
       </div>
     )
