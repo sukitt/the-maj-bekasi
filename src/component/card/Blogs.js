@@ -95,7 +95,7 @@ const Img = styled.img(
     props => ({
         transition: "transform 1s",
         ":hover": {
-            transform: "scale(1.1)",
+            transform: "scale(1.02)",
         }
     })
 )

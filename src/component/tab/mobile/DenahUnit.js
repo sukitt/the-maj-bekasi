@@ -112,7 +112,7 @@ export class DenahUnit extends Base {
                                 <Caps2 margin="37px 0px">spesifikasi</Caps2>
                                 <div>
                                     <ul style={{
-                                        height: "95px",
+                                        height: "120px",
                                         width: "100%",
                                         display: "flex",
                                         flexDirection: "column",
