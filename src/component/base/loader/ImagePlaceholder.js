@@ -1,29 +1,44 @@
-// import React from 'react'
-// import BackgroundImage from '@bit/dweez.react.background-image'
+import React from 'react'
+import BackgroundImage from './BackgroundImage'
 
 
-// export const SliderPlaceholder = props => {
-//     const Text = props.text? props.text.replace(/\s/g, "+") : "Something when wrong".replace(/\s/g, "+")
-//     const defaultSrc = `https://via.placeholder.com/${props.width.replace(/px/,'')}x${props.height.replace(/px/,'')}}.png?text=${Text}`
-//     return (
-//         <BackgroundImage
-//             src={(props.width === "auto") ||( props.width === "100%")? props.src: defaultSrc }
-//             opacity=".6"
-//             {...props}
-//         />
-//     )
-// }
+export const SliderPlaceholder = props => {
+    const Text = props.text? props.text.replace(/\s/g, "+") : "Something+when+wrong"
+    const defaultSrc = `https://via.placeholder.com/${props.width.replace(/px/,'')}x${props.height.replace(/px/,'')}}.png?text=${Text}`
+    return (
+        <BackgroundImage
+            src={(props.width === "auto") ||( props.width === "100%")? props.src: defaultSrc }
+            opacity=".6"
+            {...props}
+        />
+    )
+}
 
 
-// export const BlogPlaceholder = props => {
-//     const Text = props.text? props.text.replace(/\s/g, "+") : "Something when wrong".replace(/\s/g, "+")
-//     const defaultSrc = `https://via.placeholder.com/${props.width.replace(/px/,'')}x${props.height.replace(/px/,'')}}.png?text=${Text}`
-//     return (
-//         <BackgroundImage
-//             src={props.src? props.src: defaultSrc}
-//             opacity={props.src? "1": ".6"}
-//             {...props}
-//         />
-//     )
-// }
+export const BlogPlaceholder = props => {
+    const Text = props.text? props.text.replace(/\s/g, "+") : "Something+when+wrong"
+    const defaultSrc = `https://via.placeholder.com/${props.width.replace(/px/,'')}x${props.height.replace(/px/,'')}}.png?text=${Text}`
+    return (
+        <BackgroundImage
+            src={props.src? props.src: defaultSrc}
+            opacity={props.src? "1": ".6"}
+            {...props}
+        />
+    )
+}
+
+export const MapPlaceholder = props => {
+    const { text, width, height, src } = props 
+    const Text = text? text.replace(/\s/g, "+") : "Google+Map+not+loaded"
+    const Width = width? width.replace("px", ""): "980"
+    const Height = height? height.replace("px", ""): "500"
+    const defaultSrc = `https://via.placeholder.com/${Width}x${Height}.png?text=${Text}`
+    return (
+        <BackgroundImage
+            src={src? src: defaultSrc}
+            opacity={src? "1": ".6"}
+            {...props}
+        />
+    )
+}
 

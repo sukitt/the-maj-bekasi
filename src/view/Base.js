@@ -49,68 +49,93 @@ export default class Base extends Component {
     this.scrollFasilitas = createRef()
     this.scrollDenahUnit = createRef()
     this.scrollGaleri = createRef()
-    this.scrollLokasi = createRef()
+    this.scrollMap = createRef()
 
     this._contactUs = this._contactUs.bind(this)
     this._footer = this._footer.bind(this)
   }
 
   componentDidMount() {
-    getNavbar()
+    const promiseNavbar = Promise.resolve(
+      getNavbar()
       .then(res => this.setState({ navigation: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { navigation: { code: err.response.status, status: err.response.statusText } } })
       })
+    )
 
-    getSliders()
+    const promiseSlider = Promise.resolve(
+      getSliders()
       .then((res) => this.setState({ sliders: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { sliders: { code: err.response.status, status: err.response.statusText } } })
       })
+    )
 
-    getUnits()
+    const promiseUnit = Promise.resolve(
+      getUnits()
       .then(res => this.setState({ units: res.data }))
       .catch(err => {
         if (err && err.response) this.setState({ errors: { units: err.response.status, status: err.response.statusText } })
       })
+    )
 
-    getGallery()
+    const promiseGaleri = Promise.resolve(
+      getGallery()
       .then(res => this.setState({ gallery: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { gallery: { code: err.response.status, status: err.response.statusText } } })
       })
-    getPartnership()
+    )
+
+    const promisePartner = Promise.resolve(
+      getPartnership()
       .then(res => this.setState({ partnership: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { partnership: { code: err.response.status, status: err.response.statusText } } })
       })
-    getLocation()
+    )
+
+    const promiseLocation = Promise.resolve(
+      getLocation()
       .then(res => this.setState({ location: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { location: { code: err.response.status, status: err.response.statusText } } })
       })
-    getAbouts()
+    )
+    
+    const promiseAbout = Promise.resolve(
+      getAbouts()
       .then(res => this.setState({ abouts: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { abouts: { code: err.response.status, status: err.response.statusText } } })
       })
-    getBlogs()
+    )
+
+    const promiseBlog = Promise.resolve(
+      getBlogs()
       .then(res => this.setState({ blogs: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { blogs: { code: err.response.status, status: err.response.statusText } } })
       })
-    getExpertice()
+    )
+    
+    const promiseExpert = Promise.resolve(
+      getExpertice()
       .then(res => this.setState({ expertice: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { expertice: { code: err.response.status, status: err.response.statusText } } })
       })
-
-    setTimeout(() => {
-      $('#nav-fasilitas').off().click(this._handleClickFasilitas)
-      $('#nav-denah').off().click(this._handleClickDenahUnit)
-      $('#nav-lokasi').off().click(this._handleClickLokasi)
-      $('#nav-gallery').off().click(this._handleClickGaleri)
-    }, 3000)
+    )
+    
+    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert])
+      .then(() => {
+        $('#nav-fasilitas').off().click(this._handleClickFasilitas)
+        $('#nav-denah').off().click(this._handleClickDenahUnit)
+        $('#nav-lokasi').off().click(this._handleClickLokasi)
+        $('#nav-gallery').off().click(this._handleClickGaleri)
+      })
+      .catch(err => console.log(err))
   }
   _contactUs = (e) => {
     const form = e.currentTarget;
@@ -179,8 +204,8 @@ export default class Base extends Component {
 
   _handleClickLokasi = () => {
     // alert("clicked")
-    if (this.scrollLokasi.current) {
-      window.scrollTo({top: this.scrollLokasi.current.offsetTop, behavior: "smooth"})
+    if (this.scrollMap.current) {
+      window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
     }
     // this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
   }

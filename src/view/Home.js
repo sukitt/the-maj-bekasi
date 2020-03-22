@@ -21,14 +21,16 @@ import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileMaps from '../component/map/mobile/Maps'
+import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
 
-import $ from 'jquery'
 import { OnDesktop, OnMobileAndTablet } from '../constants'
+import Spinner from '../component/base/loader/BackgroundImage/spinner'
 
 class Home extends Base {
   render() {
     return (
       <div>
+        <ScrollToTopOnMount />
         <OnDesktop>
           <section>
             <div className="container">
@@ -50,7 +52,7 @@ class Home extends Base {
 
           <section>
             <div className="container">
-              <Maps id="lokasi" store={this.state.location} lokasiRef={this.scrollLokasi} />
+              <Maps id="lokasi" store={this.state.location} lokasiRef={this.scrollMap} />
             </div>
           </section>
 
@@ -149,8 +151,3 @@ class Home extends Base {
 }
 
 export default Home
-
-
-const JqueryClick = (fasilitas) => {
-  $('#nav-fasilitas').off().click(fasilitas)
-}

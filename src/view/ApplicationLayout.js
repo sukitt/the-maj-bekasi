@@ -4,6 +4,8 @@ import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../com
 import { OnDesktop, OnMobileAndTablet } from '../constants/'
 import Base from './Base'
 import Whatsapp from '../component/base/whatsapp'
+import { Spinner } from 'react-bootstrap'
+import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 export default class ApplicationLayout extends Base {
     render() {

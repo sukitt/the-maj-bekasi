@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { BaseUrl } from '../../../services/axios'
+import { BlogPlaceholder } from '../../base/loader/ImagePlaceholder'
 
 class MobileBlogs extends Component {
     constructor(props) {
@@ -28,18 +29,23 @@ class MobileBlogs extends Component {
         return (
             <Container id="blogs" margin="128px 0 0 0">
                 <H2 margin="50px auto">Lates News</H2>
-                {this.props.store.length && this.props.store.map((data, i) => (
-                    <Blog 
-                        key={i} 
-                        to={{
-                            pathname: `/blog/${data.heading.replace(/\s/g, "-")}-${data.updated_at.replace(/[\s:]/g, "-")}`,
-                            state: { store: this.props.store }
-                        }} 
-                        heading={data.heading} 
-                        posted_at={data.created_at.replace(/[-]/g, " ")} 
-                        image={data.image} 
-                    />
-                ))}
+                {this.props.store.length && this.props.store.map((data, i) => {
+                    let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
+
+                    return (
+                        <Blog 
+                            key={i} 
+                            to={{
+                                pathname: `/blog/${head}`,
+                                state: { store: this.props.store }
+                            }} 
+                            heading={data.heading} 
+                            posted_at={data.created_at.replace(/[-]/g, " ")} 
+                            src={`${BaseUrl}/storage/${data.image}`}
+                            // image={data.image} 
+                        />
+                    )}
+                )}
             </Container>
         )
     }
@@ -53,8 +59,8 @@ const Blog = (props) => {
     const { image, heading, posted_at} = props
     return (
         <Container margin="50px auto" padding="0" >
-            {/* <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" /> */}
-            <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" />
+            <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
+            {/* <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" /> */}
             <Body margin="17px 0 0 0">
                 <Link {...props}>
                     <H2>{heading}</H2>

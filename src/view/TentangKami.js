@@ -10,13 +10,9 @@ import bgProfile from '../component/assets/tentangkami-image/profile.png'
 
 
 import { layoutGenerator } from 'react-break'
-const layout = layoutGenerator({
-    mobile: 0,
-    tablet: 768,
-    desktop: 992,
-});
-const OnMobileAndTablet = layout.isAtMost('tablet');
-const OnDesktop = layout.is('desktop');
+import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
+import { OnDesktop, OnMobileAndTablet } from '../constants'
+import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 // DUMMY DATA
 const visionText = [
@@ -31,10 +27,18 @@ const visionText = [
 ]
 
 
-export default class TentangKami extends Base {
-    
+class TentangKami extends Base {
     render() {
-        return (
+        if (window.pageYOffset !== 0) {
+            return (
+                <>
+                <LoaderSpinner />
+                <ScrollToTopOnMount />
+                </>
+            )  
+        }
+
+        return ( 
             <div>
                 <section>
                     <OnDesktop>
@@ -83,3 +87,5 @@ export default class TentangKami extends Base {
         )
     }
 }
+
+export default TentangKami
