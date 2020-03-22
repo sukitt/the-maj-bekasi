@@ -1,15 +1,8 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import logo from '../../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-const ScrollToTopOnMount = () => {
-    window.scrollTo({
-		top: 0,
-		behavior: "smooth"
-	})
-}
 
 export class NavigationBar extends Component {
 	constructor(props) {
@@ -31,13 +24,19 @@ export class NavigationBar extends Component {
 		this.setState({ isTop })
 	}
 
+	onClickScollTop = () => {
+		window.scrollTo({
+			top:0,
+		})
+	}
+
 	render() {
 		return (
 			<Navbar expand="lg" className={this.state.isTop ? "nav-fixed-top" : "nav-fixed-null"}>
 				<div className="container-2 p-0" >
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Navbar.Brand>
-							<Link to="/" onClick={ScrollToTopOnMount}>
+							<Link to="/" onClick={() => this.onClickScollTop}>
 								<img src={logo} alt="logo" style={{
 									maxWidth: this.state.isTop ? "90px" : "120px",
 									width: "100%",

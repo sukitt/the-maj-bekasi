@@ -130,14 +130,14 @@ export default class Base extends Component {
     
     Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert])
       .then(() => {
-        setTimeout(()=>{
-          if (this.props.match && this.props.match.path === "/") {
-            document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
-            document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
-            document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
-            document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
-          }
-        }, 3000)
+        // setTimeout(()=>{
+        //   if (this.props.match && this.props.match.path === "/") {
+        //     document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
+        //     document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
+        //     document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
+        //     document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
+        //   }
+        // }, 3000)
       })
       .catch(err => console.log(err))
   }

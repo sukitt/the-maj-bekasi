@@ -18,7 +18,7 @@ export const AboutCard = (props) => (
                 <H1>Tentang Kami</H1>
             </OnDesktop>
             <OnMobileAndTablet>
-                <H5>Tentang Kami</H5>
+                <H1>Tentang Kami</H1>
             </OnMobileAndTablet>
             <Content>
                 {props.store.map((data, i) => (
