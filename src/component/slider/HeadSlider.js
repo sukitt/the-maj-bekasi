@@ -7,13 +7,28 @@ import arrows from './assets/arrows.svg'
 import placeholder from './assets/header-placeholder.png'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder';
 
+const Background = styled.div(
+	props => ({
+		maxWidth: "1110px",
+		maxHeight: "560px",
+		width: "100%",
+		height: "560px",
+		background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%)",
+		margin: "0px auto",
+		background:`url(${props.source})`,
+		backgroundAttachment: "fixed",
+		backgroundPosition: "center",
+		backgroundSize: "cover",
+		backgroundRepeat: "no-repeat",
+	})
+)
 const imgStyle = {
 	maxWidth: "1110px",
 	maxHeight: "560px",
 	width: "100%",
 	height: "100%",
 	background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%)",
-	margin: "0px auto"
+	margin: "0px auto",
 }
 const CaptionContainer = styled.div`
     z-index:1;
@@ -150,7 +165,8 @@ class HeadSlider extends Component {
 				<Slider ref={c => (this.slider = c)} {...settings} afterChange={(index) => this.setState({ indexActive: index })}>
 					{this.state.localStore.length && this.state.localStore.map((item, i) => (
 						<div key={i}>
-							<img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />
+							<Background source={BaseUrl + '/storage/' + item.image.replace(/\\/g, "/")}/>
+							{/* <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" /> */}
 						</div>
 					))}
 				</Slider>
@@ -161,7 +177,7 @@ class HeadSlider extends Component {
 							<>
 								<Col style={{ height: "100px" }}>
 									<CaptionContainer className="container-2">
-										<Row className="position-absolute" style={{ bottom: "30%" }}>
+										<Row className="position-absolute" style={{ bottom: "37%" }}>
 											<Content>
 												<h2 style={captionTextStyle}>
 													{item.caption}
