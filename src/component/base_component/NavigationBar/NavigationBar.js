@@ -4,6 +4,7 @@ import logo from '../../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Base from '../../../view/Base';
+import { BaseUrl } from '../../../services/axios';
 
 const findHash = (args) => {
   const context = /[#]/
@@ -29,6 +30,7 @@ export class NavigationBar extends Component {
   onScroll(isTop){
     this.setState({isTop})
   }
+
   render() {
     return (
         <Navbar expand="lg" className={this.state.isTop?"nav-fixed-top":"nav-fixed-null"}>
@@ -44,15 +46,21 @@ export class NavigationBar extends Component {
                     </Navbar.Brand>
                     <Nav className="mr-auto">
 
-                        {this.props.store.map(item => (
-                          <Link 
-                            id={`nav-${item.name.replace(/[\s/#]/g, "-").toLowerCase()}`} 
-                            className="nav-link" 
-                            key={item.id} 
-                            to={item.link.replace(/\s/g, "-")}>
-                              <H6 color={this.state.isTop?"#fff":"#232323"}>{item.name}</H6>
-                          </Link>
-                        ))}
+                        {this.props.store.map(item => {
+                          const ItemLink = item.link.replace(/\s/g, "-")
+                          const ItemName = item.name.toLowerCase().replace(/\s/, "-")
+                          return (
+                            <Link 
+                              id={`nav-${item.name.replace(/\s/g, "-").toLowerCase()}`} 
+                              className="nav-link" 
+                              key={item.id} 
+                              to={{
+                                pathname: item.link.length === 1? `${item.link}the-maj-bekasi/#${ItemName}`: item.link,
+                              }}>
+                                <H6 color={this.state.isTop?"#fff":"#232323"}>{item.name}</H6>
+                            </Link>
+                          )}
+                        )}
 
                     </Nav>
                     <Nav className="ml-auto">

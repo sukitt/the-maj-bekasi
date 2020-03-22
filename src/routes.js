@@ -12,11 +12,16 @@ const BaseRoute = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/the-maj-bekasi/:args?" component={Home} />
             <Route exact path="/tentang-kami" component={TentangKami} />
             <Route exact path="/partnership" component={Partnership} />
             <Route exact path="/expertice" component={Expertice} />
             <Route exact path="/blog/:id" children={<Blog />} />
+<<<<<<< HEAD
+            <Route path="*" component={Page404} />
+=======
             <Route path="" component={Page404} />
+>>>>>>> 36085655f54e012acbbb0c42cf327f7271265992
         </Switch>
     )
 }

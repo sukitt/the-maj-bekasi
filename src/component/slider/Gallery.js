@@ -128,7 +128,7 @@ export class Gallery extends Component {
     };
 
     return(
-      <Container id="gallery" ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
+      <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
         <H2>Galeri</H2>
         <Slider {...settings}
           afterChange={index => this.setState({indexActive:index})}
