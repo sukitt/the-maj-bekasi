@@ -1,11 +1,11 @@
-#gallery > div > div > div > .slider {
+#galeri > div > div > div > .slider {
   /* width: 100%; */
   /* margin: 20px auto; */
   text-align: center;
 }
 
 
-#gallery > div > div > div > .slick-slide {
+#galeri > div > div > div > .slick-slide {
   filter: grayscale(100%);
   filter: brightness(50%);
   /* width: 10px; */
@@ -16,24 +16,24 @@
 }
 
 
-#gallery > div > div > div > .slick-center {
+#galeri > div > div > div > .slick-center {
   filter: grayscale(0%);
   transform: scale(1.08);
   filter: brightness(100%);
 }
 
-#gallery > .slick-slider > .slick-list{
+#galeri > .slick-slider > .slick-list{
   padding: 100px 250px 0px 250px !important;
 }
-#gallery > .slick-prev {
+#galeri > .slick-prev {
   top: 40%;
 }
-#gallery > .slick-next {
+#galeri > .slick-next {
   top: 40%;
 }
-#gallery > div > .slick-dots{
+#galeri > div > .slick-dots{
   bottom:120px;
 }
-#gallery > div > div > .slick-track{
+#galeri > div > div > .slick-track{
   height: 600px;
 }

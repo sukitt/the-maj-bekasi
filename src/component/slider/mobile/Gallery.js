@@ -42,7 +42,7 @@ export class MobileGallery extends Component {
     // }
 
     return(
-        <Container className="container" margin="0px" padding="44px 0px 44px 42px">
+        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px" padding="44px 0px 44px 42px">
             <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
             <div id="mobileItemGallery">
                 <Slider

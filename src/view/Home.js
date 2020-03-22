@@ -30,16 +30,16 @@ class Home extends Base {
       console.log(GoTo)
       switch (GoTo) {
         case "fasilitas":
-          return window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
+          return window.scrollTo({top: this.scrollFasilitas.current.offsetTop-170, behavior: "smooth"})
         
         case "denah-unit":
-          return window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
+          return window.scrollTo({top: this.scrollDenahUnit.current.offsetTop-30, behavior: "smooth"})
 
         case "lokasi":
-          return window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
+          return window.scrollTo({top: this.scrollMap.current.offsetTop-70, behavior: "smooth"})
         
         case "galeri":
-          return this._handleClickGaleri()
+          return window.scrollTo({top: this.scrollGaleri.current.offsetTop-100, behavior: "smooth"})
   
         default:
           return null;
@@ -122,22 +122,22 @@ class Home extends Base {
 
           <section>
             <div className="container">
-              <MobileFasilitas id="fasilitas" />
+              <MobileFasilitas id="fasilitas" fasilitasRef={this.scrollFasilitas} />
             </div>
           </section>
 
           <section>
-            <MobileDenahUnit store={this.state.units} />
+            <MobileDenahUnit id="denah-unit" store={this.state.units} denahUnitRef={this.scrollDenahUnit} store={this.state.units} />
           </section>
 
           <section>
             <div className="container">
-              <MobileMaps store={this.state.location} errors={this.state.errors.location} />
+              <MobileMaps id="lokasi" store={this.state.location} lokasiRef={this.scrollMap} store={this.state.location} errors={this.state.errors.location} />
             </div>
           </section>
 
           <section>
-            <MobileGallery store={this.state.gallery} />
+            <MobileGallery id="galeri" store={this.state.gallery} galeriRef={this.scrollGaleri} store={this.state.gallery} />
           </section>
 
           <section>

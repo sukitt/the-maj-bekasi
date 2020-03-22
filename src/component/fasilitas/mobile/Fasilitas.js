@@ -53,7 +53,7 @@ class MobileFasilitas extends Component {
 		}
 	render(){
 		return (
-				<D id={this.props.id}>
+				<D id={this.props.id} ref={this.props.fasilitasRef}>
 					<h5>fasilitas</h5>
 					<h1>Untuk Work-Life Balance Yang Lebih Baik</h1>
 					<Row style={{marginTop:50}} className={this.state.expanded?"h-show":"h-hide"}>

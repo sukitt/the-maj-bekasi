@@ -42,7 +42,7 @@ export class DenahUnit extends Base {
     render() {
         return (
             <>
-                <div className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
+                <div id={this.props.id} ref={this.props.denahUnitRef} className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
                     <h5>Tipe Unit</h5>
                     <h1>Hunian Fleksibel Untuk Generasi ‘Zaman Now’</h1>
                 </div>

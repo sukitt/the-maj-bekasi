@@ -68,7 +68,7 @@ export default class Maps extends Component {
       }
     }
     return(
-      <div id="lokasi" ref={this.props.lokasiRef} className="container-2" style={{marginTop:55, marginBottom:80}}>
+      <div id={this.props.id} ref={this.props.lokasiRef} className="container-2" style={{marginTop:55, marginBottom:80}}>
         <div className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
             <h5>Tipe Unit</h5>
             <h1>Hunian Fleksibel Untuk Generasi ‘Zaman Now’</h1>
