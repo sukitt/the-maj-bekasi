@@ -21,7 +21,9 @@ export const AboutCard = (props) => (
                 <H5>Tentang Kami</H5>
             </OnMobileAndTablet>
             <Content>
-                <P>{props.text}</P>
+                {props.store.map((data, i) => (
+                    <P key={i}>{data.tentang_kami}</P>
+                ))}
             </Content>
         </Container>
     </>
@@ -40,7 +42,6 @@ const Container = styled.div`
     }
 `;
 const H1 = styled.h1`
-    color: #232323;
     margin:0px auto 47px auto;
     text-align:center;
 `;

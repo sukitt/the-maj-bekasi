@@ -122,15 +122,11 @@ class Home extends Base {
           </section>
 
           <section>
-            <MobileAboutSlider store={this.state.abouts} errors={this.state.errors.abouts} />
+            <MobileAboutSlider store={this.state.abouts} />
           </section>
 
           <section>
             <MobileBlogs store={this.state.blogs} />
-          </section>
-
-          <section>
-            <MobileLogoSlider store={this.state.partnership} />
           </section>
 
           <section>

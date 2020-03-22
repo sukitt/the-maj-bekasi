@@ -27,11 +27,10 @@ class MobileBlogs extends Component {
     
     render() {
         return (
-            <Container id="blogs" margin="128px 0 0 0">
-                <H2 margin="50px auto">Lates News</H2>
+            <Container id="blogs" margin="100px 0 0 0">
+                <h1>Update Terbaru</h1>
                 {this.props.store.length && this.props.store.map((data, i) => {
                     let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
-
                     return (
                         <Blog 
                             key={i} 
@@ -42,7 +41,6 @@ class MobileBlogs extends Component {
                             heading={data.heading} 
                             posted_at={data.created_at.replace(/[-]/g, " ")} 
                             src={`${BaseUrl}/storage/${data.image}`}
-                            // image={data.image} 
                         />
                     )}
                 )}
@@ -93,8 +91,9 @@ const H2 = styled.h2(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
-        lineHeight: "28px",
-        color: "#000000",
+        lineHeight: "18px",
+        letterSpacing:"1px",
+        color: "#12284C",
         margin: props.margin,
         padding: props.padding,
     })

@@ -90,3 +90,24 @@
 #gallery > div > ul > li.slick-active > button::before{
   color: #CC9980;
 }
+
+#mobile-denahunit > div > div > div > ul > .slick-active > button::before{
+  color: #4E5E79;
+  width: 40px;
+  border-radius: 500px;
+  font-size: 0;
+  border: solid #4E5E79 3px;
+  height: 0px;
+  opacity: 1;
+}
+#mobile-denahunit > div > div > div > ul > li > button::before{
+  color: #4E5E79;
+  width: 40px;
+  border-radius: 500px;
+  font-size: 0;
+  border: solid #4E5E79 3px;
+  height: 0px;
+}
+#mobile-denahunit > div > div > div > div > div > .slick-slide {
+  height: 255px;
+}

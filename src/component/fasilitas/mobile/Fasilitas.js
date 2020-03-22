@@ -54,13 +54,9 @@ class MobileFasilitas extends Component {
 	render(){
 		return (
 				<D id={this.props.id}>
-					<h5 style={{fontSize:14}} className="text-center">fasilitas</h5>
-					<P>
-						Fasilitas yang lengkap dan modern
-						membantumu memulai langkah pertama
-						menggapai anganmu.
-					</P>
-					<Row style={{marginTop:40}} className={this.state.expanded?"h-show":"h-hide"}>
+					<h5>fasilitas</h5>
+					<h1>Untuk Work-Life Balance Yang Lebih Baik</h1>
+					<Row style={{marginTop:50}} className={this.state.expanded?"h-show":"h-hide"}>
 						{this.state.Data.slice(0, 4).map((d, i) => {
 							return (
 								<Col xs="6" style={{marginBottom:24}} key={d.id}>
@@ -113,7 +109,7 @@ const H5 = styled.h5`
 `;
 
 const D = styled.div({
-	margin: "50px 0",
+	margin: "23px 0",
 	padding: "0px 15px",
 	display: 'flex',
 	flexDirection: 'column'

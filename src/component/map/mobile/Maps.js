@@ -12,6 +12,7 @@ import busway from '../assets/busway.svg'
 import station from '../assets/station.svg'
 import tolls from '../assets/tolls.svg'
 import gor from '../assets/gor.svg'
+import styled from 'styled-components'
 
 
 export default class Maps extends Component {
@@ -68,8 +69,10 @@ export default class Maps extends Component {
     }
     return(
       <div id="lokasi" ref={this.props.lokasiRef} className="container-2" style={{marginTop:55, marginBottom:80}}>
-        <h5 style={{color:"#CC9980", textAlign:"center", textTransform:"uppercase", fontSize:14}}>lokasi</h5>
-        <h3 style={{margin:"11px auto",maxWidth:240, textAlign:"center"}}>Kenyamanan dan kemudahan menantimu di 'Planet' Bekasi.</h3>
+        <div className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
+            <h5>Tipe Unit</h5>
+            <h1>Hunian Fleksibel Untuk Generasi ‘Zaman Now’</h1>
+        </div>
         <Slider ref={c => (this.slider = c)} {...settings}>
             {store.map((item,i) => {
               return(
@@ -93,7 +96,7 @@ export default class Maps extends Component {
                         );
                       })}
                     </GoogleMapReact>
-                    <Col className="d-flex mx-auto" style={{maxWidth:180, marginTop:30}}>
+                    <Col className="d-flex mx-auto" style={{maxWidth:250, marginTop:30}}>
                       <button style={{backgroundColor:"transparent", color:"#000"}} onClick={this.next} ><i className="fas fa-caret-left fa-2x"></i></button>
                       <p style={{fontSize:13, textAlign:"center", textTransform:"uppercase", margin:"10px"}}>{item.name}</p>
                       <button style={{backgroundColor:"transparent", color:"#000"}} onClick={this.previous} ><i className="fas fa-caret-right fa-2x"></i></button>
@@ -102,10 +105,10 @@ export default class Maps extends Component {
                       {item.marker.slice(0,4).map((est, e) => {
                         return(
                           <Col className="d-flex my-3" style={{marginLeft:"5%", marginRight:"5%", padding:""}}>
-                            <img style={{width:"30px", height:"30px"}} src={setIcon(est.icon)} alt="location icon" />
-                            <h6 style={{padding:"5px 0px", margin:0}}>
-                              <b style={{color:"#cc9980"}}>± {est.estimasi} Menit Ke</b> {est.name}
-                            </h6>
+                            <img style={{width:"15px", height:"15px", margin:"auto 10px"}} src={setIcon(est.icon)} alt="location icon" />
+                            <Caps2 style={{padding:"5px 0px", margin:0}}>
+                              <b style={{color:"#cc9980"}}>± {est.estimasi} Menit </b> Ke {est.name}
+                            </Caps2>
                           </Col>
                         )
                       })}
@@ -119,3 +122,10 @@ export default class Maps extends Component {
     )
   }
 }
+const Caps2 = styled.h6`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+`;

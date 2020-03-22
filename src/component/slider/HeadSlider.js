@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
 import arrows from './assets/arrows.svg'
 import placeholder from './assets/header-placeholder.png'
-import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
+import {SliderPlaceholder } from '../base/loader/ImagePlaceholder';
 
   const imgStyle= {
     maxWidth: "1110px",

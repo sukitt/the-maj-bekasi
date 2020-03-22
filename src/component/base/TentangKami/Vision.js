@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import './style.css'
 import { layoutGenerator } from 'react-break'
+import { BaseUrl } from '../../../services/axios';
 
 const layout = layoutGenerator({
     mobile: 0,
@@ -13,38 +14,55 @@ const layout = layoutGenerator({
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
-const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
-export const Vision = (props) => (
-    <>
+// const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+export const Vision = (props) => {
+    // console.log(props.store.length && props.store)
+    return(
+        <>
         <Container>
             <H1>Visi</H1>
-            {props.store.map((data,i) => (
-                <>
+                {props.store.length && props.store.map((item, i) => (
+                    <>
                     <OnDesktop>
                         <Content key={i} className="vision">
                             <Img 
-                                source={data.image} 
+                                source={item.image} 
                                 position={i%2?'right':'left'} 
                             />
-                            {renderHTML(data.text)}
+                            <div style={{marginTop:"58px"}}>
+                                <p>{item.vision}</p>
+                                <br />
+                                <br />
+                                <br />
+                                <p>Gita Wirjawan</p>
+                                <b>The MAJ Group</b>
+                            </div>
                         </Content>
                     </OnDesktop>
                     <OnMobileAndTablet>
                         <div className="container">
                             <Content key={i} className="vision">
                                 <Img 
-                                    source={data.image} 
+                                    source={item.image} 
                                     position={i%2?'right':'left'} 
                                 />
-                                {renderHTML(data.text)}
+                                <div style={{marginTop:"58px"}}>
+                                    <p>{item.vision}</p>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <p>Gita Wirjawan</p>
+                                    <b>The MAJ Group</b>
+                                </div>
                             </Content>
                         </div>
                     </OnMobileAndTablet>
                 </>
-            ))}
+                ))}
         </Container>
     </>
-)
+    )
+}
 
 const Container = styled.div`
     width:100%;
@@ -58,7 +76,6 @@ const Container = styled.div`
 `;
 const H1 = styled.h1`
     text-align:center;
-    color:#232323;
 `;
 const Content = styled.div`
     width: 920px;
@@ -74,7 +91,9 @@ const Content = styled.div`
     }
 `;
 const Img = styled.div`
-    background: url(${props=>props.source});
+    background: url(${BaseUrl}/storage/${props=>props.source});
+    background-size:cover;
+    background-position:center;
     border: 2px solid #CC9980;
     box-sizing: border-box;
     box-shadow: 0px 20px 60px rgba(138, 149, 158, 0.2);

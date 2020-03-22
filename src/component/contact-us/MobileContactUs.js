@@ -17,13 +17,12 @@ const OnTablet = layout.is('tablet');
 const MobileContactUs = (props) => {
   return(
     <Container>
-        <Caps1>Hubungi Kami</Caps1>
+        <h1 className="text-center">Hubungi Kami</h1>
         <P margin="19px 16px 0 16px" height="72px">
-            Terima kasih atas minat Anda terhadap The MAJ Residence Bekasi Barat.
-            Silahkan isi detail Anda di bawah, dan kami akan segera menghubungi Anda.
+            Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
         </P>   
         
-        <div style={{marginTop: "41px"}}>
+        <div style={{marginTop: "17px"}}>
             <MobileContactForm 
                 {...props}
                 storeGelar={Gelar}
@@ -41,7 +40,7 @@ const MobileContactUs = (props) => {
                         fontWeight: 'bold',
                         fontSize: "13px",
                         lineHeight: "18px",
-                        marginTop: "45px",
+                        marginTop: "18px",
                         letterSpacing: "2px",
                         textTransform: 'uppercase',
                         borderColor: 'transparent',
