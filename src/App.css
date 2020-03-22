@@ -138,6 +138,9 @@ h1>span{
 body{
   background-color: #FAFAFA;
 }
+a, button {
+  outline: 0;
+}
 .form-control{
   border: 1px solid #F9F9F9;
   background-color: #F9F9F9;
@@ -176,18 +179,6 @@ a:hover{
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
   border-color: transparent;
-}
-button .button-small {
-  background: #12284C !important;
-  font-family: 'Verlag Bold' !important;
-  padding: 11px 35px !important;
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: bold;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 18px;
-  color: #fff;
 }
 .button-secondary{
   background: #CC9980;
@@ -264,4 +255,19 @@ select::-ms-expand {
 
 .nav-tabs .nav-link{
   border-radius: 0;
+}
+.nav-fixed-top{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  transition: .5s all;
+  background-color: #232323;
+  color: #fff !important;
+}
+.nav-fixed-null{
+  background-color: #fff;
+  position: relative;
+  transition: .5s all;
 }

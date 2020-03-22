@@ -12,10 +12,10 @@ export default class ApplicationLayout extends Base {
                 <Whatsapp />
                 <header>
                     <OnDesktop>
-                        <NavigationBar store={this.state.navigation}  />
+                        <NavigationBar store={this.state.navigation} isTop={this.state.isTop}/>
                     </OnDesktop>
                     <OnMobileAndTablet>
-                        <MobileNavigationBar store={this.state.navigation} />
+                        <MobileNavigationBar store={this.state.navigation} isTop={this.state.isTop} />
                     </OnMobileAndTablet>
                 </header>
 

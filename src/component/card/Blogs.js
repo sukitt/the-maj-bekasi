@@ -31,7 +31,6 @@ export class Blogs extends Component {
                 <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
-                        console.log(data)
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                         let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`
                         return (

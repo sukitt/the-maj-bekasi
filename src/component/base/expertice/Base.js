@@ -24,7 +24,6 @@ export const ExperticeComponent = (props) => {
             </div>
         )
     }
-    console.log(store)
     return (
         <>
             {store && store.map((data, i) => (

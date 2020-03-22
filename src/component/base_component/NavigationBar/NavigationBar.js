@@ -11,15 +11,33 @@ const findHash = (args) => {
 }
 
 export class NavigationBar extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isTop: false,
+    }
+    this.onScroll = this.onScroll.bind(this);
+  }
+  componentDidMount(){
+    document.addEventListener('scroll', () =>{
+      const isTop = window.scrollY > 100
+      if(isTop !== this.state.isTop){
+        this.onScroll(isTop)
+      }
+    })
+  }
+  onScroll(isTop){
+    this.setState({isTop})
+  }
   render() {
     return (
-        <Navbar bg="white" expand="lg">
+        <Navbar expand="lg" className={this.state.isTop?"nav-fixed-top":"nav-fixed-null"}>
             <div className="container-2 p-0" >
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand>
                         <Link to="/">
                             <img src={logo} alt="logo" style={{
-                                maxWidth: "120px",
+                                maxWidth: this.state.isTop?"90px":"120px",
                                 width: "100%",
                             }} />
                         </Link>
@@ -32,14 +50,20 @@ export class NavigationBar extends Component {
                             className="nav-link" 
                             key={item.id} 
                             to={item.link.replace(/\s/g, "-")}>
-                              <h6>{item.name}</h6>
+                              <H6 color={this.state.isTop?"#fff":"#232323"}>{item.name}</H6>
                           </Link>
                         ))}
 
                     </Nav>
                     <Nav className="ml-auto">
                       <Link className="nav-link" to="/#contact-us">
-                          <button className="button-small">Hubungi Kami</button>
+                          <ButtonS 
+                            bg={this.state.isTop?"#fff":"#12284C"} 
+                            padding={this.state.isTop?"7px 21px 7px 21px":"11px 35px 11px 35px"}
+                            color={this.state.isTop?"#CC9980":"#fff"}
+                          >
+                              Hubungi Kami
+                          </ButtonS>
                       </Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -55,28 +79,47 @@ export class MobileNavigationBar extends Component {
     super(props);
     this.state = {
       showing: false,
+      isTop: false,
     };
+    this.onScroll = this.onScroll.bind(this);
+  }
+  
+  componentDidMount(){
+    document.addEventListener('scroll', () =>{
+      const isTop = window.scrollY > 100
+      if(isTop !== this.state.isTop){
+        this.onScroll(isTop)
+      }
+    })
+  }
+  onScroll(isTop){
+    this.setState({isTop})
   }
 
   render() {
     const {showing} = this.state
     const { store } = this.props
       return(
-        <Navbar bg="white" expand="lg">
+        <Navbar className={this.state.isTop?"nav-fixed-top":"nav-fixed-null"}>
           <div className="container-fluid">
           <Button className="position-absolute bg-transparent border-0" onClick={()=>this.setState({showing: !showing})}><i style={{color:"#CC9980", fontSize:22}} className="fas fa-bars"></i></Button>
-            <Navbar.Brand href="#home" className="mx-auto">
-              <img src={logo} alt="logo" style={{
-                maxWidth:"140px",
-                width:"100%",
-              }} />
+            <Navbar.Brand className="mx-auto">
+              <Link to="/">
+                <img src={logo} alt="logo" style={{
+                  maxWidth:this.state.isTop?"90px":"140px",
+                  transition:".3s all",
+                  width:"100%",
+                }} />
+              </Link>
             </Navbar.Brand>
               <SideNav style={{width:(showing? "100%" : "0")}} id="mySidenav">
-                <img src={logo} alt="logo" style={{
-                  maxWidth:"142px",
-                  width:"100%",
-                  marginLeft: "15px",
-                }} />
+                <Link to="/">
+                  <img src={logo} alt="logo" style={{
+                    maxWidth:"142px",
+                    width:"100%",
+                    marginLeft: "15px",
+                  }} />
+                </Link>
                 <hr />
                 <SideNavCloseBtn href="javascript:void(0)" onClick={() => this.setState({showing: !showing})}>&times;</SideNavCloseBtn>
                 {store && store.map((item, i) => (
@@ -88,6 +131,10 @@ export class MobileNavigationBar extends Component {
       )
   }
 }
+
+const H6 = styled.h6`
+color: ${props=>props.color}
+`;
 
 const SideNav = styled.div`
   height: 100%;
@@ -119,4 +166,17 @@ const SideNavCloseBtn = styled.a`
   right: 5%;
   font-size: 40px;
   margin-left: 50px;
+`;
+
+const ButtonS = styled.button`
+  background: ${props=>props.bg};
+  font-family: 'Verlag Bold' !important;
+  padding: ${props=>props.padding};
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: ${props=>props.color};
 `;
