@@ -16,23 +16,40 @@ import MobileHeaderSlider from '../component/slider/mobile/HeadSlider'
 import MobileFasilitas from '../component/fasilitas/mobile/Fasilitas'
 import MobileDenahUnit from '../component/tab/mobile/DenahUnit'
 import MobileGallery from '../component/slider/mobile/Gallery'
-import MobileLogoSlider from '../component/slider/mobile/LogoSlider'
 import MobileAboutSlider from '../component/slider/mobile/AboutSlider'
 import MobileBlogs from '../component/card/mobile/Blogs'
 import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileMaps from '../component/map/mobile/Maps'
-import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
 
 import { OnDesktop, OnMobileAndTablet } from '../constants'
-import Spinner from '../component/base/loader/BackgroundImage/spinner'
-
-import $ from 'jquery'
 
 class Home extends Base {
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.args) {
+      const GoTo = this.props.match.params.args && this.props.match.params.args.replace("#", "")
+      console.log(GoTo)
+      switch (GoTo) {
+        case "fasilitas":
+          return window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
+        
+        case "denah-unit":
+          return window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
+
+        case "lokasi":
+          return window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
+        
+        case "galeri":
+          return this._handleClickGaleri()
+  
+        default:
+          return null;
+      }
+    }
+  }
+
   render() {
     return (
       <div>
-        <ScrollToTopOnMount />
         <OnDesktop>
           <section>
             <div className="container">
@@ -48,7 +65,7 @@ class Home extends Base {
 
           <section>
             <div className="container">
-              <DenahUnit id="denahunit" store={this.state.units} denahUnitRef={this.scrollDenahUnit} />
+              <DenahUnit id="denah-unit" store={this.state.units} denahUnitRef={this.scrollDenahUnit} />
             </div>
           </section>
 

@@ -131,14 +131,17 @@ export default class Base extends Component {
     Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert])
       .then(() => {
         setTimeout(()=>{
-          document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
-          document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
-          document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
-          document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
+          if (this.props.match && this.props.match.path === "/") {
+            document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
+            document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
+            document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
+            document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
+          }
         }, 3000)
       })
       .catch(err => console.log(err))
   }
+
   _contactUs = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
@@ -190,32 +193,32 @@ export default class Base extends Component {
       })
   }
 
-  _handleClickFasilitas = () => {
-    if (this.scrollFasilitas.current) {
-      window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
-      // $('html, body').animate({scrollTop: this.scrollFasilitas.current.offsetTop}, 2000)
-    }
-  }
+  // _handleClickFasilitas = () => {
+  //   if (this.scrollFasilitas.current) {
+  //     window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
+  //     // $('html, body').animate({scrollTop: this.scrollFasilitas.current.offsetTop}, 2000)
+  //   }
+  // }
 
-  _handleClickDenahUnit = () => {
-    if (this.scrollDenahUnit.current) {
-      window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
-    }
-    // this.scrollDenahUnit.current && $('html, body').animate({scrollTop: this.scrollDenahUnit.current.offsetTop}, 2000)
-  }
+  // _handleClickDenahUnit = () => {
+  //   if (this.scrollDenahUnit.current) {
+  //     window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
+  //   }
+  //   // this.scrollDenahUnit.current && $('html, body').animate({scrollTop: this.scrollDenahUnit.current.offsetTop}, 2000)
+  // }
 
-  _handleClickLokasi = () => {
-    // alert("clicked")
-    if (this.scrollMap.current) {
-      window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
-    }
-    // this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
-  }
+  // _handleClickLokasi = () => {
+  //   // alert("clicked")
+  //   if (this.scrollMap.current) {
+  //     window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
+  //   }
+  //   // this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
+  // }
 
-  _handleClickGaleri = () => {
-    if (this.scrollGaleri.current) {
-      window.scrollTo({top: this.scrollGaleri.current.offsetTop, behavior: "smooth"})
-    }
-    // this.scrollGaleri.current && $('html, body').animate({scrollTop: this.scrollGaleri.current.offsetTop}, 2000)
-  }
+  // _handleClickGaleri = () => {
+  //   if (this.scrollGaleri.current) {
+  //     window.scrollTo({top: this.scrollGaleri.current.offsetTop, behavior: "smooth"})
+  //   }
+  //   // this.scrollGaleri.current && $('html, body').animate({scrollTop: this.scrollGaleri.current.offsetTop}, 2000)
+  // }
 }
