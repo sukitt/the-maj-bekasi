@@ -7,11 +7,9 @@ import IconUser from '../component/assets/tmp-blog/user.svg'
 import IconCalender from '../component/assets/tmp-blog/calender.svg'    
 
 import {OnDesktop, OnMobileAndTablet} from '../constants'
-import Base from './Base'
-import { useParams, useRouteMatch, useLocation, Link, useHistory } from 'react-router-dom'
+import { useParams, useRouteMatch, useLocation, Link, useHistory, Redirect } from 'react-router-dom'
 import { BaseUrl } from '../services/axios'
 import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
-import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 const Blog = props => {
     const { id } = useParams()
@@ -27,9 +25,10 @@ const Blog = props => {
         return B !== id
     })
 
+    if (!Detail) return window.location.assign("/not-found")
     const { heading, image, img_desc, author, created_at, text  } = Detail
     return (
-        <>
+        <> 
             <ScrollToTopOnMount />
             <section>
                 <div className="container">
