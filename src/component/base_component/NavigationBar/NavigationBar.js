@@ -46,7 +46,7 @@ export class NavigationBar extends Component {
 
                         {this.props.store.map(item => (
                           <Link 
-                            id={`nav-${item.link.replace(/[/#]/g, "")}`} 
+                            id={`nav-${item.name.replace(/[\s/#]/g, "-").toLowerCase()}`} 
                             className="nav-link" 
                             key={item.id} 
                             to={item.link.replace(/\s/g, "-")}>

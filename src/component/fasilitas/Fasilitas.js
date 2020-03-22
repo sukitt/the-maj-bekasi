@@ -42,7 +42,7 @@ class Fasilitas extends Component {
 	render() {
 		return (
 			<div id={this.props.id} ref={this.props.fasilitasRef} style={{
-					marginTop:"136px",
+					paddingTop:"136px",
 			}}>
 				<div className="container-2 p-0">
 

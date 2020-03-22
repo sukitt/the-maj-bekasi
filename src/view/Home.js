@@ -26,6 +26,8 @@ import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
 import { OnDesktop, OnMobileAndTablet } from '../constants'
 import Spinner from '../component/base/loader/BackgroundImage/spinner'
 
+import $ from 'jquery'
+
 class Home extends Base {
   render() {
     return (

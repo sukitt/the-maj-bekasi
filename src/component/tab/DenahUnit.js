@@ -27,7 +27,7 @@ class DenahUnit extends Component {
 
 		return (
 			<>
-				<div style={{ marginTop: 150 }} id="denahUnit" ref={this.props.denahUnitRef}>
+				<div style={{ paddingTop: 150 }} id="denahUnit" ref={this.props.denahUnitRef}>
 					<div className="container-2">
 						<h5>Tipe Unit</h5>
 						<h1 style={{width: "323px"}}>Hunian Fleksibel Untuk Generasi 'Zaman Now'</h1>
