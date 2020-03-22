@@ -9,6 +9,7 @@ import IconCalender from '../component/assets/tmp-blog/calender.svg'
 import {OnDesktop, OnMobileAndTablet} from '../constants'
 import { useParams, useRouteMatch, useLocation, Link, useHistory, Redirect } from 'react-router-dom'
 import { BaseUrl } from '../services/axios'
+import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
 
 const Blog = props => {
     const { id } = useParams()
@@ -28,6 +29,7 @@ const Blog = props => {
     const { heading, image, img_desc, author, created_at, text  } = Detail
     return (
         <> 
+            <ScrollToTopOnMount />
             <section>
                 <div className="container">
                     <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
