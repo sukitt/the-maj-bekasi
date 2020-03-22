@@ -103,6 +103,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
       this.state = {
         isLoading: true,
         localStore: [],
+        indexActive:1,
       }
 
       this.next = this.next.bind(this);
@@ -145,7 +146,7 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
       // }
 
       return (
-        <Slider ref={c => (this.slider = c)} {...settings} afterChange={index => this.setState({indexActive:index})}>
+        <Slider ref={c => (this.slider = c)} {...settings} afterChange={(index,nextIndex) => this.setState({indexActive:nextIndex})}>
           {this.state.localStore.length && this.state.localStore.map((item, i) => (
             <div key={i}>
               <img style={imgStyle} src={BaseUrl + '/storage/' + item.image} alt="slider-1" />

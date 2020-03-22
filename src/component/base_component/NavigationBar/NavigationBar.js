@@ -113,7 +113,7 @@ export class MobileNavigationBar extends Component {
               </Link>
             </Navbar.Brand>
               <SideNav style={{width:(showing? "100%" : "0")}} id="mySidenav">
-                <Link to="/">
+                <Link to="/" onClick={() => this.setState({showing: !showing})}>
                   <img src={logo} alt="logo" style={{
                     maxWidth:"142px",
                     width:"100%",
@@ -121,9 +121,9 @@ export class MobileNavigationBar extends Component {
                   }} />
                 </Link>
                 <hr />
-                <SideNavCloseBtn href="javascript:void(0)" onClick={() => this.setState({showing: !showing})}>&times;</SideNavCloseBtn>
+                <SideNavCloseBtn onClick={() => this.setState({showing: !showing})}>&times;</SideNavCloseBtn>
                 {store && store.map((item, i) => (
-                  <SideNavLink key={i} ><Link to={item.link}><h3>{item.name}</h3></Link></SideNavLink>
+                  <SideNavLink onClick={() => this.setState({showing: !showing})} key={i} ><Link to={item.link}><h3>{item.name}</h3></Link></SideNavLink>
                 ))}
               </SideNav>
           </div>

@@ -43,14 +43,14 @@ export class MobileGallery extends Component {
 
     return(
         <Container className="container" margin="0px" padding="44px 0px 44px 42px">
-            <Caps1 margin="0 0px 27px 0px">Gallery</Caps1>
+            <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
             <div id="mobileItemGallery">
                 <Slider
                     dots={false}
                     beforeChange={(indexActive) => this.setState({indexActive})}
                     infinite={true}
                     centerMode={true}
-                    centerPadding="35% 0px 0px"
+                    centerPadding="50% 0px 0px"
                     slidesToShow={1}
                     speed={1000}
                     arrows={false}

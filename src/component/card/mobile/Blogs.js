@@ -87,7 +87,7 @@ const H2 = styled.h2(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
-        lineHeight: "18px",
+        lineHeight: "24px",
         letterSpacing:"1px",
         color: "#12284C",
         margin: props.margin,

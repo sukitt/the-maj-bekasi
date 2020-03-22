@@ -119,7 +119,7 @@ export class Simulasi extends Base {
                             <FormControl type="number" maxLength="4" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
                         </Col>
                     </Row>
-                    <Col>
+                    <Col className="p-0">
                         <H6>* DP dapat dicicil. Angka yang tertera hanya untuk keperluan simulasi. Hubungi bank terkait untuk angka yang lebih akurat.</H6>
                     </Col>
                 </div>
