@@ -17,7 +17,11 @@ const BaseRoute = () => {
             <Route exact path="/partnership" component={Partnership} />
             <Route exact path="/expertice" component={Expertice} />
             <Route exact path="/blog/:id" children={<Blog />} />
+<<<<<<< HEAD
             <Route path="*" component={Page404} />
+=======
+            <Route path="" component={Page404} />
+>>>>>>> 36085655f54e012acbbb0c42cf327f7271265992
         </Switch>
     )
 }

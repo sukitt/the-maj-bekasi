@@ -3,6 +3,10 @@
   src: url('./assets/fonts/Gilroy/Gilroy-Bold.ttf');
 }
 @font-face {
+  font-family: 'Gilroy Regular';
+  src: url('./assets/fonts/Gilroy/Gilroy-Regular.ttf');
+}
+@font-face {
   font-family: 'Verlag Bold';
   src: url('./assets/fonts/Verlag/Verlag-Book.ttf');
 }
