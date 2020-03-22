@@ -982,40 +982,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/campgladiator.cgui.assets.styles.variables@0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/campgladiator.cgui.assets.styles.variables/-/campgladiator.cgui.assets.styles.variables-0.0.1.tgz#e03eaf00ae19cd8b732c2bdc09fa06bd3562cffb"
-  integrity sha1-4D6vAK4ZzYtzLCvcCfoGvTViz/s=
-
-"@bit/campgladiator.cgui.components.atoms.loader@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/campgladiator.cgui.components.atoms.loader/-/campgladiator.cgui.components.atoms.loader-0.0.3.tgz#c0293c4e855581759137863d7729b88d58768ecc"
-  integrity sha1-wCk8ToVVgXWRN4Y9dym4jVh2jsw=
-  dependencies:
-    "@bit/campgladiator.cgui.assets.styles.variables" "0.0.1"
-    "@bit/campgladiator.cgui.utilities.mods" "0.0.1"
-    prop-types "15.7.2"
-
-"@bit/campgladiator.cgui.utilities.mods@0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/campgladiator.cgui.utilities.mods/-/campgladiator.cgui.utilities.mods-0.0.1.tgz#7ee28b30717dc531d6df9a779c2b2e243d66e2aa"
-  integrity sha1-fuKLMHF9xTHW35p3nCsuJD1m4qo=
-  dependencies:
-    classnames "^2.2.6"
-
-"@bit/dweez.react.background-image@0.0.6":
-  version "0.0.6"
-  resolved "https://node.bit.dev/dweez.react.background-image/-/dweez.react.background-image-0.0.6.tgz#94fd4d23c3864b418b615c72a22a2d96b503985f"
-  integrity sha1-lP1NI8OGS0GLYVxyoiotlrUDmF8=
-  dependencies:
-    "@bit/dweez.react.spinner" "0.0.2"
-    prop-types "15.7.2"
-
-"@bit/dweez.react.spinner@0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/dweez.react.spinner/-/dweez.react.spinner-0.0.2.tgz#949bce3a35e47b1052f351d84b0896e5cf69737b"
-  integrity sha1-lJvOOjXkexBS81HYSwiW5c9pc3s=
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -8914,7 +8880,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@15.7.2, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
