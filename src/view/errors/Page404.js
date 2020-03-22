@@ -1,29 +1,67 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Page404  = () => {
     return (
-        <Container className="flex-center position-ref full-height">
-            <Code>404</Code>
-            <Msg>Not Found</Msg>
+        <Container>
+            <Content>
+                <Code>404</Code>
+                <Msg>Not Found</Msg>
+                <Button to="/">Back to Home</Button>
+            </Content>
         </Container>
     )
 }
 
 const Container = styled.div(
     props => ({
-        display: "flex",
-        flexDirection: "row"
+        height:"100vh",
+        width:"100%",
+        padding:"150px 0px",
+        textAlign:"center",
     })
 )
 
-const Code = styled.div(
+const Content = styled.div(
     props => ({
-        borderRight: "2px solid",
-        margin: props.margin,
-        padding: props.padding,
-        fontSize: "26px",
+        margin:"auto",
+        width:"400px",
+    })
+)
+
+const Button = styled(Link)(
+    props => ({
+        marginTop:"15px",
+        padding:"11px 32px",
+        border: "0px",
+        userSelect: "none",
         textAlign: "center",
+        display: "inline-block",
+        color: "#fff",
+        transition: ".15s all",
+        background: "#CC9980",
+        fontFamily: 'Verlag Bold',
+        textTransform: "uppercase",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        "&:hover":{
+            textDecoration:"none",
+            color:"#CC9980",
+            backgroundColor:"transparent",
+            border:"2px solid #CC9980"
+        },
+    })
+)
+
+const Code = styled.h1(
+    props => ({
+        fontFamily:"Gilroy Regular !important",
+        margin: "50px auto",
+        padding: 0,
+        fontSize: "150px",
+        textAlign: "center",
+        color:"#CC9980",
     })
 )
 
