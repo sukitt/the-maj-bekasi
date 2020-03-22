@@ -54,12 +54,21 @@ class Maps extends Component {
         lat: -6.23986,
         lng: 106.99640
       },
-      zoom: 13
+      zoom: 13,
+      localStore: [],
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.store.length !== prevState.localStore.length) {
+      return {
+        localStore: nextProps.store,
+      }
     }
   }
 
   render() {
-    const { store } = this.props
+    const { localStore } = this.state
     
     const setIcon = (icon) => {
       switch (icon) {
@@ -124,15 +133,14 @@ class Maps extends Component {
     )
 
     return (
-      <div id="lokasi" class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>
+      <div ref={this.props.lokasiRef} class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>
         <h5>Lokasi</h5>
         <h1 style={{ width: "415px" }}>Kenyamanan Dan Kemudahan Menantimu Di 'Planet' Bekasi.</h1>
 
         <Tabs defaultActiveKey="1" className="gmaps" style={{
           marginTop: "35px",
         }}>
-          {console.log(store)}
-          {store.map((item, i) => (
+          {localStore.length && localStore.map((item, i) => (
             <Tab eventKey={item.id} title={item.name} key={i} >
               <div style={{ height: "500px", width: "100%" }}>
 

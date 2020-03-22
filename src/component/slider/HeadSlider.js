@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { BaseUrl } from '../../services/axios';
 import arrows from './assets/arrows.svg'
 import placeholder from './assets/header-placeholder.png'
-import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
+import {SliderPlaceholder } from '../base/loader/ImagePlaceholder';
 
   const imgStyle= {
     maxWidth: "1110px",
@@ -137,13 +137,13 @@ import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
         arrows:false,
       };
 
-      // if (this.state.isLoading) {
-      //   return (
-      //     <div style={imgStyle}>
-      //       <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="560px" opacity=".8" />
-      //     </div>
-      //   )
-      // }
+      if (this.state.isLoading) {
+        return (
+          <div style={imgStyle}>
+            <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="560px" opacity=".8" />
+          </div>
+        )
+      }
 
       return (
         <Slider ref={c => (this.slider = c)} {...settings} afterChange={(index,nextIndex) => this.setState({indexActive:nextIndex})}>

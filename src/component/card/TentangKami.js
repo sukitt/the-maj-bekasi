@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Card, Col } from 'react-bootstrap'
 
 class TentangKami extends Component {
@@ -13,19 +13,7 @@ class TentangKami extends Component {
                             The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni di antaranya: kolam renang ukuran olimpiade, tempat bersantai di puncak gedung (sky lounge), area kerja bersama (co-working space), lobby yang megah dan luas, pusat kebugaran dan halte khusus transportasi online.
                         </p>
                         <Col className="text-center" style={{marginTop: "55px"}}>
-                            <Link to="/tentang-kami" style={{
-                                fontFamily: 'Verlag Bold',
-                                fontStyle: 'normal',
-                                fontWeight: 'bold',
-                                fontSize: 11,
-                                textAlign: 'center',
-                                textTransform: 'uppercase',
-                                color: '#CC9980',
-                                paddingBottom:"14px",
-                                textDecoration: 'none',
-                                borderBottom: '1px solid',
-                                borderBottomColor: '#CC9980'
-                            }}>Read More</Link>
+                            <ButtonLink to="/tentang-kami">Read More</ButtonLink>
                         </Col>
                     </Card.Body>
                 </Card>
@@ -33,5 +21,28 @@ class TentangKami extends Component {
         )
     }
 }
+
+const ButtonLink = props => {
+    const history = useHistory()
+    const _handleClick = () => (
+        history.push("/tentang-kami")
+    )
+    return (
+        <Link style={{
+            fontFamily: 'Verlag Bold',
+            fontStyle: 'normal',
+            fontWeight: 'bold',
+            fontSize: 11,
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            color: '#CC9980',
+            paddingBottom:"14px",
+            textDecoration: 'none',
+            borderBottom: '1px solid',
+            borderBottomColor: '#CC9980'
+        }} to={props.to} onClick={_handleClick}> 
+            {props.children}
+        </Link>
+)}
 
 export default TentangKami

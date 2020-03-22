@@ -8,86 +8,88 @@ import IconCalender from '../component/assets/tmp-blog/calender.svg'
 
 import {OnDesktop, OnMobileAndTablet} from '../constants'
 import Base from './Base'
-import { useParams, useRouteMatch, useLocation, Link } from 'react-router-dom'
+import { useParams, useRouteMatch, useLocation, Link, useHistory } from 'react-router-dom'
 import { BaseUrl } from '../services/axios'
+import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
+import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 const Blog = props => {
     const { id } = useParams()
     const location = useLocation()
 
-        const Detail = location.state && location.state.store.find(data => {
-            const A = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
-            return A === id
-        })
+    const Detail = location.state && location.state.store.find(data => {
+        const A = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
+        return A === id
+    })
 
-        const List = location.state && location.state.store.filter(data => {
-            const B = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
-            return B !== id
-        })
+    const List = location.state && location.state.store.filter(data => {
+        const B = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
+        return B !== id
+    })
 
-        const { heading, image, img_desc, author, created_at, text  } = Detail
-        return (
-            <>
-                <section>
-                    <div className="container">
-                        <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
-                            <Row>
-                                <Col lg={12} sm={12} xs={12}>
-                                    <h5>Event</h5>
-                                    <H2 margin="0px 0px 41px 0px"> {heading} </H2>
-                                </Col>
-                                <Col lg={12} sm={12} xs={12}>
-                                    <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
-                                    <DescImage width="auto">
-                                        {img_desc}
-                                    </DescImage>
-                                </Col> 
-                            </Row>
-                    
-                            <Row style={{margin: "86px 0 23px 0"}}>
-                                <Col lg={3} sm={6} xs={12}>
-                                    <Author author={author}  />
-                                </Col>
-                                <Col lg={3} sm={6} xs={12}>
-                                    <Posted_At posted_at={created_at} />
-                                </Col>
-                            </Row>
+    const { heading, image, img_desc, author, created_at, text  } = Detail
+    return (
+        <>
+            <ScrollToTopOnMount />
+            <section>
+                <div className="container">
+                    <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
+                        <Row>
+                            <Col lg={12} sm={12} xs={12}>
+                                <h5>Event</h5>
+                                <H2 margin="0px 0px 41px 0px"> {heading} </H2>
+                            </Col>
+                            <Col lg={12} sm={12} xs={12}>
+                                <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
+                                <DescImage width="auto">
+                                    {img_desc}
+                                </DescImage>
+                            </Col> 
+                        </Row>
+                
+                        <Row style={{margin: "86px 0 23px 0"}}>
+                            <Col lg={3} sm={6} xs={12}>
+                                <Author author={author}  />
+                            </Col>
+                            <Col lg={3} sm={6} xs={12}>
+                                <Posted_At posted_at={created_at} />
+                            </Col>
+                        </Row>
 
-                            <Row>
-                                <Col xs={12} md={8}>
-                                    <div style={{padding: "0 0 134px 0"}}>
-                                        {text && renderHTML(text)}
+                        <Row>
+                            <Col xs={12} md={8}>
+                                <div style={{padding: "0 0 134px 0"}}>
+                                    {text && renderHTML(text)}
+                                </div>
+                            </Col>
+
+                            <OnDesktop>
+                                <Col lg={4} style={{padding: "0"}}>
+                                    <div>
+                                    {List && List.map((data, i) => {
+                                        let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
+                                        return (
+                                            <BlogItem 
+                                                key={i} 
+                                                src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
+                                                head={data.heading} 
+                                                posted_at={data.created_at}
+                                                to={{
+                                                    pathname: `/blog/${head}`,
+                                                    state: { store: location.state.store}
+                                                }}
+                                            />
+                                        )
+                                    })}
                                     </div>
                                 </Col>
-
-                                <OnDesktop>
-                                    <Col lg={4} style={{padding: "0"}}>
-                                        <div>
-                                        {List && List.map((data, i) => {
-                                            let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
-                                            return (
-                                                <BlogItem 
-                                                    key={i} 
-                                                    src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
-                                                    head={data.heading} 
-                                                    posted_at={data.created_at}
-                                                    to={{
-                                                        pathname: `/blog/${head}`,
-                                                        state: { store: location.state.store}
-                                                    }}
-                                                />
-                                            )
-                                        })}
-                                        </div>
-                                    </Col>
-                                </OnDesktop>
-                            </Row>
-                        </div>
+                            </OnDesktop>
+                        </Row>
                     </div>
-                </section>
-            </>
-        )
-    
+                </div>
+            </section>
+        </>
+    )
 }
 
 export default Blog
@@ -140,15 +142,25 @@ const BlogItem = props => (
             <img src={props.src} width="95px" height="95px" alt="list-blog" />
         </Col>
         <Col lg={8} style={{padding: "0"}}>
-            <Link {...props} style={{textDecoration: "none"}}> 
-                <H3> 
-                    {props.head} 
-                </H3>
-            </Link> 
+            <ButtonLink {...props}><H3>{props.head}</H3></ButtonLink>
             <Created> {props.posted_at} </Created>
         </Col>
     </ContainerItem>
 )
+
+const ButtonLink = props => {
+    const history = useHistory()
+    const { head } = props
+    const _handleClick = (e) => {
+        e.perventDefault()
+        history.push(`/blog/${head && head.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`)
+    }
+    return (
+        <Link {...props} style={{textDecoration: "none"}}> 
+            {props.children}
+        </Link> 
+    ) 
+}
 
 const DescImage = styled.p(
     props => ({

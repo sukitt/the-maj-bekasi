@@ -22,4 +22,5 @@ form label {
 form label.filled {
     transform: translate(0px, -18px);
     font-size: 11px;
+    letter-spacing: 1px;
 }

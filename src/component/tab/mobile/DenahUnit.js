@@ -158,9 +158,6 @@ const Luas = styled.p(
 
 const Caps2 = styled.h6(
     props => ({
-        fontStyle: "normal",
-        fontWeight: "bold",
-        lineHeight: "13px",
         textAlign: "center",
         fontSize:"11px",
         textTransform:"uppercase",
