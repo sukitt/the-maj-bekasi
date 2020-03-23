@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { BaseUrl } from '../../services/axios'
 
-export class Blogs extends Component {
+class Blogs extends Component {
     constructor(props) {
         super(props)
     
@@ -31,6 +31,7 @@ export class Blogs extends Component {
                 <H1 margin="50px auto">Lates News</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
+                        
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                         let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`
                         return (
@@ -38,7 +39,10 @@ export class Blogs extends Component {
                                 <Blog
                                     to={{
                                         pathname: `/blog/${head}`,
-                                        state: { store: this.props.store }
+                                        state: {
+                                            args: this.props.store,
+                                            test: true,
+                                        }
                                     }}
                                     src={img} 
                                     heading={data.heading} 
@@ -58,13 +62,13 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <Link to={props.to} style={{textDecoration: "none", ...props}}>
-            <Img src={props.src} width width="350px" height="350px" alt="350x350" />
-            <Body margin="17px 0 0 0">
-                <P>
-                    {props.heading}
-                </P>
-            </Body>
+            <Link {...props} >
+                <Img src={props.src} width width="350px" height="350px" alt="350x350" />
+                <Body margin="17px 0 0 0">
+                    <P>
+                        {props.heading}
+                    </P>
+                </Body>
             </Link>
             <Footer>Posted On {props.created_at}</Footer>
         </Container>

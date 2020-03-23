@@ -7,91 +7,93 @@ import IconUser from '../component/assets/tmp-blog/user.svg'
 import IconCalender from '../component/assets/tmp-blog/calender.svg'    
 
 import {OnDesktop, OnMobileAndTablet} from '../constants'
-import { useParams, useRouteMatch, useLocation, Link, useHistory, Redirect } from 'react-router-dom'
+import { useParams, useRouteMatch, useLocation, Link, useHistory, withRouter } from 'react-router-dom'
 import { BaseUrl } from '../services/axios'
 import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
+import Base from './Base'
+import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
-const Blog = props => {
-    const { id } = useParams()
-    const location = useLocation()
+class Blog extends Base {
+    render() {
+        if (this.state.blogs.length) {
+            const { slug } = this.props.match.params
+            const Detail = this.state.blogs.find(data => {
+                return data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "").toLocaleLowerCase() === slug
+            })
+            const List = this.state.blogs.filter(data => {
+                return data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "").toLocaleLowerCase()
+            })
+            if (!Detail) return window.location.assign("/not-found")
+            const { heading, image, img_desc, author, created_at, text  } = Detail
+            return (
+                <> 
+                    <ScrollToTopOnMount />
+                    <section>
+                        <div className="container">
+                            <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
+                                <Row>
+                                    <Col lg={12} sm={12} xs={12}>
+                                        <h5>Event</h5>
+                                        <H2 margin="0px 0px 41px 0px"> {heading} </H2>
+                                    </Col>
+                                    <Col lg={12} sm={12} xs={12}>
+                                        <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
+                                        <DescImage width="auto">
+                                            {img_desc}
+                                        </DescImage>
+                                    </Col> 
+                                </Row>
+                        
+                                <Row style={{margin: "86px 0 23px 0"}}>
+                                    <Col lg={3} sm={6} xs={12}>
+                                        <Author author={author}  />
+                                    </Col>
+                                    <Col lg={3} sm={6} xs={12}>
+                                        <Posted_At posted_at={created_at} />
+                                    </Col>
+                                </Row>
+    
+                                <Row>
+                                    <Col xs={12} md={8}>
+                                        <div style={{padding: "0 0 134px 0"}}>
+                                            {text && renderHTML(text)}
+                                        </div>
+                                    </Col>
+    
+                                    <OnDesktop>
+                                        <Col lg={4} style={{padding: "0"}}>
+                                            <div>
+                                            {List && List.map((data, i) => {
+                                                let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
+                                                return (
+                                                    <BlogItem 
+                                                        key={i} 
+                                                        src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
+                                                        head={data.heading} 
+                                                        posted_at={data.created_at}
+                                                        to={{
+                                                            pathname: `/blog/${head}`,
+                                                            state: { store: this.state.abouts}
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                            </div>
+                                        </Col>
+                                    </OnDesktop>
+                                </Row>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )
+        }
 
-    const Detail = location.state && location.state.store.find(data => {
-        const A = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
-        return A === id
-    })
-
-    const List = location.state && location.state.store.filter(data => {
-        const B = `${data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`.toLocaleLowerCase()
-        return B !== id
-    })
-
-    if (!Detail) return window.location.assign("/not-found")
-    const { heading, image, img_desc, author, created_at, text  } = Detail
-    return (
-        <> 
-            <ScrollToTopOnMount />
-            <section>
-                <div className="container">
-                    <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
-                        <Row>
-                            <Col lg={12} sm={12} xs={12}>
-                                <h5>Event</h5>
-                                <H2 margin="0px 0px 41px 0px"> {heading} </H2>
-                            </Col>
-                            <Col lg={12} sm={12} xs={12}>
-                                <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
-                                <DescImage width="auto">
-                                    {img_desc}
-                                </DescImage>
-                            </Col> 
-                        </Row>
-                
-                        <Row style={{margin: "86px 0 23px 0"}}>
-                            <Col lg={3} sm={6} xs={12}>
-                                <Author author={author}  />
-                            </Col>
-                            <Col lg={3} sm={6} xs={12}>
-                                <Posted_At posted_at={created_at} />
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col xs={12} md={8}>
-                                <div style={{padding: "0 0 134px 0"}}>
-                                    {text && renderHTML(text)}
-                                </div>
-                            </Col>
-
-                            <OnDesktop>
-                                <Col lg={4} style={{padding: "0"}}>
-                                    <div>
-                                    {List && List.map((data, i) => {
-                                        let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
-                                        return (
-                                            <BlogItem 
-                                                key={i} 
-                                                src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} 
-                                                head={data.heading} 
-                                                posted_at={data.created_at}
-                                                to={{
-                                                    pathname: `/blog/${head}`,
-                                                    state: { store: location.state.store}
-                                                }}
-                                            />
-                                        )
-                                    })}
-                                    </div>
-                                </Col>
-                            </OnDesktop>
-                        </Row>
-                    </div>
-                </div>
-            </section>
-        </>
-    )
+        return <LoaderSpinner />
+    }
 }
 
-export default Blog
+export default withRouter(Blog)
 
 const renderHTML = (args) => {
     return createElement("div", {
