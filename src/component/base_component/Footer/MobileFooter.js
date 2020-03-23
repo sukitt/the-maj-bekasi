@@ -30,7 +30,7 @@ export const MobileFooter = props => {
                     <A padding="3px 0" display="block" href="#linkto">Contact Us</A>
                     <A padding="3px 0" display="block" href="#linkto">Ancora Capital Management</A>
                     <A padding="3px 0" display="block" href="#linkto">Media Center</A>
-                    <A padding="3px 0" display="block" href="#linkto">Privacy</A>
+                    <A padding="3px 0" display="block" href="/privacy-policy">Privacy</A>
                     <A padding="3px 0" display="block" href="#linkto">Terms and Conditions</A>
                 </ExploreUs>
 

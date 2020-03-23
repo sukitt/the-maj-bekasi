@@ -71,3 +71,11 @@ export const getExpertice = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getPrivacyPolicy = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/privacy-policy')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

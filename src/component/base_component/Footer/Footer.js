@@ -33,7 +33,7 @@ export const Footer = props => {
                     <A display="block" href="#linkto">Contact Us</A>
                     <A display="block" href="#linkto">Ancora Capital Management</A>
                     <A display="block" href="#linkto">Media Center</A>
-                    <A display="block" href="#linkto">Privacy</A>
+                    <A display="block" href="/privacy-policy">Privacy</A>
                     <A display="block" href="#linkto">Terms and Conditions</A>
                     </ExploreUs>
                 </Col>
