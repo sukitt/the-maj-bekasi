@@ -124,7 +124,7 @@ export default class Maps extends Component {
 }
 const Caps2 = styled.h6`
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   text-transform: uppercase;

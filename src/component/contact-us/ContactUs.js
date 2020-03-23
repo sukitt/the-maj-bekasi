@@ -7,8 +7,9 @@ import styled from 'styled-components'
 const ContactUs = (props) =>{
     return (
         <>
-            <div style={{
-                margin: "123px auto 0px auto",
+            <div id="contact-us" style={{
+                margin: "0px auto",
+                padding: "123px 0px",
                 display: 'flex',
                 width:"730px",
                 paddingBottom:"60px",

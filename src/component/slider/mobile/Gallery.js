@@ -16,6 +16,27 @@ export class MobileGallery extends Component {
     this.state = {
         store: [],
         indexActive: 0,
+        cPadding:0,
+    }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+  
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  updateWindowDimensions() {
+    if(window.innerWidth < 375){
+      this.setState({cPadding:"15% 0px 0px"})
+    }else if(window.innerWidth < 425){
+      this.setState({cPadding:"35% 0px 0px"})
+    }else{
+      this.setState({cPadding:"40% 0px 0px"})
     }
   }
 
@@ -50,7 +71,7 @@ export class MobileGallery extends Component {
                     beforeChange={(indexActive) => this.setState({indexActive})}
                     infinite={true}
                     centerMode={true}
-                    centerPadding="50% 0px 0px"
+                    centerPadding={this.state.cPadding}
                     slidesToShow={1}
                     speed={1000}
                     arrows={false}

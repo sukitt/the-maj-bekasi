@@ -106,7 +106,7 @@ export class Simulasi extends Base {
                                 <FormControl as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
                                     {this.state.options.length && this.state.options.map((index, i) => (
                                         <>
-                                            <option key={i} value={index}>{index}</option>
+                                            <option key={i} value={index}>{index} tahun</option>
                                         </>
                                     ))}
                                 </FormControl>

@@ -49,16 +49,17 @@ export class NavigationBar extends Component {
 								// const ItemLink = item.link.replace(/\s/g, "-")
 								const ItemName = item.name.toLowerCase().replace(/\s/, "-")
 								return (
-									<Link
-										id={`nav-${item.name.replace(/\s/g, "-").toLowerCase()}`}
-										className="nav-link"
-										key={item.id}
-										to={{
-											pathname: item.link.length === 1 ? `${item.link}section/#${ItemName}` : `${item.link}`,
-										}}>
-										<H6 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H6>
-									</Link>
-								)
+										<a href={item.link} className="nav-link"><H6 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H6></a>
+									)
+									// <Link
+									// 	id={`nav-${item.name.replace(/\s/g, "-").toLowerCase()}`}
+									// 	className="nav-link"
+									// 	key={item.id}
+									// 	to={{
+									// 		pathname: item.link.length === 1 ? `${item.link}section/#${ItemName}` : `${item.link}`,
+									// 	}}>
+									// 	<H6 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H6>
+									// </Link>
 							}
 							)}
 

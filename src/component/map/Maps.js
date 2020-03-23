@@ -29,7 +29,7 @@ const Content = styled(Col)`
 const Text = styled.div`
   font-family: Proxima Nova;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   color: #000;
