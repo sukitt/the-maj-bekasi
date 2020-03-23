@@ -117,7 +117,7 @@ class HeadSlider extends Component {
 		this.state = {
 			isLoading: true,
 			localStore: [],
-			indexActive: 1,
+			indexActive: 0,
 		}
 
 		this.next = this.next.bind(this);
