@@ -112,6 +112,18 @@ export default class TabGallery extends Component {
         />
       );
     }
+
+    const Background = styled.div(
+      props => (
+        {
+          width:"603px",
+          height:"410px",
+          backgroundImage:`url(${props.source})`,
+          backgroundPosition:"center",
+          backgroundSize:"cover",
+          backgroundRepeat:"no-repeat",
+        }
+      ));
     
     return (
       <div style={{marginTop:"75px"}}>
@@ -123,25 +135,18 @@ export default class TabGallery extends Component {
           {this.props.images.map((item, i) =>(
             <div key={i}>
               <Row>
-                <Col md="7" >
-                  <img style={{width:"inherit"}} src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
+                <Col md="8" >
+                  {/* <img style={{width:"inherit"}} src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} /> */}
+                  <Background source={BaseUrl + '/storage/' + item.gambar.replace(/\\/g,"/")} /> 
                 </Col>
                 <Col>
-                  <h4 style={{
-                    fontStyle: "normal",
-                    fontWeight: "bold",
-                    fontSize: "14px",
-                    lineHeight: "16px",
-                    textTransform: "uppercase",
-                    color: "#12284C",
-                  }}>{item.nama}</h4>
                   <p style={{
                     fontStyle: "normal",
                     fontWeight: "normal",
                     fontSize: "16px",
                     lineHeight: "21px",
                     color: "#12284C",
-                    marginTop:"30px",
+                    marginTop:"90px",
                     maxWidth:"340px"
                   }}>{item.deskripsi}</p>
                 </Col>
@@ -155,7 +160,7 @@ export default class TabGallery extends Component {
           maxHeight:"300px",
           // position:"absolute",
           marginLeft:"50%",
-          marginTop:"-13%",
+          marginTop:"-25%",
         }}>
           <Slider
             asNavFor={this.state.nav1}

@@ -65,7 +65,7 @@
   height: 0;
   width: 100%;
   border-radius: 500px;
-  margin-top: -8px;
+  margin-top: -9px;
 }
 #spec > .nav-tabs > .nav-link.active::after{
   content: '';
