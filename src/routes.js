@@ -6,6 +6,7 @@ import TentangKami from './view/TentangKami'
 import Partnership from './view/Partnership'
 import Expertice from './view/Expertice'
 import Blog from './view/Blog'
+import PrivacyPolicy from './view/PrivacyPolicy'
 import Page404 from './view/errors/Page404'
 
 const BaseRoute = () => {
@@ -15,9 +16,10 @@ const BaseRoute = () => {
             <Route path="/section/:args?" component={Home} />
             <Route exact path="/tentang-kami" component={TentangKami} />
             <Route exact path="/partnership" component={Partnership} />
-            <Route exact path="/expertice" component={Expertice} />
+            <Route exact path="/expertise" component={Expertice} />
+            <Route exact path="/privacy-policy" component={PrivacyPolicy} />
             <Route exact path="/blog/:slug" component={Blog} />
-            <Route component={Page404} />
+            <Route path="" component={Page404} />
         </Switch>
     )
 }

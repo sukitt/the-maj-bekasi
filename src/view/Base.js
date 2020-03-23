@@ -1,6 +1,6 @@
 import { Component, createRef } from 'react'
 import $ from 'jquery'
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice, getPrivacyPolicy } from '../services/get'
 import {storeContact} from '../services/post'
 
 export default class Base extends Component {
@@ -16,6 +16,7 @@ export default class Base extends Component {
       blogs: [],
       abouts: [],
       expertice: [],
+      privacyPolicy:[],
       errors: {
         abouts: {},
         sliders: {},
@@ -26,6 +27,7 @@ export default class Base extends Component {
         blogs: {},
         location: {},
         expertice: {},
+        privacyPolicy: {},
       },
       contact: {
         validated: true,
@@ -120,15 +122,23 @@ export default class Base extends Component {
       })
     )
     
-    const promiseExpert = Promise.resolve(
+    const promisePrivacyPolicy = Promise.resolve(
       getExpertice()
       .then(res => this.setState({ expertice: res.data }))
       .catch((err) => {
         if (err && err.response) this.setState({ errors: { expertice: { code: err.response.status, status: err.response.statusText } } })
       })
     )
+
+    const promiseExpert = Promise.resolve(
+      getPrivacyPolicy()
+      .then(res => this.setState({ privacyPolicy: res.data }))
+      .catch((err) => {
+        if (err && err.response) this.setState({ errors: { privacyPolicy: { code: err.response.status, status: err.response.statusText } } })
+      })
+    )
     
-    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert])
+    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert, promisePrivacyPolicy])
       .then(() => {
         // setTimeout(()=>{
         //   if (this.props.match && this.props.match.path === "/") {
