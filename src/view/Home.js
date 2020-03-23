@@ -25,9 +25,9 @@ import { OnDesktop, OnMobileAndTablet } from '../constants'
 
 class Home extends Base {
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.args) {
+    console.log(this.props.match && this.props.match.params)
+    if (this.props.match && this.props.match.params.args) {
       const GoTo = this.props.match.params.args && this.props.match.params.args.replace("#", "")
-      console.log(GoTo)
       switch (GoTo) {
         case "fasilitas":
           return window.scrollTo({top: this.scrollFasilitas.current.offsetTop-170, behavior: "smooth"})
