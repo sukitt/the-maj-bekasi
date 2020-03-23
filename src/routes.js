@@ -16,8 +16,8 @@ const BaseRoute = () => {
             <Route exact path="/tentang-kami" component={TentangKami} />
             <Route exact path="/partnership" component={Partnership} />
             <Route exact path="/expertice" component={Expertice} />
-            <Route path="/blog/:id" children={<Blog />} />
-            <Route path="" component={Page404} />
+            <Route exact path="/blog/:slug" component={Blog} />
+            <Route component={Page404} />
         </Switch>
     )
 }
