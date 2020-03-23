@@ -55,7 +55,8 @@ export const Footer = props => {
                 <Col lg={2}></Col>
                 <Col lg={4}>
                     <P>
-                        By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
+                        By entering your details you consent to be contacted via email by The MAJ Group with offers and 
+                        updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                     </P>
                 </Col>
             </Row>

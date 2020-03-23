@@ -54,7 +54,7 @@ export class NavigationBar extends Component {
 										className="nav-link"
 										key={item.id}
 										to={{
-											pathname: item.link.length === 1 ? `${item.link}section/#${ItemName}` : item.link,
+											pathname: item.link.length === 1 ? `${item.link}section/#${ItemName}` : `${item.link}`,
 										}}>
 										<H6 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H6>
 									</Link>
@@ -71,7 +71,7 @@ export class NavigationBar extends Component {
 									color={this.state.isTop ? "#CC9980" : "#fff"}
 								>
 									Hubungi Kami
-                          </ButtonS>
+							</ButtonS>
 							</Link>
 						</Nav>
 					</Navbar.Collapse>
