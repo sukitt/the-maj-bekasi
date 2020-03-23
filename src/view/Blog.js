@@ -24,7 +24,8 @@ class Blog extends Base {
                 return data.heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "").toLocaleLowerCase()
             })
             if (!Detail) return window.location.assign("/not-found")
-            const { heading, image, img_desc, author, created_at, text  } = Detail
+            const { heading, image, img_desc, author, created_at, text, categories  } = Detail
+            const Categori = categories.replace(/[\["\]]/g,"")
             return (
                 <> 
                     <ScrollToTopOnMount />
@@ -33,7 +34,7 @@ class Blog extends Base {
                             <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
                                 <Row>
                                     <Col lg={12} sm={12} xs={12}>
-                                        <h5>Event</h5>
+                                        <h5> {Categori.replace(/\,/g, " | ")} </h5>
                                         <H2 margin="0px 0px 41px 0px"> {heading} </H2>
                                     </Col>
                                     <Col lg={12} sm={12} xs={12}>
