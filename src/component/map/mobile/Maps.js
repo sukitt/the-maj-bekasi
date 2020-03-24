@@ -71,7 +71,7 @@ export default class Maps extends Component {
       <div id={this.props.id} ref={this.props.lokasiRef} className="container-2" style={{marginTop:55, marginBottom:80}}>
         <div style={{marginBottom:"30px", marginTop:"110px"}}>
             <h5>Lokasi</h5>
-            <h1 style={{fontSize:"26px"}}>Kenyamanan dan kemudahan menantimu di 'planet' Bekasi</h1>
+            <h1 style={{fontSize:"26px"}}>Kenyamanan Dan Kemudahan Menantimu Di 'Planet' Bekasi</h1>
         </div>
         <Slider ref={c => (this.slider = c)} {...settings}>
             {store.map((item,i) => {

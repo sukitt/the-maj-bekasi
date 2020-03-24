@@ -63,9 +63,9 @@ export class MobileGallery extends Component {
     // }
 
     return(
-        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px" padding="44px 0px 44px 42px">
+        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px">
             <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
-            <div id="mobileItemGallery">
+            <div id="mobileItemGallery" style={{padding:"44px 0px 44px 30px"}}>
                 <Slider
                     dots={false}
                     beforeChange={(indexActive) => this.setState({indexActive})}
@@ -91,7 +91,7 @@ export class MobileGallery extends Component {
                                   margin: "0 8px"
                                 }}
                             /> */}
-                            <Background source={BaseUrl + '/storage/' + item.gambar} />
+                            <Background source={BaseUrl + '/storage/' + item.gambar_mobile} />
                         </div>
                     ))}
                 </Slider>
@@ -128,6 +128,9 @@ const Background = styled.div`
   height: 228.21px;
   margin: 0 8px;
   background: url(${props=>props.source});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const Content = styled.div(

@@ -14,6 +14,7 @@ export class MobileReviewUnit extends Component {
       nav2: null,
       indexActive: 0,
       name: "",
+      show:3,
     };
   }
 
@@ -22,6 +23,11 @@ export class MobileReviewUnit extends Component {
       nav1: this.slider1,
       nav2: this.slider2
     });
+    if(this.state.storeReview.length > 3){
+      this.setState({show:4})
+    }else{
+      this.setState({show:3})
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -53,7 +59,7 @@ export class MobileReviewUnit extends Component {
         >
             {this.state.storeReview && this.state.storeReview.map((d, i) => (
                 <div key={i} >
-                    <img src={`${BaseUrl}/storage/${d.gambar.replace(".png", "-mobile.png")}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                    <img src={`${BaseUrl}/storage/${d.gambar_mobile}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
                 </div>
             ))}
         </Slider>
@@ -64,7 +70,7 @@ export class MobileReviewUnit extends Component {
               beforeChange={(e) => this.setState({indexActive: e})}
               dots={false}
               focusOnSelect={true}
-              slidesToShow={4}
+              slidesToShow={this.state.show}
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}
@@ -76,7 +82,7 @@ export class MobileReviewUnit extends Component {
                 {this.state.storeReview && this.state.storeReview.map((d, i) => {
                   return (
                     <div key={i}>
-                        <img src={`${BaseUrl}/storage/${d.gambar.replace(".png", "-mobile.png")}`} alt="review 2" style={{width: 70, height: 70}} />
+                        <img src={`${BaseUrl}/storage/${d.gambar_mobile}`} alt="review 2" style={{width: 70, height: 70}} />
                     </div>
                   )
                 })}

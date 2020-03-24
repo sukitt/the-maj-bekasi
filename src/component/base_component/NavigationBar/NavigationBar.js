@@ -133,14 +133,15 @@ export class MobileNavigationBar extends Component {
 								<SideNavLink
 									onClick={() => this.setState({ showing: !showing })} key={i}
 								>
-									<Link
+									<a href={item.link}><h3>{item.name}</h3></a>
+									{/* <Link
 										id={`nav-${item.name.replace(/\s/g, "-").toLowerCase()}`}
 										to={{
 											pathname: item.link.length === 1 ? `${item.link}section/#${ItemName}` : item.link,
 										}}
 									>
 										<h3>{item.name}</h3>
-									</Link>
+									</Link> */}
 								</SideNavLink>
 							)
 						})}
