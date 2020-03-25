@@ -1,7 +1,7 @@
 import { Component, createRef } from 'react'
 import $ from 'jquery'
 import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice, getPrivacyPolicy } from '../services/get'
-import {storeContact} from '../services/post'
+import {storeContact, storeSubscribe} from '../services/post'
 
 export default class Base extends Component {
   constructor(props) {
@@ -31,10 +31,11 @@ export default class Base extends Component {
       },
       contact: {
         validated: true,
-        data: {}
+        data: {},
       },
+      sentLoading:false,
       footer: {
-        validated: true,
+        validated: false,
         data: {}
       }
     }
@@ -162,25 +163,41 @@ export default class Base extends Component {
 
     const data = {
       gelar: this.contrefgelar.current.value,
-      unit: this.contrefunit.current.value,
-      nama: this.contrefnama.current.value,
-      telepon: this.contreftelepon.current.value,
+      saya_ingin: this.contrefunit.current.value,
+      nama_lengkap: this.contrefnama.current.value,
+      nomor_telpon: this.contreftelepon.current.value,
       email: this.contrefemail.current.value,
       catatan: this.contrefcatatan.current.value
     }
     this.setState({
-      contact: {
-        data: data
-      }
+      // contact: {
+      //   data: data,
+      // },
+      sentLoading: true,
     })
-    e.preventDefault();
+    
+    storeContact(data)
+      .then((res)=>{
+        this.setState({
+            sentLoading:false,
+        })
+        alert('Terima Kasih, Kami Akan Segera Membalas Pesan Anda.')
+      })
+      .catch((err) => {
+        this.setState({
+          sentLoading:false,
+        })
+        alert('Maaf Terjadi Kesalahan Saat Menerima Data, Mohon Coba Lagi Dalam Beberapa Menit.')
+      })
+      window.location.reload()
+    e.preventDefault()
 
   }
 
   _footer = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
-      this.setState({ footer: { validated: false } });
+      this.setState({ footer: { validated: true } });
       e.preventDefault();
       e.stopPropagation();
     }
@@ -190,45 +207,27 @@ export default class Base extends Component {
       name: this.footrefname.current.value,
       email: this.footrefemail.current.value
     }
-    // this.setState({
-    //   contact: {
-    //     data: data
-    //   }
-    // })
+    this.setState({
+      // contact: {
+      //   data: data
+      // }
+      sentLoading: true,
+    })
     e.preventDefault()
-    storeContact(data)
-      .then(res => alert(res.data))
-      .catch((err) => {
-        if (err) console.log(err.response)
+    // alert('dor')
+    storeSubscribe(data)
+      .then((res)=>{
+        this.setState({
+            sentLoading:false,
+        })
+        alert('Terima Kasih, Silahkan Periksa Email Anda Untuk Berita Terbaru.')
       })
+      .catch((err) => {
+        this.setState({
+          sentLoading:false,
+        })
+        alert('Maaf Terjadi Kesalahan Saat Menerima Data, Mohon Coba Lagi Dalam Beberapa Menit.')
+      })
+    e.preventDefault()
   }
-
-  // _handleClickFasilitas = () => {
-  //   if (this.scrollFasilitas.current) {
-  //     window.scrollTo({top: this.scrollFasilitas.current.offsetTop, behavior: "smooth"})
-  //     // $('html, body').animate({scrollTop: this.scrollFasilitas.current.offsetTop}, 2000)
-  //   }
-  // }
-
-  // _handleClickDenahUnit = () => {
-  //   if (this.scrollDenahUnit.current) {
-  //     window.scrollTo({top: this.scrollDenahUnit.current.offsetTop, behavior: "smooth"})
-  //   }
-  //   // this.scrollDenahUnit.current && $('html, body').animate({scrollTop: this.scrollDenahUnit.current.offsetTop}, 2000)
-  // }
-
-  // _handleClickLokasi = () => {
-  //   // alert("clicked")
-  //   if (this.scrollMap.current) {
-  //     window.scrollTo({top: this.scrollMap.current.offsetTop, behavior: "smooth"})
-  //   }
-  //   // this.scrollLokasi.current && $('html, body').animate({scrollTop: this.scrollLokasi.current.offsetTop}, 2000)
-  // }
-
-  // _handleClickGaleri = () => {
-  //   if (this.scrollGaleri.current) {
-  //     window.scrollTo({top: this.scrollGaleri.current.offsetTop, behavior: "smooth"})
-  //   }
-  //   // this.scrollGaleri.current && $('html, body').animate({scrollTop: this.scrollGaleri.current.offsetTop}, 2000)
-  // }
 }

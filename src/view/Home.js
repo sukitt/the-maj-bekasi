@@ -22,36 +22,37 @@ import MobileContactUs from '../component/contact-us/MobileContactUs'
 import MobileMaps from '../component/map/mobile/Maps'
 
 import { OnDesktop, OnMobileAndTablet } from '../constants'
+import LoaderSpinnerData from '../component/base/loader/LoaderSpinnerData'
 
 class Home extends Base {
-  componentDidUpdate(prevProps) {
-    console.log(this.props.match && this.props.match.params)
-    if (this.props.match && this.props.match.params.args) {
-      const GoTo = this.props.match.params.args && this.props.match.params.args.replace("#", "")
-      switch (GoTo) {
-        case "fasilitas":
-          return window.scrollTo({top: this.scrollFasilitas.current.offsetTop-170, behavior: "smooth"})
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.match && this.props.match.params.args) {
+  //     const GoTo = this.props.match.params.args && this.props.match.params.args.replace("#", "")
+  //     switch (GoTo) {
+  //       case "fasilitas":
+  //         return window.scrollTo({top: this.scrollFasilitas.current.offsetTop-170, behavior: "smooth"})
         
-        case "denah-unit":
-          return window.scrollTo({top: this.scrollDenahUnit.current.offsetTop-30, behavior: "smooth"})
+  //       case "denah-unit":
+  //         return window.scrollTo({top: this.scrollDenahUnit.current.offsetTop-30, behavior: "smooth"})
 
-        case "lokasi":
-          return window.scrollTo({top: this.scrollMap.current.offsetTop-70, behavior: "smooth"})
+  //       case "lokasi":
+  //         return window.scrollTo({top: this.scrollMap.current.offsetTop-70, behavior: "smooth"})
         
-        case "galeri":
-          return window.scrollTo({top: this.scrollGaleri.current.offsetTop-100, behavior: "smooth"})
+  //       case "galeri":
+  //         return window.scrollTo({top: this.scrollGaleri.current.offsetTop-100, behavior: "smooth"})
   
-        default:
-          return null;
-      }
-    }
-  }
+  //       default:
+  //         return null;
+  //     }
+  //   }
+  // }
 
   render() {
     return (
       <div>
+        <LoaderSpinnerData show={this.state.sentLoading} />
         <OnDesktop>
-          <section>
+          {/* <section>
             <div className="container">
               <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
             </div>
@@ -95,7 +96,7 @@ class Home extends Base {
 
           <section>
             <Blogs store={this.state.blogs} />
-          </section>
+          </section> */}
 
           <section>
             <div className="container">
@@ -108,6 +109,7 @@ class Home extends Base {
                   teleponRef={this.contreftelepon}
                   emailRef={this.contrefemail}
                   catatanRef={this.contrefcatatan}
+                  validated={this.state.contact.validated}
                 />
               </div>
           </section>
@@ -115,7 +117,7 @@ class Home extends Base {
 
         {/* Mobile Table Responsive */}
         <OnMobileAndTablet>
-          <section>
+          {/* <section>
             <div className="w-100">  
               <MobileHeaderSlider store={this.state.sliders} />
             </div>
@@ -147,7 +149,7 @@ class Home extends Base {
 
           <section>
             <MobileBlogs store={this.state.blogs} />
-          </section>
+          </section> */}
 
           <section>
             <MobileContactUs 
@@ -159,6 +161,7 @@ class Home extends Base {
               teleponRef={this.contreftelepon}
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
+              validated={this.state.contact.validated}
             />
           </section>
         </OnMobileAndTablet>

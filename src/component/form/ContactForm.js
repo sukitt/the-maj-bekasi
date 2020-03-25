@@ -11,29 +11,32 @@ export default class ContactForm extends Component {
         this.state = {
             storeGelar: ["Gelar", "Bapak.", "Ibu."],
             storeUnit: ['Saya Ingin','Membeli Unit','Mendapatkan Info Lebih','Melihat Price List','Mengunduh E-Brosur'],
-            gelar: "Gelar",
-            nama: "",
-            unit: "Saya Ingin",
-            telepon: "",
-            email: "",
-            catatan: ""
+            gelar: null,
+            nama: null,
+            unit: null,
+            telepon: null,
+            email: null,
+            catatan: null,
         }
     }
-    
     render() {
         return (
             // add this to validation
-            // validated={this.props.validated}
-            <Form id="contactUs" onSubmit={this.props.onSubmit}>
+            <Form id="contactUs" onSubmit={this.props.onSubmit} validated={this.props.validated}>
+                
                 <Form.Row>
                     <Form.Group className="selectField" as={Col} sm="2" controlId="gelarField">
                         <Form.Label for="gelar">Gelar*</Form.Label>
                         <Form.Control 
                             id="gelar"
                             as="select" 
+                            required
                             value={this.state.gelar} 
                             ref={this.props.gelarRef} 
-                            onChange={(e) => this.setState({gelar: e.target.value})}>
+                            // isInvalid={this.state.gelar === null? false: this.state.gelar.length? false: true}
+                            onChange={(e) => this.setState({gelar: e.target.value})}
+                        >
+                            <option key={'empty'} value={''}></option>
                             {this.state.storeGelar && this.state.storeGelar.map((d, i) => (
                                 <option key={i+1} value={d} disabled={d === "Gelar"}>{d}</option>
                             ))}
@@ -46,32 +49,34 @@ export default class ContactForm extends Component {
                             ref={this.props.namaRef}
                             type='text'
                             value={this.state.nama} 
-                            onChange={(e) => this.setState({nama:e.target.value})} 
+                            onChange={(e) => this.setState({nama:e.target.value})}
+                            // isInvalid={this.state.nama === null? false: this.state.nama.length? false:true}
                             required
-                            // isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
+                            // defaultValue={this.state.defaultValueName}
                         />
-                        <Form.Control.Feedback type="invalid">
+                        {/* <Form.Control.Feedback type="invalid">
                             Harap Masukkan Nama Anda.
-                        </Form.Control.Feedback>
+                        </Form.Control.Feedback> */}
                     </Form.Group>
                     <Form.Group className="selectField" as={Col} sm="6" controlId="unitField">
                         <Form.Label for="unit">Saya Ingin*</Form.Label>
                         <Form.Control 
                             id="unit"
-                            as="select" 
-                            ref={this.props.unitRef} 
-                            onChange={(e) => this.setState({unit: e.target.value})}  
+                            as="select"
                             value={this.state.unit} 
+                            ref={this.props.unitRef} 
                             required
                             // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
+                            onChange={(e) => this.setState({unit: e.target.value})}
                         >
+                            <option key={'empty'} value={''}></option>
                             {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
                                 <option key={i+1} value={d} disabled={d === "Saya Ingin"}>{d}</option>
                             ))}
                         </Form.Control>
-                        <Form.Control.Feedback type="invalid">
+                        {/* <Form.Control.Feedback type="invalid">
                             Harap Pilih Salah Satu.
-                        </Form.Control.Feedback>
+                        </Form.Control.Feedback> */}
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
@@ -83,14 +88,15 @@ export default class ContactForm extends Component {
                             type="tel"
                             inputMode="tel"
                             pattern="[0-9]{10,}"
-                            value={this.state.telepon} 
-                            onChange={(e) => this.setState({telepon: e.target.value})}
+                            value={this.state.telepon}
                             required
-                            // isInvalid={this.state.telepon === null? false: this.state.telepon.length? false: true}
+                            // defaultValue={this.state.defaultValuePhone}
+                            onChange={(e) => this.setState({telepon: e.target.value})}
+                            // isInvalid={this.state.telepon === null? false: this.state.telepon.length?false:true}
                         />
-                        <Form.Control.Feedback type="invalid">
+                        {/* <Form.Control.Feedback type="invalid">
                             Please insert a Phone number. <br/> Format: (0-9)
-                        </Form.Control.Feedback>
+                        </Form.Control.Feedback> */}
                     </Form.Group>
                     <Form.Group as={Col} sm="6" controlId="emailField">
                         <Form.Label for="email">Alamat Email Anda*</Form.Label>
@@ -101,16 +107,17 @@ export default class ContactForm extends Component {
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
+                            // defaultValue={this.state.defaultValueEmail}
                             // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
-                        <Form.Control.Feedback type="invalid">
+                        {/* <Form.Control.Feedback type="invalid">
                             Please insert a valid Email Address
-                        </Form.Control.Feedback>
+                        </Form.Control.Feedback> */}
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as={Col} sm="12" controlId="catatanField">
-                        <Form.Label for="catatan">Catatan</Form.Label>
+                        <Form.Label for="catatan">Catatan (opsional)</Form.Label>
                         <Form.Control
                             id="catatan"
                             ref={this.props.catatanRef}

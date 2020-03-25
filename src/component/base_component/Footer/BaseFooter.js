@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { Form, Col } from 'react-bootstrap'
-import $ from 'jquery'
 
 export default class BaseFooter extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            storeTitle: ["Title","Bapak", "Ibu"],
-            title: "Title",
-            name: "",
-            email: "",
+            storeTitle: ["Gelar","Bapak", "Ibu"],
+            title: null,
+            name: null,
+            email: null,
         }
     }
     
@@ -18,7 +17,7 @@ export default class BaseFooter extends Component {
         return (
             // add this ti validate
             // validated={this.props.validated}
-            <Form onSubmit={this.props.onSubmit}>
+            <Form onSubmit={this.props.onSubmit} validated={this.props.validated}>
                 <Form.Row>
                     <Form.Group className="selectField" as={Col} xs="4">
                         <Form.Control 
@@ -27,15 +26,15 @@ export default class BaseFooter extends Component {
                             ref={this.props.titleRef}
                             value={this.state.title}
                             onChange={e => this.setState({title: e.target.value})}
-                            required={true}
-                            // isInvalid={this.state.title === null? false: this.state.title.length? false: true}
+                            required
+                            isInvalid={this.state.title === null? false: this.state.title.length? false: true}
                         >
                             {this.state.storeTitle && this.state.storeTitle.map((d, i) => (
-                                <option key={i+1} value={d} disabled={d === "Title"}>{d}</option>
+                                <option key={i+1} value={d} disabled={d === "Gelar"}>{d}</option>
                             ))}
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">
-                            Please choose a Title
+                            Mohon Pilih Salah Satu
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} xs="8">
@@ -45,12 +44,12 @@ export default class BaseFooter extends Component {
                             ref={this.props.nameRef}
                             value={this.state.name}
                             onChange={(e) => this.setState({name: e.target.value})}
-                            placeholder="Fullname"
-                            required={true}
-                            // isInvalid={this.state.name === null? false: this.state.name.length? false: true}
+                            placeholder="Nama Lengkap"
+                            required
+                            isInvalid={this.state.name === null? false: this.state.name.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a Name
+                            Harap Masukan Nama Lengkap Anda
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
@@ -59,15 +58,15 @@ export default class BaseFooter extends Component {
                         <Form.Control 
                             size={this.props.size}
                             type="email"
-                            placeholder='Email address'
+                            placeholder='Alamat Email'
                             ref={this.props.emailRef}
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}
-                            required={true}
-                            // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
+                            required
+                            isInvalid={this.state.email === null? false: this.state.email.length? false: true}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Please insert a valid Email Address
+                            Harap Masukkan Alamat Email yang Valid
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
