@@ -54,7 +54,7 @@ export class NavigationBar extends Component {
 
 						</Nav>
 						<Nav className="ml-auto">
-							<Link className="nav-link" to="/#contact-us">
+							<a className="nav-link" href="/#contact-us">
 								<ButtonS
 									bg={this.state.isTop ? "#fff" : "#12284C"}
 									padding={this.state.isTop ? "7px 21px 7px 21px" : "11px 35px 11px 35px"}
@@ -62,7 +62,7 @@ export class NavigationBar extends Component {
 								>
 									Hubungi Kami
 							</ButtonS>
-							</Link>
+							</a>
 						</Nav>
 					</Navbar.Collapse>
 				</div>

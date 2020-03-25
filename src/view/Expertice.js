@@ -1,5 +1,5 @@
 import React from 'react'
-import { ExperticeComponent } from '../component/base/expertice';
+import ExperticeComponent from '../component/base/expertice/Base';
 import Base from './Base';
 
 export default class Expertice extends Base {

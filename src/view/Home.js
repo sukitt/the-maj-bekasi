@@ -100,6 +100,7 @@ class Home extends Base {
           <section>
             <div className="container">
                 <ContactUs
+                  id="contact-us"
                   onSubmit={this._contactUs}
                   gelarRef={this.contrefgelar}
                   namaRef={this.contrefnama}
@@ -150,6 +151,7 @@ class Home extends Base {
 
           <section>
             <MobileContactUs 
+              id="contact-us"
               onSubmit={this._contactUs}
               gelarRef={this.contrefgelar}
               namaRef={this.contrefnama}
