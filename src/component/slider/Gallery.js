@@ -19,7 +19,7 @@ const NextArrow = (props) => {
     color: "#fff",
     textDecoration: "none",
     borderRadius: "50%",
-    right:"40%",
+    right:"37%",
     '&:hover': {
       background:"#cc9980",
       color: "#000"
@@ -61,7 +61,7 @@ const PrevArrow = (props) => {
     textDecoration: "none",
     zIndex:"1",
     borderRadius:"50%",
-    left:"40%",
+    left:"37%",
     '&:hover': {
       background:"#cc9980",
       color: "#000"
@@ -149,7 +149,7 @@ export class Gallery extends Component {
               return (
                 <>
                   <div style={{textAlign:"center"}}>
-                    <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px"}}>
+                    <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px", fontWeight:"bold"}}>
                       {item.nama? item.nama: " "}
                       {item.unit? " - " + item.unit.unit_name:" "}
                     </p>
