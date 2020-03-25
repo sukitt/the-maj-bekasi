@@ -35,7 +35,7 @@ export class NavigationBar extends Component {
 			<Navbar expand="lg" className={this.state.isTop ? "nav-fixed-top" : "nav-fixed-null"}>
 				<div className="container-2 p-0" >
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Navbar.Brand>
+						<Navbar.Brand style={{marginRight:"140px"}}>
 							<Link to="/" onClick={() => this.onClickScollTop}>
 								<img src={logo} alt="logo" style={{
 									maxWidth: this.state.isTop ? "90px" : "120px",

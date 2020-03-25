@@ -63,9 +63,9 @@ export class MobileGallery extends Component {
     // }
 
     return(
-        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px">
+        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px" padding="44px 0px">
             <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
-            <div id="mobileItemGallery" style={{padding:"44px 0px 44px 30px"}}>
+            <div id="mobileItemGallery" style={{padding:"0px 0px 0px 30px"}}>
                 <Slider
                     dots={false}
                     beforeChange={(indexActive) => this.setState({indexActive})}
@@ -82,22 +82,13 @@ export class MobileGallery extends Component {
                     {/* {Data && Data.map((item, i) => ( */}
                     {this.state.store.length && this.state.store.map((item, i) => (
                         <div>
-                            {/* <img 
-                                src={BaseUrl + '/storage/' + item.gambar}
-                                alt={item.nama + '-' + item.unit.unit_name} 
-                                style={{
-                                  width: "228.21px",
-                                  height: "228.21px",
-                                  margin: "0 8px"
-                                }}
-                            /> */}
                             <Background source={BaseUrl + '/storage/' + item.gambar_mobile} />
                         </div>
                     ))}
                 </Slider>
             </div>
 
-            <Content margin="55.79px 0 0 0">
+            <Content margin="51.79px 0 0 0">
               {this.state.store.length && this.state.store.map((item, i) => {
                 if (i === this.state.indexActive) {
                     return (
@@ -117,7 +108,7 @@ export class MobileGallery extends Component {
 const Container = styled.div(
   props => ({
     backgroundColor: "#12284C",
-    maxHeight:"500px",
+    height:"500px",
     padding: props.padding,
     margin: props.margin,
   })

@@ -106,6 +106,9 @@ export class Gallery extends Component {
       indexActive: 0,
     }
   }
+  returnNotNull(value){
+    return(value==null)?" ":value
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.store.length !== prevState.localStore.length) {
@@ -128,29 +131,36 @@ export class Gallery extends Component {
     };
 
     return(
-      <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
-        <H2>Galeri</H2>
-        <Slider {...settings}
-          afterChange={index => this.setState({indexActive:index})}
-        >
-          {this.state.localStore.length && this.state.localStore.map((item, i) => (
-            <div key={i} className="tes">
-                  <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama + '-' + item.unit.unit_name} />
-            </div>
-          ))}
-        </Slider>
-
-        {this.state.localStore.length && this.state.localStore.map((item, i) => {
-          if (i === this.state.indexActive) {
-            return (
-              <div style={{textAlign:"center"}}>
-                <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px"}}>{item.nama} - {item.unit.unit_name}</p>
-                <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF"}}> {i+1} | {this.state.localStore.length} </p>
+      <>
+        <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
+          <H2>Galeri</H2>
+          <Slider {...settings}
+            afterChange={index => this.setState({indexActive:index})}
+          >
+            {this.state.localStore.length && this.state.localStore.map((item, i) => (
+              <div key={i} className="tes">
+                    <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
               </div>
-            )
-          }
-        })}
-      </Container>
+            ))}
+          </Slider>
+
+          {this.state.localStore.length && this.state.localStore.map((item, i) => {
+            if (i === this.state.indexActive) {
+              return (
+                <>
+                  <div style={{textAlign:"center"}}>
+                    <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px"}}>
+                      {item.nama? item.nama: " "}
+                      {item.unit? " - " + item.unit.unit_name:" "}
+                    </p>
+                    <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF"}}> {i+1} | {this.state.localStore.length} </p>
+                  </div>
+                </>
+              )
+            }
+          })}
+        </Container>
+      </>
     )
   }
 }
