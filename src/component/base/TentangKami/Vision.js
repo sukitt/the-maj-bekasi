@@ -35,7 +35,7 @@ export const Vision = (props) => {
                                 <br />
                                 <br />
                                 <p>Gita Wirjawan</p>
-                                <b>The MAJ Group</b>
+                                <b>THE MAJ GROUP</b>
                             </div>
                         </Content>
                     </OnDesktop>
@@ -51,8 +51,8 @@ export const Vision = (props) => {
                                     <br />
                                     <br />
                                     <br />
-                                    <p>Gita Wirjawan</p>
-                                    <b>The MAJ Group</b>
+                                    <p>Takahiro Ando</p>
+                                    <b>LEOPALACE 21</b>
                                 </div>
                             </Content>
                         </div>

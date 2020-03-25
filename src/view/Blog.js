@@ -39,7 +39,7 @@ class Blog extends Base {
                                     </Col>
                                     <Col lg={12} sm={12} xs={12}>
                                         <img style={{width:"100%"}} src={`${BaseUrl}/storage/${image.replace(/\\/g, "/")}`} alt="img-blog" />
-                                        <DescImage width="auto">
+                                        <DescImage margin="15px 0px 0px 0px" width="auto">
                                             {img_desc}
                                         </DescImage>
                                     </Col> 

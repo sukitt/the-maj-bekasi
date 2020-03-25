@@ -27,7 +27,7 @@ export const MobileFooter = props => {
                 </JoinUs>
                 
                 <ExploreUs caps="Explore Our World" margin="48px 0 16px 0">
-                    <A padding="3px 0" display="block" href="#linkto">Contact Us</A>
+                    <A padding="3px 0" display="block" href="#contact-us">Contact Us</A>
                     <A padding="3px 0" display="block" href="#linkto">Ancora Capital Management</A>
                     <A padding="3px 0" display="block" href="#linkto">Media Center</A>
                     <A padding="3px 0" display="block" href="/privacy-policy">Privacy</A>

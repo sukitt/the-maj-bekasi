@@ -30,7 +30,7 @@ export const Footer = props => {
                 </Col>
                 <Col lg={3} style={{padding: "0", margin: "0"}}>
                     <ExploreUs caps="Explore Our World" margin="0">
-                    <A display="block" href="#linkto">Contact Us</A>
+                    <A display="block" href="#contact-us">Contact Us</A>
                     <A display="block" href="#linkto">Ancora Capital Management</A>
                     <A display="block" href="#linkto">Media Center</A>
                     <A display="block" href="/privacy-policy">Privacy</A>
