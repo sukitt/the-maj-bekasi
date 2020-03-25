@@ -150,7 +150,7 @@ export class Gallery extends Component {
                 <>
                   <div style={{textAlign:"center"}}>
                     <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px", fontWeight:"bold"}}>
-                      {item.nama? item.nama: " "}
+                      {item.nama}
                       {item.unit? " - " + item.unit.unit_name:" "}
                     </p>
                     <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF"}}> {i+1} | {this.state.localStore.length} </p>
