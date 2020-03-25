@@ -170,7 +170,8 @@ const Container = styled.div(
     background: "#12284C",
     margin: props.margin,
     padding: props.padding,
-    height:"942px",
+    minHeight:"924px",
+    height:"auto",
   })
 )
 
