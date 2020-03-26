@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
-import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 import nextIcon from '../../assets/next.svg'
+import LoaderSpinner from '../base/loader/LoaderSpinner'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -130,18 +130,29 @@ export class Gallery extends Component {
       prevArrow: <PrevArrow />
     };
 
+    if (this.state.isLoading) return <LoaderSpinner />
+
     return(
       <>
         <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
           <H2>Galeri</H2>
           <Slider {...settings}
-            afterChange={index => this.setState({indexActive:index})}
+            initialSlide={0}
+            afterChange={(id) => {
+              console.log((id))
+              this.setState({indexActive:id})
+            }}
           >
-            {this.state.localStore.length && this.state.localStore.map((item, i) => (
-              <div key={i} className="tes">
+            {this.state.localStore.length && this.state.localStore.map((item, i) => {
+              // if (i === this.state.indexActive) {
+                return (
+                <div key={i} className="tes">
                     <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
-              </div>
-            ))}
+                </div>
+                )
+              // }
+            }
+            )}
           </Slider>
 
           {this.state.localStore.length && this.state.localStore.map((item, i) => {
