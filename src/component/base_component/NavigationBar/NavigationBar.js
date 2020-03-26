@@ -59,7 +59,7 @@ export class NavigationBar extends Component {
 							<a className="nav-link" href="/#contact-us">
 								<ButtonS
 									bg={this.state.isTop ? "#fff" : "#12284C"}
-									padding={this.state.isTop ? "7px 21px 7px 21px" : "11px 35px 11px 35px"}
+									padding={this.state.isTop ? "7px 30px" : "8px 30px"}
 									color={this.state.isTop ? "#CC9980" : "#fff"}
 								>
 									Hubungi Kami
@@ -155,6 +155,8 @@ export class MobileNavigationBar extends Component {
 }
 
 const H5 = styled.h5`
+font-family: Gilroy Regular !important;
+font-weight: bold;
 font-size: 11px;
 color: ${props => props.color}
 `;
@@ -193,13 +195,13 @@ const SideNavCloseBtn = styled.a`
 
 const ButtonS = styled.button`
   background: ${props => props.bg};
-  font-family: 'Verlag Bold' !important;
+  font-family: Gilroy Regular !important;
   padding: ${props => props.padding};
   text-transform: uppercase;
   font-style: normal;
   font-weight: bold;
-  font-weight: 500;
-  font-size: 13px;
+  letter-spacing: 2px;
+  font-size: 12px;
   line-height: 18px;
   color: ${props => props.color};
 `;
