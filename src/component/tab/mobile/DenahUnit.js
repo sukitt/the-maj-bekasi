@@ -127,7 +127,7 @@ export class DenahUnit extends Base {
                                     </ul>
                                 </div>
 
-                                <div title="REVIEW" style={{ margin: "77px 0" }}>
+                                <div title="PREVIEW" style={{ margin: "77px 0" }}>
                                     <MobileReviewUnit storeReview={d.gallery} />
                                 </div>
                                 <div title="SIMULASI" style={{ margin: "77px 0" }}>

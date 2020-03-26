@@ -28,7 +28,7 @@ class Blogs extends Component {
     render() {
         return (
             <Container id="blogs" margin="105px 0 0 0"  flexDirection="column">
-                <H1 margin="50px auto">Lates News</H1>
+                <H1 margin="50px auto">Update Terbaru</H1>
                 <Row style={{marginTop: "48px"}}>
                     {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
                         

@@ -24,8 +24,8 @@ export const Footer = props => {
                 </Col>
                 <Col lg={2}>
                     <JoinUs caps="Join Our Family" margin="0">
-                        <A display="block" href="#linkto"> Carrers </A>
-                        <A display="block" href="#linkto"> Inverstor </A>
+                        <A display="block" href="#linkto"> Careers </A>
+                        <A display="block" href="#linkto"> Investors </A>
                     </JoinUs>
                 </Col>
                 <Col lg={3} style={{padding: "0", margin: "0"}}>
