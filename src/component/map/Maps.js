@@ -137,7 +137,9 @@ class Maps extends Component {
 
     if(this.state.isLoading){
       return(
-        <LoaderSpinner />
+        <div id={this.props.id}>
+					<LoaderSpinner />
+				</div>
       )
     }
 
