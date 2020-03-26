@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
 import { BaseUrl } from '../../../services/axios'
 import { layoutGenerator } from 'react-break';
+import LoaderSpinner from '../loader/LoaderSpinner';
 
 const layout = layoutGenerator({
     mobile: 0,
@@ -13,40 +14,54 @@ const layout = layoutGenerator({
 const OnMobileAndTablet = layout.isAtMost('tablet');
 const OnDesktop = layout.is('desktop');
 
-export const ExperticeComponent = (props) => {
-    const { store, errors } = props
-    if (errors && Object.keys(errors).length) {
+export default class ExperticeComponent extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          localStore: [],
+          isLoading: true,
+        }
+      }
+    
+      static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.store.length !== prevState.localStore.length) {
+          return {
+            localStore: nextProps.store,
+            isLoading: false
+          }
+        }
+      }
+
+    render() {
+        if(this.state.isLoading){
+            return(
+              <LoaderSpinner />
+            )
+          }
         return (
-            <div>
-                <h4>Errors in Expertice Section</h4>
-                <p>{errors.code}</p>
-                <p>{errors.status}</p>
-            </div>
+            <>
+                {this.state.localStore.length && this.state.localStore.map((data, i) => (
+                    <>
+                        <OnDesktop>
+                            <BaseComponents key={i}
+                                reverse={i % 2 ? true : false}
+                                logo={BaseUrl + '/storage/' + data.logo}
+                                description={data.description}
+                                source={BaseUrl + '/storage/' + data.images.replace(/\\/g, "/")}
+                            />
+                        </OnDesktop>
+                        <OnMobileAndTablet>
+                            <BaseComponentsMobile key={i}
+                                logo={BaseUrl + '/storage/' + data.logo}
+                                description={data.description}
+                                source={BaseUrl + '/storage/' + data.images.replace(/\\/g, "/")}
+                            />
+                        </OnMobileAndTablet>
+                    </>
+                ))}
+            </>
         )
     }
-    return (
-        <>
-            {store && store.map((data, i) => (
-                <>  
-                    <OnDesktop>
-                        <BaseComponents key={i}
-                            reverse={i % 2 ? true : false}
-                            logo={BaseUrl + '/storage/' + data.logo}
-                            description={data.description}
-                            source={BaseUrl + '/storage/' + data.images.replace(/\\/g, "/")}
-                        />
-                    </OnDesktop>
-                    <OnMobileAndTablet>
-                        <BaseComponentsMobile key={i}
-                            logo={BaseUrl + '/storage/' + data.logo}
-                            description={data.description}
-                            source={BaseUrl + '/storage/' + data.images.replace(/\\/g, "/")}
-                        />
-                    </OnMobileAndTablet>
-                </>
-            ))}
-        </>
-    )
 }
 const BaseComponents = (props) => (
     <Container>
@@ -55,13 +70,13 @@ const BaseComponents = (props) => (
                 props.reverse ?
                     (
                         <>
-                            <SecondCol {...props}/>
-                            <FirstCol {...props}/>
+                            <SecondCol {...props} />
+                            <FirstCol {...props} />
                         </>
                     ) : (
                         <>
-                            <FirstCol {...props}/>
-                            <SecondCol {...props}/>
+                            <FirstCol {...props} />
+                            <SecondCol {...props} />
                         </>
                     )
 

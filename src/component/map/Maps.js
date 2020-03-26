@@ -15,6 +15,7 @@ import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
 import './assets/css/style.css'
 import styled from 'styled-components';
+import LoaderSpinner from '../base/loader/LoaderSpinner'
 
 const Content = styled(Col)`
   height: 60px;
@@ -56,6 +57,7 @@ class Maps extends Component {
       },
       zoom: 13,
       localStore: [],
+      isLoading: true,
     }
   }
 
@@ -63,6 +65,7 @@ class Maps extends Component {
     if (nextProps.store.length !== prevState.localStore.length) {
       return {
         localStore: nextProps.store,
+        isLoading: false
       }
     }
   }
@@ -131,6 +134,14 @@ class Maps extends Component {
         </Content>
       </>
     )
+
+    if(this.state.isLoading){
+      return(
+        <div id={this.props.id}>
+					<LoaderSpinner />
+				</div>
+      )
+    }
 
     return (
       <div ref={this.props.lokasiRef} id={this.props.id} class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>

@@ -16,11 +16,25 @@ const OnTablet = layout.is('tablet');
 
 const MobileContactUs = (props) => {
   return(
-    <Container>
+    <Container id={props.id}>
         <h1 className="text-center">Hubungi Kami</h1>
         <P margin="19px 16px 0 16px" height="72px">
             Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
         </P>   
+        {props.success?(
+            <>
+            <div className="bg-success text-center m-3 p-2 text-white">
+                <p style={{color:"white"}}>
+                    Terima kasih telah menghubungi kami.
+                </p> 
+                <p style={{color:"white"}}>
+                    Kami akan segera menghubungi anda kembali.
+                </p>
+            </div>
+            </>
+        ):(
+            <></>
+        )}
         
         <div style={{marginTop: "17px"}}>
             <MobileContactForm 

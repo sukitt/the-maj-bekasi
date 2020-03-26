@@ -1,3 +1,6 @@
+.nav-tabs{
+  border-bottom: none;
+}
 #table > .tab-content {
   background-color: #a19090;
 }

@@ -125,23 +125,27 @@ export class Gallery extends Component {
       centerMode: true,
       centerPadding: "250px", //see inside style.css
       slidesToShow: 1,
+      infinite: true,
       speed: 1500,
       nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
+      prevArrow: <PrevArrow />,
     };
 
-    if (this.state.isLoading) return <LoaderSpinner />
+    if(this.state.isLoading){
+      return(
+        <div id={this.props.id}>
+					<LoaderSpinner />
+				</div>
+      )
+    }
 
     return(
       <>
         <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
           <H2>Galeri</H2>
           <Slider {...settings}
-            initialSlide={0}
-            afterChange={(id) => {
-              console.log((id))
-              this.setState({indexActive:id})
-            }}
+            dots={false}
+            afterChange={(index) => this.setState({ indexActive: index })}
           >
             {this.state.localStore.length && this.state.localStore.map((item, i) => {
               // if (i === this.state.indexActive) {

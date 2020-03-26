@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const ContactUs = (props) =>{
     return (
         <>
-            <div id="contact-us" style={{
+            <div id={props.id} style={{
                 margin: "0px auto",
                 padding: "123px 0px",
                 display: 'flex',
@@ -29,7 +29,21 @@ const ContactUs = (props) =>{
                         textAlign: 'center'
                     }}>
                         Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
-                    </p>   
+                    </p>  
+                    {props.success?(
+                        <>
+                        <div className="bg-success text-center m-3 p-2 text-white">
+                            <p style={{color:"white"}}>
+                                Terima kasih telah menghubungi kami.
+                            </p> 
+                            <p style={{color:"white"}}>
+                                Kami akan segera menghubungi anda kembali.
+                            </p>
+                        </div>
+                        </>
+                    ):(
+                        <></>
+                    )}
                     
                     <div style={{marginTop: 61}}>
                         <ContactForm {...props} >

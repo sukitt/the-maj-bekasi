@@ -10,6 +10,7 @@ import TabSimulasi from './TabSimulasi'
 
 
 import './assets/style.css'
+import LoaderSpinner from '../base/loader/LoaderSpinner'
 
 class DenahUnit extends Component {
 	constructor(props) {
@@ -19,11 +20,28 @@ class DenahUnit extends Component {
 			cicilan: 0,
 			kredit: 0,
 			bunga: 0,
+			isLoading: true,
+			localStore: [],
 		}
 	}
 
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.store.length !== prevState.localStore.length) {
+		  return {
+			localStore: nextProps.store,
+			isLoading: false
+		  }
+		}
+	  }
+
 	render() {
-		const { store } = this.props
+		if(this.state.isLoading){
+			return(
+				<div id={this.props.id}>
+					<LoaderSpinner />
+				</div>
+			)
+		  }
 
 		return (
 			<>
@@ -31,49 +49,13 @@ class DenahUnit extends Component {
 					<div className="container-2">
 						<h5>Tipe Unit</h5>
 						<h1 style={{width: "323px"}}>Hunian Fleksibel Untuk Generasi 'Zaman Now'</h1>
-						{/* <Tabs>
-							{store && store.map((item, i) => (
-								<Tab
-									style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"640px" }}
-									key={item.id}
-									eventKey={item.unit_name.toLowerCase().replace(" ", "-")}
-									title={item.unit_name}>
-									<div id="spec">
-										<Tabs
-											defaultActiveKey={Object.keys(store[i])[5]}>
-											<Tab
-												eventKey={Object.keys(store[i])[5]}
-												title="SPESIFIKASI">
-												<TabSpesifikasi 
-													unitName={item.unit_name}
-													items={item.specs}
-													list={item.room_list}
-												/>
-											</Tab>
-											<Tab
-												eventKey={Object.keys(store[i])[6]}
-												title="PEVIEW UNIT">
-												<TabGallery images={item.gallery} />
-											</Tab>
-											<Tab
-												eventKey={Object.keys(store[i])[2]}
-												title="SIMULASI KPA">
-												<TabSimulasi 
-													hargaUnit={item.unit_price}
-												/>
-											</Tab>
-										</Tabs>
-									</div>
-								</Tab>
-							))}
-						</Tabs> */}
 					</div>
 					<Tabs
 						style={{ marginTop: 40 }}
 						defaultActiveKey="studio-a"
 						id="table">
 
-						{store && store.map((item, i) => (
+						{this.state.localStore.length && this.state.localStore.map((item, i) => (
 							<Tab
 								style={{ padding: "43px 60px", backgroundColor: "#e9e9e9", minHeight:"680px" }}
 								key={item.id}
@@ -81,9 +63,9 @@ class DenahUnit extends Component {
 								title={item.unit_name}>
 								<div id="spec">
 									<Tabs
-										defaultActiveKey={Object.keys(store[i])[5]}>
+										defaultActiveKey={Object.keys(this.state.localStore[i])[5]}>
 										<Tab
-											eventKey={Object.keys(store[i])[5]}
+											eventKey={Object.keys(this.state.localStore[i])[5]}
 											title="SPESIFIKASI">
 											<TabSpesifikasi 
 												unitName={item.unit_name}
@@ -92,12 +74,12 @@ class DenahUnit extends Component {
 											/>
 										</Tab>
 										<Tab
-											eventKey={Object.keys(store[i])[6]}
+											eventKey={Object.keys(this.state.localStore[i])[6]}
 											title="REVIEW UNIT">
 											<TabGallery images={item.gallery} />
 										</Tab>
 										<Tab
-											eventKey={Object.keys(store[i])[2]}
+											eventKey={Object.keys(this.state.localStore[i])[2]}
 											title="SIMULASI KPA">
 											<TabSimulasi 
 												hargaUnit={item.unit_price}
