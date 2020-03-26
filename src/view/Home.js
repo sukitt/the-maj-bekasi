@@ -110,6 +110,7 @@ class Home extends Base {
                   emailRef={this.contrefemail}
                   catatanRef={this.contrefcatatan}
                   validated={this.state.contact.validated}
+                  success={this.state.contact.success}
                 />
               </div>
           </section>
@@ -162,6 +163,7 @@ class Home extends Base {
               emailRef={this.contrefemail}
               catatanRef={this.contrefcatatan}
               validated={this.state.contact.validated}
+              success={this.state.contact.success}
             />
           </section>
         </OnMobileAndTablet>

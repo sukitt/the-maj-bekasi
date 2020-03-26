@@ -35,6 +35,17 @@ export const MobileFooter = props => {
                 </ExploreUs>
 
                 <SubscribeUs caps="Sign up for Exclusive news & Offers" margin="48px 0 0 0">
+                {props.success?(
+                            <>
+                            <div className="bg-success text-center m-3 p-2 text-white">
+                                <p style={{color:"white"}}>
+                                    Terima kasih atas langganan anda.
+                                </p>
+                            </div>
+                            </>
+                        ):(
+                            <></>
+                        )}
                     <D margin="26px 27px 0 0">
                         <BaseFooter size="lg" {...props}>
                             <B type="submit">Subcribe</B>

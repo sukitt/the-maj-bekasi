@@ -39,6 +39,17 @@ export const Footer = props => {
                 </Col>
                 <Col lg={4}>
                     <SubscribeUs caps="Subscribe For Exclusive News & Offers">
+                        {props.success?(
+                            <>
+                            <div className="bg-success text-center m-3 p-2 text-white">
+                                <p style={{color:"white"}}>
+                                    Terima kasih atas langganan anda.
+                                </p>
+                            </div>
+                            </>
+                        ):(
+                            <></>
+                        )}
                         <D>
                             <BaseFooter {...props}>
                                 <B type="submit">Subcribe</B>

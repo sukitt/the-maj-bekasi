@@ -32,11 +32,13 @@ export default class Base extends Component {
       contact: {
         validated: true,
         data: {},
+        success:false,
       },
       sentLoading:false,
       footer: {
         validated: false,
-        data: {}
+        data: {},
+        success:false,
       }
     }
     this.contrefgelar = createRef()
@@ -180,16 +182,17 @@ export default class Base extends Component {
       .then((res)=>{
         this.setState({
             sentLoading:false,
+            contact:{
+              success:true,
+            }
         })
-        alert('Terima Kasih, Kami Akan Segera Membalas Pesan Anda.')
       })
       .catch((err) => {
         this.setState({
           sentLoading:false,
         })
-        alert('Maaf Terjadi Kesalahan Saat Menerima Data, Mohon Coba Lagi Dalam Beberapa Menit.')
       })
-      window.location.reload()
+      setTimeout(function(){ window.location.reload(); }, 5000);
     e.preventDefault()
 
   }
@@ -203,7 +206,7 @@ export default class Base extends Component {
     }
 
     const data = {
-      title: this.footreftitle.current.value,
+      gelar: this.footreftitle.current.value,
       name: this.footrefname.current.value,
       email: this.footrefemail.current.value
     }
@@ -219,15 +222,18 @@ export default class Base extends Component {
       .then((res)=>{
         this.setState({
             sentLoading:false,
+            footer:{
+              success:true,
+            }
         })
-        alert('Terima Kasih, Silahkan Periksa Email Anda Untuk Berita Terbaru.')
       })
       .catch((err) => {
         this.setState({
           sentLoading:false,
         })
-        alert('Maaf Terjadi Kesalahan Saat Menerima Data, Mohon Coba Lagi Dalam Beberapa Menit.')
+        window.alert(JSON.stringify(err.response))
       })
+      setTimeout(function(){ window.location.reload(); }, 5000);
     e.preventDefault()
   }
 }
