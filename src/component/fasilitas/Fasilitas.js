@@ -13,8 +13,8 @@ import Img9 from '../../assets/fasilitas/9.svg'
 import Img10 from '../../assets/fasilitas/10.svg'
 import Img11 from '../../assets/fasilitas/11.svg'
 import Img12 from '../../assets/fasilitas/12.svg'
-import Img13 from '../../assets/fasilitas/13.svg'
 import Img14 from '../../assets/fasilitas/14.svg'
+import Img13 from '../../assets/fasilitas/13.svg'
 import Img15 from '../../assets/fasilitas/15.svg'
 
 

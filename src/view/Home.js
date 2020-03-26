@@ -126,7 +126,7 @@ class Home extends Base {
 
           <section>
             <div className="container">
-              <MobileFasilitas id="fasilitas" fasilitasRef={this.scrollFasilitas} />
+              {/* <MobileFasilitas id="fasilitas" fasilitasRef={this.scrollFasilitas} /> */}
             </div>
           </section>
 
