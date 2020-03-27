@@ -15,9 +15,14 @@ export const SliderPlaceholder = props => {
     )
 }
 
+SliderPlaceholder.defaultProps = {
+    color: "#CC9980",
+}
+
 SliderPlaceholder.propTypes = {
     src: PropTypes.string.isRequired,
     opacity: PropTypes.string,
+    color: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
     onClick: PropTypes.func,

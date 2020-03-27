@@ -14,8 +14,9 @@ import Marker from './Marker'
 import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 
 import './assets/css/style.css'
+import GmapsPlaceholder from './assets/gmaps-placeholder.svg'
 import styled from 'styled-components';
-import LoaderSpinner from '../base/loader/LoaderSpinner'
+import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
 const Content = styled(Col)`
   height: 60px;
@@ -134,12 +135,21 @@ class Maps extends Component {
         </Content>
       </>
     )
+    
+    if (this.state.isLoading) {
+      return (
+        <div ref={this.props.lokasiRef} id={this.props.id} class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>
+          <h5>Lokasi</h5>
+          <h1 style={{ width: "415px" }}>Kenyamanan Dan Kemudahan Menantimu Di 'Planet' Bekasi.</h1>
 
-    if(this.state.isLoading){
-      return(
-        <div id={this.props.id}>
-					<LoaderSpinner />
-				</div>
+          <Tabs className="gmaps" style={{
+            marginTop: "35px",
+          }}>
+            <Tab title="Loading..." eventKey="loading">
+              <SliderPlaceholder src={GmapsPlaceholder} color="#CC9980" width="980px" height="500px" opacity="0.8" />
+            </Tab>
+          </Tabs>
+        </div>
       )
     }
 
@@ -151,10 +161,10 @@ class Maps extends Component {
         <Tabs defaultActiveKey="1" className="gmaps" style={{
           marginTop: "35px",
         }}>
-          {localStore.length && localStore.map((item, i) => (
+
+        {localStore.length && localStore.map((item, i) => (
             <Tab eventKey={item.id} title={item.name} key={i} >
               <div style={{ height: "500px", width: "100%" }}>
-
                 <Gmaps
                   center={this.state.center}
                   zoom={this.state.zoom}
@@ -172,7 +182,9 @@ class Maps extends Component {
                 </Row>
               </div>
             </Tab>
-          ))}
+          ))
+        }
+
         </Tabs>
       </div>
     )
