@@ -56,15 +56,15 @@ class MobileFasilitas extends Component {
 			<D id={this.props.id} ref={this.props.fasilitasRef}>
 				<h5>fasilitas</h5>
 				<h1>Untuk Work-Life Balance Yang Lebih Baik</h1>
-				<Row style={{ marginTop: 50 }} className={this.state.expanded ? "h-show" : "h-hide"}>
+				<Row style={{ marginTop: 50 }} className={this.state.expanded ? "h-show mx-0" : "h-hide mx-0"}>
 					{this.state.Data.slice(0, 4).map((d, i) => {
 						return (
 							<Col xs="6" style={{ marginBottom: 24 }} key={d.id}>
 								<Row key={d.id}>
-									<Content xs={4}>
+									<Content className="my-auto" xs={4}>
 										<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 									</Content>
-									<Caption xs><span>{d.caption}</span></Caption>
+									<Caption className="pr-1" xs><span>{d.caption}</span></Caption>
 								</Row>
 							</Col>
 						)
@@ -74,10 +74,10 @@ class MobileFasilitas extends Component {
 						return (
 							<Col xs="6" style={{ marginBottom: 24 }} className={this.state.expanded ? "show" : "hide"} key={d.id}>
 								<Row >
-									<Content xs={4}>
+									<Content className="my-auto" xs={4}>
 										<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 									</Content>
-									<Caption xs><span>{d.caption}</span></Caption>
+									<Caption className="pr-1" xs><span>{d.caption}</span></Caption>
 								</Row>
 							</Col>
 						)

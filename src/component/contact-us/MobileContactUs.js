@@ -18,7 +18,7 @@ const MobileContactUs = (props) => {
   return(
     <Container id={props.id}>
         <h1 className="text-center">Hubungi Kami</h1>
-        <P margin="19px 16px 60px 16px" height="72px">
+        <P margin="19px auto 19px auto" height="auto" style={{maxWidth:"310px"}}>
             Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
         </P>   
         {props.success?(
@@ -121,7 +121,7 @@ const Container = styled.div(
 const P = styled.p(
     props => ({
         fontStyle: 'normal',
-        fontSize: "13px",
+        fontSize: "14px",
         fontWeight: 'normal',
         width: props.width,
         height: props.height,
@@ -129,7 +129,7 @@ const P = styled.p(
         padding: props.padding,
         textAlign: 'center',
         color: '#000000',
-        lineHeight: "18px",
+        lineHeight: "21px",
         textAlign: "center"
 }))
 

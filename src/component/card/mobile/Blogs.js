@@ -27,8 +27,8 @@ class MobileBlogs extends Component {
     
     render() {
         return (
-            <Container id="blogs" margin="100px 0 0 0">
-                <h1>Update Terbaru</h1>
+            <Container id="blogs" className="container" margin="100px 0 0 0">
+                <h1 className="text-center">Update Terbaru</h1>
                 {this.props.store.length && this.props.store.map((data, i) => {
                     let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                     return (
@@ -59,7 +59,7 @@ const Blog = (props) => {
         <Container margin="50px auto" padding="0" >
             <BlogPlaceholder {...props} width="100%" height="350px" color="#CC9980" text="350x350" />
             {/* <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" /> */}
-            <Body margin="17px 0 0 0" className="container">
+            <Body margin="17px 0 0 0">
                 <Link {...props}>
                     <H2>{heading}</H2>
                 </Link>
@@ -71,9 +71,6 @@ const Blog = (props) => {
 
 const Container = styled.div(
     props => ({
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
         margin: props.margin,
         padding: props.padding,
     })

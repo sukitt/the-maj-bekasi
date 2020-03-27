@@ -104,8 +104,8 @@ export default class Maps extends Component {
                     <div style={{marginBottom:"13px"}}>
                       {item.marker.slice(0,4).map((est, e) => {
                         return(
-                          <Col className="d-flex my-3" style={{marginLeft:"5%", marginRight:"5%", padding:""}}>
-                            <img style={{width:"15px", height:"15px", margin:"auto 10px"}} src={setIcon(est.icon)} alt="location icon" />
+                          <Col className="d-flex my-3 p-0" style={{ padding:""}}>
+                            <img style={{width:"15px", height:"15px", margin:"auto 10px auto 0px"}} src={setIcon(est.icon)} alt="location icon" />
                             <Caps2 style={{padding:"5px 0px", margin:0}}>
                               <b style={{color:"#cc9980"}}>± {est.estimasi} Menit </b> Ke {est.name}
                             </Caps2>
