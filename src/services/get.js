@@ -79,3 +79,11 @@ export const getPrivacyPolicy = () => (
             .catch((err) => reject(err))
     ))
 )
+
+export const getSocialMedia = () => (
+    new Promise((resolve, reject) => (
+        Instance.get('/bekasi-social-media')
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    ))
+)

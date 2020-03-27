@@ -8,7 +8,7 @@ import Img2 from '../../assets/footer-image/partof.svg'
 import Instagram from '../../assets/footer-image/brand/instagram.svg'
 import Faceook from '../../assets/footer-image/brand/facebook.svg'
 import Twitter from '../../assets/footer-image/brand/twitter.svg'
-import Youtube from '../../assets/footer-image/brand/Youtube.svg'
+// import Youtube from '../../assets/footer-image/brand/Youtube.svg'
 
 
 export const Footer = props => {
@@ -19,9 +19,11 @@ export const Footer = props => {
                     <Col lg={3}>
                         <img style={{width: '193px'}} src={Img1} alt="logo2" />
                         <SocialMedia margin="25px 0">
-                            <A href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" target="_blank">
-                                <Icon src={Inst} alt={} />
-                            </A>
+                            {props.store.map((data, i) => (
+                                <A key={i} href={data.link} target="_blank">
+                                <Icon size="25px" fill="#fff" className={`fab fa-${data.icon}`} />
+                            </A>   
+                            ))}
                         </SocialMedia>
                     </Col>
                     <Col lg={2}>
@@ -168,8 +170,12 @@ const SocialMedia = styled.div(
     })
 )
 
-const Icon = styled.img.attrs(props => ({
-    src: props.icon,
-    // width: "8%",
-    alt: props.name
-}))``
+const Icon = styled.i(
+    props => ({
+        fontSize: props.size,
+        color: props.fill,
+        "&:hover":{
+            color: "#cc9980"
+        }
+    })
+)
