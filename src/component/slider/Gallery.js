@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
+import GaleriGambarLoading from './assets/galeri-placeholder.svg'
 import nextIcon from '../../assets/next.svg'
 import LoaderSpinner from '../base/loader/LoaderSpinner'
+import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -131,11 +133,30 @@ export class Gallery extends Component {
       prevArrow: <PrevArrow />,
     };
 
-    if(this.state.isLoading){
+    if (this.state.isLoading) {
+      let GaleriLoading = (args) => { let arry=new Array(); for (let i=0;i<args;i++) {arry.push({id: i, gambar: GaleriGambarLoading, nama: "loading"})}; return arry}
       return(
-        <div id={this.props.id}>
-					<LoaderSpinner />
-				</div>
+        <Container id={this.props.id} ref={this.props.galeriRef} padding="36px 0px 34px 0px" margin="227px auto">
+          <H2>Galeri</H2>
+          <Slider {...settings}
+            dots={false}
+            afterChange={(index) => this.setState({ indexActive: index })}
+          >
+            {GaleriLoading(3).map((item, i) => {
+              return (
+                <div key={i}>
+                    <SliderPlaceholder src={item.gambar} width="759.24px" height="531.46px" color="#CC9980" opacity=".6" alt={item.nama} />
+                </div>
+              )
+            }
+            )}
+          </Slider>
+          <div style={{textAlign:"center"}}>
+            <p style={{fontSize: "14px", lineHeight: "16px", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "30px", fontWeight:"bold"}}>
+              Loading
+            </p>
+          </div>
+        </Container>
       )
     }
 
@@ -148,13 +169,11 @@ export class Gallery extends Component {
             afterChange={(index) => this.setState({ indexActive: index })}
           >
             {this.state.localStore.length && this.state.localStore.map((item, i) => {
-              // if (i === this.state.indexActive) {
-                return (
+              return (
                 <div key={i} className="tes">
                     <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
                 </div>
-                )
-              // }
+              )
             }
             )}
           </Slider>
