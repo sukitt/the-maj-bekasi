@@ -38,7 +38,7 @@ class LogoSlider extends Component {
       slidesToScroll: 1
     };
 
-    if (this.state.isLoading) {
+    if (!this.state.localStore.length) {
       const LogoLoading = (args) => {let arry=new Array();for (let i=0;i<args;i++) {arry.push({id: i, image: LogoGambarPlaceholder})};return arry}
       return (
         <div style={{margin:"150px 0px",height:"260px", display: "flex", flexDirection: "column"}}>
