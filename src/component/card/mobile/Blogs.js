@@ -57,9 +57,9 @@ const Blog = (props) => {
     const { image, heading, posted_at} = props
     return (
         <Container margin="50px auto" padding="0" >
-            <BlogPlaceholder {...props} width="350px" height="350px" color="#CC9980" text="350x350" />
+            <BlogPlaceholder {...props} width="100%" height="350px" color="#CC9980" text="350x350" />
             {/* <img src={`${BaseUrl}/storage/${image}`} width="350px" height="350px" alt="blog-post" /> */}
-            <Body margin="17px 0 0 0">
+            <Body margin="17px 0 0 0" className="container">
                 <Link {...props}>
                     <H2>{heading}</H2>
                 </Link>
@@ -81,7 +81,7 @@ const Container = styled.div(
 
 const Body = styled.div(
     props => ({
-        width: "350px",
+        maxWidth: "350px",
         margin: props.margin,
         padding: props.padding,
     })

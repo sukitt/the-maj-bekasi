@@ -10,13 +10,14 @@ import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 export const MobileFooter = props => {
     return (
-        <div style={{ height: "1033px", padding: "50px 0 34px 34px", backgroundColor: "#232323" }}>
+        <>
+        <div style={{ height: "auto", padding: "50px 0 34px 34px", backgroundColor: "#232323" }}>
             <D>
                 <img style={{ width: '150px', height: "auto" }} src={Img1} alt="logo2" />
                 <SocialMedia margin="24px 0 0 0">
                     {props.store.map((data, i) => (
                         <A key={i} href={data.link} target="_blank">
-                            <Icon size="25px" fill="#fff" className={`fab fa-${data.icon}`} />
+                            <Icon size="18px" fill="#fff" className={`fab fa-${data.icon} mr-2`} />
                         </A>
                     ))}
                 </SocialMedia>
@@ -53,13 +54,14 @@ export const MobileFooter = props => {
                             <B type="submit">Subcribe</B>
                         </BaseFooter>
                     </D>
-                    <P margin="13px 28px 50px 0">
+                    <P margin="15px 28px 15px 0">
                         By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                     </P>
-                    <P>Copyright 2020 All right reserved</P>
                 </SubscribeUs>
             </D>
         </div>
+        <P className="text-center m-0" style={{backgroundColor: "#232323", padding:"10px 0px"}}>Copyright &copy; 2020 All right reserved</P>
+        </>
     )
 }
 

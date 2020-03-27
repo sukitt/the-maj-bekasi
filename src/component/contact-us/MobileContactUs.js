@@ -18,7 +18,7 @@ const MobileContactUs = (props) => {
   return(
     <Container id={props.id}>
         <h1 className="text-center">Hubungi Kami</h1>
-        <P margin="19px 16px 0 16px" height="72px">
+        <P margin="19px 16px 60px 16px" height="72px">
             Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
         </P>   
         {props.success?(
@@ -114,7 +114,7 @@ const Gelar = [
 
 const Container = styled.div(
     props => ({
-        margin: "97px 50px",
+        margin: "97px 35px",
     })
 )
 

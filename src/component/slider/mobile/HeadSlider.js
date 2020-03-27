@@ -73,7 +73,7 @@ export class HeadSlider extends Component {
     props => ({
       fontStyle: "normal",
       fontWeight: "bold",
-      width: "300px",
+      maxWidth: "300px",
       fontSize: "22px",
       lineHeight: "28px",
       color: "#FFFFFF",

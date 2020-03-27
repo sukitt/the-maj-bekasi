@@ -96,7 +96,7 @@ export default class Maps extends Component {
                         );
                       })}
                     </GoogleMapReact>
-                    <Col className="d-flex mx-auto" style={{maxWidth:250, marginTop:30}}>
+                    <Col className="d-flex mx-auto justify-content-center" style={{maxWidth:250, marginTop:30}}>
                       <button style={{backgroundColor:"transparent", color:"#000"}} onClick={this.next} ><i className="fas fa-caret-left fa-2x"></i></button>
                       <p style={{fontSize:13, textAlign:"center", textTransform:"uppercase", margin:"10px"}}>{item.name}</p>
                       <button style={{backgroundColor:"transparent", color:"#000"}} onClick={this.previous} ><i className="fas fa-caret-right fa-2x"></i></button>
