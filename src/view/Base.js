@@ -1,6 +1,6 @@
 import { Component, createRef } from 'react'
 import $ from 'jquery'
-import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice, getPrivacyPolicy } from '../services/get'
+import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocation, getAbouts, getBlogs, getExpertice, getPrivacyPolicy, getSocialMedia } from '../services/get'
 import {storeContact, storeSubscribe} from '../services/post'
 
 export default class Base extends Component {
@@ -17,6 +17,7 @@ export default class Base extends Component {
       abouts: [],
       expertice: [],
       privacyPolicy:[],
+      socialMedia:[],
       errors: {
         abouts: {},
         sliders: {},
@@ -28,6 +29,7 @@ export default class Base extends Component {
         location: {},
         expertice: {},
         privacyPolicy: {},
+        socialMedia: {},
       },
       contact: {
         validated: true,
@@ -140,8 +142,16 @@ export default class Base extends Component {
         if (err && err.response) this.setState({ errors: { privacyPolicy: { code: err.response.status, status: err.response.statusText } } })
       })
     )
+
+    const promiseSocialMedia = Promise.resolve(
+      getSocialMedia()
+      .then(res => this.setState({ socialMedia: res.data }))
+      .catch((err) => {
+        if (err && err.response) this.setState({ errors: { socialMedia: { code: err.response.status, status: err.response.statusText } } })
+      })
+    )
     
-    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert, promisePrivacyPolicy])
+    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert, promisePrivacyPolicy, promiseSocialMedia])
       .then(() => {
         // setTimeout(()=>{
         //   if (this.props.match && this.props.match.path === "/") {

@@ -10,22 +10,25 @@ import Twitt from '../../assets/footer-image/brand/twitter.svg'
 
 export const MobileFooter = props => {
     return (
-        <div style={{height: "1033px", padding: "50px 0 34px 34px", backgroundColor: "#232323"}}>
+        <>
+        <div style={{ height: "auto", padding: "50px 0 34px 34px", backgroundColor: "#232323" }}>
             <D>
-                <img style={{width: '150px', height: "auto"}} src={Img1} alt="logo2" />
+                <img style={{ width: '150px', height: "auto" }} src={Img1} alt="logo2" />
                 <SocialMedia margin="24px 0 0 0">
-                    <A margin="0 25px 0 0" href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" target="_blank"><Instagram /></A>
-                    <A margin="0 25px 0 0" href="https://facebook.com/themajbekasi" target="_blank"><Facebook /></A>
-                    <A margin="0 25px 0 0" href="https://mobile.twitter.com/themajbekasi" target="_blank"><Twitter /></A>
+                    {props.store.map((data, i) => (
+                        <A key={i} href={data.link} target="_blank">
+                            <Icon size="18px" fill="#fff" className={`fab fa-${data.icon} mr-2`} />
+                        </A>
+                    ))}
                 </SocialMedia>
 
-                <img src={Img2} style={{width: '136.79px', marginTop: "41.89px"}} alt="Part of The Maj Group" />
+                <img src={Img2} style={{ width: '136.79px', marginTop: "41.89px" }} alt="Part of The Maj Group" />
 
                 <JoinUs caps="Join Our Family" margin="48.35px 0 0 0">
                     <A padding="3px 0" display="block" href="#linkto"> Carrers </A>
                     <A padding="3px 0" display="block" href="#linkto"> Inverstor </A>
                 </JoinUs>
-                
+
                 <ExploreUs caps="Explore Our World" margin="48px 0 16px 0">
                     <A padding="3px 0" display="block" href="#contact-us">Contact Us</A>
                     <A padding="3px 0" display="block" href="#linkto">Ancora Capital Management</A>
@@ -35,15 +38,15 @@ export const MobileFooter = props => {
                 </ExploreUs>
 
                 <SubscribeUs caps="Sign up for Exclusive news & Offers" margin="48px 0 0 0">
-                {props.success?(
-                            <>
+                    {props.success ? (
+                        <>
                             <div className="bg-success text-center m-3 p-2 text-white">
-                                <p style={{color:"white"}}>
+                                <p style={{ color: "white" }}>
                                     Terima kasih atas langganan anda.
                                 </p>
                             </div>
-                            </>
-                        ):(
+                        </>
+                    ) : (
                             <></>
                         )}
                     <D margin="26px 27px 0 0">
@@ -51,13 +54,14 @@ export const MobileFooter = props => {
                             <B type="submit">Subcribe</B>
                         </BaseFooter>
                     </D>
-                    <P margin="13px 28px 50px 0">
+                    <P margin="15px 28px 15px 0">
                         By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
                     </P>
-                    <P>Copyright 2020 All right reserved</P>
                 </SubscribeUs>
             </D>
         </div>
+        <P className="text-center m-0" style={{backgroundColor: "#232323", padding:"10px 0px"}}>Copyright &copy; 2020 All right reserved</P>
+        </>
     )
 }
 
@@ -83,7 +87,7 @@ const SubscribeUs = props => (
 )
 
 const P = styled.p(
-    props =>  ({
+    props => ({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: "13px",
@@ -100,9 +104,9 @@ const A = styled.a(
         padding: props.padding,
         margin: props.margin,
         display: props.display || "inline",
-        color:"#fff",
-        "&:hover":{
-            textDecoration:"none"
+        color: "#fff",
+        "&:hover": {
+            textDecoration: "none"
         }
     })
 )
@@ -113,7 +117,7 @@ const B = styled.button({
     backgroundColor: '#FEFEFE',
     borderColor: 'transparent',
     fontStyle: 'bold',
-    fontSize:  13,
+    fontSize: 13,
     textAlign: 'center',
     letterSpacing: 2,
     textTransform: 'uppercase',
@@ -125,22 +129,22 @@ const D = styled.div(
         padding: props.padding,
         margin: props.margin /* "315px 0 0" */,
         marginTop: props.marginTop,
-        backgroundColor:  props.backgroundColor
+        backgroundColor: props.backgroundColor
     })
 )
 
 const Caps = styled.h5(
     props => ({
-    padding: "0",
-    marginBottom: "16px",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "12px",
-    letterSpacing: props.letterSpacing,
-    lineHeight: '16px',
-    textTransform: "uppercase",
-    color: "#FFFFFF",
-}))
+        padding: "0",
+        marginBottom: "16px",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "12px",
+        letterSpacing: props.letterSpacing,
+        lineHeight: '16px',
+        textTransform: "uppercase",
+        color: "#FFFFFF",
+    }))
 
 const SocialMedia = styled.div(
     props => ({
@@ -152,20 +156,12 @@ const SocialMedia = styled.div(
     })
 )
 
-const Instagram = styled.img.attrs(props => ({
-    src: Inst,
-    width: "20px",
-    alt: "instagram"
-}))``
-
-const Twitter = styled.img.attrs(props =>({
-    src: Twitt,
-    width: "24px",
-    alt: "twitter"
-}))``
-
-const Facebook = styled.img.attrs(props => ({
-    src: Fb,
-    width: "24px",
-    alt: "facebook"
-}))``
+const Icon = styled.i(
+    props => ({
+        fontSize: props.size,
+        color: props.fill,
+        "&:hover": {
+            color: "#cc9980"
+        }
+    })
+)

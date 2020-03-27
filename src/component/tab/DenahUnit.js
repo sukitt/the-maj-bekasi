@@ -142,7 +142,7 @@ class DenahUnit extends Component {
 										</Tab>
 										<Tab
 											eventKey={Object.keys(this.state.localStore[i])[6]}
-											title="REVIEW UNIT">
+											title="PREVIEW UNIT">
 											<TabGallery images={item.gallery} />
 										</Tab>
 										<Tab

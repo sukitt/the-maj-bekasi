@@ -176,7 +176,7 @@ const SideNav = styled.div`
 
 const SideNavLink = styled.li`
   padding: 8px 8px 8px 32px;
-  margin-bottom: 45px;
+  margin-bottom: 22px;
   text-decoration: none;
   display: block;
   transition: 0.3s;

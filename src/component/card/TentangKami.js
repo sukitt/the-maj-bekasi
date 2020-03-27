@@ -13,7 +13,7 @@ class TentangKami extends Component {
                             The MAJ Residences Bekasi Barat adalah apartemen kualitas Jepang dengan harga yang sangat kompetitif.  Fasilitas yang beragam dan dirancang untuk memanjakan penghuni di antaranya: kolam renang ukuran olimpiade, tempat bersantai di puncak gedung (sky lounge), area kerja bersama (co-working space), lobby yang megah dan luas, pusat kebugaran dan halte khusus transportasi online.
                         </p>
                         <Col className="text-center" style={{marginTop: "55px"}}>
-                            <ButtonLink to="/tentang-kami">Read More</ButtonLink>
+                            <ButtonLink to="/tentang-kami">Lihat Lebih Lanjut</ButtonLink>
                         </Col>
                     </Card.Body>
                 </Card>

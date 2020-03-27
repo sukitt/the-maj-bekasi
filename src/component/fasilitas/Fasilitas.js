@@ -105,17 +105,17 @@ const Icon = styled.img`
 	height:40px;
 `;
 const Caption = styled(Col)`
-	margin-left:10px;
+	margin: auto auto auto 10px;
 	padding:0px;
 `;
-const Span = styled.span`
-	color: '#232323', 
-	text-transform: 'uppercase',
-	font-size: "11px",
-	font-weight:"bold",
-	line-height: "13px",
-	margin:auto;
-`;
+// const Span = styled.span`
+// 	color: '#232323', 
+// 	text-transform: 'uppercase',
+// 	font-size: "11px",
+// 	font-weight:"bold",
+// 	line-height: "13px",
+// 	margin:auto;
+// `;
 
 export default Fasilitas
 
