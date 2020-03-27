@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { BaseUrl } from '../../services/axios';
 import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
+import LogoGambarPlaceholder from './assets/logo-placeholder.svg'
 
 class LogoSlider extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class LogoSlider extends Component {
     if (nextProps.store !== prevState.localStore) {
       return {
         localStore: nextProps.store,
-        isLoading: false,
+        // isLoading: false,
       }
     }
     return null
@@ -34,38 +35,28 @@ class LogoSlider extends Component {
       speed: 1500,
       autoplay:true,
       autoplaySpeed:1500,
-      slidesToShow: 4,
       slidesToScroll: 1
     };
 
-    // if (this.state.isLoading) {
-    //   return (
-    //     <div style={{margin:"150px 0px",height:"260px"}}>
-    //       <Slider 
-    //         {...settings}
-    //         slidesToShow={4}
-    //         centerMode={true}
-    //         centerPadding={100}
-    //       >
-    //         <div>
-    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-    //         </div>
-    //         <div>
-    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-    //         </div>
-    //         <div>
-    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-    //         </div>
-    //         <div>
-    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-    //         </div>
-    //         <div>
-    //           <SliderPlaceholder color="#CC9980" width="200px" height="200px" text="Server Error 500" />
-    //         </div>
-    //       </Slider>
-    //     </div>
-    //   )
-    // }
+    if (this.state.isLoading) {
+      const LogoLoading = (args) => {let arry=new Array();for (let i=0;i<args;i++) {arry.push({id: i, image: LogoGambarPlaceholder})};return arry}
+      return (
+        <div style={{margin:"150px 0px",height:"260px", display: "flex", flexDirection: "column"}}>
+          <Slider 
+            slidesToShow={4}
+          >
+            {LogoLoading(4).map(data => (
+              <>
+                <div key={data.id} style={{display: "flex", justifyContent: "center"}}>
+                  <SliderPlaceholder src={LogoGambarPlaceholder} color="#CC9980" width="200px" height="200px" />
+                </div>
+              </>
+            ))}
+          </Slider>
+        </div>
+      )
+    }
+    
     return(
       <div style={{margin:"105px 0px",height:"260px"}}>
         <Slider 
