@@ -17,7 +17,7 @@ export const MobileFooter = props => {
                 <SocialMedia margin="24px 0 0 0">
                     {props.store.map((data, i) => (
                         <A key={i} href={data.link} target="_blank">
-                            <Icon size="18px" fill="#fff" className={`fab fa-${data.icon} mr-2`} />
+                            <Icon size="18px" fill="#fff" className={`fab fa-${data.icon} mr-4`} />
                         </A>
                     ))}
                 </SocialMedia>

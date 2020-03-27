@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Img1 from '../../../assets/fasilitas/zenGarden.svg'
 import Img2 from '../../../assets/fasilitas/2.svg'
@@ -19,7 +19,7 @@ import styled from 'styled-components'
 
 
 class MobileFasilitas extends Component {
-	constructor(props){
+	constructor(props) {
 		super(props)
 		this.state = {
 			expanded: false,
@@ -44,57 +44,53 @@ class MobileFasilitas extends Component {
 		}
 		this.showMore = this.showMore.bind(this);
 	}
-		showMore() {
-			this.state.Show? (
-				this.setState({ Show:false, expanded:false})
-			) : (
-				this.setState({ Show:true, expanded:true})
+	showMore() {
+		this.state.Show ? (
+			this.setState({ Show: false, expanded: false })
+		) : (
+				this.setState({ Show: true, expanded: true })
 			)
-		}
-	render(){
+	}
+	render() {
 		return (
-				<D id={this.props.id} ref={this.props.fasilitasRef}>
-					<h5>fasilitas</h5>
-					<h1>Untuk Work-Life Balance Yang Lebih Baik</h1>
-					<Row style={{marginTop:50}} className={this.state.expanded?"h-show":"h-hide"}>
-						{this.state.Data.slice(0, 4).map((d, i) => {
-							return (
-								<Col xs="6" style={{marginBottom:24}} key={d.id}>
-									<Row key={d.id}>
-										<Col xs="3">
-											<img src={d.img} style={{maxWidth: '40px', alignSelf:'center'}} alt={d.caption.replace(" ", "-")} />
-										</Col>
-										<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
-											<H5>{d.caption}</H5>
-										</Col>
-									</Row>
-								</Col>
-							)
-						})}
+			<D id={this.props.id} ref={this.props.fasilitasRef}>
+				<h5>fasilitas</h5>
+				<h1>Untuk Work-Life Balance Yang Lebih Baik</h1>
+				<Row style={{ marginTop: 50 }} className={this.state.expanded ? "h-show mx-0" : "h-hide mx-0"}>
+					{this.state.Data.slice(0, 4).map((d, i) => {
+						return (
+							<Col xs="6" style={{ marginBottom: 24 }} key={d.id}>
+								<Row key={d.id}>
+									<Content className="my-auto" xs={4}>
+										<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+									</Content>
+									<Caption className="pr-1" xs><span>{d.caption}</span></Caption>
+								</Row>
+							</Col>
+						)
+					})}
 
-						{this.state.Data.slice(5, this.state.Data.length).map((d, i) => {
-							return (
-								<Col xs="6" style={{marginBottom:24}} className={this.state.expanded?"show":"hide"} key={d.id}>
-										<Row >
-											<Col xs="3">
-												<img src={d.img} style={{maxWidth: '40px', alignSelf:'center'}} alt={d.caption.replace(" ", "-")} />
-											</Col>
-											<Col style={{margin:"auto 8px", paddingRight:"0px"}}>
-												<H5>{d.caption}</H5>
-											</Col>
-										</Row>
-								</Col>
-							)
-						})}
-					</Row>
-					<Button onClick={this.showMore}>
-						{this.state.expanded? (
-							<>View Less</>
-						) : (
-							<>View More</>
+					{this.state.Data.slice(5, this.state.Data.length).map((d, i) => {
+						return (
+							<Col xs="6" style={{ marginBottom: 24 }} className={this.state.expanded ? "show" : "hide"} key={d.id}>
+								<Row >
+									<Content className="my-auto" xs={4}>
+										<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
+									</Content>
+									<Caption className="pr-1" xs><span>{d.caption}</span></Caption>
+								</Row>
+							</Col>
+						)
+					})}
+				</Row>
+				<Button onClick={this.showMore}>
+					{this.state.expanded ? (
+						<>Lebih Sedikit</>
+					) : (
+							<>Lebih Banyak</>
 						)}
-					</Button>
-				</D>
+				</Button>
+			</D>
 		)
 	}
 }
@@ -131,7 +127,7 @@ const Button = styled.button`
 	box-sizing: border-box;
 	width:160px;
 	height:40px;
-	padding:11px 30px;
+	padding:11px;
 
 	font-style: normal;
 	font-weight: bold;
@@ -141,6 +137,18 @@ const Button = styled.button`
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	color: #CC9980;
+`;
+const Content = styled(Col)`
+	padding:0;
+	max-width:40px;
+`;
+const Icon = styled.img`
+	width:40px;
+	height:40px;
+`;
+const Caption = styled(Col)`
+	margin: auto auto auto 10px;
+	padding:0px;
 `;
 
 export default MobileFasilitas

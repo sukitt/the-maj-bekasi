@@ -22,13 +22,13 @@ export class MobileAboutSlider extends Component {
     render() {
         const { store } = this.props
         return (
-            <Container margin="51.87px 50px">
+            <Container className="container">
                 <h1 className="text-center">Visi Kami</h1>
-                <Content margin="37px 0px 34px 0px">
+                <Content margin="37px auto 34px auto">
                     {store && store.map((data, i) => {
                         return <P key={i} margin="30.79px 0 0 0">{data.tentang_kami}</P>
                     })}
-                    <A margin="15px 0 0 0" padding="3px 3px 10px 3px" to="/tentang-kami">Read More</A>
+                    <A margin="25px 0 0 0" padding="3px 3px 10px 3px" to="/tentang-kami">Lihat Lebih Lanjut</A>
                 </Content>
                 <Row>
                     <Col xs={4}>
@@ -55,18 +55,17 @@ export class MobileAboutSlider extends Component {
     }
 }
 
-const Container = styled.div(
-    props => ({
-        margin: props.margin,
-        padding: props.padding,
-    })
-)
+const Container = styled.div`
+    margin-top: 76px;
+    margin-bottom: 34px;
+`;
 
 const Content = styled.div(
     props => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        width:"300px",
         padding: props.padding,
         margin: props.margin,
     })
@@ -75,7 +74,7 @@ const Content = styled.div(
 const P = styled.p`
     margin-left:auto;
     margin-right:auto;
-    width:230px;
+    width:auto;
     font-family: Nunito Sans;
     font-style: normal;
     font-weight: normal;
