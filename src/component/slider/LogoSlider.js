@@ -20,7 +20,7 @@ class LogoSlider extends Component {
     if (nextProps.store !== prevState.localStore) {
       return {
         localStore: nextProps.store,
-        // isLoading: false,
+        isLoading: false,
       }
     }
     return null
