@@ -21,10 +21,10 @@ const ContactUs = (props) =>{
                 }}>
                     <H1>Hubungi Kami</H1>
                     <p style={{
-                        width: 598,
+                        width: "598px",
                         fontStyle: 'normal',
                         fontWeight: 'normal',
-                        fontSize: "16",
+                        fontSize: "16px",
                         color: '#000000',
                         textAlign: 'center'
                     }}>
@@ -83,7 +83,7 @@ const P = styled.p(
     color: '#000000',
     fontStyle: 'normal',
     fontWeighteight: 'normal',
-    fontSize: "13px",
+    fontSize: "16px",
     lineHeight: "18px",
     textAlign: 'center',
     margin: props.margin,
@@ -94,8 +94,10 @@ const P = styled.p(
 const A = styled.a({
     textDecoration: 'none',
     color:"#000",
+    transition: "color .3s",
     "&:hover":{
-        color:"#0366d6"
+        textDecoration: "none",
+        color:"#CC9980 !important"
     }
 })
 

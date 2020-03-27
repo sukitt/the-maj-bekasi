@@ -5,73 +5,76 @@ import styled from 'styled-components'
 import BaseFooter from './BaseFooter'
 import Img1 from '../../assets/footer-image/1.svg'
 import Img2 from '../../assets/footer-image/partof.svg'
-import Inst from '../../assets/footer-image/brand/instagram.svg'
-import Fb from '../../assets/footer-image/brand/facebook.svg'
-import Twitt from '../../assets/footer-image/brand/twitter.svg'
+import Instagram from '../../assets/footer-image/brand/instagram.svg'
+import Faceook from '../../assets/footer-image/brand/facebook.svg'
+import Twitter from '../../assets/footer-image/brand/twitter.svg'
+import Youtube from '../../assets/footer-image/brand/Youtube.svg'
 
 
 export const Footer = props => {
     return (
-        <D backgroundColor="#232323" padding="140px 150px 59px 150px">
-            <Row>
-                <Col lg={3}>
-                    <img style={{width: '193px'}} src={Img1} alt="logo2" />
-                    <SocialMedia margin="25px 0">
-                        <A href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" target="_blank"><Instagram /></A>
-                        <A href="https://facebook.com/themajbekasi" target="_blank"><Facebook /></A>
-                        <A href="https://mobile.twitter.com/themajbekasi" target="_blank"><Twitter /></A>
-                    </SocialMedia>
-                </Col>
-                <Col lg={2}>
-                    <JoinUs caps="Join Our Family" margin="0">
-                        <A display="block" href="#linkto"> Careers </A>
-                        <A display="block" href="#linkto"> Investors </A>
-                    </JoinUs>
-                </Col>
-                <Col lg={3} style={{padding: "0", margin: "0"}}>
-                    <ExploreUs caps="Explore Our World" margin="0">
-                    <A display="block" href="#contact-us">Contact Us</A>
-                    <A display="block" href="#linkto">Ancora Capital Management</A>
-                    <A display="block" href="#linkto">Media Center</A>
-                    <A display="block" href="/privacy-policy">Privacy</A>
-                    <A display="block" href="#linkto">Terms and Conditions</A>
-                    </ExploreUs>
-                </Col>
-                <Col lg={4}>
-                    <SubscribeUs caps="Subscribe For Exclusive News & Offers">
-                        {props.success?(
-                            <>
-                            <div className="bg-success text-center m-3 p-2 text-white">
-                                <p style={{color:"white"}}>
-                                    Terima kasih atas langganan anda.
-                                </p>
-                            </div>
-                            </>
-                        ):(
-                            <></>
-                        )}
-                        <D>
-                            <BaseFooter {...props}>
-                                <B type="submit">Subcribe</B>
-                            </BaseFooter>
-                        </D>
-                    </SubscribeUs>
-                </Col>
-            </Row>
-            <Row>
-                <Col lg={4}>
-                    <img src={Img2} style={{maxWidth: '150px'}} alt="Part of The Maj Group" />
-                </Col>
-                <Col lg={2}></Col>
-                <Col lg={2}></Col>
-                <Col lg={4}>
-                    <P>
-                        By entering your details you consent to be contacted via email by The MAJ Group with offers and 
-                        updates. To opt out, use the unsubscribe link or email themaj@mail.com.
-                    </P>
-                </Col>
-            </Row>
-            <P textAlign="center" margin="51px 0 0 0">Copyright 2020 All right reserved</P>
+        <D backgroundColor="#232323" padding="148px 100px 79px" display="flex" className="justify-content-center">
+            <div style={{maxWidth: "1110px"}}>
+                <Row>
+                    <Col lg={3}>
+                        <img style={{width: '193px'}} src={Img1} alt="logo2" />
+                        <SocialMedia margin="25px 0">
+                            <A href="https://instagram.com/themajbekasi?igshid=4qhtyng01dj0" target="_blank">
+                                <Icon src={Inst} alt={} />
+                            </A>
+                        </SocialMedia>
+                    </Col>
+                    <Col lg={2}>
+                        <JoinUs caps="Join Our Family" margin="0">
+                            <A display="block" href="#linkto"> Careers </A>
+                            <A display="block" href="#linkto"> Investor </A>
+                        </JoinUs>
+                    </Col>
+                    <Col lg={3} style={{padding: "0", margin: "0"}}>
+                        <ExploreUs caps="Explore Our World" margin="0">
+                        <A display="block" href="#contact-us">Contact Us</A>
+                        <A display="block" href="#linkto">Ancora Capital Management</A>
+                        <A display="block" href="#linkto">Media Center</A>
+                        <A display="block" href="/privacy-policy">Privacy</A>
+                        <A display="block" href="#linkto">Terms and Conditions</A>
+                        </ExploreUs>
+                    </Col>
+                    <Col lg={4}>
+                        <SubscribeUs caps="Subscribe For Exclusive News & Offers">
+                            {props.success?(
+                                <>
+                                <div className="bg-success text-center m-3 p-2 text-white">
+                                    <p style={{color:"white"}}>
+                                        Terima kasih atas langganan anda.
+                                    </p>
+                                </div>
+                                </>
+                            ):(
+                                <></>
+                            )}
+                            <D>
+                                <BaseFooter {...props}>
+                                    <B type="submit">subscribe</B>
+                                </BaseFooter>
+                            </D>
+                        </SubscribeUs>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col lg={4}>
+                        <img src={Img2} style={{maxWidth: '150px'}} alt="Part of The Maj Group" />
+                    </Col>
+                    <Col lg={2}></Col>
+                    <Col lg={2}></Col>
+                    <Col lg={4}>
+                        <P>
+                            By entering your details you consent to be contacted via email by The MAJ Group with offers and 
+                            updates. To opt out, use the unsubscribe link or email unsubscribe@themajgroup.com.
+                        </P>
+                    </Col>
+                </Row>
+                <P textAlign="center" margin="51px 0 0 0">Copyright {`\u00a9`}2020 All rights reserved</P>
+            </div>
         </D>
     )
 }
@@ -137,6 +140,7 @@ const B = styled.button({
 
 const D = styled.div(
     props => ({
+        display: props.display,
         padding: props.padding,
         margin: props.margin /* "315px 0 0" */,
         marginTop: props.marginTop,
@@ -164,20 +168,8 @@ const SocialMedia = styled.div(
     })
 )
 
-const Instagram = styled.img.attrs(props => ({
-    src: Inst,
+const Icon = styled.img.attrs(props => ({
+    src: props.icon,
     // width: "8%",
-    alt: "instagram"
-}))``
-
-const Twitter = styled.img.attrs(props =>({
-    src: Twitt,
-    // width: "10%",
-    alt: "twitter"
-}))``
-
-const Facebook = styled.img.attrs(props => ({
-    src: Fb,
-    // width: "10%",
-    alt: "facebook"
+    alt: props.name
 }))``

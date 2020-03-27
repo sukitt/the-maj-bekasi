@@ -32,32 +32,34 @@ export class NavigationBar extends Component {
 
 	render() {
 		return (
-			<Navbar expand="lg" className={this.state.isTop ? "nav-fixed-top" : "nav-fixed-null"}>
+			<Navbar expand="lg" className={`justify-content-between align-items-center ${this.state.isTop ? "nav-fixed-top" : "nav-fixed-null"}`}>
 				<div className="container-2 p-0" >
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Navbar.Brand style={{marginRight:"140px"}}>
+						<Navbar.Brand>
 							<Link to="/" onClick={() => this.onClickScollTop}>
 								<img src={logo} alt="logo" style={{
-									maxWidth: this.state.isTop ? "90px" : "120px",
+									maxWidth: this.state.isTop ? "120px" : "150px",
 									width: "100%",
 								}} />
 							</Link>
 						</Navbar.Brand>
-						<Nav className="mr-auto">
+						<Nav className="mx-auto">
 
 							{this.props.store.map(item => {
 								return (
-										<a href={item.link} className="nav-link"><H6 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H6></a>
+										<a style={{}} href={item.link} className="nav-link">
+											<H5 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H5>
+										</a>
 									)
 							}
 							)}
 
 						</Nav>
-						<Nav className="ml-auto">
+						<Nav style={{margin: "-5px 0 0 0", padding: "0"}}>
 							<a className="nav-link" href="/#contact-us">
 								<ButtonS
 									bg={this.state.isTop ? "#fff" : "#12284C"}
-									padding={this.state.isTop ? "7px 21px 7px 21px" : "11px 35px 11px 35px"}
+									padding={this.state.isTop ? "7px 30px" : "8px 30px"}
 									color={this.state.isTop ? "#CC9980" : "#fff"}
 								>
 									Hubungi Kami
@@ -152,7 +154,10 @@ export class MobileNavigationBar extends Component {
 	}
 }
 
-const H6 = styled.h6`
+const H5 = styled.h5`
+font-family: Gilroy Regular !important;
+font-weight: bold;
+font-size: 11px;
 color: ${props => props.color}
 `;
 
@@ -190,13 +195,13 @@ const SideNavCloseBtn = styled.a`
 
 const ButtonS = styled.button`
   background: ${props => props.bg};
-  font-family: 'Verlag Bold' !important;
+  font-family: Gilroy Regular !important;
   padding: ${props => props.padding};
   text-transform: uppercase;
   font-style: normal;
   font-weight: bold;
-  font-weight: 500;
-  font-size: 13px;
+  letter-spacing: 2px;
+  font-size: 12px;
   line-height: 18px;
   color: ${props => props.color};
 `;

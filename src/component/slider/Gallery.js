@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
-import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 import nextIcon from '../../assets/next.svg'
 import LoaderSpinner from '../base/loader/LoaderSpinner'
 
@@ -148,11 +147,16 @@ export class Gallery extends Component {
             dots={false}
             afterChange={(index) => this.setState({ indexActive: index })}
           >
-            {this.state.localStore.length && this.state.localStore.map((item, i) => (
-              <div key={i} className="tes">
+            {this.state.localStore.length && this.state.localStore.map((item, i) => {
+              // if (i === this.state.indexActive) {
+                return (
+                <div key={i} className="tes">
                     <Img src={BaseUrl + '/storage/' + item.gambar} alt={item.nama} />
-              </div>
-            ))}
+                </div>
+                )
+              // }
+            }
+            )}
           </Slider>
 
           {this.state.localStore.length && this.state.localStore.map((item, i) => {
