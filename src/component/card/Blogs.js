@@ -62,18 +62,32 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <Link {...props} >
-                <Img src={props.src} width width="350px" height="350px" alt="350x350" />
-                <Body margin="17px 0 0 0">
-                    <P>
-                        {props.heading}
-                    </P>
-                </Body>
-            </Link>
-            <Footer>Posted On {props.created_at}</Footer>
+            <Img src={props.src} width width="350px" height="350px" alt="350x350" />
+            <Body margin="17px 0 20px 0">
+                <P>{props.heading}</P>
+                <Footer>Posted On {props.created_at}</Footer>
+            </Body>
+            <LinkRead {...props}> Read More </LinkRead>
         </Container>
     )
 }
+
+const LinkRead = styled(Link)({
+    alignSelf: "center",
+    fontFamily: "Verlag Bold",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "11px",
+    textDecoration: "none",
+    textAlign: "center",
+    textTransform: "uppercase",
+    letterSpacing: "1px",
+    paddingBottom: "14px",
+    borderBottom: "1px solid",
+    ":hover": {
+        textDecoration: "none",
+    }
+})
 
 const Container = styled.div(
     props => ({
@@ -88,6 +102,8 @@ const Container = styled.div(
 
 const Body = styled.div(
     props => ({
+        display: "flex",
+        flexDirection: "column",
         width: "350px",
         margin: props.margin,
         padding: props.padding,
@@ -121,10 +137,6 @@ const P = styled.p(
         fontStyle: "normal",
         fontWeight: "bold",
         color: "#12284C !important",
-        transition: "color .2s",
-        ":hover": {
-            color: "#CC9980 !important",
-        }
     })
 )
 

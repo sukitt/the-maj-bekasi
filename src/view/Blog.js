@@ -1,10 +1,10 @@
 import React, { createElement, useState, useEffect } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import styled from 'styled-components'
 
 // import { BlogPlaceholder } from '../component/base/loader/ImagePlaceholder'
 import IconUser from '../component/assets/tmp-blog/user.svg'
-import IconCalender from '../component/assets/tmp-blog/calender.svg'    
+import IconCalender from '../component/assets/tmp-blog/calender.svg'
 
 import {OnDesktop, OnMobileAndTablet} from '../constants'
 import { useParams, useRouteMatch, useLocation, Link, useHistory, withRouter } from 'react-router-dom'
@@ -14,6 +14,10 @@ import Base from './Base'
 import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 class Blog extends Base {
+    _shareClick = (e) => {
+        console.log(e)
+        console.log(window.location)
+    }
     render() {
         if (this.state.blogs.length) {
             const { slug } = this.props.match.params
@@ -25,7 +29,7 @@ class Blog extends Base {
             })
             if (!Detail) return window.location.assign("/not-found")
             const { heading, image, img_desc, author, created_at, text, categories  } = Detail
-            const Categori = categories.replace(/[\["\]]/g,"")
+            const Kategori = categories.replace(/[\["\]]/g,"")
             return (
                 <> 
                     <ScrollToTopOnMount />
@@ -34,7 +38,7 @@ class Blog extends Base {
                             <div style={{width: "auto", margin: "0px auto", padding: "20px 0"}}>
                                 <Row>
                                     <Col lg={12} sm={12} xs={12}>
-                                        <h5> {Categori.replace(/\,/g, " | ")} </h5>
+                                        <h5> {Kategori.replace(/\,/g, " | ")} </h5>
                                         <H2 margin="0px 0px 41px 0px"> {heading} </H2>
                                     </Col>
                                     <Col lg={12} sm={12} xs={12}>
@@ -58,6 +62,20 @@ class Blog extends Base {
                                     <Col xs={12} md={8}>
                                         <div style={{padding: "0 0 134px 0"}}>
                                             {text && renderHTML(text)}
+
+                                            <div>
+                                            
+                                                <ButtonShare 
+                                                    onClick={this._shareClick} 
+                                                    heading={heading}
+                                                    kategoriArray={[Kategori.toUpperCase()]}
+                                                    tooltip={{
+                                                        facebook: "Share to Facebook",
+                                                        twitter: "Share to Twitter",
+                                                        copy: "Copy Link"
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
                                     </Col>
     
@@ -95,6 +113,92 @@ class Blog extends Base {
 }
 
 export default withRouter(Blog)
+
+const ButtonShare = props => {
+    const [show, setShow] = useState(false)
+    const _onClick = () => {
+        const { onClick } = props
+        onClick(!show)
+        setShow(!show)
+    }
+    return (
+        <>
+        <button style={{backgroundColor: "transparent", color: "#232323"}} onClick={_onClick}>
+            <i className="fa fa-share-alt"></i>
+        </button>
+        {show? <Sosmed URL={window.location.href} heading={props.heading} hastags={props.kategoriArray} tooltip={props.tooltip} />: null}
+        </>
+    )
+}
+
+const Icon = styled.i(
+    props => ({
+        fontSize: props.size,
+        color: props.fill,
+    })
+)
+
+const Sosmed = props => {
+    const Facebook = () => (
+        <OverlayTrigger overlay={<Tooltip> {props.tooltip.facebook} </Tooltip>}>
+            <span 
+                className="fb-share-button" 
+                data-href="https://developers.facebook.com/docs/plugins/" 
+                data-layout="button" 
+                data-size="small"
+            >
+                <a 
+                    target="_blank" 
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${props.URL}&amp;src=sdkpreparse`}
+                    className="fb-xfbml-parse-ignore"
+                >
+                    <Icon size="25px" fill="#3B5998" className="fab fa-facebook mr-2" />
+                </a>
+            </span>
+        </OverlayTrigger>
+    )
+
+    const Twitter = () => (
+        <OverlayTrigger overlay={<Tooltip> {props.tooltip.twitter} </Tooltip>}>
+        <span>
+            <a className="twitter-share-button"
+                href={`https://twitter.com/intent/tweet?text=${props.heading}&url=${props.URL}&hashtags=${props.hastags.join()}`}
+                data-size="large">
+                <Icon size="25px" fill="#00ACEE" className="fab fa-twitter mr-2" />
+            </a>
+        </span>
+        </OverlayTrigger>
+    )
+    const CopyLink = props => {
+        const [tooltip, setTolltip] = useState("Copy link")
+        const _onCopyClick = () => {
+            const url = document.getElementById("urlCopy")
+            url.select()
+            document.execCommand("copy")
+            setTolltip(`copied: ${url.value}`)
+        }
+
+        return (
+            <>
+            <input type="text" id="urlCopy" hidden value={props.URL} />
+            <OverlayTrigger overlay={<Tooltip> {tooltip} </Tooltip>}>
+                <span>
+                    <a onClick={_onCopyClick} style={{cursor: "pointer"}}>
+                        <Icon size="25px" fill="#00000" className="fas fa-copy" />
+                    </a>
+                </span>
+            </OverlayTrigger>
+            </>
+    )}
+
+    return (
+        <div style={{position: "absolute"}} className="mt-3" >
+            <Facebook {...props} />
+            <Twitter {...props} />
+            <CopyLink {...props} />
+        </div>
+    )
+}
 
 const renderHTML = (args) => {
     return createElement("div", {
