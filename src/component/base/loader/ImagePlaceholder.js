@@ -1,5 +1,6 @@
 import React from 'react'
 import BackgroundImage from './BackgroundImage'
+import PropTypes from 'prop-types'
 
 
 export const SliderPlaceholder = props => {
@@ -12,6 +13,14 @@ export const SliderPlaceholder = props => {
             {...props}
         />
     )
+}
+
+SliderPlaceholder.propTypes = {
+    src: PropTypes.string.isRequired,
+    opacity: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 
