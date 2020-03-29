@@ -5,7 +5,7 @@ import {Header, AboutCard, Vision, MobileLogoDisplay} from '../component/base/Te
 
 import LogoSlider from '../component/slider/LogoSlider'
 
-import bgHeader from '../component/assets/tentangkami-image/header.png'
+import bgHeader from '../component/assets/tentangkami-image/header.jpg'
 import bgProfile from '../component/assets/tentangkami-image/profile.png'
 
 

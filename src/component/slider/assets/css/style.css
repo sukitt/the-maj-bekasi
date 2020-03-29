@@ -23,7 +23,8 @@
 }
 
 #galeri > .slick-slider > .slick-list{
-  padding: 50px 250px 135px 250px !important;
+  /* padding: 50px 250px 135px 250px !important; */
+  margin: 50px auto;
 }
 #galeri > .slick-prev {
   top: 40%;
@@ -35,5 +36,5 @@
   bottom:120px;
 }
 #galeri > div > div > .slick-track{
-  height: 600px;
+  height: auto;
 }

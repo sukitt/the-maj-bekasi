@@ -135,7 +135,7 @@ export class MobileNavigationBar extends Component {
 								<SideNavLink
 									onClick={() => this.setState({ showing: !showing })} key={i}
 								>
-									<a href={item.link}><h3>{item.name}</h3></a>
+									<a key={i} href={item.link}><h3>{item.name}</h3></a>
 									{/* <Link
 										id={`nav-${item.name.replace(/\s/g, "-").toLowerCase()}`}
 										to={{
@@ -155,9 +155,10 @@ export class MobileNavigationBar extends Component {
 }
 
 const H5 = styled.h5`
-font-family: Gilroy Regular !important;
+font-family: Gilroy Bold !important;
 font-weight: bold;
 font-size: 11px;
+margin-bottom: 0px;
 color: ${props => props.color}
 `;
 
@@ -195,7 +196,7 @@ const SideNavCloseBtn = styled.a`
 
 const ButtonS = styled.button`
   background: ${props => props.bg};
-  font-family: Gilroy Regular !important;
+  font-family: Verlag Bold !important;
   padding: ${props => props.padding};
   text-transform: uppercase;
   font-style: normal;

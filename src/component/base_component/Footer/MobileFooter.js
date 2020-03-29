@@ -25,8 +25,8 @@ export const MobileFooter = props => {
                 <img src={Img2} style={{ width: '136.79px', marginTop: "41.89px" }} alt="Part of The Maj Group" />
 
                 <JoinUs caps="Join Our Family" margin="48.35px 0 0 0">
-                    <A padding="3px 0" display="block" href="#linkto"> Carrers </A>
-                    <A padding="3px 0" display="block" href="#linkto"> Inverstor </A>
+                    <A padding="3px 0" display="block" href="#linkto"> Careers </A>
+                    <A padding="3px 0" display="block" href="#linkto"> Investors </A>
                 </JoinUs>
 
                 <ExploreUs caps="Explore Our World" margin="48px 0 16px 0">
@@ -51,11 +51,11 @@ export const MobileFooter = props => {
                         )}
                     <D margin="26px 27px 0 0">
                         <BaseFooter size="lg" {...props}>
-                            <B type="submit">Subcribe</B>
+                            <B type="submit">Subscribe</B>
                         </BaseFooter>
                     </D>
                     <P margin="15px 28px 15px 0">
-                        By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email themaj@mail.com.
+                        By entering your details you consent to be contacted via email by the Maj group with offers and updates. To opt out, use the unsubscribe link or email unsubscribe@themajgroup.com.
                     </P>
                 </SubscribeUs>
             </D>

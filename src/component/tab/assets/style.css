@@ -117,3 +117,26 @@
 #mobile-denahunit > div > div > div > div > div > .slick-slide {
   height: 255px;
 }
+
+#blog-tabs > .nav {
+  border-bottom: 1px solid #CC9980;
+}
+#blog-tabs > .nav > .nav-link {
+  background: none;
+  border: none;
+  color: #C8C8C8;
+  padding-left: 0px;
+  padding-right: 40px;
+
+  font-family: Verlag Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 2px;
+}
+#blog-tabs > .nav > .nav-link.active {
+  background: none;
+  border: none;
+  color: #CC9980;
+}

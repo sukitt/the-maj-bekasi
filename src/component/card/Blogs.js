@@ -8,7 +8,7 @@ import { BaseUrl } from '../../services/axios'
 class Blogs extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
             localStore: [],
             isLoading: true
@@ -24,14 +24,14 @@ class Blogs extends Component {
         }
         return null
     }
-    
+
     render() {
         return (
-            <Container id="blogs" margin="105px 0 0 0"  flexDirection="column">
+            <Container id="blogs" margin="105px 0 0 0" flexDirection="column">
                 <H1 margin="50px auto">Update Terbaru</H1>
-                <Row style={{marginTop: "48px"}}>
-                    {this.state.localStore.length && this.state.localStore.slice(0,3).map((data, i) => {
-                        
+                <Row style={{ marginTop: "48px" }}>
+                    {this.state.localStore.length && this.state.localStore.slice(0, 3).map((data, i) => {
+
                         let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                         let img = `${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`
                         return (
@@ -44,14 +44,19 @@ class Blogs extends Component {
                                             test: true,
                                         }
                                     }}
-                                    src={img} 
-                                    heading={data.heading} 
-                                    created_at={data.created_at} 
+                                    src={img}
+                                    heading={data.heading}
+                                    created_at={data.created_at}
                                 />
                             </Col>
-                        )}
+                        )
+                    }
                     )}
                 </Row>
+                <div style={{margin:"56px auto"}}>
+                <A
+                    to="/blogs">Selengkapnya</A>
+                </div>
             </Container>
         )
     }
@@ -62,32 +67,18 @@ export default Blogs
 const Blog = props => {
     return (
         <Container flexDirection="column">
-            <Img src={props.src} width width="350px" height="350px" alt="350x350" />
-            <Body margin="17px 0 20px 0">
-                <P>{props.heading}</P>
-                <Footer>Posted On {props.created_at}</Footer>
-            </Body>
-            <LinkRead {...props}> Read More </LinkRead>
+            <Link {...props} >
+                <Img src={props.src} width width="350px" height="350px" alt="350x350" />
+                <Body margin="17px 0 0 0">
+                    <P>
+                        {props.heading}
+                    </P>
+                </Body>
+            </Link>
+            <Footer>Posted On {props.created_at}</Footer>
         </Container>
     )
 }
-
-const LinkRead = styled(Link)({
-    alignSelf: "center",
-    fontFamily: "Verlag Bold",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "11px",
-    textDecoration: "none",
-    textAlign: "center",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-    paddingBottom: "14px",
-    borderBottom: "1px solid",
-    ":hover": {
-        textDecoration: "none",
-    }
-})
 
 const Container = styled.div(
     props => ({
@@ -153,4 +144,28 @@ const Footer = styled.small(
         padding: props.padding,
         alignSelf: "flex-start"
     })
+)
+
+const A = styled(Link)(
+    {
+        fontFamily:"Verlag Bold !important",
+        margin: 'auto',
+        width: 180,
+        height: 40,
+        borderRadius: "0",
+        backgroundColor: '#CC9980',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 13,
+        marginTop: 5,
+        letterSpacing: 2,
+        textTransform: 'uppercase',
+        borderColor: 'transparent',
+        color:"#fff",
+        padding:"11px 35px",
+        "&:hover":{
+            textDecoration:"none",
+            color:"#fff"
+        }
+    }
 )

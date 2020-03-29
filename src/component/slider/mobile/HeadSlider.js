@@ -13,24 +13,29 @@ export class HeadSlider extends Component {
   
     this.state = {
       localStore: [],
+      isLoading:true,
     }
   }
   
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.store !== prevState.localStore) {
       return {
-        localStore: nextProps.store
+        localStore: nextProps.store,
+        isLoading:false,
       }
     }
     return null
   }
   
   render() {
-
-    // if (!this.state.localStore.length) {
-    //   return <SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="280px" opacity=".8" />
-    // }
-
+    if(this.state.isLoading){
+      return(
+        <>
+          <div className="container" style={{height:"280px",width:"100%", backgroundColor:"#ccc"}}>
+          </div>
+        </>
+      )
+    }
     return (
       <div id="mobile-head-slider">
           <Carousel
@@ -40,18 +45,10 @@ export class HeadSlider extends Component {
           {this.state.localStore && this.state.localStore.map((item, i) => {
             return (
               <Carousel.Item>
-                {/* <img
-                  style={{
-                    width: "100%",
-                    height: "280px"
-                  }}
-                  src={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`}
-                  alt="slider"
-                /> */}
                 <Background source={`${BaseUrl}/storage/${item.image.replace(/\\/g, "/")}`} />
                 <Carousel.Caption style={{margin: "0 0 58px 0"}}>
                   <H2>{item.caption}</H2>
-                  <B>Bandingkan</B>
+                  <B href={item.link}>{item.button_text}</B>
                 </Carousel.Caption>
               </Carousel.Item>
             )
@@ -83,13 +80,18 @@ export class HeadSlider extends Component {
       padding: props.padding,
     })
   )
-  const B = styled.button(
+  const B = styled.a(
     props => ({
       backgroundColor: "transparent",
       border: "1px solid #FFFFFF",
       width: "157.26px",
       height: "40px",
       fontSize: "13px",
+      color:"#fff",
+      paddingTop:"11px",
+      paddingBottom:"11px",
+      paddingLeft:"30px",
+      paddingRight:"30px",
       fontStyle: "normal",
       fontWeight: "bold",
       lineHeight: "18px",
@@ -97,6 +99,10 @@ export class HeadSlider extends Component {
       textTransform: "uppercase",
       margin: props.margin,
       padding: props.padding,
+      "&:hover":{
+        color:"#fff",
+        textDecoration:"none",
+      }
     })
   )
 export default HeadSlider
