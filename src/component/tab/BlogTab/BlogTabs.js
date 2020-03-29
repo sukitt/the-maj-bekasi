@@ -27,7 +27,7 @@ export default class BlogTabs extends Component{
         const Event = this.state.localStore.filter(data => data.categories.replace(/[\["\]]/g, "") === "Event")
         const Media = this.state.localStore.filter(data => data.categories.replace(/[\["\]]/g, "") === "Media Coverage")
         return(
-            <Container className="container" style={{marginTop:"100px"}} id="blog-tabs">
+            <Container style={{marginTop:"100px"}} id="blog-tabs">
                 <Tabs defaultActiveKey="semua" >
                     <Tab eventKey="semua" title="SEMUA">
                         <TabsComponent store={this.state.localStore} />

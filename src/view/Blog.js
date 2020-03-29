@@ -7,8 +7,16 @@ class BlogList extends Base {
     render(){
         return(
             <>
-                <BlogSlider store={this.state.blogs} />
-                <BlogTabs store={this.state.blogs} />
+                <section>
+                    <div className="container">
+                        <BlogSlider store={this.state.blogs} />
+                    </div>
+                </section>
+                <section>
+                    <div className="container">
+                        <BlogTabs store={this.state.blogs} />
+                    </div>
+                </section>
             </>
         )
     }

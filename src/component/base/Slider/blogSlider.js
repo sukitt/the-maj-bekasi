@@ -38,12 +38,12 @@ export default class BlogSlider extends Component {
         if (this.state.isLoading) {
             let GaleriLoading = (args) => { let arry = new Array(); for (let i = 0; i < args; i++) { arry.push({ id: i, gambar: GaleriGambarLoading, nama: "loading" }) }; return arry }
             return (
-                <Container className="container">
+                <Container>
                     <Breadcrumb>
                         <BreadcrumbLink to="/">Home</BreadcrumbLink> / <Span>Blog</Span>
                     </Breadcrumb>
                     <Row>
-                        <Col md={8} sm={12}>
+                        <Col md={8} xs={12}>
                             <Slider
                                 dots={false}
                                 arrows={false}
@@ -56,16 +56,16 @@ export default class BlogSlider extends Component {
                                     return(
                                         <>
                                             <div>
-                                                <div style={{width:"730px", height:"450px", backgroundColor:"#ccc"}}></div>
+                                                <div style={{width:"100%", height:"450px", backgroundColor:"#ccc"}}></div>
                                             </div>
                                         </>
                                     )
                                 })}
                             </Slider>
                         </Col>
-                        <Col md={4} sm={12}>
+                        <Col md={4} xs={12}>
                             <div style={{width:"170px", backgroundColor:"#ccc", height:"25px", borderRadius:"500px"}}></div>
-                            <div style={{width:"300px", backgroundColor:"#ccc", height:"100px", margin:"23px 0"}}></div>
+                            <div style={{width:"100%", backgroundColor:"#ccc", height:"100px", margin:"23px 0"}}></div>
                         </Col>
                     </Row>
                 </Container>
@@ -108,9 +108,9 @@ export default class BlogSlider extends Component {
                                             <TruncatedText><p><strong>{item.lokasi}, {item.sumber} - </strong>{truncate(item.preview_text)}</p></TruncatedText>
                                             <Author author={item.author} /> <br/>
                                             <Posted_At posted_at={item.created_at} />
-                                            <Row style={{marginTop:"53px"}}>
-                                                <Col md={2}><Buttons onClick={this.previous}><i className="fa fa-chevron-left"></i></Buttons></Col>
-                                                <Col md={2}><Buttons onClick={this.next}><i className="fa fa-chevron-right"></i></Buttons></Col>
+                                            <Row style={{margin:"53px 0px"}}>
+                                                <Col md={2} xs={3}><Buttons onClick={this.previous}><i className="fa fa-chevron-left"></i></Buttons></Col>
+                                                <Col md={2} xs={3}><Buttons onClick={this.next}><i className="fa fa-chevron-right"></i></Buttons></Col>
                                             </Row>
                                         </>
                                     )
@@ -214,4 +214,7 @@ const TruncatedText = styled.p({
     display: "-webkit-box",
     "-webkit-line-clamp": "5",
     "-webkit-box-orient": "vertical",
+    "@media only screen and (max-width:375px)":{
+        marginBottom:"40px"
+    }
 })

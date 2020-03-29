@@ -140,3 +140,10 @@
   border: none;
   color: #CC9980;
 }
+#blog-tabs > .nav-tabs{
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+}

@@ -32,9 +32,9 @@ export default class TabsComponent extends Component {
                 <Row>
                     {CardsLoad(3).map((d,i)=>(
                         <Col id={d.id} md={4} xs={12} style={{ marginTop: 40 }}>
-                            <div style={{width:350, height:350, backgroundColor:"#ccc"}}></div>
-                            <div style={{maxWidth:350, height:25, backgroundColor:"#ccc", marginTop:"15px"}}></div>
-                            <div style={{maxWidth:150, height:25, backgroundColor:"#ccc", marginTop:"15px"}}></div>
+                            <div style={{maxWidth:350, width:"100%", height:350, backgroundColor:"#ccc"}}></div>
+                            <div style={{maxWidth:350, width:"100%", height:25, backgroundColor:"#ccc", marginTop:"15px"}}></div>
+                            <div style={{maxWidth:150, width:"100%", height:25, backgroundColor:"#ccc", marginTop:"15px"}}></div>
                         </Col>
                     ))}
                 </Row>
@@ -43,13 +43,15 @@ export default class TabsComponent extends Component {
         }
         return (
             <>
-                <Container>
+                <Container className="container">
                     <Row>
                         {this.state.localStore.length && this.state.localStore.map((data, i) => {
                             return (
                                 <>
                                     <Col md={4} xs={12} style={{ marginTop: 40 }}>  
-                                        <Link to={`/blog/${data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`} ><Image src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg")}`} alt="list-blog" /></Link>
+                                        <Link to={`/blog/${data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`} >
+                                            <Image src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg").replace(".png", "-thumbnail.png")}`} alt="list-blog" />
+                                        </Link>
                                         <ButtonLink
                                             to={{
                                                 pathname: `/blog/${data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`
@@ -73,7 +75,8 @@ const Container = styled.div({
 })
 const Image = styled.img({
     maxWidth: "350px",
-    height: "350px",
+    width:"100%",
+    height: "auto",
 })
 const ButtonLink = props => {
     const history = useHistory()
