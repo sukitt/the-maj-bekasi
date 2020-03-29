@@ -18,7 +18,7 @@ export class HeadSlider extends Component {
   }
   
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.store !== prevState.localStore) {
+    if (nextProps.store.length !== prevState.localStore.length) {
       return {
         localStore: nextProps.store,
         isLoading:false,
@@ -31,7 +31,8 @@ export class HeadSlider extends Component {
     if(this.state.isLoading){
       return(
         <>
-          <div className="container" style={{height:"280px",width:"100%", backgroundColor:"#ccc"}}>
+          <div id="mobile-head-slider">
+            <div style={{height:"280px",width:"100%", backgroundColor:"#ccc"}}></div>
           </div>
         </>
       )

@@ -14,9 +14,10 @@ export class MobileGallery extends Component {
     super(props)
 
     this.state = {
-        store: [],
+        localStore: [],
         indexActive: 0,
         cPadding:0,
+        isLoading:true,
     }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -41,34 +42,32 @@ export class MobileGallery extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.store !== prevState.store) {
-        return {
-            store: nextProps.store
-        }
-    }
-
-    return null
-  }
+		if (nextProps.store.length !== prevState.localStore.length) {
+			return {
+				localStore: nextProps.store,
+				isLoading: false,
+			}
+		}
+	}
 
 
 
   render() {
-    // if (!this.state.store.length) {
-    //   return (
-    //     <Container margin="68.93px 0 123px 0px" padding="16px 0 23px 0">
-    //       <Caps1 margin="0 0 22px 0">Gallery</Caps1>
-    //       <SliderPlaceholder color="#CC9980" src={placeholder} width="100%" height="228px" opacity=".6" />
-    //     </Container>
-    //   )
-    // }
-
+    if(this.state.isLoading){
+      return(
+        <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px" padding="44px 0px">
+          <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
+          <div id="mobileItemGallery" style={{width:"228.21px", height:"228.21px", backgroundColor:"#ccc", margin:"0px 0px 0px 30px"}}></div>
+        </Container>
+      )
+    }
     return(
         <Container id={this.props.id} ref={this.props.galeriRef} className="container" margin="0px" padding="44px 0px">
             <Caps1 margin="0 0px 27px 0px">Galeri</Caps1>
             <div id="mobileItemGallery" style={{padding:"0px 0px 0px 30px"}}>
                 <Slider
                     dots={false}
-                    beforeChange={(indexActive) => this.setState({indexActive})}
+                    afterChange={(indexActive) => this.setState({indexActive})}
                     infinite={true}
                     centerMode={true}
                     centerPadding={this.state.cPadding}
@@ -80,7 +79,7 @@ export class MobileGallery extends Component {
                     )}
                 >
                     {/* {Data && Data.map((item, i) => ( */}
-                    {this.state.store.length && this.state.store.map((item, i) => (
+                    {this.state.localStore.length && this.state.localStore.map((item, i) => (
                         <div>
                             <Background source={BaseUrl + '/storage/' + item.gambar_mobile} />
                         </div>
@@ -89,12 +88,15 @@ export class MobileGallery extends Component {
             </div>
 
             <Content margin="51.79px 0 0 0">
-              {this.state.store.length && this.state.store.map((item, i) => {
+              {this.state.localStore.length && this.state.localStore.map((item, i) => {
                 if (i === this.state.indexActive) {
                     return (
                         <>
-                            <P>{item.nama} - {item.unit.unit_name}</P>
-                            <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF", textAlign:"center", letterSpacing:"3px"}}> {i+1} | {this.state.store.length} </p>
+                            <P>
+                              {item.nama}
+                              {item.unit ? " - " + item.unit.unit_name : " "}  
+                            </P>
+                            <p style={{fontSize: "14px", lineHeight: "16px", color: "#FFFFFF", textAlign:"center", letterSpacing:"3px"}}> {i+1} | {this.state.localStore.length} </p>
                         </>
                     )
                 }

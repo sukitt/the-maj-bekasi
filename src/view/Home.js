@@ -141,7 +141,7 @@ class Home extends Base {
           </section>
 
           <section>
-            <MobileGallery id="galeri" store={this.state.gallery} galeriRef={this.scrollGaleri} store={this.state.gallery} />
+            <MobileGallery id="galeri" galeriRef={this.scrollGaleri} store={this.state.gallery} />
           </section>
 
           <section>

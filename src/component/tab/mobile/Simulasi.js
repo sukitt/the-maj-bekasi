@@ -149,6 +149,9 @@ const H1 = styled(NumberFormat)`
     font-weight:bold;
     color : #000;
     font-family: 'Gilroy Bold' !important;
+    @media only screen and (max-width:375px){
+        font-size: 30px;
+    }
 `;
 
 const H2 = styled.h2(
@@ -181,7 +184,10 @@ const P = styled.p(
         fontWeight: "bold",
         fontSize: "16px",
         lineHeight: "21px",
-        color: "#000"
+        color: "#000",
+        "@media only screen and (max-width:375px)":{
+            fontSize:"14px"
+        }
     })
 )
 const H6 = styled.p`

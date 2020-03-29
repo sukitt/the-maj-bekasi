@@ -40,6 +40,19 @@ export class DenahUnit extends Base {
     }
 
     render() {
+        if(this.state.isLoading){
+            return(
+                <>
+                <div id={this.props.id} ref={this.props.denahUnitRef} className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>
+                    <h5>Tipe Unit</h5>
+                    <h1>Hunian Fleksibel Untuk Generasi ‘Zaman Now’</h1>
+                </div>
+                <div id="mobile-denahunit" className="container" style={{ backgroundColor: "#e9e9e9", paddingTop:"23px" }}>
+                    <div style={{width:"100%", height:"350px"}}></div>
+                </div>
+                </>
+            )
+        }
         return (
             <>
                 <div id={this.props.id} ref={this.props.denahUnitRef} className="container" style={{paddingLeft:"26px", paddingRight:"26px", marginBottom:"30px", marginTop:"110px"}}>

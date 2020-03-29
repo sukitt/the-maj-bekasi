@@ -38,7 +38,7 @@ class BlogDetail extends Base {
                             <div style={{ width: "auto", margin: "0px auto", padding: "20px 0" }}>
                                 <Col>
                                     <Breadcrumb>
-                                        <BreadcrumbLink to="/">Home</BreadcrumbLink> / <BreadcrumbLink to="/blog">Blog</BreadcrumbLink> / <Span>{heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}</Span>
+                                        <BreadcrumbLink to="/">Home</BreadcrumbLink> / <BreadcrumbLink to="/blogs">Blog</BreadcrumbLink> / <Span>{heading.replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}</Span>
                                     </Breadcrumb>
                                 </Col>
                                 <Col lg={12} sm={12} xs={12}>
