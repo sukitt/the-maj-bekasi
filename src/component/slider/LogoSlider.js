@@ -29,12 +29,11 @@ class LogoSlider extends Component {
   render() {
     const settings = {
       dots: false,
-      className:"slider variable-width",
       infinite: true,
       arrows: false,
-      speed: 1500,
+      speed: 2000,
       autoplay:true,
-      autoplaySpeed:1500,
+      autoplaySpeed:2000,
       slidesToScroll: 1
     };
 
@@ -60,7 +59,14 @@ class LogoSlider extends Component {
     return(
       <div style={{margin:"105px 0px",height:"260px"}}>
         <Slider 
-          {...settings}
+          // {...settings}
+          dots={false}
+          infinite={true}
+          arrows={false}
+          speed={2000}
+          autoplay={true}
+          autoplaySpeed={2000}
+          slidesToScroll={1}
           slidesToShow={4}
         >
           {this.state.localStore && this.state.localStore.map((item, i) => (

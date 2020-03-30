@@ -156,7 +156,7 @@ class Maps extends Component {
     return (
       <div ref={this.props.lokasiRef} id={this.props.id} class="container-2 px-0" style={{ marginTop: 157, paddingBottom: 180 }}>
         <h5>Lokasi</h5>
-        <h1 style={{ width: "415px" }}>Kenyamanan Dan Kemudahan Menantimu Di 'Planet' Bekasi.</h1>
+        <h1 style={{ width: "50%" }}>Kenyamanan Dan Kemudahan Menantimu Di 'Planet' Bekasi.</h1>
 
         <Tabs defaultActiveKey="1" className="gmaps" style={{
           marginTop: "35px",
