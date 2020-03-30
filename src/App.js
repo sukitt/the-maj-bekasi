@@ -1,11 +1,8 @@
 import React from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Home from './view/Home';
-import TentangKami from './view/TentangKami';
-import Partnership from './view/Partnership';
-import Expertice from './view/Expertice';
-import Blog from './view/Blog';
 
 import ApplicationLayout from './view/ApplicationLayout';
 import BaseRoute from './routes'

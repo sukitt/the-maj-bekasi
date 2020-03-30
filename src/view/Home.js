@@ -30,7 +30,7 @@ class Home extends Base {
       <div>
         <LoaderSpinnerData show={this.state.sentLoading} />
         <OnDesktop>
-          <section>
+          {/* <section>
             <div className="container">
               <HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
             </div>
@@ -64,7 +64,7 @@ class Home extends Base {
             <div className="container">
               <TentangKami id="tentangkami" />
             </div>
-          </section>
+          </section> */}
           
           <section>
             <div className="w-100">
@@ -72,7 +72,7 @@ class Home extends Base {
             </div>
           </section>
 
-          <section>
+          {/* <section>
             <Blogs store={this.state.blogs} />
           </section>
 
@@ -91,7 +91,7 @@ class Home extends Base {
                   success={this.state.contact.success}
                 />
               </div>
-          </section>
+          </section> */}
         </OnDesktop>
 
         {/* Mobile Table Responsive */}

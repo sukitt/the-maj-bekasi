@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios';
 import {SliderPlaceholder} from '../base/loader/ImagePlaceholder';
 import LogoGambarPlaceholder from './assets/logo-placeholder.svg'
+import { Row, Col, Container } from 'react-bootstrap';
 
 class LogoSlider extends Component {
   constructor(props) {
@@ -27,52 +28,44 @@ class LogoSlider extends Component {
   }
   
   render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      arrows: false,
-      speed: 2000,
-      autoplay:true,
-      autoplaySpeed:2000,
-      slidesToScroll: 1
-    };
 
     if (!this.state.localStore.length) {
       const LogoLoading = (args) => {let arry=new Array();for (let i=0;i<args;i++) {arry.push({id: i, image: LogoGambarPlaceholder})};return arry}
       return (
-        <div style={{margin:"150px 0px",height:"260px", display: "flex", flexDirection: "column"}}>
-          <Slider 
-            slidesToShow={4}
-          >
+        <>
+          <Container>
+            <Row style={{margin:"150px 0px"}}>
             {LogoLoading(4).map(data => (
               <>
-                <div key={data.id} style={{display: "flex", justifyContent: "center"}}>
-                  <SliderPlaceholder src={LogoGambarPlaceholder} color="#CC9980" width="200px" height="200px" />
-                </div>
+                    <Col key={data.id}>
+                      <div className="mx-auto" style={{width:"200px", height:"200px", backgroundColor:"#ccc"}}></div>
+                      {/* <SliderPlaceholder src={LogoGambarPlaceholder} color="#CC9980" width="200px" height="200px" /> */}
+                    </Col>
               </>
             ))}
-          </Slider>
-        </div>
+            </Row>
+          </Container>
+        </>
       )
     }
     
     return(
       <div style={{margin:"105px 0px",height:"260px"}}>
-        <Slider 
-          // {...settings}
+        <Slider
           dots={false}
           infinite={true}
-          arrows={false}
-          speed={2000}
-          autoplay={true}
-          autoplaySpeed={2000}
-          slidesToScroll={1}
           slidesToShow={4}
+          slidesToScroll={1}
+          autoplay={true}
+          speed={2000}
+          autoplaySpeed={2000}
+          cssEase="linear"
+          pauseOnHover={true}
         >
           {this.state.localStore && this.state.localStore.map((item, i) => (
-            <div>
+            <div key={item.id}>
               <div>
-                <a key={i} href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
+                <a href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
               </div>
             </div>
           ))}
