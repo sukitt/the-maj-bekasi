@@ -47,7 +47,7 @@ class Fasilitas extends Component {
 				<div className="container-2 p-0">
 
 					<h5>fasilitas</h5>
-					<h1 style={{width: "335px"}}>Untuk Work-Life Balance Yang Lebih Baik</h1>
+					<h1 style={{width: "40%"}}>Untuk Work-Life Balance Yang Lebih Baik</h1>
 					<Row className="mx-0" style={{marginTop:"50px"}}>
 							{Data.slice(0,5).map((d, i) => {
 								return (
