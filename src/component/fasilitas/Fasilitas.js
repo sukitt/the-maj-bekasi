@@ -51,12 +51,12 @@ class Fasilitas extends Component {
 					<Row className="mx-0" style={{marginTop:"50px"}}>
 							{Data.slice(0,5).map((d, i) => {
 								return (
-									<Col xs className="mx-1">
+									<Col key={i} xs className="mx-1">
 										<Row>
 											<Content xs={4}>
 												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 											</Content>
-											<Caption xs><span>{d.caption}</span></Caption>
+											<Caption xs>{d.caption}</Caption>
 										</Row>
 									</Col>
 								)
@@ -65,12 +65,12 @@ class Fasilitas extends Component {
 					<Row className="mx-0" style={{marginTop:"50px"}}>
 							{Data.slice(5,10).map((d, i) => {
 								return (
-									<Col xs className="mx-1">
+									<Col key={i} xs className="mx-1">
 										<Row>
 											<Content xs={4}>
 												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 											</Content>
-											<Caption xs><span>{d.caption}</span></Caption>
+											<Caption xs>{d.caption}</Caption>
 										</Row>
 									</Col>
 								)
@@ -79,12 +79,12 @@ class Fasilitas extends Component {
 					<Row className="mx-0" style={{marginTop:"50px"}}>
 							{Data.slice(10,15).map((d, i) => {
 								return (
-									<Col xs className="mx-1">
+									<Col key={i} xs className="mx-1">
 										<Row>
 											<Content xs={4}>
 												<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 											</Content>
-											<Caption xs><span>{d.caption}</span></Caption>
+											<Caption xs>{d.caption}</Caption>
 										</Row>
 									</Col>
 								)
@@ -105,8 +105,14 @@ const Icon = styled.img`
 	height:40px;
 `;
 const Caption = styled(Col)`
-	margin: auto auto auto 10px;
+	margin: auto 5px auto 10px;
 	padding:0px;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 13px;
+	text-transform: uppercase;
 `;
 // const Span = styled.span`
 // 	color: '#232323', 

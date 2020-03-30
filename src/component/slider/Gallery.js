@@ -107,7 +107,7 @@ export class Gallery extends Component {
 						if (i === this.state.indexActive) {
 							return (
 								<>
-									<Row className="justify-content-center">
+									<Row className="justify-content-center w-100">
 										<Col md={1} className="text-center">
 											<Buttons onClick={this.previous}><i className="fa fa-chevron-left"></i></Buttons>
 										</Col>

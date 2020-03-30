@@ -23,6 +23,9 @@ a:not([href]){
 .h5, .h6, h5, h6 {
   font-family: 'Verlag Bold' !important;
 }
+:focus{
+  outline: none !important;
+}
 html{
   scroll-behavior: smooth;
 }
@@ -34,9 +37,9 @@ h1, .h1 {
   line-height: 33px;
   color: #12284C;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
  h1, .h1{
-   font-size: 23px;
+   font-size: 22px;
  }   
 }
 /* Heading 2 */

@@ -26,6 +26,23 @@ class Blogs extends Component {
     }
 
     render() {
+        if(this.state.isLoading){
+            let loops = (args) =>{let array = new Array(); for (let index = 0; index < args; index++) {
+                array.push({id:index})
+            }return array}
+            return(
+                <Container id="blogs" margin="105px 0 0 0" flexDirection="column">
+                    <H1 margin="50px auto">Update Terbaru</H1>
+                    <Row style={{ marginTop: "48px" }}>
+                        {loops(3).map((data, i) => (
+                            <Col lg={4} md={6} key={data.id}>
+                                <div style={{backgroundColor:"#ccc", width:"350px", height:"350px"}}></div>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+            )
+        }
         return (
             <Container id="blogs" margin="105px 0 0 0" flexDirection="column">
                 <H1 margin="50px auto">Update Terbaru</H1>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col } from 'react-bootstrap'
 // import { BlogPlaceholder } from '../../base/loader/ImagePlaceholder'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -26,6 +26,21 @@ class MobileBlogs extends Component {
     }
     
     render() {
+        if(this.state.isLoading){
+            let loops = (args) =>{let array = new Array(); for (let index = 0; index < args; index++) {
+                array.push({id:index})
+            }return array}
+            return(
+                <Container id="blogs" className="container" margin="100px 0 0 0">
+                    <h1 className="text-center">Update Terbaru</h1>
+                    {loops(3).map((data, i) => (
+                        <Col lg={4} md={6} key={data.id}>
+                            <div style={{backgroundColor:"#ccc", width:"100%", paddingTop:"100%"}}></div>
+                        </Col>
+                    ))}
+                </Container>
+            )
+        }
         return (
             <Container id="blogs" className="container" margin="100px 0 0 0">
                 <h1 className="text-center">Update Terbaru</h1>
@@ -44,6 +59,11 @@ class MobileBlogs extends Component {
                         />
                     )}
                 )}
+                <div style={{margin:"56px auto", width:"180px"}}>
+                    <A to="/blogs">
+                        Selengkapnya
+                    </A>
+                </div>
             </Container>
         )
     }
@@ -82,6 +102,28 @@ const Body = styled.div(
         margin: props.margin,
         padding: props.padding,
     })
+)
+const A = styled(Link)(
+    {
+        fontFamily:"Verlag Bold !important",
+        margin: '5px auto',
+        width: 180,
+        height: 40,
+        borderRadius: "0",
+        backgroundColor: '#CC9980',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 13,
+        letterSpacing: 2,
+        textTransform: 'uppercase',
+        borderColor: 'transparent',
+        color:"#fff",
+        padding:"11px 35px",
+        "&:hover":{
+            textDecoration:"none",
+            color:"#fff"
+        }
+    }
 )
 
 const H2 = styled.h2(

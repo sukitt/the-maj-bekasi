@@ -43,7 +43,7 @@ export class MobileReviewUnit extends Component {
   render() {
     return (
       <>
-        <Caps2 margin="37px 0px">Review Unit</Caps2>
+        <Caps2 margin="37px 0px">Preview Unit</Caps2>
         <Slider
           asNavFor={this.state.nav2}
           className="center"
@@ -88,18 +88,6 @@ export class MobileReviewUnit extends Component {
                 })}
             </Slider>
         </div>
-
-        {/* {this.state.storeReview && this.state.storeReview.map((d, i) => {
-          if (i === this.state.indexActive) {
-            return (
-              <>
-                <Caps1 margin="24px 0">{d.nama}</Caps1>
-                <Desc margin="0 0 68px 0">{d.deskripsi}</Desc>
-              </>
-            )
-          }
-          return null
-        })} */}
       </>
     );
   }

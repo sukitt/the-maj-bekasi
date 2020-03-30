@@ -45,9 +45,9 @@ export class NavigationBar extends Component {
 						</Navbar.Brand>
 						<Nav className="mx-auto">
 
-							{this.props.store.map(item => {
+							{this.props.store.map((item,i) => {
 								return (
-										<a style={{}} href={item.link} className="nav-link">
+										<a key={i} href={item.link} className="nav-link">
 											<H5 color={this.state.isTop ? "#fff" : "#232323"}>{item.name}</H5>
 										</a>
 									)

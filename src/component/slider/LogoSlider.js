@@ -64,9 +64,9 @@ class LogoSlider extends Component {
           slidesToShow={4}
         >
           {this.state.localStore && this.state.localStore.map((item, i) => (
-            <div key={i}>
+            <div>
               <div>
-                <a href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
+                <a key={i} href={item.link}><Img src={BaseUrl + '/storage/' + item.image} alt={item.name.replace(" ", "-")} /></a>
               </div>
             </div>
           ))}

@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 const Clev = 'https://clevara.id'
-export const BaseUrl = Clev
+const Tmg = 'https://backend.themajbekasi.com'
+export const BaseUrl = Tmg
 
 export const Instance = axios.create({
   baseURL: `${BaseUrl}/api/`,
-  timeout: 10000,
+  timeout: 20000,
 });

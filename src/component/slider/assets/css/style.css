@@ -37,4 +37,5 @@
 }
 #galeri > div > div > .slick-track{
   height: auto;
+  padding-top: 10px;
 }

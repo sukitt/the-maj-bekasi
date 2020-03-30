@@ -104,7 +104,7 @@ export default class BlogSlider extends Component {
                                     return (
                                         <>
                                             <h5> {item.categories.replace(/\,/g, " | ").replace(/[\["\]]/g, "")} </h5>
-                                            <h1 style={{ maxWidth: "350px", margin: "23px 0px", minHeight:"100px" }}> {item.heading} </h1>
+                                            <Link to={`/blog/${item.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`} ><h1 style={{ maxWidth: "350px", margin: "23px 0px", minHeight:"100px" }}> {item.heading} </h1></Link>
                                             <TruncatedText><p><strong>{item.lokasi}, {item.sumber} - </strong>{truncate(item.preview_text)}</p></TruncatedText>
                                             <Author author={item.author} /> <br/>
                                             <Posted_At posted_at={item.created_at} />
