@@ -156,7 +156,7 @@ export class MobileNavigationBar extends Component {
 
 const H5 = styled.h5`
 font-family: Gilroy Bold !important;
-font-weight: bold;
+font-weight: normal;
 font-size: 11px;
 margin-bottom: 0px;
 color: ${props => props.color}
