@@ -36,6 +36,7 @@ export default class ApplicationLayout extends Base {
                             nameRef={this.footrefname}
                             emailRef={this.footrefemail}
                             success={this.state.footer.success}
+                            errors={this.state.footer.errors}
                             store={this.state.socialMedia}
                         />
                     </OnDesktop>
@@ -47,6 +48,7 @@ export default class ApplicationLayout extends Base {
                             nameRef={this.footrefname}
                             emailRef={this.footrefemail}
                             success={this.state.footer.success}
+                            errors={this.state.footer.errors}
                             store={this.state.socialMedia}
                         />
                     </OnMobileAndTablet>

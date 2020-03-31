@@ -35,12 +35,14 @@ export default class Base extends Component {
         validated: true,
         data: {},
         success:false,
+        errors:false,
       },
       sentLoading:false,
       footer: {
         validated: false,
         data: {},
         success:false,
+        errors:false,
       }
     }
     this.contrefgelar = createRef()
@@ -57,6 +59,8 @@ export default class Base extends Component {
     this.scrollDenahUnit = createRef()
     this.scrollGaleri = createRef()
     this.scrollMap = createRef()
+    
+    this.formRef = createRef()
 
     this._contactUs = this._contactUs.bind(this)
     this._footer = this._footer.bind(this)
@@ -182,9 +186,6 @@ export default class Base extends Component {
       catatan: this.contrefcatatan.current.value
     }
     this.setState({
-      // contact: {
-      //   data: data,
-      // },
       sentLoading: true,
     })
     
@@ -196,15 +197,17 @@ export default class Base extends Component {
               success:true,
             }
         })
+        setTimeout(function(){ window.location.reload(); }, 5000);
       })
       .catch((err) => {
         this.setState({
           sentLoading:false,
+          contact:{
+            errors:true,
+          }
         })
       })
-      setTimeout(function(){ window.location.reload(); }, 5000);
-    e.preventDefault()
-
+    e.preventDefault();
   }
 
   _footer = (e) => {
@@ -221,13 +224,9 @@ export default class Base extends Component {
       email: this.footrefemail.current.value
     }
     this.setState({
-      // contact: {
-      //   data: data
-      // }
       sentLoading: true,
     })
     e.preventDefault()
-    // alert('dor')
     storeSubscribe(data)
       .then((res)=>{
         this.setState({
@@ -236,14 +235,16 @@ export default class Base extends Component {
               success:true,
             }
         })
+        setTimeout(function(){ window.location.reload(); }, 5000);
       })
       .catch((err) => {
         this.setState({
           sentLoading:false,
+          footer:{
+            errors:true,
+          }
         })
-        window.alert(JSON.stringify(err.response))
       })
-      setTimeout(function(){ window.location.reload(); }, 5000);
-    e.preventDefault()
+    e.preventDefault();
   }
 }

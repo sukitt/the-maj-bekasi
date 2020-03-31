@@ -30,7 +30,7 @@ class Home extends Base {
 			<div>
 				<LoaderSpinnerData show={this.state.sentLoading} />
 				<OnDesktop>
-					<section>
+					{/* <section>
 						<div className="container">
 							<HeadSlider store={this.state.sliders} errors={this.state.errors.sliders} />
 						</div>
@@ -74,7 +74,7 @@ class Home extends Base {
 
 					<section>
 						<Blogs store={this.state.blogs} />
-					</section>
+					</section> */}
 
 					<section>
 						<div className="container">
@@ -89,6 +89,7 @@ class Home extends Base {
 								catatanRef={this.contrefcatatan}
 								validated={this.state.contact.validated}
 								success={this.state.contact.success}
+								errors={this.state.contact.errors}
 							/>
 						</div>
 					</section>
@@ -142,6 +143,7 @@ class Home extends Base {
 							catatanRef={this.contrefcatatan}
 							validated={this.state.contact.validated}
 							success={this.state.contact.success}
+							errors={this.state.contact.errors}
 						/>
 					</section>
 				</OnMobileAndTablet>

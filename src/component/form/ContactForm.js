@@ -25,8 +25,8 @@ export default class ContactForm extends Component {
             <Form id="contactUs" onSubmit={this.props.onSubmit} validated={this.props.validated}>
                 
                 <Form.Row>
-                    <Form.Group className="selectField" as={Col} sm="2" controlId="gelarField">
-                        <Form.Label for="gelar">Gelar*</Form.Label>
+                    <Form.Group className="selectField" as={Col} sm="2">
+                        <Form.Label htmlFor="gelar">Gelar*</Form.Label>
                         <Form.Control 
                             id="gelar"
                             as="select" 
@@ -42,8 +42,8 @@ export default class ContactForm extends Component {
                             ))}
                         </Form.Control>
                     </Form.Group>
-                    <Form.Group as={Col} sm="4" controlId="namaField">
-                        <Form.Label for="nama">Nama Lengkap Anda*</Form.Label>
+                    <Form.Group as={Col} sm="4">
+                        <Form.Label htmlFor="nama">Nama Lengkap Anda*</Form.Label>
                         <Form.Control
                             id="nama"
                             ref={this.props.namaRef}
@@ -58,8 +58,8 @@ export default class ContactForm extends Component {
                             Harap Masukkan Nama Anda.
                         </Form.Control.Feedback> */}
                     </Form.Group>
-                    <Form.Group className="selectField" as={Col} sm="6" controlId="unitField">
-                        <Form.Label for="unit">Saya Ingin*</Form.Label>
+                    <Form.Group className="selectField" as={Col} sm="6">
+                        <Form.Label htmlFor="unit">Saya Ingin*</Form.Label>
                         <Form.Control 
                             id="unit"
                             as="select"
@@ -80,8 +80,8 @@ export default class ContactForm extends Component {
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
-                    <Form.Group as={Col} sm="6" controlId="teleponField">
-                        <Form.Label for="nomor">Nomor Telepon Anda*</Form.Label>
+                    <Form.Group as={Col} sm="6">
+                        <Form.Label htmlFor="nomor">Nomor Telepon Anda*</Form.Label>
                         <Form.Control
                             id="nomor"
                             ref={this.props.teleponRef}
@@ -98,8 +98,8 @@ export default class ContactForm extends Component {
                             Please insert a Phone number. <br/> Format: (0-9)
                         </Form.Control.Feedback> */}
                     </Form.Group>
-                    <Form.Group as={Col} sm="6" controlId="emailField">
-                        <Form.Label for="email">Alamat Email Anda*</Form.Label>
+                    <Form.Group as={Col} sm="6">
+                        <Form.Label htmlFor="email">Alamat Email Anda*</Form.Label>
                         <Form.Control 
                             id="email"
                             ref={this.props.emailRef}
@@ -116,8 +116,8 @@ export default class ContactForm extends Component {
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
-                    <Form.Group as={Col} sm="12" controlId="catatanField">
-                        <Form.Label for="catatan">Catatan (opsional)</Form.Label>
+                    <Form.Group as={Col} sm="12">
+                        <Form.Label htmlFor="catatan">Catatan (opsional)</Form.Label>
                         <Form.Control
                             id="catatan"
                             ref={this.props.catatanRef}
