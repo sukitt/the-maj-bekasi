@@ -197,7 +197,6 @@ export default class Base extends Component {
               success:true,
             }
         })
-        setTimeout(function(){ window.location.reload(); }, 5000);
       })
       .catch((err) => {
         this.setState({
@@ -235,7 +234,6 @@ export default class Base extends Component {
               success:true,
             }
         })
-        setTimeout(function(){ window.location.reload(); }, 5000);
       })
       .catch((err) => {
         this.setState({
