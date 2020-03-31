@@ -1,19 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import { layoutGenerator } from 'react-break'
 
-export const AboutCard = (props) => (
-    <>
-        <Container>
-            <H1>Tentang Kami</H1>
-            <Content>
-                {props.store.map((data, i) => (
-                    <P key={i}>{data.tentang_kami}</P>
-                ))}
-            </Content>
-        </Container>
-    </>
-)
+export default class AboutCard extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading:true,
+            localStore:[],
+        }
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.store.length !== prevState.localStore.length) {
+			return {
+				localStore: nextProps.store,
+				isLoading: false,
+			}
+		}
+	}
+    render(){
+        if(this.state.isLoading){
+            return(
+                <>
+                    <Container>
+                        <H1>Tentang Kami</H1>
+                        <Content>
+                            <div style={{width:"100%", height:"300px", backgroundColor:"#ccc"}}></div>
+                        </Content>
+                    </Container>
+                </>
+            )
+        }
+        return(
+            <>
+            <Container>
+                <H1>Tentang Kami</H1>
+                <Content>
+                    {this.state.localStore.map((data, i) => (
+                        <P key={i}>{data.tentang_kami}</P>
+                    ))}
+                </Content>
+            </Container>
+            </>
+        )
+    }
+
+    
+}
 const Container = styled.div`
     width: 790px;
     height: 392px;

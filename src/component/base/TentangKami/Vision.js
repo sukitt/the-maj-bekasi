@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import './assets/style.css'
@@ -16,31 +16,42 @@ import { OnDesktop, OnMobileAndTablet } from '../../../constants';
 // const OnDesktop = layout.is('desktop');
 
 // const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
-export const Vision = (props) => {
-    return(
-        <>
-        <Container>
-            <H1>Visi</H1>
-                {props.store.length && props.store.map((item, i) => (
-                    <>
-                    <OnDesktop>
-                        <Content key={i} className="vision">
-                            <Img 
-                                source={item.image} 
-                                position={i%2?'right':'left'} 
-                            />
-                            <div style={{marginTop:"58px"}}>
-                                <p>{item.vision}</p>
-                                <br />
-                                <br />
-                                <br />
-                                <p className="m-0">{item.name}</p>
-                                <b>{item.company_name}</b>
-                            </div>
+export default class Vision extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading: true,
+            localStore:[],
+        }
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.store.length !== prevState.localStore.length) {
+			return {
+				localStore: nextProps.store,
+				isLoading: false,
+			}
+		}
+	}
+    render(){
+        if(this.state.isLoading){
+            return(
+                <>
+                    <Container>
+                        <H1>Visi</H1>
+                        <Content>
+                            <div style={{width:"100%", height:"100%", backgroundColor:"#ccc"}}></div>
                         </Content>
-                    </OnDesktop>
-                    <OnMobileAndTablet>
-                        <div className="container">
+                    </Container>
+                </>
+            )
+        }
+        return(
+            <>
+            <Container>
+                <H1>Visi</H1>
+                    {this.state.localStore.length && this.state.localStore.map((item, i) => (
+                        <>
+                        <OnDesktop>
                             <Content key={i} className="vision">
                                 <Img 
                                     source={item.image} 
@@ -55,13 +66,31 @@ export const Vision = (props) => {
                                     <b>{item.company_name}</b>
                                 </div>
                             </Content>
-                        </div>
-                    </OnMobileAndTablet>
-                </>
-                ))}
-        </Container>
-    </>
-    )
+                        </OnDesktop>
+                        <OnMobileAndTablet>
+                            <div className="container">
+                                <Content key={i} className="vision">
+                                    <Img 
+                                        source={item.image} 
+                                        position={i%2?'right':'left'} 
+                                    />
+                                    <div style={{marginTop:"58px"}}>
+                                        <p>{item.vision}</p>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <p className="m-0">{item.name}</p>
+                                        <b>{item.company_name}</b>
+                                    </div>
+                                </Content>
+                            </div>
+                        </OnMobileAndTablet>
+                    </>
+                    ))}
+            </Container>
+        </>
+        )
+    }
 }
 
 const Container = styled.div`

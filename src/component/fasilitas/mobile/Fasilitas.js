@@ -64,7 +64,7 @@ class MobileFasilitas extends Component {
 									<Content className="my-auto" xs={4}>
 										<Icon src={d.img} alt={d.caption.replace(" ", "-")} />
 									</Content>
-									<Caption className="pr-1" xs><span>{d.caption}</span></Caption>
+									<Caption className="pr-1" xs>{d.caption}</Caption>
 								</Row>
 							</Col>
 						)
@@ -149,6 +149,12 @@ const Icon = styled.img`
 const Caption = styled(Col)`
 	margin: auto auto auto 10px;
 	padding:0px;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 13px;
+	text-transform: uppercase;
 `;
 
 export default MobileFasilitas
