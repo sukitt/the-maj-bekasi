@@ -44,7 +44,7 @@ class MobileBlogs extends Component {
         return (
             <Container id="blogs" className="container" margin="100px 0 0 0">
                 <h1 className="text-center">Update Terbaru</h1>
-                {this.props.store.length && this.props.store.map((data, i) => {
+                {this.props.store.length && this.props.store.slice(0,3).map((data, i) => {
                     let head = data.heading && data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")
                     return (
                         <Blog 

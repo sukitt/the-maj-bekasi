@@ -257,7 +257,7 @@ select::-ms-expand {
 .selectField:after {
   content: url('./assets/carret-down.svg');
   color: #000;
-  right: 11px;
+  right: -10px;
   top: 4px;
   height: 30px;
   padding: 4px 0px 0px 4px;
