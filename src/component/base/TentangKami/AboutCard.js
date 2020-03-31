@@ -2,24 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { layoutGenerator } from 'react-break'
 
-const layout = layoutGenerator({
-    mobile: 0,
-    tablet: 768,
-    desktop: 992,
-});
-
-const OnMobileAndTablet = layout.isAtMost('tablet');
-const OnDesktop = layout.is('desktop');
-
 export const AboutCard = (props) => (
     <>
         <Container>
-            <OnDesktop>
-                <H1>Tentang Kami</H1>
-            </OnDesktop>
-            <OnMobileAndTablet>
-                <H1>Tentang Kami</H1>
-            </OnMobileAndTablet>
+            <H1>Tentang Kami</H1>
             <Content>
                 {props.store.map((data, i) => (
                     <P key={i}>{data.tentang_kami}</P>
