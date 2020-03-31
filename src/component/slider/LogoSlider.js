@@ -50,7 +50,7 @@ class LogoSlider extends Component {
     }
     
     return(
-      <div style={{margin:"105px 0px",height:"260px"}}>
+      <div className="w-100" style={{margin:"105px 0px",height:"260px"}}>
         <Slider
           dots={false}
           infinite={true}
@@ -61,6 +61,7 @@ class LogoSlider extends Component {
           autoplaySpeed={2000}
           cssEase="linear"
           pauseOnHover={true}
+          arrows={false}
         >
           {this.state.localStore && this.state.localStore.map((item, i) => (
             <div key={item.id}>
