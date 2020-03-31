@@ -1,22 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import './style.css'
+import './assets/style.css'
 import { layoutGenerator } from 'react-break'
 import { BaseUrl } from '../../../services/axios';
+import { OnDesktop, OnMobileAndTablet } from '../../../constants';
 
-const layout = layoutGenerator({
-    mobile: 0,
-    tablet: 768,
-    desktop: 992,
-});
+// const layout = layoutGenerator({
+//     mobile: 0,
+//     tablet: 768,
+//     desktop: 992,
+// });
 
-const OnMobileAndTablet = layout.isAtMost('tablet');
-const OnDesktop = layout.is('desktop');
+// const OnMobileAndTablet = layout.isAtMost('tablet');
+// const OnDesktop = layout.is('desktop');
 
 // const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 export const Vision = (props) => {
-    // console.log(props.store.length && props.store)
     return(
         <>
         <Container>

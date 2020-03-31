@@ -7,12 +7,15 @@ import LogoSlider from '../component/slider/LogoSlider'
 
 import bgHeader from '../component/assets/tentangkami-image/header.png'
 import bgProfile from '../component/assets/tentangkami-image/profile.png'
+import Card1 from '../component/base/TentangKami/assets/card-loader1.svg'
+import Card2 from '../component/base/TentangKami/assets/card-loader2.svg'
 
 
 import { layoutGenerator } from 'react-break'
 import ScrollToTopOnMount from '../services/ScrollToTopOnMount'
 import { OnDesktop, OnMobileAndTablet } from '../constants'
 import LoaderSpinner from '../component/base/loader/LoaderSpinner'
+import { SliderPlaceholder } from '../component/base/loader/ImagePlaceholder'
 
 // DUMMY DATA
 const visionText = [
@@ -32,7 +35,7 @@ class TentangKami extends Base {
         if (window.pageYOffset !== 0) {
             return (
                 <>
-                <LoaderSpinner />
+                {/* <LoaderSpinner /> */}
                 <ScrollToTopOnMount />
                 </>
             )  
@@ -66,17 +69,27 @@ class TentangKami extends Base {
                 </section>
 
                 <section>
-                    {/* {console.log(this.state.abouts)} */}
-                    {this.state.abouts && this.state.abouts.map((data,d) => {
-                        return(
-                            <>
-                                <Vision
-                                    key={d}
-                                    store={data.visions}
-                                />
-                            </>
-                        )
-                    })}
+                    {
+                        !this.state.abouts.length? (
+                            <div className="d-flex flex-column justify-content-center">
+                                <div>
+                                    <SliderPlaceholder src={Card1} width="920px" height="392.67px" opacity="0.6" />
+                                </div>
+                                <div>
+                                    <SliderPlaceholder src={Card1} width="920px" height="392.67px" opacity="0.6" />
+                                </div>
+                            </div>
+                        ) : this.state.abouts.map((data,d) => {
+                            return(
+                                <>
+                                    <Vision
+                                        key={d}
+                                        store={data.visions}
+                                    />
+                                </>
+                            )
+                        })
+                    }
                 </section>
 
                 <section>
