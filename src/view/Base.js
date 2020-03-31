@@ -197,6 +197,9 @@ export default class Base extends Component {
               success:true,
             }
         })
+        setTimeout(function(){
+            this.setState({contact:{success:false}});
+        }.bind(this),5000);
       })
       .catch((err) => {
         this.setState({

@@ -22,8 +22,13 @@ export default class Footer extends Component {
     static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.success !== prevState.show) {
 			return {
-				show: nextProps.success
+                show: nextProps.success
 			}
+        }
+        if(nextProps.store !== prevState.localStore){
+            return {
+                localStore: nextProps.store
+            }
         }
         return null;
     }

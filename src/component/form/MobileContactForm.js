@@ -7,12 +7,12 @@ export default class MobileContactForm extends Component {
     
         this.state = {
             storeUnit: ['Saya Ingin','Membeli Unit','Mendapatkan Info Lebih','Melihat Price List','Mengunduh E-Brosur'],
-            gelar: "",
-            nama: "",
-            unit: "",
-            telepon: "",
-            email: "",
-            catatan: ""
+            gelar: null,
+            nama: null,
+            unit: null,
+            telepon: null,
+            email: null,
+            catatan: null
         }
     }
     
@@ -26,11 +26,10 @@ export default class MobileContactForm extends Component {
                         <Form.Control 
                             size="lg"
                             as="select"
-                            value={this.state.gelar} 
-                            defaultValue="Bapak" 
+                            value={this.state.gelar || ''}
                             ref={this.props.gelarRef} 
                             onChange={(e) => this.setState({gelar: e.target.value})}>
-                            <option selected disabled={this.state.gelar? 'disabled': null}>Gelar</option>
+                            <option disabled={this.state.gelar? 'disabled': null}>Gelar</option>
                         {this.props.storeGelar && this.props.storeGelar.map((d, i) => (
                             <option key={i+1} value={d.nama}>{d.nama}</option>
                         ))}
@@ -42,9 +41,10 @@ export default class MobileContactForm extends Component {
                             ref={this.props.namaRef}
                             type='text'
                             placeholder="Nama Lengkap Anda" 
-                            value={this.state.nama} 
+                            value={this.state.nama  || ''} 
                             onChange={(e) => this.setState({nama:e.target.value})} 
                             required
+                            pattern="[a-zA-Z ]+"
                             // isInvalid={this.state.nama === null? false: this.state.nama.length? false: true}
                         />
                         {/* <Form.Control.Feedback type="invalid">
@@ -57,11 +57,11 @@ export default class MobileContactForm extends Component {
                         as="select" 
                         ref={this.props.unitRef} 
                         onChange={(e) => this.setState({unit: e.target.value})}  
-                        value={this.state.unit} 
+                        value={this.state.unit || ''} 
                         required
                         // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                     >
-                        <option selected disabled={this.state.unit? 'disabled': null}>Saya Ingin</option>
+                        <option disabled={this.state.unit? 'disabled': null}>Saya Ingin</option>
                         {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
                             <option key={i+1} value={d} disabled={d === "Saya Ingin"}>{d}</option>
                         ))}
@@ -78,7 +78,7 @@ export default class MobileContactForm extends Component {
                             inputMode="tel"
                             pattern="[0-9]{10,}"
                             placeholder="Nomor Telepon Anda" 
-                            value={this.state.telepon} 
+                            value={this.state.telepon || ''} 
                             onChange={(e) => this.setState({telepon: e.target.value})}
                             required
                             // isInvalid={this.state.telepon === null? false: this.state.telepon.length? false: true}
@@ -93,7 +93,7 @@ export default class MobileContactForm extends Component {
                             ref={this.props.emailRef}
                             type="email" 
                             placeholder="Alamat Email Anda" 
-                            value={this.state.email}
+                            value={this.state.email || ''}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
                             // isInvalid={this.state.email === null? false: this.state.email.length? false: true}
@@ -110,7 +110,7 @@ export default class MobileContactForm extends Component {
                             as="textarea" 
                             placeholder="Catatan" 
                             rows="3"
-                            value={this.state.catatan}
+                            value={this.state.catatan || ''}
                             onChange={(e) => this.setState({catatan: e.target.value})} 
                         />
                     </Form.Group>

@@ -15,22 +15,22 @@ export const MobileLogoDisplay = (props) => {
             <Container>
                 <Row>
                     <Col xs={4}>
-                        <a href="#leopalace"><Img src={Leopalace} alt="Leopalace Logo" /></a>
+                        <Img src={Leopalace} alt="Leopalace Logo" />
                     </Col>
                     <Col xs={4}>
-                        <a href="/"><Img src={TheMaj} alt="TheMaj Logo" /></a>
+                        <Img src={TheMaj} alt="TheMaj Logo" />
                     </Col>
                     <Col xs={4}>
-                        <a href="#cgs"><Img src={Cgs} alt="central graha sejahtera Logo" /></a>
+                        <Img src={Cgs} alt="central graha sejahtera Logo" />
                     </Col>
                     <Col xs={4}>
-                        <a href="#indopora"><Img src={Indopora} alt="Indopora Logo" /></a>
+                        <Img src={Indopora} alt="Indopora Logo" />
                     </Col>
                     <Col xs={4}>
-                        <a href="#btn"><Img src={Btn} alt="BTN Logo" /></a>
+                        <Img src={Btn} alt="BTN Logo" />
                     </Col>
                     <Col xs={4}>
-                        <a href="#mandiri"><Img src={Mandiri} alt="Mandiri Logo" /></a>
+                        <Img src={Mandiri} alt="Mandiri Logo" />
                     </Col>
                 </Row>
             </Container>

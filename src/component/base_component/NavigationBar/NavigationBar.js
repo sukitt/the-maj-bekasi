@@ -130,7 +130,6 @@ export class MobileNavigationBar extends Component {
 						<hr />
 						<SideNavCloseBtn onClick={() => this.setState({ showing: !showing })}>&times;</SideNavCloseBtn>
 						{store && store.map((item, i) => {
-							const ItemName = item.name.toLowerCase().replace(/\s/, "-")
 							return (
 								<SideNavLink
 									onClick={() => this.setState({ showing: !showing })} key={i}

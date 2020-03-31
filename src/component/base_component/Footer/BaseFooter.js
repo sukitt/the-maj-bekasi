@@ -24,7 +24,7 @@ export default class BaseFooter extends Component {
                             size={this.props.size}
                             as='select'
                             ref={this.props.titleRef}
-                            value={this.state.title}
+                            value={this.state.title || ''}
                             onChange={e => this.setState({title: e.target.value})}
                             required
                             isInvalid={this.state.title === null? false: this.state.title.length? false: true}
@@ -42,7 +42,7 @@ export default class BaseFooter extends Component {
                             size={this.props.size}
                             type="text"
                             ref={this.props.nameRef}
-                            value={this.state.name}
+                            value={this.state.name || ''}
                             onChange={(e) => this.setState({name: e.target.value})}
                             placeholder="Nama Lengkap"
                             required
@@ -60,7 +60,7 @@ export default class BaseFooter extends Component {
                             type="email"
                             placeholder='Alamat Email'
                             ref={this.props.emailRef}
-                            value={this.state.email}
+                            value={this.state.email || ''}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
                             isInvalid={this.state.email === null? false: this.state.email.length? false: true}

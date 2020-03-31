@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react'
+import React, { Component } from 'react'
 import ContactForm from '../form/ContactForm'
 import { Button, Alert } from 'react-bootstrap'
 import '../assets/css/style.css'
@@ -18,7 +18,7 @@ class ContactUs extends Component{
 			}
         }
         return null;
-	}
+    }
     render(){
         return (
             <>
@@ -34,6 +34,18 @@ class ContactUs extends Component{
                         height: "auto",
                         margin: '28px auto',
                     }}>
+                        {this.state.show?(
+                            <>
+                            <Alert variant="success">
+                                <Alert.Heading>Terima Kasih!</Alert.Heading>
+                                <p>
+                                    Kami akan segera menghubungi anda melalui alamat email yang anda sediakan.
+                                </p>
+                            </Alert>
+                            </>
+                        ):(
+                            <></>
+                        )}
                         <H1>Hubungi Kami</H1>
                         <p style={{
                             width: "598px",
@@ -44,20 +56,7 @@ class ContactUs extends Component{
                             textAlign: 'center'
                         }}>
                             Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.
-                        </p>  
-                        {this.state.show?(
-                            <>
-                            <Alert variant="success" onClose={() => this.setState({show:false})} dismissible>
-                                <Alert.Heading>Terima Kasih!</Alert.Heading>
-                                <p>
-                                    Kami akan segera menghubungi anda melalui alamat email yang anda sediakan.
-                                </p>
-                            </Alert>
-                            </>
-                        ):(
-                            <></>
-                        )}
-                        
+                        </p>
                         <div style={{marginTop: 61}}>
                             <ContactForm {...this.props} >
                                 <Button 
@@ -122,7 +121,6 @@ const H1 = styled.h1(
         textAlign: "center",
         marginBottom:"26px",
         color: "#12284C",
-        textAlign:"center",
         textTransform: "capitalize",
     })
 )

@@ -31,12 +31,12 @@ export default class ContactForm extends Component {
                             id="gelar"
                             as="select" 
                             required
-                            value={this.state.gelar} 
+                            value={this.state.gelar || ''} 
                             ref={this.props.gelarRef} 
                             // isInvalid={this.state.gelar === null? false: this.state.gelar.length? false: true}
                             onChange={(e) => this.setState({gelar: e.target.value})}
                         >
-                            <option key={'empty'} value={''}></option>
+                            <option key={'empty'} value=""></option>
                             {this.state.storeGelar && this.state.storeGelar.map((d, i) => (
                                 <option key={i+1} value={d} disabled={d === "Gelar"}>{d}</option>
                             ))}
@@ -48,7 +48,7 @@ export default class ContactForm extends Component {
                             id="nama"
                             ref={this.props.namaRef}
                             type='text'
-                            value={this.state.nama} 
+                            value={this.state.nama || ''} 
                             onChange={(e) => this.setState({nama:e.target.value})}
                             // isInvalid={this.state.nama === null? false: this.state.nama.length? false:true}
                             required
@@ -63,13 +63,13 @@ export default class ContactForm extends Component {
                         <Form.Control 
                             id="unit"
                             as="select"
-                            value={this.state.unit} 
+                            value={this.state.unit || ''} 
                             ref={this.props.unitRef} 
                             required
                             // isInvalid={this.state.unit === null? false: this.state.unit.length? false: true}
                             onChange={(e) => this.setState({unit: e.target.value})}
                         >
-                            <option key={'empty'} value={''}></option>
+                            <option key={'empty'} value=""></option>
                             {this.state.storeUnit && this.state.storeUnit.map((d, i) => (
                                 <option key={i+1} value={d} disabled={d === "Saya Ingin"}>{d}</option>
                             ))}
@@ -88,7 +88,7 @@ export default class ContactForm extends Component {
                             type="tel"
                             inputMode="tel"
                             pattern="[0-9]{10,}"
-                            value={this.state.telepon}
+                            value={this.state.telepon || ''}
                             required
                             // defaultValue={this.state.defaultValuePhone}
                             onChange={(e) => this.setState({telepon: e.target.value})}
@@ -104,7 +104,7 @@ export default class ContactForm extends Component {
                             id="email"
                             ref={this.props.emailRef}
                             type="email" 
-                            value={this.state.email}
+                            value={this.state.email || ''}
                             onChange={(e) => this.setState({email: e.target.value})}
                             required
                             // defaultValue={this.state.defaultValueEmail}
@@ -123,7 +123,7 @@ export default class ContactForm extends Component {
                             ref={this.props.catatanRef}
                             as="textarea" 
                             rows="3"
-                            value={this.state.catatan}
+                            value={this.state.catatan || ''}
                             onChange={(e) => this.setState({catatan: e.target.value})} 
                         />
                     </Form.Group>
