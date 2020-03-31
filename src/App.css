@@ -254,10 +254,13 @@ select{
 select::-ms-expand {
   display: none;
 }
+#mobile-denahunit > .selectField:after{
+  right: -10px !important;
+}
 .selectField:after {
   content: url('./assets/carret-down.svg');
   color: #000;
-  right: -10px;
+  right: 11px;
   top: 4px;
   height: 30px;
   padding: 4px 0px 0px 4px;
