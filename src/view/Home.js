@@ -110,7 +110,7 @@ class Home extends Base {
 					</section>
 
 					<section>
-						<MobileDenahUnit id="denah-unit" store={this.state.units} denahUnitRef={this.scrollDenahUnit} />
+						<MobileDenahUnit id="denah-unit" store={this.state.units} />
 					</section>
 
 					<section>

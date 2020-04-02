@@ -9,7 +9,7 @@ import Indopora from '../../assets/partnership-image/Logo_Indopora.svg'
 import Btn from '../../assets/partnership-image/Logo_BTN.svg'
 import Mandiri from '../../assets/partnership-image/Logo_Mandiri.svg'
 
-export const MobileLogoDisplay = (props) => {
+export const MobileLogoDisplay = () => {
     return (
         <>
             <Container>

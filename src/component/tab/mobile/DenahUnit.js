@@ -65,7 +65,7 @@ export class DenahUnit extends Base {
                     <Form.Control
                         style={Select}
                         as="select"
-                        onClick={(e) => this._handleSelect(e)}
+                        onChange={(e) => this._handleSelect(e)}
                         default
                         className="fs-22"
                     >
