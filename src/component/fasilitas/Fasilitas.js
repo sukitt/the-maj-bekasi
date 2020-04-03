@@ -105,7 +105,7 @@ const Icon = styled.img`
 	height:40px;
 `;
 const Caption = styled(Col)`
-	margin: auto 5px auto 10px;
+	margin: auto 15px;
 	padding:0px;
 	font-family: Proxima Nova;
 	font-style: normal;
