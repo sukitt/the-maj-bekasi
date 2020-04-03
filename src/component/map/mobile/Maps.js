@@ -113,7 +113,7 @@ export default class Maps extends Component {
 										<button style={{ backgroundColor: "transparent", color: "#000" }} onClick={this.previous} ><i className="fas fa-caret-right fa-2x"></i></button>
 									</Col>
 									<div style={{ marginBottom: "13px" }}>
-										{item.marker.slice(0, 4).map((est, e) => {
+										{item.marker.slice(0, 5).map((est, e) => {
 											return (
 												<Col className="d-flex my-3 p-0" style={{ padding: "" }}>
 													<img style={{ width: "15px", height: "15px", margin: "auto 10px auto 0px" }} src={setIcon(est.icon)} alt="location icon" />
