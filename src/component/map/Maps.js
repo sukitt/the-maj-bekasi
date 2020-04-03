@@ -28,14 +28,14 @@ const Content = styled(Col)`
   margin-right:12px;
   padding:9px;
 `;
-const Text = styled.div`
+const Text = styled(Col)`
   font-family: Proxima Nova;
+  margin: auto 5px auto 10px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 11px;
   line-height: 13px;
   color: #000;
-  max-width:100px;
 `;
 const Time = styled.span`
   font-family: Proxima Nova;
@@ -125,12 +125,10 @@ class Maps extends Component {
             <Col className="text-center" style={{ padding: "5px" }} xs={4}>
               <img width="27" height="27" src={setIcon(props.marker)} alt="marketplace-marker" />
             </Col>
-            <Col xs className="p-0">
-              <Text>
-                <Time>{props.caption}</Time><br />
-                {props.description}
-              </Text>
-            </Col>
+            <Text xs className="p-0">
+              <Time>{props.caption}</Time><br />
+              {props.description}
+            </Text>
           </Row>
         </Content>
       </>
@@ -173,7 +171,7 @@ class Maps extends Component {
                 <Row className="justify-content-center mx-auto mt-5" style={{ maxWidth: "900px" }}>
                   {item.marker.slice(0, 4).map((marker, i) => (
                     <Distance
-                      caption={`± ` + marker.estimasi + ` menit ke `}
+                      caption={`± ` + marker.estimasi + ` ke `}
                       description={marker.name}
                       marker={marker.icon}
                       key={i}

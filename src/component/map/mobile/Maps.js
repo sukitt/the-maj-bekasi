@@ -118,7 +118,7 @@ export default class Maps extends Component {
 												<Col className="d-flex my-3 p-0" style={{ padding: "" }}>
 													<img style={{ width: "15px", height: "15px", margin: "auto 10px auto 0px" }} src={setIcon(est.icon)} alt="location icon" />
 													<Caps2 style={{ padding: "5px 0px", margin: 0 }}>
-														<b style={{ color: "#cc9980" }}>± {est.estimasi} Menit </b> Ke {est.name}
+														<b style={{ color: "#cc9980" }}>± {est.estimasi} </b> Ke {est.name}
 													</Caps2>
 												</Col>
 											)
