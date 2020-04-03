@@ -18,34 +18,7 @@ import GmapsPlaceholder from './assets/gmaps-placeholder.svg'
 import styled from 'styled-components';
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
-const Content = styled(Col)`
-  height: 60px;
-  border: 1px solid #CC9980;
-  box-sizing: border-box;
-  max-width:199px;
-  width:100%;
-  margin-left:12px;
-  margin-right:12px;
-  padding:9px;
-`;
-const Text = styled(Col)`
-  font-family: Proxima Nova;
-  margin: auto 5px auto 10px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 13px;
-  color: #000;
-`;
-const Time = styled.span`
-  font-family: Proxima Nova;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 13px;
-  text-transform: uppercase;
-  color: #CC9980;
-`;
+
 
 
 class Maps extends Component {
@@ -73,66 +46,6 @@ class Maps extends Component {
 
   render() {
     const { localStore } = this.state
-    
-    const setIcon = (icon) => {
-      switch (icon) {
-        case 'marketplace':
-          return marketplace;
-        case 'education':
-          return education;
-        case 'goverment':
-          return goverment;
-        case 'hospital':
-          return hospital;
-        case 'busway':
-          return busway;
-        case 'station':
-          return station;
-        case 'tolls':
-          return tolls;
-        case 'gor':
-          return gor;
-        default:
-          return marketplace
-      }
-    }
-    const Gmaps = (props) => {
-      return (
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
-          defaultCenter={props.center}
-          defaultZoom={props.zoom}
-        >
-          {props.location.map(function (item) {
-            return (
-              <Marker
-                key={item.id}
-                lat={item.latitude}
-                lng={item.longitude}
-                text={item.name}
-                icon={setIcon(item.icon)}
-              />
-            );
-          })}
-        </GoogleMapReact>
-      );
-    }
-
-    const Distance = (props) => (
-      <>
-        <Content md={3}>
-          <Row className="m-0">
-            <Col className="text-center" style={{ padding: "5px" }} xs={4}>
-              <img width="27" height="27" src={setIcon(props.marker)} alt="marketplace-marker" />
-            </Col>
-            <Text xs className="p-0">
-              <Time>{props.caption}</Time><br />
-              {props.description}
-            </Text>
-          </Row>
-        </Content>
-      </>
-    )
     
     if (this.state.isLoading) {
       return (
@@ -169,14 +82,17 @@ class Maps extends Component {
                   location={item.marker}
                 />
                 <Row className="justify-content-center mx-auto mt-5" style={{ maxWidth: "900px" }}>
-                  {item.marker.slice(0, 4).map((marker, i) => (
-                    <Distance
-                      caption={`± ` + marker.estimasi + ` ke `}
-                      description={marker.name}
-                      marker={marker.icon}
-                      key={i}
-                    />
-                  ))}
+                  {item.marker.slice(0,5).map((marker, i) => {
+                    return (
+                      <Distance
+                        caption={`± ` + marker.estimasi + ` ke `}
+                        description={marker.name}
+                        marker={marker.icon}
+                        key={i}
+                        location_id = {marker.location_id}
+                      />
+                    )
+                  })}
                 </Row>
               </div>
             </Tab>
@@ -188,4 +104,93 @@ class Maps extends Component {
     )
   }
 }
+
+const setIcon = (icon) => {
+  switch (icon) {
+    case 'marketplace':
+      return marketplace;
+    case 'education':
+      return education;
+    case 'goverment':
+      return goverment;
+    case 'hospital':
+      return hospital;
+    case 'busway':
+      return busway;
+    case 'station':
+      return station;
+    case 'tolls':
+      return tolls;
+    case 'gor':
+      return gor;
+    default:
+      return marketplace
+  }
+}
+const Gmaps = (props) => {
+  return (
+    <GoogleMapReact
+      bootstrapURLKeys={{ key: "" }}
+      defaultCenter={props.center}
+      defaultZoom={props.zoom}
+    >
+      {props.location.map(function (item) {
+        return (
+          <Marker
+            key={item.id}
+            lat={item.latitude}
+            lng={item.longitude}
+            text={item.name}
+            icon={setIcon(item.icon)}
+          />
+        );
+      })}
+    </GoogleMapReact>
+  );
+}
+
+const Distance = (props) => (
+  <>
+    <Content md={3} maxWidth={props.location_id === 3 ? '230px' : props.location_id === 4 ? '230px' : '200px' }>
+      <Row className="m-0">
+        <Col className="text-center" style={{ padding: "5px" }} xs={4}>
+          <img width="27" height="27" src={setIcon(props.marker)} alt="marketplace-marker" />
+        </Col>
+        <Text xs className="p-0">
+          <Time>{props.caption}</Time><br />
+          {props.description}
+        </Text>
+      </Row>
+    </Content>
+  </>
+)
+const Content = styled(Col)`
+  height: 60px;
+  border: 1px solid #CC9980;
+  box-sizing: border-box;
+  max-width:${props => props.maxWidth};
+  width:100%;
+  margin-left:12px;
+  margin-right:12px;
+  padding:9px;
+  margin-bottom: 24px;
+`;
+const Text = styled(Col)`
+  font-family: Proxima Nova;
+  margin: auto 5px auto 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+`;
+const Time = styled.span`
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #CC9980;
+`;
 export default Maps
