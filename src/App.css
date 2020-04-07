@@ -26,9 +26,9 @@ a:not([href]){
 :focus{
   outline: none !important;
 }
-html{
+/* html{
   scroll-behavior: smooth;
-}
+} */
 /* Heading 1 */
 h1, .h1 {
   font-style: normal;

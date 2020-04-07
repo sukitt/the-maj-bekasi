@@ -59,7 +59,7 @@ export class MobileReviewUnit extends Component {
         >
             {this.state.storeReview && this.state.storeReview.map((d, i) => (
                 <div key={i} >
-                    <img src={`${BaseUrl}/storage/${d.gambar_mobile}`} alt="review 1" style={{width: "inherit", height: "auto", margin: "0 auto"}} />
+                    <img className="img-fluid" src={`${BaseUrl}/storage/${d.gambar}`} alt="review 1" />
                 </div>
             ))}
         </Slider>
@@ -71,6 +71,8 @@ export class MobileReviewUnit extends Component {
               dots={false}
               focusOnSelect={true}
               slidesToShow={this.state.show}
+              centerMode={true}
+              centerPadding="1px"
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}

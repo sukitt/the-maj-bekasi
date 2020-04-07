@@ -98,7 +98,7 @@ class Home extends Base {
 				{/* Mobile Table Responsive */}
 				<OnMobileAndTablet>
 					<section>
-						<div className="w-100">
+						<div className="container">
 							<MobileHeaderSlider store={this.state.sliders} />
 						</div>
 					</section>

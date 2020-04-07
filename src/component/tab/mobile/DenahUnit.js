@@ -34,9 +34,8 @@ export class DenahUnit extends Base {
 
     componentDidMount() {
         setTimeout(() => {
-            // document.getElementById("defaultSelect").click()
-            $('#defaultSelect').click()
-        }, 5000)
+            $(`#studio-a`).css({"display": "block"})
+        }, 3000)
     }
 
     render() {
@@ -84,7 +83,7 @@ export class DenahUnit extends Base {
                     </Form.Group>
 
                     {this.state.localStore.length && this.state.localStore.map((d, i) => (
-                        <div key={d.id} style={{ margin: "0 auto" }} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
+                        <div key={d.id} style={{ margin: "0 auto", display:"none" }} id={d.unit_name.toLowerCase().replace(/\s/g, "-")} className="unitContent">
                             <Luas>{d.specs.luas} M<sup>2</sup></Luas>
                             <div>
                                 <Slider

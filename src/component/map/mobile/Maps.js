@@ -115,10 +115,10 @@ export default class Maps extends Component {
 									<div style={{ marginBottom: "13px" }}>
 										{item.marker.slice(0, 5).map((est, e) => {
 											return (
-												<Col className="d-flex my-3 p-0" style={{ padding: "" }}>
+												<Col className="d-flex my-3 p-0 pl-3" >
 													<img style={{ width: "15px", height: "15px", margin: "auto 10px auto 0px" }} src={setIcon(est.icon)} alt="location icon" />
 													<Caps2 style={{ padding: "5px 0px", margin: 0 }}>
-														<b style={{ color: "#cc9980" }}>± {est.estimasi} </b> Ke {est.name}
+														<b className="text-uppercase" style={{ color: "#cc9980" }}>± {est.estimasi} </b> Ke {est.name}
 													</Caps2>
 												</Col>
 											)
@@ -134,9 +134,10 @@ export default class Maps extends Component {
 	}
 }
 const Caps2 = styled.h6`
+  font-family: 'Proxima Nova Book' !important;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 `;

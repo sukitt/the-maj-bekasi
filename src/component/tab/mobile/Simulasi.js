@@ -87,21 +87,21 @@ export class Simulasi extends Base {
 
                 <div style={{ margin: "67px auto", maxWidth: 800 }}>
                     <Row>
-                        <Col style={{ marginBottom: "53px" }} ><P>Harga Unit</P></Col>
-                        <Col style={{ marginBottom: "53px" }}><P><NumberFormat value={this.props.hargaUnit} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
+                        <Col style={{ marginBottom: "23px" }} ><P>Harga Unit</P></Col>
+                        <Col style={{ marginBottom: "23px" }}><P><NumberFormat value={this.props.hargaUnit} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
 
                     </Row>
                     <Row>
-                        <Col style={{ marginBottom: "53px" }}><P>DP 20%</P></Col>
-                        <Col style={{ marginBottom: "53px" }}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
+                        <Col style={{ marginBottom: "23px" }}><P>DP 20%</P></Col>
+                        <Col style={{ marginBottom: "23px" }}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     </Row>
                     <Row>
-                        <Col style={{ marginBottom: "53px" }}><P>Jumlah Pinjaman</P></Col>
-                        <Col style={{ marginBottom: "53px" }}><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
+                        <Col style={{ marginBottom: "23px" }}><P>Jumlah Pinjaman</P></Col>
+                        <Col style={{ marginBottom: "23px" }}><P><NumberFormat value={this.state.totalLoan} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     </Row>
                     <Row>
-                        <Col style={{ marginBottom: "53px" }}><P>Tenor Kredit</P></Col>
-                        <Col style={{ marginBottom: "53px" }}>
+                        <Col style={{ margin: "11px 0px" }}><P>Tenor Kredit</P></Col>
+                        <Col style={{ marginBottom: "23px" }}>
                             <Form.Group className="position-relative selectField" controlId="unitField">
                                 <FormControl as="select" id="kredit" name="credit" onChange={this.handleChangeCredits.bind(this)} >
                                     {this.state.options.length && this.state.options.map((index, i) => (
@@ -114,8 +114,8 @@ export class Simulasi extends Base {
                         </Col>
                     </Row>
                     <Row>
-                        <Col style={{ marginBottom: "53px" }}><P>Bunga</P></Col>
-                        <Col style={{ marginBottom: "53px" }}>
+                        <Col style={{ margin: "11px 0px" }}><P>Bunga</P></Col>
+                        <Col style={{ marginBottom: "23px" }}>
                             <FormControl type="number" maxLength="4" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
                         </Col>
                     </Row>
@@ -158,7 +158,7 @@ const H2 = styled.h2(
     props => ({
         fontStyle: "normal",
         fontWeight: "bold",
-        fontSize: "22px",
+        fontSize: "21px",
         lineHeight: "28px",
         textAlign: "center",
         color: "#232323",
@@ -181,7 +181,7 @@ const H3 = styled.h3(
 const P = styled.p(
     props => ({
         fontStyle: "normal",
-        fontWeight: "bold",
+        fontWeight: "normal",
         fontSize: "16px",
         lineHeight: "21px",
         color: "#000",
