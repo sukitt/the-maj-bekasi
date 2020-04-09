@@ -153,7 +153,7 @@ const Distance = (props) => (
   <>
     <Content md={3} maxWidth={props.location_id === 3 ? '230px' : props.location_id === 4 ? '230px' : '200px' }>
       <Row className="m-0">
-        <Col className="text-center" style={{ padding: "5px" }} xs={4}>
+        <Col className="text-center" style={{ padding: "5px" }} xs={2}>
           <img width="27" height="27" src={setIcon(props.marker)} alt="marketplace-marker" />
         </Col>
         <Text xs className="p-0">

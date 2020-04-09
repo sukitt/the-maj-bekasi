@@ -92,7 +92,7 @@ export default class BlogSlider extends Component {
                                 {this.state.localStore.length && this.state.localStore.map((data, i) => {
                                     return (
                                         <div key={i}>
-                                            <img style={{ width: "100%", outline: "none" }} src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} alt={data.heading + "blog"} />
+                                            <img style={{ width: "100%", outline: "none", height:"460px" }} src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/")}`} alt={data.heading + "blog"} />
                                         </div>
                                     )
                                 })}
@@ -108,10 +108,12 @@ export default class BlogSlider extends Component {
                                             <TruncatedText><p><strong>{item.lokasi}, {item.sumber} - </strong>{truncate(item.preview_text)}</p></TruncatedText>
                                             <Author author={item.author} /> <br/>
                                             <Posted_At posted_at={item.created_at} />
-                                            <Row style={{margin:"53px 0px"}}>
-                                                <Col md={2} xs={3}><Buttons onClick={this.previous}><i className="fa fa-chevron-left"></i></Buttons></Col>
-                                                <Col md={2} xs={3}><Buttons onClick={this.next}><i className="fa fa-chevron-right"></i></Buttons></Col>
-                                            </Row>
+                                            <div className="position-absolute" style={{bottom:"1%"}}>
+                                                <Row>
+                                                    <Col className="mr-2" md={2} xs={3}><Buttons onClick={this.previous}><i className="fa fa-chevron-left"></i></Buttons></Col>
+                                                    <Col className="ml-2" md={2} xs={3}><Buttons onClick={this.next}><i className="fa fa-chevron-right"></i></Buttons></Col>
+                                                </Row>
+                                            </div>
                                         </>
                                     )
                                 }
