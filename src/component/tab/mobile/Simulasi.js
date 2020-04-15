@@ -18,7 +18,8 @@ export class Simulasi extends Base {
             annualEst: 0,
             options: [],
             credit: 1,
-            interest: 1,
+            interest: 8,
+            validInterest:true,
         }
     }
     componentDidMount() {
@@ -42,13 +43,12 @@ export class Simulasi extends Base {
         )
     }
     handleChangeInterest = (event) => {
-        console.log(event.target.value)
-        if (!event.target.value || event.target.value < 1) {
-            this.setState({ interest: 0 })
-        } else if (event.target.value > 100) {
-            this.setState({ interest: "cannot set interest more than 100.00" })
-        } else {
-            this.setState({ interest: event.target.value });
+        if(!event.target.value || event.target.value < 8){
+            this.setState({interest:8, validInterest:false})
+        }else if(event.target.value > 100){
+            this.setState({interest:100, validInterest:true})
+        }else{
+            this.setState({interest:event.target.value, validInterest:true});
             this.calcLoan()
         }
     }
@@ -71,7 +71,7 @@ export class Simulasi extends Base {
         })
     }
     loop_credit = () => {
-        for (let index = 1; index < 26; index++) {
+        for (let index = 1; index < 21; index++) {
             this.setState(prev => ({ options: [...prev.options, index] }))
         }
     }
@@ -116,7 +116,12 @@ export class Simulasi extends Base {
                     <Row>
                         <Col style={{ margin: "11px 0px" }}><P>Bunga</P></Col>
                         <Col style={{ marginBottom: "23px" }}>
-                            <FormControl type="number" maxLength="4" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
+                            <FormControl type="number" maxLength="4" pattern="[0-9]{10.}" name="bunga" placeholder="eg: 5 or 5.2" onChange={this.handleChangeInterest.bind(this)} />
+                            {this.state.validInterest?null:(
+                                <Alerts className="text-danger">
+                                    Bunga Minimum 8.00%
+                                </Alerts>
+                            )}
                         </Col>
                     </Row>
                     <Col className="p-0">
@@ -199,3 +204,7 @@ const H6 = styled.p`
     color: #000000;
     opacity: .5;
 `;
+const Alerts = styled.span({
+    fontSize:"11px !important",
+    fontWeight:"normal !important"
+})

@@ -12,7 +12,8 @@ export default class TabSimulasi extends Component {
             annualEst:0,
             options:[],
             credit:1,
-            interest:1,
+            interest:8,
+            validInterest:true,
         }
     }
 
@@ -37,15 +38,14 @@ export default class TabSimulasi extends Component {
         )
     }
     handleChangeInterest = (event) => {
-        if(!event.target.value || event.target.value < 1){
-            this.setState({interest:1})
+        if(!event.target.value || event.target.value < 8){
+            this.setState({interest:8, validInterest:false})
         }else if(event.target.value > 100){
-            this.setState({interest:100})
+            this.setState({interest:100, validInterest:true})
         }else{
-            this.setState({interest:event.target.value});
+            this.setState({interest:event.target.value, validInterest:true});
             this.calcLoan()
         }
-        console.log(this.state.interest)
     }
     handleChangeCredits = (event) => {
         console.log(event.target.value)
@@ -66,7 +66,7 @@ export default class TabSimulasi extends Component {
         })
     }
     loop_credit = () => {
-        for (let index = 1; index < 26; index++) {
+        for (let index = 1; index < 21; index++) {
             this.setState(prev=>({options:[...prev.options,index]}))
         }
     }
@@ -104,7 +104,12 @@ export default class TabSimulasi extends Component {
                     <Col md={3}><P><NumberFormat value={this.state.dp} displayType={'text'} thousandSeparator={true} prefix={'IDR '} /></P></Col>
                     <Col md={3}><P>Bunga</P></Col>
                     <Col style={{padding:"13px 0px"}} md={3}>
-                        <Form.Control type="number" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
+                        <Form.Control type="number" pattern="[0-9]{10.}" maxLength="4" name="bunga" placeholder="0" onChange={this.handleChangeInterest.bind(this)} />
+                        {this.state.validInterest?null:(
+                            <Alerts className="text-danger">
+                                Bunga Minimum 8.00%
+                            </Alerts>
+                        )}
                     </Col>
                 </Row>
                 <Row>
@@ -117,6 +122,11 @@ export default class TabSimulasi extends Component {
         )
     }
 }
+
+const Alerts = styled.span({
+    fontSize:"11px !important",
+    fontWeight:"normal !important"
+})
 const Container = styled.div`
     padding:100px 100px 0px 100px;
 
