@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import {BaseUrl} from '../../../services/axios'
 import styled from "styled-components"
 
+import exampleImg from '../../assets/tentangkami-image/2.png'
+
 import '../assets/style.css'
 
 export class MobileReviewUnit extends Component {
@@ -62,6 +64,9 @@ export class MobileReviewUnit extends Component {
                     <img className="img-fluid" src={`${BaseUrl}/storage/${d.gambar}`} alt="review 1" />
                 </div>
             ))}
+            <div>
+              <iframe width="100%" height="240px" src={this.props.frame.embed_links} frameborder="0"></iframe>
+            </div>
         </Slider>
 
         <div id="reviewUnitMobile" style={{width: "100%", marginTop: "21px"}}>
@@ -72,7 +77,7 @@ export class MobileReviewUnit extends Component {
               focusOnSelect={true}
               slidesToShow={this.state.show}
               centerMode={true}
-              centerPadding="1px"
+              centerPadding="10px"
               swipeToSlide={true}
               arrows={false}
               ref={slider => (this.slider2 = slider)}
@@ -84,10 +89,13 @@ export class MobileReviewUnit extends Component {
                 {this.state.storeReview && this.state.storeReview.map((d, i) => {
                   return (
                     <div key={i}>
-                        <img src={`${BaseUrl}/storage/${d.gambar_mobile}`} alt="review 2" style={{width: 70, height: 70}} />
+                        <img src={`${BaseUrl}/storage/${d.gambar_mobile}`} className="mx-auto p-3" alt="Preview 2" style={{width: '100%'}} />
                     </div>
                   )
                 })}
+                <div>
+                  <img src={exampleImg} alt="preview" className="mx-auto p-3" style={{width: '100%'}} />
+                </div>
             </Slider>
         </div>
       </>

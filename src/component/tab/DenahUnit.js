@@ -13,7 +13,6 @@ import dots from './assets/dots.svg'
 import Spec1 from './assets/spec1-placeholder.svg'
 import Spec2 from './assets/spec2-placeholder.svg'
 import './assets/style.css'
-import LoaderSpinner from '../base/loader/LoaderSpinner'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 
 class DenahUnit extends Component {
@@ -143,7 +142,7 @@ class DenahUnit extends Component {
 										<Tab
 											eventKey={Object.keys(this.state.localStore[i])[6]}
 											title="PREVIEW UNIT">
-											<TabGallery images={item.gallery} />
+											<TabGallery images={item.gallery} frame={item.embed_links} />
 										</Tab>
 										<Tab
 											eventKey={Object.keys(this.state.localStore[i])[2]}

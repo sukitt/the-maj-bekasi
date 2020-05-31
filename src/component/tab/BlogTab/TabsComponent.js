@@ -4,6 +4,12 @@ import { Link, useHistory } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 import { BaseUrl } from '../../../services/axios'
 
+
+function thumbnail (source) {
+    var ext = source.split(".").pop();
+    return source.replace("."+ext, "-thumbnail."+ext)
+}
+
 export default class TabsComponent extends Component {
     constructor(props) {
         super(props)
@@ -50,7 +56,7 @@ export default class TabsComponent extends Component {
                                 <>
                                     <Col md={4} xs={12} style={{ marginTop: 40 }}>  
                                         <Link to={`/blog/${data.heading.toLowerCase().replace(/\s/g, "-").replace(/[%@#,*>!?"'.]/g, "")}`} >
-                                            <Image src={`${BaseUrl}/storage/${data.image.replace(/\\/g, "/").replace(".jpg", "-thumbnail.jpg").replace(".png", "-thumbnail.png")}`} alt="list-blog" />
+                                            <Image src={`${BaseUrl}/storage/${thumbnail(data.image)}`} alt="list-blog" />
                                         </Link>
                                         <ButtonLink
                                             to={{
