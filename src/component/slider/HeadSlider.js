@@ -6,6 +6,7 @@ import { BaseUrl } from '../../services/axios';
 import arrows from './assets/arrows.svg'
 import placeholder from './assets/header-placeholder.png'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder';
+import Skeleton from '../base/skeleton';
 
 const Background = styled.div(
 	props => ({
@@ -154,7 +155,10 @@ class HeadSlider extends Component {
 		if (this.state.isLoading) {
 			return (
 				<div style={imgStyle}>
-					<SliderPlaceholder src={placeholder} color="#CC9980" width="100%" height="560px" opacity=".8" />
+					<Skeleton
+						width="100%"
+						height="560px"
+					></Skeleton>
 				</div>
 			)
 		}

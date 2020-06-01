@@ -6,9 +6,9 @@ import { BaseUrl } from '../../services/axios'
 import './assets/css/style.css'
 import GaleriGambarLoading from './assets/galeri-placeholder.svg'
 // import nextIcon from '../../assets/next.svg'
-import LoaderSpinner from '../base/loader/LoaderSpinner'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 import { Row, Col } from 'react-bootstrap'
+import Skeleton from '../base/skeleton'
 
 const Img = styled.img({
 	margin: "0px auto",
@@ -70,7 +70,7 @@ export class Gallery extends Component {
 						{GaleriLoading(3).map((item, i) => {
 							return (
 								<div key={i}>
-									<SliderPlaceholder src={item.gambar} width="759.24px" height="531.46px" color="#CC9980" opacity=".6" alt={item.nama} />
+									<Skeleton width="920px" height="540px"></Skeleton>
 								</div>
 							)
 						}

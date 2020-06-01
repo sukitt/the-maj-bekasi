@@ -75,45 +75,45 @@ export default class Base extends Component {
       })
     )
 
-    const promiseSlider = Promise.resolve(
-      getSliders()
-      .then((res) => this.setState({ sliders: res.data }))
-      .catch((err) => {
-        if (err && err.response) this.setState({ errors: { sliders: { code: err.response.status, status: err.response.statusText } } })
-      })
-    )
+    // const promiseSlider = Promise.resolve(
+    //   getSliders()
+    //   .then((res) => this.setState({ sliders: res.data }))
+    //   .catch((err) => {
+    //     if (err && err.response) this.setState({ errors: { sliders: { code: err.response.status, status: err.response.statusText } } })
+    //   })
+    // )
 
-    const promiseUnit = Promise.resolve(
-      getUnits()
-      .then(res => this.setState({ units: res.data }))
-      .catch(err => {
-        if (err && err.response) this.setState({ errors: { units: err.response.status, status: err.response.statusText } })
-      })
-    )
+    // const promiseUnit = Promise.resolve(
+    //   getUnits()
+    //   .then(res => this.setState({ units: res.data }))
+    //   .catch(err => {
+    //     if (err && err.response) this.setState({ errors: { units: err.response.status, status: err.response.statusText } })
+    //   })
+    // )
 
-    const promiseGaleri = Promise.resolve(
-      getGallery()
-      .then(res => this.setState({ gallery: res.data }))
-      .catch((err) => {
-        if (err && err.response) this.setState({ errors: { gallery: { code: err.response.status, status: err.response.statusText } } })
-      })
-    )
+    // const promiseGaleri = Promise.resolve(
+    //   getGallery()
+    //   .then(res => this.setState({ gallery: res.data }))
+    //   .catch((err) => {
+    //     if (err && err.response) this.setState({ errors: { gallery: { code: err.response.status, status: err.response.statusText } } })
+    //   })
+    // )
 
-    const promisePartner = Promise.resolve(
-      getPartnership()
-      .then(res => this.setState({ partnership: res.data }))
-      .catch((err) => {
-        if (err && err.response) this.setState({ errors: { partnership: { code: err.response.status, status: err.response.statusText } } })
-      })
-    )
+    // const promisePartner = Promise.resolve(
+    //   getPartnership()
+    //   .then(res => this.setState({ partnership: res.data }))
+    //   .catch((err) => {
+    //     if (err && err.response) this.setState({ errors: { partnership: { code: err.response.status, status: err.response.statusText } } })
+    //   })
+    // )
 
-    const promiseLocation = Promise.resolve(
-      getLocation()
-      .then(res => this.setState({ location: res.data }))
-      .catch((err) => {
-        if (err && err.response) this.setState({ errors: { location: { code: err.response.status, status: err.response.statusText } } })
-      })
-    )
+    // const promiseLocation = Promise.resolve(
+    //   getLocation()
+    //   .then(res => this.setState({ location: res.data }))
+    //   .catch((err) => {
+    //     if (err && err.response) this.setState({ errors: { location: { code: err.response.status, status: err.response.statusText } } })
+    //   })
+    // )
     
     const promiseAbout = Promise.resolve(
       getAbouts()
@@ -155,18 +155,18 @@ export default class Base extends Component {
       })
     )
     
-    Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert, promisePrivacyPolicy, promiseSocialMedia])
-      .then(() => {
-        // setTimeout(()=>{
-        //   if (this.props.match && this.props.match.path === "/") {
-        //     document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
-        //     document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
-        //     document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
-        //     document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
-        //   }
-        // }, 3000)
-      })
-      .catch(err => console.log(err))
+    // Promise.all([promiseNavbar, promiseSlider, promiseUnit, promiseGaleri, promisePartner, promiseLocation, promiseAbout, promiseBlog, promiseExpert, promisePrivacyPolicy, promiseSocialMedia])
+    //   .then(() => {
+    //     // setTimeout(()=>{
+    //     //   if (this.props.match && this.props.match.path === "/") {
+    //     //     document.getElementById('nav-fasilitas').addEventListener('click', this._handleClickFasilitas)
+    //     //     document.getElementById('nav-denah-unit').addEventListener('click',this._handleClickDenahUnit)
+    //     //     document.getElementById('nav-lokasi').addEventListener('click', this._handleClickLokasi)
+    //     //     document.getElementById('nav-galeri').addEventListener('click',this._handleClickGaleri)
+    //     //   }
+    //     // }, 3000)
+    //   })
+    //   .catch(err => console.log(err))
   }
 
   _contactUs = (e) => {

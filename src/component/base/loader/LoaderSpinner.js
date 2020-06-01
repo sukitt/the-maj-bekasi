@@ -1,11 +1,13 @@
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
+import './style.scss'
+import logo from '../../../assets/logo.svg'
 
 const LoaderSpinner = props => {
     return (
-        <div style={{display: "flex", justifyContent: "center", height: "100vh", alignItems: "center"}}>
-            <Spinner animation="border" style={{color: "#CC9980"}} />
-            <code style={{marginLeft: "10px", color: "#CC9980"}}>Loading...</code>
+        <div className="w-100 vh-100 suspense">
+            <div className="suspense-backgrounds" >
+                <img src={logo} alt="logo" />
+            </div>
         </div>
     )
 }

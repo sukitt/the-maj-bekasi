@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import ApplicationLayout from './view/ApplicationLayout';
 import BaseRoute from './routes'
+import LoaderSpinner from './component/base/loader/LoaderSpinner';
 
 function App() {
   return (
     <div className="App">
-      <Router forceRefresh={false}>
-        <ApplicationLayout>
-          <BaseRoute />
-        </ApplicationLayout>
-      </Router>
+      <Suspense fallback={<LoaderSpinner></LoaderSpinner>}>
+        <Router>
+          <ApplicationLayout>
+            <BaseRoute />
+          </ApplicationLayout>
+        </Router>
+      </Suspense>
     </div>
   );
 }

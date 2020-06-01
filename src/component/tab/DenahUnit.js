@@ -14,6 +14,7 @@ import Spec1 from './assets/spec1-placeholder.svg'
 import Spec2 from './assets/spec2-placeholder.svg'
 import './assets/style.css'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
+import Skeleton from '../base/skeleton'
 
 class DenahUnit extends Component {
 	constructor(props) {
@@ -84,20 +85,12 @@ class DenahUnit extends Component {
 												</Row>
 											</Col>
 											<Col xs={3}>
-												<SliderPlaceholder src={Spec1} color="#CC9980" width="100%" height="339px" opacity=".8" />
-												{/* <img style={{ maxWidth: "200px" }} src={BaseUrl + '/storage/' + props.items.denah_ruang} alt={'denah ruang' + props.items.unit_name} /> */}
+												<Skeleton width="100%" height="340px"></Skeleton>
 											</Col>
 											<Col xs={3}>
 												<div style={{position: "absolute", bottom: "0"}}>
-													<SliderPlaceholder 
-														src={Spec2} 
-														color="#CC9980" 
-														width="150px" 
-														height="157px" 
-														opacity=".8" 
-													/>
+													<Skeleton width="100%" height="150px"></Skeleton>
 												</div>
-												{/* <img style={{ maxWidth: "150px", position:"absolute", bottom:0 }} src={BaseUrl + '/storage/' + props.items.denah_bangunan} alt={'denah bangunan' + props.items.unit_name} /> */}
 											</Col>
 										</Row>
 									</Tab>

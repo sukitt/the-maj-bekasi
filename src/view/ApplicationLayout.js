@@ -4,8 +4,6 @@ import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../com
 import { OnDesktop, OnMobileAndTablet } from '../constants/'
 import Base from './Base'
 import Whatsapp from '../component/base/whatsapp'
-import { Spinner } from 'react-bootstrap'
-import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 import LoaderSpinnerData from '../component/base/loader/LoaderSpinnerData'
 
 export default class ApplicationLayout extends Base {
@@ -13,7 +11,7 @@ export default class ApplicationLayout extends Base {
         return (
             <div>
                 <Whatsapp />
-                <LoaderSpinnerData show={this.state.sentLoading} />
+                {/* <LoaderSpinnerData show={this.state.sentLoading} /> */}
                 <header>
                     <OnDesktop>
                         <NavigationBar store={this.state.navigation} isTop={this.state.isTop}/>
