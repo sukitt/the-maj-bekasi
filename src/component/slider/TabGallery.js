@@ -155,11 +155,6 @@ export default class TabGallery extends Component {
               </Row>
             </div>
           ))}
-          <div>
-            <Col md="8">
-              <iframe width="100%" height="480px" src={this.props.frame.embed_links} frameborder="0"></iframe>
-            </Col>
-          </div>
           
         </Slider>
         <div style={{
@@ -184,9 +179,6 @@ export default class TabGallery extends Component {
                 <img style={{width:"150px"}} src={BaseUrl + '/storage/' + item.gambar_mobile} alt={item.nama} />
               </div>
             ))}
-            <div>
-              <img style={{width:"150px", height:"150px"}} src={exampleImg} alt="example" />
-            </div>
           </Slider>
         </div>
       </div>

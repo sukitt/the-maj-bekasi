@@ -3,7 +3,7 @@ import { getNavbar, getSliders, getUnits, getGallery, getPartnership, getLocatio
 import {storeContact, storeSubscribe} from '../services/post'
 
 import { OnDesktop, OnMobileAndTablet } from '../constants'
-import LoaderSpinnerData from '../component/base/loader/LoaderSpinnerData'
+// import LoaderSpinnerData from '../component/base/loader/LoaderSpinnerData'
 
 // COMPONENT
 const DenahUnit = lazy(() => import('../component/tab/DenahUnit'))
@@ -23,6 +23,7 @@ const MobileContactUs = lazy(() => import('../component/contact-us/MobileContact
 const MobileMaps = lazy(() => import('../component/map/mobile/Maps'))
 const HeadSlider = lazy(() => import('../component/slider/HeadSlider'))
 const Fasilitas =  lazy(() => import('../component/fasilitas/Fasilitas'))
+const VirtualApartement = lazy(() => import('../component/slider/VirtualApartement'))
 
 class Home extends Component {
 	constructor(props){
@@ -277,6 +278,12 @@ class Home extends Component {
 					</section>
 
 					<section>
+						<div className="w-100">
+							<VirtualApartement />
+						</div>
+					</section>
+
+					<section>
 						<div className="container">
 							<ContactUs
 								id="contact-us"
@@ -329,6 +336,12 @@ class Home extends Component {
 
 					<section>
 						<MobileBlogs store={this.state.blogs} />
+					</section>
+
+					<section>
+						<div className="w-100">
+							<VirtualApartement />
+						</div>
 					</section>
 
 					<section>

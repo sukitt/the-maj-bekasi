@@ -1,12 +1,10 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { Component } from 'react'
 import Slider from 'react-slick'
 import styled from 'styled-components'
 import { BaseUrl } from '../../services/axios'
 
 import './assets/css/style.css'
 import GaleriGambarLoading from './assets/galeri-placeholder.svg'
-// import nextIcon from '../../assets/next.svg'
-import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 import { Row, Col } from 'react-bootstrap'
 import Skeleton from '../base/skeleton'
 

@@ -15,6 +15,7 @@ import Spec2 from './assets/spec2-placeholder.svg'
 import './assets/style.css'
 import { SliderPlaceholder } from '../base/loader/ImagePlaceholder'
 import Skeleton from '../base/skeleton'
+import TabThreeSixty from './TabThreeSixty'
 
 class DenahUnit extends Component {
 	constructor(props) {
@@ -101,7 +102,7 @@ class DenahUnit extends Component {
 				</div>
 			)
 		}
-
+		console.log(this.state.localStore)
 		return (
 			<>
 				<div style={{ paddingTop: 150 }} id={this.props.id} ref={this.props.denahUnitRef}>
@@ -135,10 +136,16 @@ class DenahUnit extends Component {
 										<Tab
 											eventKey={Object.keys(this.state.localStore[i])[6]}
 											title="PREVIEW UNIT">
-											<TabGallery images={item.gallery} frame={item.embed_links} />
+											<TabGallery images={item.gallery} />
 										</Tab>
 										<Tab
 											eventKey={Object.keys(this.state.localStore[i])[2]}
+											title="360 VIEW"
+										>
+											<TabThreeSixty frame={item.embed_links} />
+										</Tab>
+										<Tab
+											eventKey={Object.keys(this.state.localStore[i])[3]}
 											title="SIMULASI KPA">
 											<TabSimulasi 
 												hargaUnit={item.unit_price}

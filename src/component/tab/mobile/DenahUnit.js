@@ -10,6 +10,7 @@ import MobileSimulasi from './Simulasi'
 import { BaseUrl } from '../../../services/axios'
 
 import dots from '../assets/dots.svg'
+import TabThreeSixty from '../TabThreeSixty'
 
 
 export class DenahUnit extends Base {
@@ -141,6 +142,9 @@ export class DenahUnit extends Base {
 
                                 <div title="PREVIEW" style={{ margin: "77px 0" }}>
                                     <MobileReviewUnit storeReview={d.gallery} frame={d.embed_links} />
+                                </div>
+                                <div title="360 VIEW">
+                                    <TabThreeSixty frame={d.embed_links} />
                                 </div>
                                 <div title="SIMULASI" style={{ margin: "77px 0" }}>
                                     <MobileSimulasi namaUnit={d.unit_name} hargaUnit={d.unit_price} />
