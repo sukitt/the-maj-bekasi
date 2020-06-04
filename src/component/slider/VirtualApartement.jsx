@@ -27,10 +27,16 @@ class VirtualApartement extends Component {
 	}
 	previous() {
 		this.slider.slickPrev()
-	}
+    }
+    componentDidMount(){
+        if (window.location.href === 'https://themajbekasi.com/#virtual-tour') {
+            let el = document.getElementById('virtual-tour');
+            el.scrollIntoView();
+        }
+    }
     render(){
         return(
-            <div className="bg-grey my-10 py-10">
+            <div className="bg-grey my-10 py-10" id="virtual-tour">
                 <div className="container">
                     <div>
                         <h1 className="my-5 text-center">Tur Virtual Apartemen</h1>
