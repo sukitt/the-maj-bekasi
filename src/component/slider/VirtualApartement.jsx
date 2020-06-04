@@ -29,7 +29,7 @@ class VirtualApartement extends Component {
 		this.slider.slickPrev()
     }
     componentDidMount(){
-        if (window.location.href === 'https://themajbekasi.com/#virtual-tour') {
+        if (window.location.href === 'https://themajbekasi.com/#virtual-tour') {    
             let el = document.getElementById('virtual-tour');
             el.scrollIntoView();
         }
