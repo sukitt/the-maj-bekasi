@@ -89,14 +89,14 @@ class MobileContactUs extends Component {
 
                 <OnMobile>
                     <P width="180px" margin="20px auto 8px auto" fontSize="13px">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                    <P margin="8px auto" fontSize="90%">T: <A href="tel:02139712888">(021) 3971-2888</A></P>
-                    <P margin="8px auto" fontSize="90%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+                    <P margin="8px auto" fontSize="90%">T: <A href="tel:02139712888">(021) 3971-2888</A> / <A href="tel:02189469999">021-8946-9999</A></P>
+                    <P margin="8px auto" fontSize="90%">E: <A href="mailto:sales.bekasi@themajgroup.com">sales.bekasi@themajgroup.com</A></P>
                 </OnMobile>
 
                 <OnTablet>
                     <P margin="20px auto 5% auto" width="50%" fontSize="150%">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                    <P margin="5% auto" fontSize="150%">T: <A href="tel:02139712888">(021) 3971-2888</A></P>
-                    <P margin="5% auto" fontSize="150%">E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+                    <P margin="5% auto" fontSize="150%">T: <A href="tel:02139712888">(021) 3971-2888</A> / <A href="tel:02189469999">021-8946-9999</A></P>
+                    <P margin="5% auto" fontSize="150%">E: <A href="mailto:sales.bekasi@themajgroup.com">sales.bekasi@themajgroup.com</A></P>
                 </OnTablet>
             </Container>
         )

@@ -82,7 +82,7 @@ class ContactUs extends Component{
                 <Content>
                     <H3 margin="74px 0 0 0">Marketing Gallery</H3>
                     <P margin="23px 0 11px 0">Jl. Kemakmuran, Marga Jaya, Bekasi Selatan, Kota Bekasi, Jawa Barat 17141</P>
-                    <P> T: <A style={{marginRight:"10px"}} href="tel:02139712888">(021) 3971-2888</A> E: <A href="mailto:sales@themajbekasi.com">sales@themajbekasi.com</A></P>
+                    <P> T: <A style={{marginRight:"10px"}} href="tel:02139712888">(021) 3971-2888</A> <A style={{marginRight:"10px"}} href="tel:02189469999">021-8946-9999</A> E: <A href="mailto:sales.bekasi@themajgroup.com">sales.bekasi@themajgroup.com</A></P>
                 </Content>
             </>
         )
